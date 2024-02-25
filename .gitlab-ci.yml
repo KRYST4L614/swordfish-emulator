@@ -1,0 +1,37 @@
+image: golang:1.21
+
+cache:
+  paths:
+    - /apt-cache
+    - /go/src/github.com
+    - /go/src/golang.org
+    - /go/src/google.golang.org
+    - /go/src/gopkg.in
+
+stages:
+  - test
+  - build
+
+before_script:
+  - mkdir -p /go/src/gitlab.com/IgorNikiforov /go/src/_/builds
+  - cp -r $CI_PROJECT_DIR /go/src/gitlab.com/IgorNikiforov/swordfish-emulator-go
+  - ln -s /go/src/gitlab.com/IgorNikiforov /go/src/gitlab.com/IgorNikiforov
+  - make dep
+  - chmod 777 -R scripts/
+
+unit_tests:
+  stage: test
+  coverage: /\(statements\)(?:\s+)?(\d+(?:\.\d+)?%)/
+  script:
+    - make test-unit
+    - make cover
+
+lint_code:
+  stage: test
+  script:
+    - make lint
+
+build:
+  stage: build
+  script:
+    - go build -v ./...
