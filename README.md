@@ -9,11 +9,14 @@
     - [Docs](#docs)
     - [Status](#status)
     - [See also](#see-also)
-  - [Getting started](#getting-started)
+  - [User guide](#user-guide)
+  - [Getting started with development](#getting-started-with-development)
     - [Download project](#download-project)
-    - [Docker deployment](#docker-deployment)
-    - [Run unit test and update coverage badge](#run-unit-test-and-update-coverage-badge)
-    - [Build project](#build-project)
+    - [Fetch Go dependencies](#fetch-go-dependencies)
+    - [Run unit test and update coverage report](#run-unit-test-and-update-coverage-report)
+    - [Generate mocks for testing](#generate-mocks-for-testing)
+    - [Run linter](#run-linter)
+    - [See coverage](#see-coverage)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -36,7 +39,11 @@ The project is currently under development.
 
 - [Ansible-collection for Swordfish API](https://gitlab.com/IgorNikiforov/swordfish_ansible_plugin)
 
-## Getting started
+## User guide
+
+The project is currently under development, so you can't use it now :(
+
+## Getting started with development
 
 ### Download project
 
@@ -45,41 +52,37 @@ To download use:
 git clone https://gitlab.com/IgorNikiforov/swordfish-emulator-go.git
 ```
 
-### Docker deployment
+### Fetch Go dependencies
 
-You can use docker deployment, to prepare docker images use:
-> You should have installed **Docker** and **docker-compose** on your machine
-
+To **get dependencies**
 ```bash
-make build-images
+make dep
 ```
 
-Then you can simply run
-```bash
-make start-dc
-```
-to run docker container using docker-compose, and
+### Run unit test and update coverage report
 
+This will **run unit tests** and generate coverage report in **coverage.out** file
 ```bash
-make stop-dc
+make test-unit
 ```
-to stop docker containers
 
-### Run unit test and update coverage badge
+### Generate mocks for testing
 
-This will **run unit tests** and **update link** for coverage badge in README
-```bash
-make unit-test
-```
 You can regenerate mocks with
 ```bash
 make gogen
 ```
 
-### Build project
+### Run linter
 
-You can build executable files with
+You can run linter check with:
 ```bash
-make build
+make gogen
 ```
-Executables will be in **/bin** folder
+
+### See coverage
+
+You can see code coverage with
+```bash
+make cover
+```

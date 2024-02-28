@@ -3,7 +3,7 @@ test-unit: ## Run unit tests
 	go test -cover ./... -tags=unit  -covermode=count -coverprofile=coverage.out
 
 .PHONY: cover
-cover: ## Run unit tests
+cover: ## See coverage
 	go tool cover -func coverage.out
 
 .PHONY: lint
