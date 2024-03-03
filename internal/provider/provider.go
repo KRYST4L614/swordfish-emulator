@@ -3,8 +3,10 @@ package provider
 import (
 	"fmt"
 
+	embeddedpostgres "github.com/fergusstrange/embedded-postgres"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/jmoiron/sqlx"
+	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 )
 
@@ -29,4 +31,21 @@ func NewPsqlProvider(config *DbConfig) (*DbProvider, error) {
 	return &DbProvider{
 		DB: db,
 	}, nil
+}
+
+type EmbeddedPsql struct {
+	*embeddedpostgres.EmbeddedPostgres
+}
+
+func NewEmbeddedPsql(config *EmbeddedPsqlConfig) *EmbeddedPsql {
+	db := embeddedpostgres.NewDatabase(embeddedpostgres.DefaultConfig().
+		Database(config.Name).
+		Port(config.Port).
+		Username(config.UserName).
+		Password(config.Password).
+		Logger(logrus.New().Out))
+
+	return &EmbeddedPsql{
+		EmbeddedPostgres: db,
+	}
 }

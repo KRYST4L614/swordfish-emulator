@@ -63,7 +63,7 @@ make dep
 
 This will **run unit tests** and generate coverage report in **coverage.out** file
 ```bash
-make test-unit
+make unit-test
 ```
 
 ### Generate mocks for testing

@@ -6,3 +6,11 @@ type DbConfig struct {
 	User     string `yaml:"user" validate:"required"`
 	Password string `yaml:"password" validate:"required"`
 }
+
+type EmbeddedPsqlConfig struct {
+	Name     string `yaml:"name"`
+	Port     uint32 `yaml:"port"`
+	UserName string `yaml:"username"`
+	Password string `yaml:"password"`
+	Version  string `yaml:"version"`
+}

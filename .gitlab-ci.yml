@@ -1,4 +1,4 @@
-image: golang:1.21
+image: golang:1.21-alpine
 
 cache:
   paths:
@@ -9,6 +9,7 @@ cache:
     - /go/src/gopkg.in
 
 stages:
+  - checkstyle
   - test
   - build
 
@@ -16,20 +17,21 @@ before_script:
   - mkdir -p /go/src/gitlab.com/IgorNikiforov /go/src/_/builds
   - cp -r $CI_PROJECT_DIR /go/src/gitlab.com/IgorNikiforov/swordfish-emulator-go
   - ln -s /go/src/gitlab.com/IgorNikiforov /go/src/gitlab.com/IgorNikiforov
-  - make dep
-  - chmod 777 -R scripts/
+  - adduser testuser -D
+  - cd /go/src/gitlab.com/IgorNikiforov/swordfish-emulator-go
+  - chmod 777 -R ./
+
+lint_code:
+  stage: checkstyle
+  script:
+    - ./scripts/lint.sh
 
 unit_tests:
   stage: test
   coverage: /\(statements\)(?:\s+)?(\d+(?:\.\d+)?%)/
   script:
-    - make test-unit
-    - make cover
-
-lint_code:
-  stage: test
-  script:
-    - make lint
+    - su - testuser -c 'export PATH=$PATH:/usr/local/go/bin; cd /go/src/gitlab.com/IgorNikiforov/swordfish-emulator-go && go test -cover ./... -tags=unit -covermode=count -coverprofile=coverage.out'
+    - go tool cover -func coverage.out
 
 build:
   stage: build
