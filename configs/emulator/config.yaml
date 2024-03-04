@@ -1,0 +1,11 @@
+db:
+  host: "localhost:5432"
+  name: "emulator"
+  user: "pguser"
+  password: "pgpwd"
+embedded-psql:
+  name: "emulator"
+  port: 5432
+  username: "pguser"
+  password: "pgpwd"
+  version: "V13.8"
