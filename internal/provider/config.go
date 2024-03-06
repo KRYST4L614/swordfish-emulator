@@ -13,4 +13,5 @@ type EmbeddedPsqlConfig struct {
 	UserName string `yaml:"username"`
 	Password string `yaml:"password"`
 	Version  string `yaml:"version"`
+	DataPath string `yaml:"data-path"`
 }

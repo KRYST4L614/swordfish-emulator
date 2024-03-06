@@ -9,3 +9,4 @@ embedded-psql:
   username: "pguser"
   password: "pgpwd"
   version: "V13.8"
+  data-path: ""

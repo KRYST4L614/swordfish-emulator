@@ -43,7 +43,8 @@ func NewEmbeddedPsql(config *EmbeddedPsqlConfig) *EmbeddedPsql {
 		Port(config.Port).
 		Username(config.UserName).
 		Password(config.Password).
-		Logger(logrus.New().Out))
+		Logger(logrus.New().Out).
+		DataPath(config.DataPath))
 
 	return &EmbeddedPsql{
 		EmbeddedPostgres: db,
