@@ -7,9 +7,9 @@ import (
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/assert"
 	sqlxmock "github.com/zhashkevych/go-sqlxmock"
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/provider"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
 )
 
 var serviceRootBytes = `
@@ -45,7 +45,7 @@ var serviceRootBytes = `
 	"@odata.id": "/redfish/v1"
 }`
 
-func TestServiceRootRepository_Get_NoError(t *testing.T) {
+func TestResourceRepository_Get_NoError(t *testing.T) {
 	var resourceRows = sqlxmock.NewRows([]string{"id", "data"}).
 		AddRow("/redfish/v1", []byte(serviceRootBytes))
 
@@ -60,7 +60,7 @@ func TestServiceRootRepository_Get_NoError(t *testing.T) {
 	mock.ExpectQuery(`^SELECT (.+) FROM resource WHERE id=(.+)$`).
 		WillReturnRows(resourceRows)
 
-	repo := NewServiceRootRepository(&provider.DbProvider{DB: db})
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
 
 	root, err := repo.Get(context.Background(), "/redfish/v1")
 
@@ -68,7 +68,7 @@ func TestServiceRootRepository_Get_NoError(t *testing.T) {
 		assert.FailNow(t, err.Error())
 	}
 	if assert.NotNil(t, root) {
-		assert.Equal(t, "Root Service", root.Name)
+		assert.Equal(t, "/redfish/v1", root.Id)
 	}
 }
 
@@ -86,7 +86,7 @@ func TestServiceRootRepository_Get_WithError(t *testing.T) {
 		WillReturnError(&pq.Error{Code: pq.ErrorCode("internal")}).
 		WillReturnError(&pq.Error{Code: pq.ErrorCode("02000")})
 
-	repo := NewServiceRootRepository(&provider.DbProvider{DB: db})
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
 
 	root, err := repo.Get(context.Background(), "/redfish/v1")
 
@@ -113,14 +113,13 @@ func TestServiceRootRepository_Create_NoError(t *testing.T) {
 	mock.ExpectExec("INSERT INTO resource").
 		WithArgs("/redfish/v1", sqlxmock.AnyArg()).
 		WillReturnResult(sqlxmock.NewResult(1, 1))
-	repo := NewServiceRootRepository(&provider.DbProvider{DB: db})
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
 
-	root := &domain.ServiceRoot{
-		Base: domain.Base{
-			InlineODataId: domain.InlineODataId{ODataId: "/redfish/v1"},
-		},
+	root := &dto.ResourceDto{
+		Id:   "/redfish/v1",
+		Data: []byte("somedata"),
 	}
-	err = repo.Create(context.Background(), *root)
+	err = repo.Create(context.Background(), root)
 	assert.NoError(t, err)
 }
 
@@ -137,20 +136,19 @@ func TestServiceRootRepository_Create_WithError(t *testing.T) {
 		WithArgs("/redfish/v1", sqlxmock.AnyArg()).
 		WillReturnError(&pq.Error{Code: pq.ErrorCode("internal")}).
 		WillReturnError(&pq.Error{Code: pq.ErrorCode("23505")})
-	repo := NewServiceRootRepository(&provider.DbProvider{DB: db})
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
 
-	root := &domain.ServiceRoot{
-		Base: domain.Base{
-			InlineODataId: domain.InlineODataId{ODataId: "/redfish/v1"},
-		},
+	root := &dto.ResourceDto{
+		Id:   "/redfish/v1",
+		Data: []byte("somedata"),
 	}
 
-	err = repo.Create(context.Background(), *root)
+	err = repo.Create(context.Background(), root)
 
 	assert.Error(t, err)
 	assert.ErrorIs(t, err, errlib.ErrResourceExists)
 
-	err = repo.Create(context.Background(), *root)
+	err = repo.Create(context.Background(), root)
 
 	assert.Error(t, err)
 	assert.ErrorIs(t, err, errlib.ErrInternal)

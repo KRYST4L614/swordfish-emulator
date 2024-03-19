@@ -6,11 +6,11 @@ import (
 )
 
 type Repository struct {
-	VolumeRepo VolumeRepository
+	ResourceRepository ResourceRepository
 }
 
 func RepositoryFactory(provider *provider.DbProvider) *Repository {
 	return &Repository{
-		VolumeRepo: psql.NewVolumeRepository(provider),
+		ResourceRepository: psql.NewPsqlResourceRepository(provider),
 	}
 }

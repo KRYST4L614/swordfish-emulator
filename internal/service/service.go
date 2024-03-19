@@ -2,15 +2,15 @@ package service
 
 import (
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository"
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/service/volume"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/service/impl"
 )
 
 type Service struct {
-	VolumeService VolumeService
+	ServiceRootService ServiceRootService
 }
 
 func NewService(repository *repository.Repository) *Service {
 	return &Service{
-		VolumeService: volume.NewVolumeService(repository.VolumeRepo),
+		ServiceRootService: impl.NewServiceRootService(repository.ResourceRepository),
 	}
 }
