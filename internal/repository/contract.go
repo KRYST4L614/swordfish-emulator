@@ -3,16 +3,12 @@ package repository
 import (
 	"context"
 
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
 )
 
-type VolumeRepository interface {
-	Create()
-	Delete()
-	Modify()
-}
+//go:generate mockgen --build_flags=--mod=mod -destination mock/mock_repository.go . ResourceRepository
 
-type ServiceRootRepository interface {
-	Create(ctx context.Context, serviceRoot domain.ServiceRoot) error
-	Get(ctx context.Context, id string) (*domain.ServiceRoot, error)
+type ResourceRepository interface {
+	Create(ctx context.Context, resource *dto.ResourceDto) error
+	Get(ctx context.Context, id string) (*dto.ResourceDto, error)
 }
