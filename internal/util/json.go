@@ -3,7 +3,9 @@ package util
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
 
+	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 )
 
@@ -24,4 +26,18 @@ func Unmarshal[T any](data []byte) (*T, error) {
 	}
 
 	return &resource, nil
+}
+
+func WriteJSON(writer http.ResponseWriter, jsonStruct interface{}) {
+	err := json.NewEncoder(writer).Encode(jsonStruct)
+	if err != nil {
+		jsonerr := errlib.GetJSONError(fmt.Errorf("%w. %s", errlib.ErrInternal, err.Error()))
+		logrus.Error(err)
+
+		if err = json.NewEncoder(writer).Encode(jsonerr); err != nil {
+			logrus.Error(err)
+		}
+		writer.WriteHeader(jsonerr.Error.Code)
+	}
+	writer.Header().Set("Content-Type", "application/json")
 }
