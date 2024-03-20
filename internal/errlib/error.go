@@ -2,13 +2,39 @@ package errlib
 
 import (
 	"errors"
+	"net/http"
 )
 
 // ErrInternal is error to be matched with 500 http code.
-var ErrInternal = errors.New("some internal error happened")
+var ErrInternal = errors.New("Some internal error happened")
 
 // ErrResourceExists is error to be matched with 409 http code.
 // Error is raised when you try to create existing resource.
-var ErrResourceExists = errors.New("resource already exists")
+var ErrResourceExists = errors.New("Resource already exists")
 
-var ErrNotFound = errors.New("resource not found")
+// ErrInternal is error to be matched with 404 http code.
+var ErrNotFound = errors.New("Resource not found")
+
+type JSONError struct {
+	Error struct {
+		Code    int    `json:"code"`
+		Message string `json:"msg"`
+	} `json:"error"`
+}
+
+func GetJSONError(err error) *JSONError {
+	var jsonErr = JSONError{}
+	jsonErr.Error.Message = err.Error()
+	switch {
+	case errors.Is(err, ErrInternal):
+		jsonErr.Error.Code = http.StatusInternalServerError
+	case errors.Is(err, ErrResourceExists):
+		jsonErr.Error.Code = http.StatusConflict
+	case errors.Is(err, ErrNotFound):
+		jsonErr.Error.Code = http.StatusNotFound
+	default:
+		jsonErr.Error.Code = http.StatusInternalServerError
+	}
+
+	return &jsonErr
+}
