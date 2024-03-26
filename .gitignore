@@ -25,3 +25,9 @@
 
 # builded files
 bin/
+
+# embedded db files
+.persist
+
+# HTTP client files
+*.http

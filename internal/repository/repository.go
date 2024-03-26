@@ -9,7 +9,7 @@ type Repository struct {
 	ResourceRepository ResourceRepository
 }
 
-func RepositoryFactory(provider *provider.DbProvider) *Repository {
+func NewRepository(provider *provider.DbProvider) *Repository {
 	return &Repository{
 		ResourceRepository: psql.NewPsqlResourceRepository(provider),
 	}

@@ -22,3 +22,10 @@ path:=
 .PHONY: gitlab-ci
 gitlab-ci: ## Run gitlab CI/CD locally
 	./scripts/gitlab-ci.sh;
+
+.PHONY: runner
+runner: ## Get the dependencies
+	docker run -d --name gitlab-runner --restart always \
+		-v ./runner:/etc/gitlab-runner \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		gitlab/gitlab-runner:latest
