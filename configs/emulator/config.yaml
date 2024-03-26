@@ -9,4 +9,10 @@ embedded-psql:
   username: "pguser"
   password: "pgpwd"
   version: "V13.8"
-  data-path: ""
+  data-path: "./.persist"
+dataset:
+  path: "./datasets/basic"
+server:
+  host: ":8080"
+  write-timeout: 15s
+  read-timeout: 15s

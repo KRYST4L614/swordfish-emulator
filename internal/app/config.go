@@ -1,7 +1,14 @@
 package app
 
-import "gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/provider"
+import (
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/master"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/provider"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/server"
+)
 
 type Config struct {
-	DbConfig provider.DbConfig `yaml:"db"`
+	ServerConfig   server.ServerConfig          `yaml:"server"`
+	DbConfig       provider.DbConfig            `yaml:"db"`
+	EmbeddedConfig *provider.EmbeddedPsqlConfig `yaml:"embedded-psql"`
+	DatasetConfig  master.DatasetConfig         `yaml:"dataset"`
 }

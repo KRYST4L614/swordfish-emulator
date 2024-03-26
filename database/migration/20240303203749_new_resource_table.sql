@@ -22,12 +22,13 @@ CREATE TABLE IF NOT EXISTS role (
 
 CREATE TABLE IF NOT EXISTS role_privilege (
  role_id INT REFERENCES role(id) ON DELETE CASCADE,
- privilege_id INT REFERENCES privilege(id) ON DELETE CASCADE
+ privilege_id INT REFERENCES privilege(id) ON DELETE CASCADE,
+ PRIMARY KEY (role_id, privilege_id)
 );
 
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS "user" (
  name TEXT PRIMARY KEY,
- password TEXT NOT NULL.
+ password TEXT NOT NULL,
  role_id INT REFERENCES role(id) ON DELETE CASCADE
 );
 

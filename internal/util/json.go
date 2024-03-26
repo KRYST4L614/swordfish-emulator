@@ -29,6 +29,7 @@ func Unmarshal[T any](data []byte) (*T, error) {
 }
 
 func WriteJSON(writer http.ResponseWriter, jsonStruct interface{}) {
+	writer.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(writer).Encode(jsonStruct)
 	if err != nil {
 		jsonerr := errlib.GetJSONError(fmt.Errorf("%w. %s", errlib.ErrInternal, err.Error()))
@@ -39,5 +40,4 @@ func WriteJSON(writer http.ResponseWriter, jsonStruct interface{}) {
 		}
 		writer.WriteHeader(jsonerr.Error.Code)
 	}
-	writer.Header().Set("Content-Type", "application/json")
 }
