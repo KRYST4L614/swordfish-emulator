@@ -17,13 +17,9 @@ import (
 )
 
 var serviceRoot = &domain.ServiceRoot{
-	Base: domain.Base{
-		Name: "SomeName",
-		Id:   "Some Id",
-		InlineODataId: domain.InlineODataId{
-			ODataId: "/redfish/v1",
-		},
-	},
+	OdataId: util.Addr("/redfish/v1"),
+	Name:    "SomeName",
+	Id:      "Some Id",
 }
 
 func TestServiceRootHandler_getServiceRoot_success(t *testing.T) {

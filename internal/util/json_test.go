@@ -9,11 +9,7 @@ import (
 
 func TestMarshal(t *testing.T) {
 	root := &domain.ServiceRoot{
-		Base: domain.Base{
-			InlineODataId: domain.InlineODataId{
-				ODataId: "redfish/v1",
-			},
-		},
+		OdataId: Addr("/v1/redfish"),
 	}
 	bytes, err := Marshal(root)
 
@@ -24,11 +20,7 @@ func TestMarshal(t *testing.T) {
 
 func TestUnmarshal(t *testing.T) {
 	root := &domain.ServiceRoot{
-		Base: domain.Base{
-			InlineODataId: domain.InlineODataId{
-				ODataId: "redfish/v1",
-			},
-		},
+		OdataId: Addr("/v1/redfish"),
 	}
 
 	bytes, err := Marshal(root)
@@ -38,6 +30,6 @@ func TestUnmarshal(t *testing.T) {
 
 	decodedRoot, err := Unmarshal[domain.ServiceRoot](bytes)
 	if assert.NoError(t, err) {
-		assert.Equal(t, "redfish/v1", decodedRoot.ODataId)
+		assert.Equal(t, "/v1/redfish", *decodedRoot.OdataId)
 	}
 }

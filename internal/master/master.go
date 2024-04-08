@@ -6,7 +6,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
@@ -34,7 +33,6 @@ func (m *InitialConfigurationMaster) loadAllJson(path string, d fs.DirEntry, err
 	if d.IsDir() || filepath.Ext(path) != ".json" {
 		return nil
 	}
-	logrus.Infof("Processing file %s", path)
 
 	content, err := os.ReadFile(path)
 	if err != nil {

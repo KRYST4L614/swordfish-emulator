@@ -14,13 +14,9 @@ import (
 )
 
 var serviceRoot = &domain.ServiceRoot{
-	Base: domain.Base{
-		Name: "SomeName",
-		Id:   "Some Id",
-		InlineODataId: domain.InlineODataId{
-			ODataId: "/redfish/v1",
-		},
-	},
+	OdataId: util.Addr("/redfish/v1"),
+	Name:    "SomeName",
+	Id:      "Some Id",
 }
 
 func TestServiceRootService_Create(t *testing.T) {
@@ -37,6 +33,9 @@ func TestServiceRootService_Create(t *testing.T) {
 	assert.NoError(t, err)
 
 	err = service.Create(context.Background(), &domain.ServiceRoot{})
+	assert.ErrorIs(t, err, errlib.ErrInternal)
+
+	err = service.Create(context.Background(), &domain.ServiceRoot{OdataId: util.Addr("some")})
 	assert.Error(t, err)
 }
 

@@ -29,6 +29,7 @@ func (h *Handler) SetRouter(router *mux.Router) {
 }
 
 func (h *Handler) notFoundHandler(writer http.ResponseWriter, request *http.Request) {
+	writer.WriteHeader(http.StatusNotFound)
 	util.WriteJSON(
 		writer,
 		errlib.GetJSONError(errlib.ErrNotFound),

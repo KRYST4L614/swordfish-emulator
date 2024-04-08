@@ -1,0 +1,6 @@
+package: domain
+generate:
+  models: true
+output: internal/domain/resources.gen.go
+output-options:
+  skip-prune: true

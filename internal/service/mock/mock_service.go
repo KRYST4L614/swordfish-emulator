@@ -41,7 +41,7 @@ func (m *MockServiceRootService) EXPECT() *MockServiceRootServiceMockRecorder {
 }
 
 // Create mocks base method.
-func (m *MockServiceRootService) Create(arg0 context.Context, arg1 *domain.ServiceRoot) error {
+func (m *MockServiceRootService) Create(arg0 context.Context, arg1 *domain.ServiceRootV1161ServiceRoot) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Create", arg0, arg1)
 	ret0, _ := ret[0].(error)
@@ -55,10 +55,10 @@ func (mr *MockServiceRootServiceMockRecorder) Create(arg0, arg1 any) *gomock.Cal
 }
 
 // Get mocks base method.
-func (m *MockServiceRootService) Get(arg0 context.Context, arg1 string) (*domain.ServiceRoot, error) {
+func (m *MockServiceRootService) Get(arg0 context.Context, arg1 string) (*domain.ServiceRootV1161ServiceRoot, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Get", arg0, arg1)
-	ret0, _ := ret[0].(*domain.ServiceRoot)
+	ret0, _ := ret[0].(*domain.ServiceRootV1161ServiceRoot)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

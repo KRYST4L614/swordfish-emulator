@@ -6,6 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	prefixed "github.com/x-cray/logrus-prefixed-formatter"
+
 	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/app"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/config"
@@ -16,6 +18,13 @@ const (
 )
 
 func main() {
+	logrus.SetFormatter(&prefixed.TextFormatter{
+		DisableColors:   true,
+		TimestampFormat: "2006-01-02 15:04:05",
+		FullTimestamp:   true,
+		ForceFormatting: true,
+	})
+
 	conf, err := config.ReadConfigFromYAML[app.Config](configFile)
 	if err != nil {
 		panic(fmt.Errorf("Read of config from '%s' failed: %w", configFile, err))
@@ -36,7 +45,12 @@ func main() {
 	}
 
 	err = app.Start()
-	defer logrus.Error(app.Stop())
+	defer func() {
+		appErr := app.Stop()
+		if appErr != nil {
+			logrus.Error(appErr)
+		}
+	}()
 
 	if err != nil {
 		logrus.Panic(err)
@@ -49,7 +63,7 @@ func main() {
 
 	select {
 	case serr := <-notify:
-		logrus.Panicf("Notified with app error: %s", serr.Error())
+		logrus.Errorf("Notified with app error: %s", serr.Error())
 	case signl := <-interupt:
 		logrus.Info("Cought signal while App running: " + signl.String())
 	}

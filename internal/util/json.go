@@ -34,10 +34,10 @@ func WriteJSON(writer http.ResponseWriter, jsonStruct interface{}) {
 	if err != nil {
 		jsonerr := errlib.GetJSONError(fmt.Errorf("%w. %s", errlib.ErrInternal, err.Error()))
 		logrus.Error(err)
+		writer.WriteHeader(jsonerr.Error.Code)
 
 		if err = json.NewEncoder(writer).Encode(jsonerr); err != nil {
 			logrus.Error(err)
 		}
-		writer.WriteHeader(jsonerr.Error.Code)
 	}
 }

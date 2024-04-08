@@ -43,7 +43,10 @@ The project is currently under development.
 
 The project is currently under development, so you can't use it now :(
 
-## Getting started with development
+## Guide for contributors
+
+> To send pull request in repository you need to pass all CI steps that can be found in .gitlab-ci.yaml.
+> To run steps locally you can find needed commands in Makefile.
 
 ### Download project
 
@@ -82,7 +85,36 @@ make gogen
 
 ### See coverage
 
-You can see code coverage with
+You can see code coverage with:
 ```bash
 make cover
 ```
+
+### Run shared gitlab runner in Docker locally
+
+You can start gitlab runner with:
+```bash
+make runner
+```
+This makes your CI available to run pipeline and pass all checks. Your PR will be ignored until CI pass.
+
+### Generate Go structs with OpenAPI spec
+
+For easy update to newer Redfish and Swordfish spec, we use code generation for domain models
+from [OpenAPI](https://www.openapis.org/) yaml specification that can be fond in official Redfish and Swordfish resources.
+See [Swordfish Schema and Registries Bundle](https://www.snia.org/sites/default/files/technical-work/swordfish/draft/v1.2.6/zip/Swordfish_v1.2.6_Schema.zip) and [Redfish Schema Bundle](https://www.dmtf.org/dsp/DSP8010).
+
+After downloading scheme version that is used now by Swordfish API Emulator you can add new resource to generate following this steps:
+1. See [existing](docs/openapi) resources and how they are included in [api.yaml](docs/openapi/api.yaml)
+2. Add new resource yaml file from downloaded archive
+3. Reference your resource in [api.yaml](docs/openapi/api.yaml) as in example:
+```yaml
+ResourceName:
+  $ref: ./your-file.yaml#/components/schemas/ResourceName_ResourceName
+```
+Example demonstrates how to remove `Resource_Resource` naming that is practiced in Redfish and Swordfish OpenAPI specs.
+
+4. Install needed tools:
+    - [Redocly CLI](https://redocly.com/docs/cli/installation/)
+    - [OpenAPI Client and Server Code Generator](https://github.com/deepmap/oapi-codegen)
+5. Run `make oapi-gen`
