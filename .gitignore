@@ -31,3 +31,6 @@ bin/
 
 # HTTP client files
 *.http
+
+# openapi merged file
+docs/openapi/merged.yaml

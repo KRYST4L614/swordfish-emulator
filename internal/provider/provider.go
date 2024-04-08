@@ -40,7 +40,8 @@ func NewEmbeddedPsql(config *EmbeddedPsqlConfig) *EmbeddedPsql {
 		Port(config.Port).
 		Username(config.UserName).
 		Password(config.Password).
-		Logger(logrus.New().Out).
+		Locale("en_US").
+		Logger(logrus.StandardLogger().Out).
 		DataPath(config.DataPath))
 
 	return &EmbeddedPsql{

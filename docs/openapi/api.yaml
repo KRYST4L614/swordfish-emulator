@@ -1,0 +1,7 @@
+openapi: "3.0.0"
+components:
+  schemas:
+    Chassis:
+      $ref: ./chassis.yaml#/components/schemas/Chassis_Chassis
+    ServiceRoot:
+      $ref: ./service-root.yaml#/components/schemas/ServiceRoot_ServiceRoot

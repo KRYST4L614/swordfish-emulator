@@ -1,10 +1,13 @@
 package app
 
 import (
+	"context"
+	"errors"
 	"fmt"
 
 	"github.com/gorilla/mux"
 	"github.com/pressly/goose/v3"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/handler"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/master"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/provider"
@@ -19,6 +22,7 @@ type App struct {
 	embedded *provider.EmbeddedPsql
 	master   *master.InitialConfigurationMaster
 	config   *Config
+	repos    *repository.Repository
 }
 
 func NewApp(config *Config, notify chan error) (*App, error) {
@@ -47,6 +51,7 @@ func NewApp(config *Config, notify chan error) (*App, error) {
 		embedded: embedded,
 		master:   master.NewInitialConfigurationMaster(repos),
 		config:   config,
+		repos:    repos,
 	}, nil
 }
 
@@ -59,8 +64,20 @@ func (app *App) Start() error {
 	if err := goose.Up(app.provider.DB.DB, "./database/migration"); err != nil {
 		return err
 	}
+
 	if err := app.master.LoadResources(app.config.DatasetConfig.Path); err != nil {
-		return err
+		if !errors.Is(err, errlib.ErrResourceAlreadyExists) {
+			return err
+		}
+
+		if errors.Is(err, errlib.ErrResourceAlreadyExists) && app.config.DatasetConfig.Overwrite {
+			if err := app.repos.ResourceRepository.DeleteAll(context.Background()); err != nil {
+				return err
+			}
+			if err := app.master.LoadResources(app.config.DatasetConfig.Path); err != nil {
+				return err
+			}
+		}
 	}
 	app.server.Start()
 	return nil

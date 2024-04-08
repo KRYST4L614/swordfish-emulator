@@ -1,0 +1,5 @@
+[[runners]]
+  name = "swordfish-emulator-runner"
+  url = "https://gitlab.com"
+  token = "glrt-8U_i4s4CeHVajqSRoHLN"
+  executor = "docker"

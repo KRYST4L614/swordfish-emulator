@@ -2,8 +2,10 @@ package impl
 
 import (
 	"context"
+	"fmt"
 
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/util"
@@ -25,8 +27,12 @@ func (s *ServiceRootService) Create(ctx context.Context, resource *domain.Servic
 		return err
 	}
 
+	if resource.OdataId == nil {
+		return fmt.Errorf("%w: ODataId in ServiceRoot is nil", errlib.ErrInternal)
+	}
+
 	err = s.repository.Create(ctx, &dto.ResourceDto{
-		Id:   resource.ODataId,
+		Id:   *resource.OdataId,
 		Data: bytes,
 	})
 

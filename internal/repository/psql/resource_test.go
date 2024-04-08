@@ -2,6 +2,7 @@ package psql
 
 import (
 	"context"
+	"errors"
 	"testing"
 
 	"github.com/lib/pq"
@@ -134,8 +135,8 @@ func TestServiceRootRepository_Create_WithError(t *testing.T) {
 
 	mock.ExpectExec("INSERT INTO resource").
 		WithArgs("/redfish/v1", sqlxmock.AnyArg()).
-		WillReturnError(&pq.Error{Code: pq.ErrorCode("internal")}).
-		WillReturnError(&pq.Error{Code: pq.ErrorCode("23505")})
+		WillReturnError(errors.New("another")).
+		WillReturnError(errors.New("resource_pkey"))
 	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
 
 	root := &dto.ResourceDto{
@@ -146,10 +147,55 @@ func TestServiceRootRepository_Create_WithError(t *testing.T) {
 	err = repo.Create(context.Background(), root)
 
 	assert.Error(t, err)
-	assert.ErrorIs(t, err, errlib.ErrResourceExists)
+	assert.ErrorIs(t, err, errlib.ErrResourceAlreadyExists)
 
 	err = repo.Create(context.Background(), root)
 
 	assert.Error(t, err)
 	assert.ErrorIs(t, err, errlib.ErrInternal)
+}
+
+func TestServiceRootRepository_DeleteAll(t *testing.T) {
+	db, mock, err := sqlxmock.Newx()
+	if err != nil {
+		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
+	}
+	t.Cleanup(func() {
+		db.Close()
+	})
+
+	mock.ExpectExec("TRUNCATE resource CASCADE").WillReturnResult(sqlxmock.NewResult(1, 1))
+	mock.ExpectExec("TRUNCATE resource CASCADE").WillReturnError(&pq.Error{Code: pq.ErrorCode("internal")})
+
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
+
+	err = repo.DeleteAll(context.Background())
+	assert.NoError(t, err)
+
+	err = repo.DeleteAll(context.Background())
+	assert.Error(t, err)
+}
+
+func TestServiceRootRepository_DeleteById(t *testing.T) {
+	db, mock, err := sqlxmock.Newx()
+	if err != nil {
+		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
+	}
+	t.Cleanup(func() {
+		db.Close()
+	})
+
+	mock.ExpectExec("DELETE FROM resource WHERE id=(.*)").
+		WithArgs("some_id").
+		WillReturnResult(sqlxmock.NewResult(1, 1))
+	mock.ExpectExec("DELETE FROM resource WHERE id=(.*)").
+		WillReturnError(&pq.Error{Code: pq.ErrorCode("internal")})
+
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
+
+	err = repo.DeleteById(context.Background(), "some_id")
+	assert.NoError(t, err)
+
+	err = repo.DeleteById(context.Background(), "other_id")
+	assert.Error(t, err)
 }
