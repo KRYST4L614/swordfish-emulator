@@ -1,0 +1,62 @@
+{
+    "@odata.type": "#Volume.v1_10_0.Volume",
+    "Id": "1",
+    "Name": "Namespace 1",
+    "LogicalUnitNumber": 1,
+    "Description": "A Namespace is a quantity of non-volatile memory that may be formatted into logical blocks. When formatted, a namespace of size n is a collection of logical blocks with logical block addresses from 0 to (n-1). NVMe systems can support multiple namespaces.",
+    "DisplayName": "IP Attached Drive 2 Namespace",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Identifiers": [
+        {
+            "DurableNameFormat": "NQN",
+            "DurableName": "nqn.2014-08.org.nvmexpress:uuid:6c5fe566-10e6-4fb6-aad4-8b4159029384"
+        }
+    ],
+    "BlockSizeBytes": 10737418240,
+    "Capacity": {
+        "Data": {
+            "ConsumedBytes": 0,
+            "AllocatedBytes": 10737418240
+        }
+    },
+    "NVMeNamespaceProperties": {
+        "IsShareable": false,
+        "NamespaceId": "0x011",
+        "FormattedLBASize": "0x0110",
+        "NumberLBAFormats": 1,
+        "NamespaceFeatures": {
+            "SupportsThinProvisioning": false,
+            "SupportsAtomicTransactionSize": false,
+            "SupportsDeallocatedOrUnwrittenLBError": false,
+            "SupportsNGUIDReuse": false,
+            "SupportsIOPerformanceHints": false
+        },
+        "LBAFormat": {
+            "LBAFormatType": "LBAFormat0",
+            "RelativePerformance": "Best",
+            "LBADataSizeBytes": 4096,
+            "LBAMetadataSizeBytes": 0
+        },
+        "MetadataTransferredAtEndOfDataLBA": false,
+        "NVMeVersion": "1.4"
+    },
+    "OptimumIOSizeBytes": 1024,
+    "RAIDType": "None",
+    "Links": {
+        "Drives": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/EBOFEnclosure/Drives/IPAttachedDrive2"
+            }
+        ],
+        "Controllers": [
+            {
+                "@odata.id": "/redfish/v1/Storage/IPAttachedDrive2/Controllers/NVMeIOController"
+            }
+        ]
+    },
+    "@odata.id": "/redfish/v1/Storage/IPAttachedDrive2/Volumes/SimpleNamespace",
+    "@Redfish.Copyright": "Copyright 2015-2023 SNIA. All rights reserved."
+}

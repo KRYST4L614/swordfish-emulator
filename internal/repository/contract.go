@@ -11,6 +11,8 @@ import (
 type ResourceRepository interface {
 	Create(ctx context.Context, resource *dto.ResourceDto) error
 	Get(ctx context.Context, id string) (*dto.ResourceDto, error)
+	Update(ctx context.Context, resource *dto.ResourceDto) error
 	DeleteAll(ctx context.Context) error
 	DeleteById(ctx context.Context, id string) error
+	DeleteStartsWith(ctx context.Context, prefix string) error
 }

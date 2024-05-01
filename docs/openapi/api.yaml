@@ -2,6 +2,10 @@ openapi: "3.0.0"
 components:
   schemas:
     Chassis:
-      $ref: ./chassis.yaml#/components/schemas/Chassis_Chassis
+      $ref: ./Chassis.yaml#/components/schemas/Chassis_Chassis
     ServiceRoot:
-      $ref: ./service-root.yaml#/components/schemas/ServiceRoot_ServiceRoot
+      $ref: ./ServiceRoot.yaml#/components/schemas/ServiceRoot_ServiceRoot
+    Storage:
+      $ref: ./Storage.yaml#/components/schemas/Storage_Storage
+    StorageCollection:
+      $ref: ./StorageCollection.yaml#/components/schemas/StorageCollection_StorageCollection

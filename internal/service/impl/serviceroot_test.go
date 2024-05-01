@@ -1,4 +1,4 @@
-package impl
+package impl_test
 
 import (
 	"context"
@@ -9,6 +9,7 @@ import (
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
 	mock_repository "gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/mock"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/service/impl"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/util"
 	"go.uber.org/mock/gomock"
 )
@@ -27,7 +28,7 @@ func TestServiceRootService_Create(t *testing.T) {
 	mockRepo.EXPECT().Create(gomock.Any(), &dto.ResourceDto{Id: "/redfish/v1", Data: bytes}).AnyTimes().Return(nil)
 	mockRepo.EXPECT().Create(gomock.Any(), gomock.Any()).AnyTimes().Return(errlib.ErrInternal)
 
-	service := NewServiceRootService(mockRepo)
+	service := impl.NewServiceRootService(mockRepo)
 
 	err := service.Create(context.Background(), serviceRoot)
 	assert.NoError(t, err)
@@ -51,7 +52,7 @@ func TestServiceRootService_Get(t *testing.T) {
 	mockRepo.EXPECT().Get(gomock.Any(), "/redfish/v1").AnyTimes().Return(dto, nil)
 	mockRepo.EXPECT().Get(gomock.Any(), gomock.Any()).AnyTimes().Return(nil, errlib.ErrNotFound)
 
-	service := NewServiceRootService(mockRepo)
+	service := impl.NewServiceRootService(mockRepo)
 
 	serviceRoot, err := service.Get(context.Background(), "/redfish/v1")
 	if assert.NoError(t, err) {

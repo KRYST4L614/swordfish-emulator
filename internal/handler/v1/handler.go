@@ -16,6 +16,8 @@ type ResourceHandler interface {
 func NewHandler(services *service.Service) *Handler {
 	handlers := make([]ResourceHandler, 0)
 	handlers = append(handlers, NewServiceRootHandler(services.ServiceRootService))
+	handlers = append(handlers, NewStorageCollectionHandler(services.StorageCollectionService))
+	handlers = append(handlers, NewStorageHandler(services.StorageService))
 	return &Handler{
 		handlers: handlers,
 	}
