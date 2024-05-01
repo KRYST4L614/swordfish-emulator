@@ -49,7 +49,7 @@ func NewApp(config *Config, notify chan error) (*App, error) {
 		server:   server,
 		provider: provider,
 		embedded: embedded,
-		master:   master.NewInitialConfigurationMaster(repos),
+		master:   master.NewInitialConfigurationMaster(repos, &config.DatasetConfig),
 		config:   config,
 		repos:    repos,
 	}, nil

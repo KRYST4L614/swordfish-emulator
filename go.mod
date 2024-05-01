@@ -5,6 +5,7 @@ go 1.21.0
 toolchain go1.21.6
 
 require (
+	github.com/evanphx/json-patch v0.5.2
 	github.com/fergusstrange/embedded-postgres v1.26.0
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/gorilla/mux v1.8.1
@@ -18,6 +19,7 @@ require (
 require (
 	github.com/andybalholm/brotli v1.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/evanphx/json-patch/v5 v5.9.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/go-faster/errors v0.7.1 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
@@ -32,6 +34,7 @@ require (
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
 	github.com/onsi/ginkgo v1.16.5 // indirect
 	github.com/onsi/gomega v1.32.0 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/sethvargo/go-retry v0.2.4 // indirect
@@ -53,6 +56,7 @@ require (
 	github.com/jackc/puddle/v2 v2.2.1 // indirect
 	github.com/pressly/goose/v3 v3.18.0
 	github.com/sirupsen/logrus v1.9.3
+	github.com/sqids/sqids-go v0.4.1
 	github.com/stretchr/testify v1.9.0
 	github.com/zhashkevych/go-sqlxmock v1.5.1
 	golang.org/x/crypto v0.21.0 // indirect

@@ -6,19 +6,20 @@ import (
 	"os"
 	"path/filepath"
 
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
+	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/util"
 )
 
 type InitialConfigurationMaster struct {
-	repo *repository.Repository
+	repo   *repository.Repository
+	config *DatasetConfig
 }
 
-func NewInitialConfigurationMaster(repo *repository.Repository) *InitialConfigurationMaster {
+func NewInitialConfigurationMaster(repo *repository.Repository, config *DatasetConfig) *InitialConfigurationMaster {
 	return &InitialConfigurationMaster{
-		repo: repo,
+		repo:   repo,
+		config: config,
 	}
 }
 
@@ -34,18 +35,20 @@ func (m *InitialConfigurationMaster) loadAllJson(path string, d fs.DirEntry, err
 		return nil
 	}
 
+	logrus.Tracef("Configuration master loaded resource from %s", path)
 	content, err := os.ReadFile(path)
 	if err != nil {
 		return err
 	}
 
-	id, err := util.Unmarshal[domain.InlineODataId](content)
+	id, err := idFromPath(m.config.Path, path)
 	if err != nil {
 		return err
 	}
 
+	logrus.Tracef("New resource with id %s", id)
 	dto := &dto.ResourceDto{
-		Id:   id.ODataId,
+		Id:   id,
 		Data: content,
 	}
 
@@ -54,4 +57,25 @@ func (m *InitialConfigurationMaster) loadAllJson(path string, d fs.DirEntry, err
 		return err
 	}
 	return nil
+}
+
+func idFromPath(parent, path string) (string, error) {
+	var id = path
+	if filepath.Base(path) == "index.json" {
+		id = filepath.Dir(path)
+	}
+	id, err := filepath.Rel(parent, id)
+	if err != nil {
+		return "", err
+	}
+	if id == "." {
+		id = ""
+	}
+
+	id = "/redfish/v1/" + filepath.ToSlash(id)
+	if id[len(id)-1] == '/' {
+		id = id[:len(id)-1]
+	}
+
+	return id, nil
 }

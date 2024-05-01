@@ -82,6 +82,20 @@ func (mr *MockResourceRepositoryMockRecorder) DeleteById(arg0, arg1 any) *gomock
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteById", reflect.TypeOf((*MockResourceRepository)(nil).DeleteById), arg0, arg1)
 }
 
+// DeleteStartsWith mocks base method.
+func (m *MockResourceRepository) DeleteStartsWith(arg0 context.Context, arg1 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "DeleteStartsWith", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// DeleteStartsWith indicates an expected call of DeleteStartsWith.
+func (mr *MockResourceRepositoryMockRecorder) DeleteStartsWith(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteStartsWith", reflect.TypeOf((*MockResourceRepository)(nil).DeleteStartsWith), arg0, arg1)
+}
+
 // Get mocks base method.
 func (m *MockResourceRepository) Get(arg0 context.Context, arg1 string) (*dto.ResourceDto, error) {
 	m.ctrl.T.Helper()
@@ -95,4 +109,18 @@ func (m *MockResourceRepository) Get(arg0 context.Context, arg1 string) (*dto.Re
 func (mr *MockResourceRepositoryMockRecorder) Get(arg0, arg1 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockResourceRepository)(nil).Get), arg0, arg1)
+}
+
+// Update mocks base method.
+func (m *MockResourceRepository) Update(arg0 context.Context, arg1 *dto.ResourceDto) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "Update", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// Update indicates an expected call of Update.
+func (mr *MockResourceRepositoryMockRecorder) Update(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockResourceRepository)(nil).Update), arg0, arg1)
 }

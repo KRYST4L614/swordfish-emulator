@@ -91,16 +91,78 @@ const (
 	ChassisV1250ThermalDirectionTopExhaust  ChassisV1250ThermalDirection = "TopExhaust"
 )
 
+// Defines values for PCIeDevicePCIeTypes.
+const (
+	Gen1 PCIeDevicePCIeTypes = "Gen1"
+	Gen2 PCIeDevicePCIeTypes = "Gen2"
+	Gen3 PCIeDevicePCIeTypes = "Gen3"
+	Gen4 PCIeDevicePCIeTypes = "Gen4"
+	Gen5 PCIeDevicePCIeTypes = "Gen5"
+)
+
+// Defines values for ProtocolProtocol.
+const (
+	ProtocolProtocolAHCI            ProtocolProtocol = "AHCI"
+	ProtocolProtocolCXL             ProtocolProtocol = "CXL"
+	ProtocolProtocolDVI             ProtocolProtocol = "DVI"
+	ProtocolProtocolDisplayPort     ProtocolProtocol = "DisplayPort"
+	ProtocolProtocolEthernet        ProtocolProtocol = "Ethernet"
+	ProtocolProtocolFC              ProtocolProtocol = "FC"
+	ProtocolProtocolFCP             ProtocolProtocol = "FCP"
+	ProtocolProtocolFCoE            ProtocolProtocol = "FCoE"
+	ProtocolProtocolFICON           ProtocolProtocol = "FICON"
+	ProtocolProtocolFTP             ProtocolProtocol = "FTP"
+	ProtocolProtocolGenZ            ProtocolProtocol = "GenZ"
+	ProtocolProtocolHDMI            ProtocolProtocol = "HDMI"
+	ProtocolProtocolHTTP            ProtocolProtocol = "HTTP"
+	ProtocolProtocolHTTPS           ProtocolProtocol = "HTTPS"
+	ProtocolProtocolI2C             ProtocolProtocol = "I2C"
+	ProtocolProtocolISCSI           ProtocolProtocol = "iSCSI"
+	ProtocolProtocolIWARP           ProtocolProtocol = "iWARP"
+	ProtocolProtocolInfiniBand      ProtocolProtocol = "InfiniBand"
+	ProtocolProtocolMultiProtocol   ProtocolProtocol = "MultiProtocol"
+	ProtocolProtocolNFSv3           ProtocolProtocol = "NFSv3"
+	ProtocolProtocolNFSv4           ProtocolProtocol = "NFSv4"
+	ProtocolProtocolNVLink          ProtocolProtocol = "NVLink"
+	ProtocolProtocolNVMe            ProtocolProtocol = "NVMe"
+	ProtocolProtocolNVMeOverFabrics ProtocolProtocol = "NVMeOverFabrics"
+	ProtocolProtocolOEM             ProtocolProtocol = "OEM"
+	ProtocolProtocolPCIe            ProtocolProtocol = "PCIe"
+	ProtocolProtocolQPI             ProtocolProtocol = "QPI"
+	ProtocolProtocolRoCE            ProtocolProtocol = "RoCE"
+	ProtocolProtocolRoCEv2          ProtocolProtocol = "RoCEv2"
+	ProtocolProtocolSAS             ProtocolProtocol = "SAS"
+	ProtocolProtocolSATA            ProtocolProtocol = "SATA"
+	ProtocolProtocolSFTP            ProtocolProtocol = "SFTP"
+	ProtocolProtocolSMB             ProtocolProtocol = "SMB"
+	ProtocolProtocolTCP             ProtocolProtocol = "TCP"
+	ProtocolProtocolTFTP            ProtocolProtocol = "TFTP"
+	ProtocolProtocolUDP             ProtocolProtocol = "UDP"
+	ProtocolProtocolUHCI            ProtocolProtocol = "UHCI"
+	ProtocolProtocolUPI             ProtocolProtocol = "UPI"
+	ProtocolProtocolUSB             ProtocolProtocol = "USB"
+	ProtocolProtocolVGA             ProtocolProtocol = "VGA"
+)
+
+// Defines values for RedundancyV141RedundancyMode.
+const (
+	Failover     RedundancyV141RedundancyMode = "Failover"
+	NM           RedundancyV141RedundancyMode = "N+m"
+	NotRedundant RedundancyV141RedundancyMode = "NotRedundant"
+	Sharing      RedundancyV141RedundancyMode = "Sharing"
+	Sparing      RedundancyV141RedundancyMode = "Sparing"
+)
+
 // Defines values for ResolutionStepV100ResolutionType.
 const (
-	CollectDiagnosticData ResolutionStepV100ResolutionType = "CollectDiagnosticData"
-	ContactVendor         ResolutionStepV100ResolutionType = "ContactVendor"
-	FirmwareUpdate        ResolutionStepV100ResolutionType = "FirmwareUpdate"
-	OEM                   ResolutionStepV100ResolutionType = "OEM"
-	PowerCycle            ResolutionStepV100ResolutionType = "PowerCycle"
-	ReplaceComponent      ResolutionStepV100ResolutionType = "ReplaceComponent"
-	Reset                 ResolutionStepV100ResolutionType = "Reset"
-	ResetToDefaults       ResolutionStepV100ResolutionType = "ResetToDefaults"
+	ResolutionStepV100ResolutionTypeCollectDiagnosticData ResolutionStepV100ResolutionType = "CollectDiagnosticData"
+	ResolutionStepV100ResolutionTypeContactVendor         ResolutionStepV100ResolutionType = "ContactVendor"
+	ResolutionStepV100ResolutionTypeFirmwareUpdate        ResolutionStepV100ResolutionType = "FirmwareUpdate"
+	ResolutionStepV100ResolutionTypeOEM                   ResolutionStepV100ResolutionType = "OEM"
+	ResolutionStepV100ResolutionTypePowerCycle            ResolutionStepV100ResolutionType = "PowerCycle"
+	ResolutionStepV100ResolutionTypeReplaceComponent      ResolutionStepV100ResolutionType = "ReplaceComponent"
+	ResolutionStepV100ResolutionTypeReset                 ResolutionStepV100ResolutionType = "Reset"
+	ResolutionStepV100ResolutionTypeResetToDefaults       ResolutionStepV100ResolutionType = "ResetToDefaults"
 )
 
 // Defines values for ResourceHealth.
@@ -121,18 +183,32 @@ const (
 
 // Defines values for ResourceState.
 const (
-	Absent             ResourceState = "Absent"
-	Deferring          ResourceState = "Deferring"
-	Disabled           ResourceState = "Disabled"
-	Enabled            ResourceState = "Enabled"
-	InTest             ResourceState = "InTest"
-	Qualified          ResourceState = "Qualified"
-	Quiesced           ResourceState = "Quiesced"
-	StandbyOffline     ResourceState = "StandbyOffline"
-	StandbySpare       ResourceState = "StandbySpare"
-	Starting           ResourceState = "Starting"
-	UnavailableOffline ResourceState = "UnavailableOffline"
-	Updating           ResourceState = "Updating"
+	ResourceStateAbsent             ResourceState = "Absent"
+	ResourceStateDeferring          ResourceState = "Deferring"
+	ResourceStateDisabled           ResourceState = "Disabled"
+	ResourceStateEnabled            ResourceState = "Enabled"
+	ResourceStateInTest             ResourceState = "InTest"
+	ResourceStateQualified          ResourceState = "Qualified"
+	ResourceStateQuiesced           ResourceState = "Quiesced"
+	ResourceStateStandbyOffline     ResourceState = "StandbyOffline"
+	ResourceStateStandbySpare       ResourceState = "StandbySpare"
+	ResourceStateStarting           ResourceState = "Starting"
+	ResourceStateUnavailableOffline ResourceState = "UnavailableOffline"
+	ResourceStateUpdating           ResourceState = "Updating"
+)
+
+// Defines values for ResourceV1180DurableNameFormat.
+const (
+	EUI        ResourceV1180DurableNameFormat = "EUI"
+	FCWWN      ResourceV1180DurableNameFormat = "FC_WWN"
+	GCXLID     ResourceV1180DurableNameFormat = "GCXLID"
+	IQN        ResourceV1180DurableNameFormat = "iQN"
+	MACAddress ResourceV1180DurableNameFormat = "MACAddress"
+	NAA        ResourceV1180DurableNameFormat = "NAA"
+	NGUID      ResourceV1180DurableNameFormat = "NGUID"
+	NQN        ResourceV1180DurableNameFormat = "NQN"
+	NSID       ResourceV1180DurableNameFormat = "NSID"
+	UUID       ResourceV1180DurableNameFormat = "UUID"
 )
 
 // Defines values for ResourceV1180LocationType.
@@ -170,6 +246,49 @@ const (
 	Rear   ResourceV1180Reference = "Rear"
 	Right  ResourceV1180Reference = "Right"
 	Top    ResourceV1180Reference = "Top"
+)
+
+// Defines values for StorageV1151AutoVolumeCreate.
+const (
+	StorageV1151AutoVolumeCreateDisabled StorageV1151AutoVolumeCreate = "Disabled"
+	StorageV1151AutoVolumeCreateNonRAID  StorageV1151AutoVolumeCreate = "NonRAID"
+	StorageV1151AutoVolumeCreateRAID0    StorageV1151AutoVolumeCreate = "RAID0"
+	StorageV1151AutoVolumeCreateRAID1    StorageV1151AutoVolumeCreate = "RAID1"
+)
+
+// Defines values for StorageV1151EncryptionMode.
+const (
+	Disabled       StorageV1151EncryptionMode = "Disabled"
+	UseExternalKey StorageV1151EncryptionMode = "UseExternalKey"
+	UseLocalKey    StorageV1151EncryptionMode = "UseLocalKey"
+)
+
+// Defines values for StorageV1151HotspareActivationPolicy.
+const (
+	OEM                     StorageV1151HotspareActivationPolicy = "OEM"
+	OnDriveFailure          StorageV1151HotspareActivationPolicy = "OnDriveFailure"
+	OnDrivePredictedFailure StorageV1151HotspareActivationPolicy = "OnDrivePredictedFailure"
+)
+
+// Defines values for VolumeRAIDType.
+const (
+	None         VolumeRAIDType = "None"
+	RAID0        VolumeRAIDType = "RAID0"
+	RAID00       VolumeRAIDType = "RAID00"
+	RAID01       VolumeRAIDType = "RAID01"
+	RAID1        VolumeRAIDType = "RAID1"
+	RAID10       VolumeRAIDType = "RAID10"
+	RAID10E      VolumeRAIDType = "RAID10E"
+	RAID10Triple VolumeRAIDType = "RAID10Triple"
+	RAID1E       VolumeRAIDType = "RAID1E"
+	RAID1Triple  VolumeRAIDType = "RAID1Triple"
+	RAID3        VolumeRAIDType = "RAID3"
+	RAID4        VolumeRAIDType = "RAID4"
+	RAID5        VolumeRAIDType = "RAID5"
+	RAID50       VolumeRAIDType = "RAID50"
+	RAID6        VolumeRAIDType = "RAID6"
+	RAID60       VolumeRAIDType = "RAID60"
+	RAID6TP      VolumeRAIDType = "RAID6TP"
 )
 
 // ActionInfoV141ParameterTypes defines model for ActionInfo_v1_4_1_ParameterTypes.
@@ -597,6 +716,75 @@ type ChassisV1250Reset struct {
 // ChassisV1250ThermalDirection defines model for Chassis_v1_25_0_ThermalDirection.
 type ChassisV1250ThermalDirection string
 
+// PCIeDevicePCIeTypes defines model for PCIeDevice_PCIeTypes.
+type PCIeDevicePCIeTypes string
+
+// PCIeDeviceV1130PCIeInterface Properties that describe a PCIe interface.
+type PCIeDeviceV1130PCIeInterface struct {
+	// LanesInUse The number of PCIe lanes in use by this device.
+	LanesInUse *int64 `json:"LanesInUse"`
+
+	// MaxLanes The number of PCIe lanes supported by this device.
+	MaxLanes    *int64               `json:"MaxLanes"`
+	MaxPCIeType *PCIeDevicePCIeTypes `json:"MaxPCIeType,omitempty"`
+
+	// Oem The OEM extension.
+	Oem      *ResourceOem         `json:"Oem,omitempty"`
+	PCIeType *PCIeDevicePCIeTypes `json:"PCIeType,omitempty"`
+}
+
+// ProtocolProtocol defines model for Protocol_Protocol.
+type ProtocolProtocol string
+
+// RedundancyV141Actions The available actions for this resource.
+type RedundancyV141Actions struct {
+	// Oem The available OEM-specific actions for this resource.
+	Oem *RedundancyV141OemActions `json:"Oem,omitempty"`
+}
+
+// RedundancyV141OemActions The available OEM-specific actions for this resource.
+type RedundancyV141OemActions map[string]interface{}
+
+// RedundancyV141Redundancy The common redundancy definition and structure used in other Redfish schemas.
+type RedundancyV141Redundancy struct {
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *RedundancyV141Actions `json:"Actions,omitempty"`
+
+	// MaxNumSupported The maximum number of members allowable for this particular redundancy group.
+	MaxNumSupported *int64 `json:"MaxNumSupported"`
+
+	// MemberId The unique identifier for the member within an array.
+	MemberId *string `json:"MemberId,omitempty"`
+
+	// MinNumNeeded The minimum number of members needed for this group to be redundant.
+	MinNumNeeded *int64                       `json:"MinNumNeeded"`
+	Mode         RedundancyV141RedundancyMode `json:"Mode"`
+
+	// Name The name of the resource or array member.
+	Name *string `json:"Name,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// RedundancyEnabled An indication of whether redundancy is enabled.
+	RedundancyEnabled *bool `json:"RedundancyEnabled"`
+
+	// RedundancySet The links to components of this redundancy set.
+	RedundancySet *[]OdataV4IdRef `json:"RedundancySet,omitempty"`
+
+	// RedundancySetOdataCount The number of items in a collection.
+	RedundancySetOdataCount *OdataV4Count `json:"RedundancySet@odata.count,omitempty"`
+
+	// Status The status and health of a resource and its children.
+	Status ResourceStatus `json:"Status"`
+}
+
+// RedundancyV141RedundancyMode defines model for Redundancy_v1_4_1_RedundancyMode.
+type RedundancyV141RedundancyMode string
+
 // ResolutionStepV100ResolutionStep This type describes a recommended step of the service-defined resolution.
 type ResolutionStepV100ResolutionStep struct {
 	// ActionParameters The parameters of the action URI for a resolution step.
@@ -699,6 +887,16 @@ type ResourceV1180ContactInfo struct {
 
 	// PhoneNumber Phone number for this contact.
 	PhoneNumber *string `json:"PhoneNumber"`
+}
+
+// ResourceV1180DurableNameFormat defines model for Resource_v1_18_0_DurableNameFormat.
+type ResourceV1180DurableNameFormat string
+
+// ResourceV1180Identifier Any additional identifiers for a resource.
+type ResourceV1180Identifier struct {
+	// DurableName The world-wide, persistent name of the resource.
+	DurableName       *string                         `json:"DurableName"`
+	DurableNameFormat *ResourceV1180DurableNameFormat `json:"DurableNameFormat,omitempty"`
 }
 
 // ResourceV1180Location The location of a resource.
@@ -1141,6 +1339,354 @@ type SoftwareInventoryV1101MeasurementBlock struct {
 	MeasurementSpecification *int64 `json:"MeasurementSpecification"`
 }
 
+// Storage The Storage schema defines a storage subsystem and its respective properties.  A storage subsystem represents a set of physical or virtual storage controllers and the resources, such as volumes, that can be accessed from that subsystem.
+type Storage = StorageV1151Storage
+
+// StorageCollection The collection of Storage resource instances.
+type StorageCollection = StorageCollectionStorageCollection
+
+// StorageCollectionStorageCollection The collection of Storage resource instances.
+type StorageCollectionStorageCollection struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Description The description of this resource.  Used for commonality in the schema definitions.
+	Description *ResourceDescription `json:"Description,omitempty"`
+
+	// Members The members of this collection.
+	Members *[]OdataV4IdRef `json:"Members,omitempty"`
+
+	// MembersOdataCount The number of items in a collection.
+	MembersOdataCount *OdataV4Count `json:"Members@odata.count,omitempty"`
+
+	// MembersOdataNextLink The URI to the resource containing the next set of partial members.
+	MembersOdataNextLink *OdataV4NextLink `json:"Members@odata.nextLink,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// StorageV1151Actions The available actions for this resource.
+type StorageV1151Actions struct {
+	// HashStorageResetToDefaults The reset action resets the storage device to factory defaults.  This can cause the loss of data.
+	HashStorageResetToDefaults *StorageV1151ResetToDefaults `json:"#Storage.ResetToDefaults,omitempty"`
+
+	// HashStorageSetEncryptionKey This action sets the local encryption key for the storage subsystem.
+	HashStorageSetEncryptionKey *StorageV1151SetEncryptionKey `json:"#Storage.SetEncryptionKey,omitempty"`
+
+	// Oem The available OEM-specific actions for this resource.
+	Oem *StorageV1151OemActions `json:"Oem,omitempty"`
+}
+
+// StorageV1151AutoVolumeCreate defines model for Storage_v1_15_1_AutoVolumeCreate.
+type StorageV1151AutoVolumeCreate string
+
+// StorageV1151CacheSummary This type describes the cache memory of the storage controller in general detail.
+type StorageV1151CacheSummary struct {
+	// PersistentCacheSizeMiB The portion of the cache memory that is persistent, measured in MiB.
+	PersistentCacheSizeMiB *int64 `json:"PersistentCacheSizeMiB"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// TotalCacheSizeMiB The total configured cache memory, measured in MiB.
+	TotalCacheSizeMiB *int64 `json:"TotalCacheSizeMiB"`
+}
+
+// StorageV1151EncryptionMode defines model for Storage_v1_15_1_EncryptionMode.
+type StorageV1151EncryptionMode string
+
+// StorageV1151HotspareActivationPolicy defines model for Storage_v1_15_1_HotspareActivationPolicy.
+type StorageV1151HotspareActivationPolicy string
+
+// StorageV1151Links The links to other resources that are related to this resource.
+type StorageV1151Links struct {
+	// Enclosures An array of links to the chassis to which this storage subsystem is attached.
+	Enclosures *[]OdataV4IdRef `json:"Enclosures,omitempty"`
+
+	// EnclosuresOdataCount The number of items in a collection.
+	EnclosuresOdataCount *OdataV4Count `json:"Enclosures@odata.count,omitempty"`
+
+	// HostingStorageSystems The storage systems that host this storage subsystem.
+	HostingStorageSystems *[]OdataV4IdRef `json:"HostingStorageSystems,omitempty"`
+
+	// HostingStorageSystemsOdataCount The number of items in a collection.
+	HostingStorageSystemsOdataCount *OdataV4Count `json:"HostingStorageSystems@odata.count,omitempty"`
+
+	// NVMeoFDiscoverySubsystems An array of links to the discovery subsystems that discovered this subsystem in an NVMe-oF environment.
+	NVMeoFDiscoverySubsystems *[]OdataV4IdRef `json:"NVMeoFDiscoverySubsystems,omitempty"`
+
+	// NVMeoFDiscoverySubsystemsOdataCount The number of items in a collection.
+	NVMeoFDiscoverySubsystemsOdataCount *OdataV4Count `json:"NVMeoFDiscoverySubsystems@odata.count,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// SimpleStorage A reference to a resource.
+	SimpleStorage *OdataV4IdRef `json:"SimpleStorage,omitempty"`
+
+	// StorageServices An array of links to the storage services that connect to this storage subsystem.
+	StorageServices *[]OdataV4IdRef `json:"StorageServices,omitempty"`
+
+	// StorageServicesOdataCount The number of items in a collection.
+	StorageServicesOdataCount *OdataV4Count `json:"StorageServices@odata.count,omitempty"`
+}
+
+// StorageV1151OemActions The available OEM-specific actions for this resource.
+type StorageV1151OemActions map[string]interface{}
+
+// StorageV1151Rates This type describes the various controller rates used for processes such as volume rebuild or consistency checks.
+type StorageV1151Rates struct {
+	// ConsistencyCheckRatePercent The percentage of controller resources used for performing a data consistency check on volumes.
+	ConsistencyCheckRatePercent *int64 `json:"ConsistencyCheckRatePercent"`
+
+	// RebuildRatePercent The percentage of controller resources used for rebuilding/repairing volumes.
+	RebuildRatePercent *int64 `json:"RebuildRatePercent"`
+
+	// TransformationRatePercent The percentage of controller resources used for transforming volumes from one configuration to another.
+	TransformationRatePercent *int64 `json:"TransformationRatePercent"`
+}
+
+// StorageV1151ResetToDefaults The reset action resets the storage device to factory defaults.  This can cause the loss of data.
+type StorageV1151ResetToDefaults struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// StorageV1151SetEncryptionKey This action sets the local encryption key for the storage subsystem.
+type StorageV1151SetEncryptionKey struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// StorageV1151Storage The Storage schema defines a storage subsystem and its respective properties.  A storage subsystem represents a set of physical or virtual storage controllers and the resources, such as volumes, that can be accessed from that subsystem.
+type StorageV1151Storage struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions          *StorageV1151Actions          `json:"Actions,omitempty"`
+	AutoVolumeCreate *StorageV1151AutoVolumeCreate `json:"AutoVolumeCreate,omitempty"`
+
+	// Connections A reference to a resource.
+	Connections *OdataV4IdRef `json:"Connections,omitempty"`
+
+	// ConsistencyGroups A reference to a resource.
+	ConsistencyGroups *OdataV4IdRef `json:"ConsistencyGroups,omitempty"`
+
+	// Controllers A reference to a resource.
+	Controllers *OdataV4IdRef `json:"Controllers,omitempty"`
+
+	// Description The description of this resource.  Used for commonality in the schema definitions.
+	Description *ResourceDescription `json:"Description,omitempty"`
+
+	// Drives The set of drives attached to the storage controllers that this resource represents.
+	Drives *[]OdataV4IdRef `json:"Drives,omitempty"`
+
+	// DrivesOdataCount The number of items in a collection.
+	DrivesOdataCount *OdataV4Count               `json:"Drives@odata.count,omitempty"`
+	EncryptionMode   *StorageV1151EncryptionMode `json:"EncryptionMode,omitempty"`
+
+	// EndpointGroups A reference to a resource.
+	EndpointGroups *OdataV4IdRef `json:"EndpointGroups,omitempty"`
+
+	// FileSystems A reference to a resource.
+	FileSystems              *OdataV4IdRef                         `json:"FileSystems,omitempty"`
+	HotspareActivationPolicy *StorageV1151HotspareActivationPolicy `json:"HotspareActivationPolicy,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// Identifiers The durable names for the storage subsystem.
+	Identifiers *[]ResourceV1180Identifier `json:"Identifiers,omitempty"`
+
+	// Links The links to other resources that are related to this resource.
+	Links *StorageV1151Links `json:"Links,omitempty"`
+
+	// LocalEncryptionKeyIdentifier The local encryption key identifier used by the storage subsystem.
+	LocalEncryptionKeyIdentifier *string `json:"LocalEncryptionKeyIdentifier"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// Redundancy Redundancy information for the storage subsystem.
+	Redundancy *[]RedundancyV141Redundancy `json:"Redundancy,omitempty"`
+
+	// RedundancyOdataCount The number of items in a collection.
+	RedundancyOdataCount *OdataV4Count `json:"Redundancy@odata.count,omitempty"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// StorageControllers The set of storage controllers that this resource represents.
+	// Deprecated:
+	StorageControllers *[]StorageV1151StorageController `json:"StorageControllers,omitempty"`
+
+	// StorageControllersOdataCount The number of items in a collection.
+	StorageControllersOdataCount *OdataV4Count `json:"StorageControllers@odata.count,omitempty"`
+
+	// StorageGroups A reference to a resource.
+	StorageGroups *OdataV4IdRef `json:"StorageGroups,omitempty"`
+
+	// StoragePools A reference to a resource.
+	StoragePools *OdataV4IdRef `json:"StoragePools,omitempty"`
+
+	// Volumes A reference to a resource.
+	Volumes *OdataV4IdRef `json:"Volumes,omitempty"`
+}
+
+// StorageV1151StorageController The StorageController schema describes a storage controller and its properties.  A storage controller represents a physical or virtual storage device that produces volumes.
+type StorageV1151StorageController struct {
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *StorageV1151StorageControllerActions `json:"Actions,omitempty"`
+
+	// Assembly A reference to a resource.
+	Assembly *OdataV4IdRef `json:"Assembly,omitempty"`
+
+	// AssetTag The user-assigned asset tag for this storage controller.
+	AssetTag *string `json:"AssetTag"`
+
+	// CacheSummary This type describes the cache memory of the storage controller in general detail.
+	CacheSummary *StorageV1151CacheSummary `json:"CacheSummary,omitempty"`
+
+	// Certificates A reference to a resource.
+	Certificates *OdataV4IdRef `json:"Certificates,omitempty"`
+
+	// ControllerRates This type describes the various controller rates used for processes such as volume rebuild or consistency checks.
+	ControllerRates *StorageV1151Rates `json:"ControllerRates,omitempty"`
+
+	// FirmwareVersion The firmware version of this storage controller.
+	FirmwareVersion *string `json:"FirmwareVersion"`
+
+	// Identifiers The durable names for the storage controller.
+	Identifiers *[]ResourceV1180Identifier `json:"Identifiers,omitempty"`
+
+	// Links The links to other resources that are related to this resource.
+	Links *StorageV1151StorageControllerLinks `json:"Links,omitempty"`
+
+	// Location The location of a resource.
+	Location *ResourceV1180Location `json:"Location,omitempty"`
+
+	// Manufacturer The manufacturer of this storage controller.
+	Manufacturer *string `json:"Manufacturer"`
+
+	// Measurements An array of DSP0274-defined measurement blocks.
+	// Deprecated:
+	Measurements *[]SoftwareInventoryV1101MeasurementBlock `json:"Measurements,omitempty"`
+
+	// MemberId The unique identifier for the member within an array.
+	MemberId *string `json:"MemberId,omitempty"`
+
+	// Model The model number for the storage controller.
+	Model *string `json:"Model"`
+
+	// Name The name of the storage controller.
+	Name *string `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// PCIeInterface Properties that describe a PCIe interface.
+	PCIeInterface *PCIeDeviceV1130PCIeInterface `json:"PCIeInterface,omitempty"`
+
+	// PartNumber The part number for this storage controller.
+	PartNumber *string `json:"PartNumber"`
+
+	// Ports A reference to a resource.
+	Ports *OdataV4IdRef `json:"Ports,omitempty"`
+
+	// SKU The SKU for this storage controller.
+	SKU *string `json:"SKU"`
+
+	// SerialNumber The serial number for this storage controller.
+	SerialNumber *string `json:"SerialNumber"`
+
+	// SpeedGbps The maximum speed of the storage controller's device interface.
+	SpeedGbps *float32 `json:"SpeedGbps"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// SupportedControllerProtocols The supported set of protocols for communicating with this storage controller.
+	SupportedControllerProtocols *[]ProtocolProtocol `json:"SupportedControllerProtocols,omitempty"`
+
+	// SupportedDeviceProtocols The protocols that the storage controller can use to communicate with attached devices.
+	SupportedDeviceProtocols *[]ProtocolProtocol `json:"SupportedDeviceProtocols,omitempty"`
+
+	// SupportedRAIDTypes The set of RAID types supported by the storage controller.
+	SupportedRAIDTypes *[]VolumeRAIDType `json:"SupportedRAIDTypes,omitempty"`
+}
+
+// StorageV1151StorageControllerActions The available actions for this resource.
+type StorageV1151StorageControllerActions struct {
+	// Oem The available OEM-specific actions for this resource.
+	Oem *StorageV1151StorageControllerOemActions `json:"Oem,omitempty"`
+}
+
+// StorageV1151StorageControllerLinks The links to other resources that are related to this resource.
+type StorageV1151StorageControllerLinks struct {
+	// Endpoints An array of links to the endpoints that connect to this controller.
+	Endpoints *[]OdataV4IdRef `json:"Endpoints,omitempty"`
+
+	// EndpointsOdataCount The number of items in a collection.
+	EndpointsOdataCount *OdataV4Count `json:"Endpoints@odata.count,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// PCIeFunctions An array of links to the PCIe functions that the storage controller produces.
+	PCIeFunctions *[]OdataV4IdRef `json:"PCIeFunctions,omitempty"`
+
+	// PCIeFunctionsOdataCount The number of items in a collection.
+	PCIeFunctionsOdataCount *OdataV4Count `json:"PCIeFunctions@odata.count,omitempty"`
+
+	// StorageServices An array of links to the storage services that connect to this controller.
+	// Deprecated:
+	StorageServices *[]OdataV4IdRef `json:"StorageServices,omitempty"`
+
+	// StorageServicesOdataCount The number of items in a collection.
+	StorageServicesOdataCount *OdataV4Count `json:"StorageServices@odata.count,omitempty"`
+}
+
+// StorageV1151StorageControllerOemActions The available OEM-specific actions for this resource.
+type StorageV1151StorageControllerOemActions map[string]interface{}
+
+// VolumeRAIDType defines model for Volume_RAIDType.
+type VolumeRAIDType string
+
 // OdataV4Context The OData description of a payload.
 type OdataV4Context = string
 
@@ -1158,6 +1704,9 @@ type OdataV4IdRef struct {
 	// OdataId The unique identifier for a resource.
 	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
 }
+
+// OdataV4NextLink The URI to the resource containing the next set of partial members.
+type OdataV4NextLink = string
 
 // OdataV4Type The type of a resource.
 type OdataV4Type = string

@@ -40,15 +40,5 @@ func (s *ServiceRootService) Create(ctx context.Context, resource *domain.Servic
 }
 
 func (s *ServiceRootService) Get(ctx context.Context, id string) (*domain.ServiceRoot, error) {
-	dto, err := s.repository.Get(ctx, id)
-	if err != nil {
-		return nil, err
-	}
-
-	resource, err := util.Unmarshal[domain.ServiceRoot](dto.Data)
-	if err != nil {
-		return nil, err
-	}
-
-	return resource, nil
+	return getResource[domain.ServiceRoot](s.repository, ctx, id)
 }

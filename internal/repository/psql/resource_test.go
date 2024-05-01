@@ -199,3 +199,57 @@ func TestServiceRootRepository_DeleteById(t *testing.T) {
 	err = repo.DeleteById(context.Background(), "other_id")
 	assert.Error(t, err)
 }
+
+func TestServiceRootRepository_Update(t *testing.T) {
+	db, mock, err := sqlxmock.Newx()
+	if err != nil {
+		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
+	}
+	t.Cleanup(func() {
+		db.Close()
+	})
+
+	mock.ExpectExec("UPDATE resource SET data = (.*) WHERE id = (.*)").
+		WithArgs([]byte(`some: "json"`), "some_id").
+		WillReturnResult(sqlxmock.NewResult(1, 1))
+	mock.ExpectExec("UPDATE resource SET data = (.*) WHERE id = (.*)").
+		WillReturnError(&pq.Error{Code: pq.ErrorCode("internal")})
+
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
+
+	err = repo.Update(context.Background(), &dto.ResourceDto{
+		Id:   "some_id",
+		Data: []byte(`some: "json"`),
+	})
+	assert.NoError(t, err)
+
+	err = repo.Update(context.Background(), &dto.ResourceDto{
+		Id:   "other_id",
+		Data: []byte(`some: "json"`),
+	})
+	assert.Error(t, err)
+}
+
+func TestServiceRootRepository_DeleteStartsWith(t *testing.T) {
+	db, mock, err := sqlxmock.Newx()
+	if err != nil {
+		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
+	}
+	t.Cleanup(func() {
+		db.Close()
+	})
+
+	mock.ExpectExec("DELETE FROM resource WHERE id LIKE (.*)").
+		WithArgs("some_id%").
+		WillReturnResult(sqlxmock.NewResult(1, 1))
+	mock.ExpectExec("DELETE FROM resource WHERE id LIKE (.*)").
+		WillReturnError(&pq.Error{Code: pq.ErrorCode("internal")})
+
+	repo := NewPsqlResourceRepository(&provider.DbProvider{DB: db})
+
+	err = repo.DeleteStartsWith(context.Background(), "some_id")
+	assert.NoError(t, err)
+
+	err = repo.DeleteStartsWith(context.Background(), "other_id")
+	assert.Error(t, err)
+}
