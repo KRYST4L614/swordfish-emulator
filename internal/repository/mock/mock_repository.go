@@ -13,7 +13,7 @@ import (
 	context "context"
 	reflect "reflect"
 
-	dto "gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
+	dto "gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 	gomock "go.uber.org/mock/gomock"
 )
 

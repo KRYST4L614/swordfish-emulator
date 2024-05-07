@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 )
 
 //go:generate mockgen --build_flags=--mod=mod -destination mock/mock_repository.go . ResourceRepository

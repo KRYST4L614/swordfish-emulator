@@ -65,3 +65,8 @@ func TestWriteJSON(t *testing.T) {
 		assert.Equal(t, "/v1/redfish", *decodedRoot.OdataId)
 	}
 }
+
+func TestGetParent(t *testing.T) {
+	uri := "redfish/v1/Storage/1"
+	assert.Equal(t, "redfish/v1/Storage", GetParent(uri))
+}

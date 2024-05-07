@@ -9,3 +9,7 @@ components:
       $ref: ./Storage.yaml#/components/schemas/Storage_Storage
     StorageCollection:
       $ref: ./StorageCollection.yaml#/components/schemas/StorageCollection_StorageCollection
+    StoragePool:
+      $ref: ./StoragePool.yaml#/components/schemas/StoragePool_StoragePool
+    StoragePoolCollection:
+      $ref: ./StoragePoolCollection.yaml#/components/schemas/StoragePoolCollection_StoragePoolCollection

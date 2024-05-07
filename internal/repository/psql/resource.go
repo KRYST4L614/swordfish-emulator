@@ -7,9 +7,9 @@ import (
 
 	"github.com/lib/pq"
 	"github.com/sirupsen/logrus"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/provider"
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
 )
 
 type PsqlResourceRepository struct {
