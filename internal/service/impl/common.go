@@ -2,7 +2,6 @@ package impl
 
 import (
 	"context"
-	"path/filepath"
 
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/util"
@@ -20,8 +19,4 @@ func getResource[T any](r repository.ResourceRepository, ctx context.Context, id
 	}
 
 	return resource, nil
-}
-
-func getParent(uri string) string {
-	return filepath.ToSlash(filepath.Dir(uri))
 }

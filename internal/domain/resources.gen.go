@@ -9,13 +9,13 @@ import (
 
 // Defines values for ActionInfoV141ParameterTypes.
 const (
-	Boolean     ActionInfoV141ParameterTypes = "Boolean"
-	Number      ActionInfoV141ParameterTypes = "Number"
-	NumberArray ActionInfoV141ParameterTypes = "NumberArray"
-	Object      ActionInfoV141ParameterTypes = "Object"
-	ObjectArray ActionInfoV141ParameterTypes = "ObjectArray"
-	String      ActionInfoV141ParameterTypes = "String"
-	StringArray ActionInfoV141ParameterTypes = "StringArray"
+	ActionInfoV141ParameterTypesBoolean     ActionInfoV141ParameterTypes = "Boolean"
+	ActionInfoV141ParameterTypesNumber      ActionInfoV141ParameterTypes = "Number"
+	ActionInfoV141ParameterTypesNumberArray ActionInfoV141ParameterTypes = "NumberArray"
+	ActionInfoV141ParameterTypesObject      ActionInfoV141ParameterTypes = "Object"
+	ActionInfoV141ParameterTypesObjectArray ActionInfoV141ParameterTypes = "ObjectArray"
+	ActionInfoV141ParameterTypesString      ActionInfoV141ParameterTypes = "String"
+	ActionInfoV141ParameterTypesStringArray ActionInfoV141ParameterTypes = "StringArray"
 )
 
 // Defines values for ChassisV1250ChassisType.
@@ -89,6 +89,12 @@ const (
 	ChassisV1250ThermalDirectionFrontToBack ChassisV1250ThermalDirection = "FrontToBack"
 	ChassisV1250ThermalDirectionSealed      ChassisV1250ThermalDirection = "Sealed"
 	ChassisV1250ThermalDirectionTopExhaust  ChassisV1250ThermalDirection = "TopExhaust"
+)
+
+// Defines values for DataStorageLoSCapabilitiesProvisioningPolicy.
+const (
+	Fixed DataStorageLoSCapabilitiesProvisioningPolicy = "Fixed"
+	Thin  DataStorageLoSCapabilitiesProvisioningPolicy = "Thin"
 )
 
 // Defines values for PCIeDevicePCIeTypes.
@@ -248,6 +254,20 @@ const (
 	Top    ResourceV1180Reference = "Top"
 )
 
+// Defines values for StoragePoolNVMePoolType.
+const (
+	EnduranceGroup StoragePoolNVMePoolType = "EnduranceGroup"
+	NVMSet         StoragePoolNVMePoolType = "NVMSet"
+)
+
+// Defines values for StoragePoolPoolType.
+const (
+	StoragePoolPoolTypeBlock  StoragePoolPoolType = "Block"
+	StoragePoolPoolTypeFile   StoragePoolPoolType = "File"
+	StoragePoolPoolTypeObject StoragePoolPoolType = "Object"
+	StoragePoolPoolTypePool   StoragePoolPoolType = "Pool"
+)
+
 // Defines values for StorageV1151AutoVolumeCreate.
 const (
 	StorageV1151AutoVolumeCreateDisabled StorageV1151AutoVolumeCreate = "Disabled"
@@ -330,6 +350,126 @@ type ActionInfoV141Parameters struct {
 	// Required An indication of whether the parameter is required to complete this action.
 	Required *bool `json:"Required,omitempty"`
 }
+
+// CapacityV100Capacity This is the schema definition for the Capacity of a device. It represents the properties for capacity for any data store.
+type CapacityV100Capacity struct {
+	// Data The capacity of specific data type in a data store.
+	Data *CapacityV100CapacityInfo `json:"Data,omitempty"`
+
+	// IsThinProvisioned Marks that the capacity is not necessarily fully allocated.
+	IsThinProvisioned *bool `json:"IsThinProvisioned"`
+
+	// Metadata The capacity of specific data type in a data store.
+	Metadata *CapacityV100CapacityInfo `json:"Metadata,omitempty"`
+
+	// Snapshot The capacity of specific data type in a data store.
+	Snapshot *CapacityV100CapacityInfo `json:"Snapshot,omitempty"`
+}
+
+// CapacityV100CapacityInfo The capacity of specific data type in a data store.
+type CapacityV100CapacityInfo struct {
+	// AllocatedBytes The number of bytes currently allocated by the storage system in this data store for this data type.
+	AllocatedBytes *int64 `json:"AllocatedBytes"`
+
+	// ConsumedBytes The number of bytes consumed in this data store for this data type.
+	ConsumedBytes *int64 `json:"ConsumedBytes"`
+
+	// GuaranteedBytes The number of bytes the storage system guarantees can be allocated in this data store for this data type.
+	GuaranteedBytes *int64 `json:"GuaranteedBytes"`
+
+	// ProvisionedBytes The maximum number of bytes that can be allocated in this data store for this data type.
+	ProvisionedBytes *int64 `json:"ProvisionedBytes"`
+}
+
+// CapacityV121Actions The available actions for this resource.
+type CapacityV121Actions struct {
+	// Oem The available OEM specific actions for this resource.
+	Oem *CapacityV121OemActions `json:"Oem,omitempty"`
+}
+
+// CapacityV121Capacity This is the schema definition for the Capacity of a device. It represents the properties for capacity for any data store.
+type CapacityV121Capacity struct {
+	// Data The capacity of specific data type in a data store.
+	Data *CapacityV121CapacityInfo `json:"Data,omitempty"`
+
+	// IsThinProvisioned Marks that the capacity is not necessarily fully allocated.
+	IsThinProvisioned *bool `json:"IsThinProvisioned"`
+
+	// Metadata The capacity of specific data type in a data store.
+	Metadata *CapacityV121CapacityInfo `json:"Metadata,omitempty"`
+
+	// Snapshot The capacity of specific data type in a data store.
+	Snapshot *CapacityV121CapacityInfo `json:"Snapshot,omitempty"`
+}
+
+// CapacityV121CapacityInfo The capacity of specific data type in a data store.
+type CapacityV121CapacityInfo struct {
+	// AllocatedBytes The number of bytes currently allocated by the storage system in this data store for this data type.
+	AllocatedBytes *int64 `json:"AllocatedBytes"`
+
+	// ConsumedBytes The number of bytes consumed in this data store for this data type.
+	ConsumedBytes *int64 `json:"ConsumedBytes"`
+
+	// GuaranteedBytes The number of bytes the storage system guarantees can be allocated in this data store for this data type.
+	GuaranteedBytes *int64 `json:"GuaranteedBytes"`
+
+	// ProvisionedBytes The maximum number of bytes that can be allocated in this data store for this data type.
+	ProvisionedBytes *int64 `json:"ProvisionedBytes"`
+}
+
+// CapacityV121CapacitySource A description of the type and source of storage.
+type CapacityV121CapacitySource struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *CapacityV121Actions `json:"Actions,omitempty"`
+
+	// Description The description of this resource.  Used for commonality in the schema definitions.
+	Description *ResourceDescription `json:"Description,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// ProvidedCapacity This is the schema definition for the Capacity of a device. It represents the properties for capacity for any data store.
+	ProvidedCapacity *CapacityV121Capacity `json:"ProvidedCapacity,omitempty"`
+
+	// ProvidedClassOfService A reference to a resource.
+	ProvidedClassOfService *OdataV4IdRef `json:"ProvidedClassOfService,omitempty"`
+
+	// ProvidingDrives A reference to a resource.
+	ProvidingDrives *OdataV4IdRef `json:"ProvidingDrives,omitempty"`
+
+	// ProvidingMemory A reference to a resource.
+	ProvidingMemory *OdataV4IdRef `json:"ProvidingMemory,omitempty"`
+
+	// ProvidingMemoryChunks A reference to a resource.
+	ProvidingMemoryChunks *OdataV4IdRef `json:"ProvidingMemoryChunks,omitempty"`
+
+	// ProvidingPools A reference to a resource.
+	ProvidingPools *OdataV4IdRef `json:"ProvidingPools,omitempty"`
+
+	// ProvidingVolumes A reference to a resource.
+	ProvidingVolumes *OdataV4IdRef `json:"ProvidingVolumes,omitempty"`
+}
+
+// CapacityV121OemActions The available OEM specific actions for this resource.
+type CapacityV121OemActions map[string]interface{}
 
 // Chassis The Chassis schema represents the physical components of a system.  This resource represents the sheet-metal confined spaces and logical zones such as racks, enclosures, chassis and all other containers.  Subsystems, such as sensors, that operate outside of a system's data plane are linked either directly or indirectly through this resource.  A subsystem that operates outside of a system's data plane are not accessible to software that runs on the system.  It also describes the location, such as a slot, socket, or bay, where a unit can be installed, by populating a resource instance with an absent state if a unit is not present.
 type Chassis = ChassisV1250Chassis
@@ -715,6 +855,42 @@ type ChassisV1250Reset struct {
 
 // ChassisV1250ThermalDirection defines model for Chassis_v1_25_0_ThermalDirection.
 type ChassisV1250ThermalDirection string
+
+// DataStorageLoSCapabilitiesProvisioningPolicy Space provisioning policy.
+type DataStorageLoSCapabilitiesProvisioningPolicy string
+
+// IOStatisticsV101IOStatistics The properties of this type represent IO statistics.
+type IOStatisticsV101IOStatistics struct {
+	// NonIORequestTime The time that the resource is busy processing write requests.
+	NonIORequestTime *string `json:"NonIORequestTime"`
+
+	// NonIORequests Count of non IO requests.
+	NonIORequests *int64 `json:"NonIORequests"`
+
+	// ReadHitIORequests Count of read IO requests satisfied from memory.
+	ReadHitIORequests *int64 `json:"ReadHitIORequests"`
+
+	// ReadIOKiBytes Number of kibibytes read.
+	ReadIOKiBytes *int64 `json:"ReadIOKiBytes"`
+
+	// ReadIORequestTime The time that the resource is busy processing read requests.
+	ReadIORequestTime *string `json:"ReadIORequestTime"`
+
+	// ReadIORequests Count of read IO requests.
+	ReadIORequests *int64 `json:"ReadIORequests"`
+
+	// WriteHitIORequests Count of write IO requests coalesced into memory.
+	WriteHitIORequests *int64 `json:"WriteHitIORequests"`
+
+	// WriteIOKiBytes Number of kibibytes written.
+	WriteIOKiBytes *int64 `json:"WriteIOKiBytes"`
+
+	// WriteIORequestTime The time that the resource is busy processing write requests.
+	WriteIORequestTime *string `json:"WriteIORequestTime"`
+
+	// WriteIORequests Count of write IO requests.
+	WriteIORequests *int64 `json:"WriteIORequests"`
+}
 
 // PCIeDevicePCIeTypes defines model for PCIeDevice_PCIeTypes.
 type PCIeDevicePCIeTypes string
@@ -1376,6 +1552,343 @@ type StorageCollectionStorageCollection struct {
 
 	// Oem The OEM extension.
 	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// StoragePool A container of data storage.
+type StoragePool = StoragePoolV190StoragePool
+
+// StoragePoolCollection A Collection of StoragePool resource instances.
+type StoragePoolCollection = StoragePoolCollectionStoragePoolCollection
+
+// StoragePoolCollectionStoragePoolCollection A Collection of StoragePool resource instances.
+type StoragePoolCollectionStoragePoolCollection struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Description The description of this resource.  Used for commonality in the schema definitions.
+	Description *ResourceDescription `json:"Description,omitempty"`
+
+	// Members The value of each member references a StoragePool resource.
+	Members *[]OdataV4IdRef `json:"Members,omitempty"`
+
+	// MembersOdataCount The number of items in a collection.
+	MembersOdataCount *OdataV4Count `json:"Members@odata.count,omitempty"`
+
+	// MembersOdataNextLink The URI to the resource containing the next set of partial members.
+	MembersOdataNextLink *OdataV4NextLink `json:"Members@odata.nextLink,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// StoragePoolNVMePoolType defines model for StoragePool_NVMePoolType.
+type StoragePoolNVMePoolType string
+
+// StoragePoolPoolType defines model for StoragePool_PoolType.
+type StoragePoolPoolType string
+
+// StoragePoolV190Actions The available actions for this resource.
+type StoragePoolV190Actions struct {
+	// HashStoragePoolAddDrives This action is used to add an additional drive, or set of drives, to a capacity source for the storage pool.
+	HashStoragePoolAddDrives *StoragePoolV190AddDrives `json:"#StoragePool.AddDrives,omitempty"`
+
+	// HashStoragePoolRemoveDrives This action is used to remove drive(s) from the capacity source for the StoragePool.
+	HashStoragePoolRemoveDrives *StoragePoolV190RemoveDrives `json:"#StoragePool.RemoveDrives,omitempty"`
+
+	// HashStoragePoolSetCompressionState This action is used to set the compression state of the pool.
+	HashStoragePoolSetCompressionState *StoragePoolV190SetCompressionState `json:"#StoragePool.SetCompressionState,omitempty"`
+
+	// HashStoragePoolSetDeduplicationState This action is used to set the dedupe state of the pool.
+	HashStoragePoolSetDeduplicationState *StoragePoolV190SetDeduplicationState `json:"#StoragePool.SetDeduplicationState,omitempty"`
+
+	// HashStoragePoolSetEncryptionState This action is used to set the encryption state of the pool.
+	HashStoragePoolSetEncryptionState *StoragePoolV190SetEncryptionState `json:"#StoragePool.SetEncryptionState,omitempty"`
+
+	// Oem The available OEM specific actions for this resource.
+	Oem *StoragePoolV190OemActions `json:"Oem,omitempty"`
+}
+
+// StoragePoolV190AddDrives This action is used to add an additional drive, or set of drives, to a capacity source for the storage pool.
+type StoragePoolV190AddDrives struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// StoragePoolV190EndGrpLifetime This contains properties the Endurance Group Lifetime attributes.
+type StoragePoolV190EndGrpLifetime struct {
+	// DataUnitsRead The property contains the total number of data units read from this endurance group.
+	DataUnitsRead *int64 `json:"DataUnitsRead"`
+
+	// DataUnitsWritten The property contains the total number of data units written from this endurance group.
+	DataUnitsWritten *int64 `json:"DataUnitsWritten"`
+
+	// EnduranceEstimate This property contains an estimate of the total number of data bytes that may be written to the Endurance Group over the lifetime of the Endurance Group assuming a write amplication of 1.
+	EnduranceEstimate *int64 `json:"EnduranceEstimate"`
+
+	// ErrorInformationLogEntryCount This property contains the number of error information log entries over the life of the controller for the endurance group.
+	ErrorInformationLogEntryCount *int64 `json:"ErrorInformationLogEntryCount"`
+
+	// HostReadCommandCount This property contains the number of read commands completed by all controllers in the NVM subsystem for the Endurance Group.
+	HostReadCommandCount *int64 `json:"HostReadCommandCount"`
+
+	// HostWriteCommandCount This property contains the number of write commands completed by all controllers in the NVM subsystem for the Endurance Group.
+	HostWriteCommandCount *int64 `json:"HostWriteCommandCount"`
+
+	// MediaAndDataIntegrityErrorCount This property contains the number of occurences where the controller detected an unrecovered data integrity error for the Endurance Group.
+	MediaAndDataIntegrityErrorCount *int64 `json:"MediaAndDataIntegrityErrorCount"`
+
+	// MediaUnitsWritten The property contains the total number of data units written from this endurance group.
+	MediaUnitsWritten *int64 `json:"MediaUnitsWritten"`
+
+	// PercentUsed A vendor-specific estimate of the percent life used for the endurance group based on the actual usage and the manufacturer prediction of NVM life.
+	PercentUsed *int64 `json:"PercentUsed"`
+}
+
+// StoragePoolV190Links The links object contains the links to other resources that are related to this resource.
+type StoragePoolV190Links struct {
+	// DedicatedSpareDrives An array of references to the drives which are dedicated spares for this StoragePool.
+	DedicatedSpareDrives *[]OdataV4IdRef `json:"DedicatedSpareDrives,omitempty"`
+
+	// DedicatedSpareDrivesOdataCount The number of items in a collection.
+	DedicatedSpareDrivesOdataCount *OdataV4Count `json:"DedicatedSpareDrives@odata.count,omitempty"`
+
+	// DefaultClassOfService A reference to a resource.
+	DefaultClassOfService *OdataV4IdRef `json:"DefaultClassOfService,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// OwningStorageResource A reference to a resource.
+	OwningStorageResource *OdataV4IdRef `json:"OwningStorageResource,omitempty"`
+
+	// SpareResourceSets An array of references to SpareResourceSets.
+	SpareResourceSets *[]OdataV4IdRef `json:"SpareResourceSets,omitempty"`
+
+	// SpareResourceSetsOdataCount The number of items in a collection.
+	SpareResourceSetsOdataCount *OdataV4Count `json:"SpareResourceSets@odata.count,omitempty"`
+}
+
+// StoragePoolV190NVMeEnduranceGroupProperties This contains properties to use when StoragePool is used to describe an NVMe Endurance Group.
+type StoragePoolV190NVMeEnduranceGroupProperties struct {
+	// EndGrpLifetime This contains properties the Endurance Group Lifetime attributes.
+	EndGrpLifetime *StoragePoolV190EndGrpLifetime `json:"EndGrpLifetime,omitempty"`
+
+	// PredictedMediaLifeLeftPercent The percentage of reads and writes that are predicted to be available for the media.
+	PredictedMediaLifeLeftPercent *float32 `json:"PredictedMediaLifeLeftPercent"`
+}
+
+// StoragePoolV190NVMeProperties This contains properties to use when StoragePool is used to describe an NVMe construct.
+type StoragePoolV190NVMeProperties struct {
+	NVMePoolType *StoragePoolNVMePoolType `json:"NVMePoolType,omitempty"`
+}
+
+// StoragePoolV190NVMeSetProperties This contains properties to use when StoragePool is used to describe an NVMe Set.
+type StoragePoolV190NVMeSetProperties struct {
+	// EnduranceGroupIdentifier A 16-bit hex value that contains the endurance group identifier.
+	EnduranceGroupIdentifier *string `json:"EnduranceGroupIdentifier"`
+
+	// OptimalWriteSizeBytes This property contains the Optimal Write Size in Bytes for this NVMe Set.
+	OptimalWriteSizeBytes *int64 `json:"OptimalWriteSizeBytes"`
+
+	// Random4kReadTypicalNanoSeconds Indicates the typical time to complete a 4k read in 100 nano-second units when the NVM Set is in a Predictable Latency Mode Deterministic Window and there is 1 outstanding command per NVM Set.
+	Random4kReadTypicalNanoSeconds *int64 `json:"Random4kReadTypicalNanoSeconds"`
+
+	// SetIdentifier A 16-bit hex value that contains the NVMe Set group identifier.
+	SetIdentifier *string `json:"SetIdentifier"`
+
+	// UnallocatedNVMNamespaceCapacityBytes Indicates the unallocated capacity of the NVMe Set in bytes.
+	UnallocatedNVMNamespaceCapacityBytes *int64 `json:"UnallocatedNVMNamespaceCapacityBytes"`
+}
+
+// StoragePoolV190OemActions The available OEM specific actions for this resource.
+type StoragePoolV190OemActions map[string]interface{}
+
+// StoragePoolV190RemoveDrives This action is used to remove drive(s) from the capacity source for the StoragePool.
+type StoragePoolV190RemoveDrives struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// StoragePoolV190SetCompressionState This action is used to set the compression state of the pool.
+type StoragePoolV190SetCompressionState struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// StoragePoolV190SetDeduplicationState This action is used to set the dedupe state of the pool.
+type StoragePoolV190SetDeduplicationState struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// StoragePoolV190SetEncryptionState This action is used to set the encryption state of the pool.
+type StoragePoolV190SetEncryptionState struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// StoragePoolV190StoragePool A container of data storage.
+type StoragePoolV190StoragePool struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *StoragePoolV190Actions `json:"Actions,omitempty"`
+
+	// AllocatedPools A reference to a resource.
+	AllocatedPools *OdataV4IdRef `json:"AllocatedPools,omitempty"`
+
+	// AllocatedVolumes A reference to a resource.
+	AllocatedVolumes *OdataV4IdRef `json:"AllocatedVolumes,omitempty"`
+
+	// BlockSizeBytes Maximum Block size in bytes.
+	// Deprecated:
+	BlockSizeBytes *int64 `json:"BlockSizeBytes"`
+
+	// Capacity This is the schema definition for the Capacity of a device. It represents the properties for capacity for any data store.
+	Capacity *CapacityV100Capacity `json:"Capacity,omitempty"`
+
+	// CapacitySources An array of space allocations to this store.
+	CapacitySources *[]CapacityV121CapacitySource `json:"CapacitySources,omitempty"`
+
+	// CapacitySourcesOdataCount The number of items in a collection.
+	CapacitySourcesOdataCount *OdataV4Count `json:"CapacitySources@odata.count,omitempty"`
+
+	// ClassesOfService A reference to a resource.
+	ClassesOfService *OdataV4IdRef `json:"ClassesOfService,omitempty"`
+
+	// Compressed Indicator of whether or not the StoragePool has compression enabled.
+	// Deprecated:
+	Compressed *bool `json:"Compressed"`
+
+	// CompressionEnabled Indicates whether or not compression is enabled on the storage pool.
+	CompressionEnabled *bool `json:"CompressionEnabled"`
+
+	// Deduplicated Indicator of whether or not the StoragePool has deduplication enabled.
+	// Deprecated:
+	Deduplicated *bool `json:"Deduplicated"`
+
+	// DeduplicationEnabled Indicates whether or not deduplication is enabled on the storage pool.
+	DeduplicationEnabled *bool `json:"DeduplicationEnabled"`
+
+	// DefaultClassOfService A reference to a resource.
+	DefaultClassOfService *OdataV4IdRef `json:"DefaultClassOfService,omitempty"`
+
+	// DefaultCompressionBehavior Indicates the default dedupe behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Compressed' property is not set on the create request.
+	DefaultCompressionBehavior *bool `json:"DefaultCompressionBehavior"`
+
+	// DefaultDeduplicationBehavior Indicates the default deduplication behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Deduplicated' property is not set on the create request.
+	DefaultDeduplicationBehavior *bool `json:"DefaultDeduplicationBehavior"`
+
+	// DefaultEncryptionBehavior Indicates the default dedupe behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Encrypted' property is not set on the create request.
+	DefaultEncryptionBehavior *bool `json:"DefaultEncryptionBehavior"`
+
+	// Description The description of this resource.  Used for commonality in the schema definitions.
+	Description *ResourceDescription `json:"Description,omitempty"`
+
+	// Encrypted Indicator of whether or not the StoragePool has encryption enabled.
+	// Deprecated:
+	Encrypted *bool `json:"Encrypted"`
+
+	// EncryptionEnabled Indicates whether or not encryption is enabled on the storage pool.
+	EncryptionEnabled *bool `json:"EncryptionEnabled"`
+
+	// IOStatistics The properties of this type represent IO statistics.
+	IOStatistics *IOStatisticsV101IOStatistics `json:"IOStatistics,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// Identifier Any additional identifiers for a resource.
+	Identifier *ResourceV1180Identifier `json:"Identifier,omitempty"`
+
+	// Links The links object contains the links to other resources that are related to this resource.
+	Links *StoragePoolV190Links `json:"Links,omitempty"`
+
+	// LowSpaceWarningThresholdPercents Low space warning threshold specified in percents.
+	LowSpaceWarningThresholdPercents *[]int64 `json:"LowSpaceWarningThresholdPercents,omitempty"`
+
+	// MaxBlockSizeBytes Maximum Block size in bytes.
+	MaxBlockSizeBytes *int64 `json:"MaxBlockSizeBytes"`
+
+	// Metrics A reference to a resource.
+	Metrics *OdataV4IdRef `json:"Metrics,omitempty"`
+
+	// NVMeEnduranceGroupProperties This contains properties to use when StoragePool is used to describe an NVMe Endurance Group.
+	NVMeEnduranceGroupProperties *StoragePoolV190NVMeEnduranceGroupProperties `json:"NVMeEnduranceGroupProperties,omitempty"`
+
+	// NVMeProperties This contains properties to use when StoragePool is used to describe an NVMe construct.
+	NVMeProperties *StoragePoolV190NVMeProperties `json:"NVMeProperties,omitempty"`
+
+	// NVMeSetProperties This contains properties to use when StoragePool is used to describe an NVMe Set.
+	NVMeSetProperties *StoragePoolV190NVMeSetProperties `json:"NVMeSetProperties,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// PoolType Pool usage type for this storage pool.
+	// Deprecated:
+	PoolType *[]StoragePoolPoolType `json:"PoolType,omitempty"`
+
+	// RecoverableCapacitySourceCount Current number of capacity source resources that are available as replacements.
+	RecoverableCapacitySourceCount *int64 `json:"RecoverableCapacitySourceCount"`
+
+	// RemainingCapacityPercent The percentage of the capacity remaining in the StoragePool.
+	RemainingCapacityPercent *int64 `json:"RemainingCapacityPercent"`
+
+	// ReplicationEnabled Indicates whether or not replication is enabled on the storage pool.
+	ReplicationEnabled *bool `json:"ReplicationEnabled"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// SupportedPoolTypes A collection of the Pool Types supported by the storage pool.
+	SupportedPoolTypes *[]StoragePoolPoolType `json:"SupportedPoolTypes,omitempty"`
+
+	// SupportedProvisioningPolicies This collection specifies all supported storage allocation properties for the Storage Pool.
+	SupportedProvisioningPolicies *[]DataStorageLoSCapabilitiesProvisioningPolicy `json:"SupportedProvisioningPolicies,omitempty"`
+
+	// SupportedRAIDTypes A collection of the RAID Types supported by the storage pool.
+	SupportedRAIDTypes *[]VolumeRAIDType `json:"SupportedRAIDTypes,omitempty"`
 }
 
 // StorageV1151Actions The available actions for this resource.

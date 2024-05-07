@@ -3,24 +3,18 @@ package service
 import (
 	"context"
 
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 )
 
-//go:generate mockgen --build_flags=--mod=mod -destination mock/mock_service.go . ServiceRootService,StorageService,StorageCollectionService
+//go:generate mockgen --build_flags=--mod=mod -destination mock/mock_service.go . ResourceService
 
-type ServiceRootService interface {
-	Create(ctx context.Context, resource *domain.ServiceRoot) error
-	Get(ctx context.Context, id string) (*domain.ServiceRoot, error)
-}
-
-type StorageService interface {
-	Get(ctx context.Context, id string) (*domain.Storage, error)
-	Replace(ctx context.Context, storageId string, storage *domain.Storage) (*domain.Storage, error)
-	Update(ctx context.Context, storageId string, patchData []byte) (*domain.Storage, error)
-}
-
-type StorageCollectionService interface {
-	Get(ctx context.Context, id string) (*domain.StorageCollection, error)
-	AddStorage(ctx context.Context, collectionId string, storage *domain.Storage) error
-	DeleteStorage(ctx context.Context, storageId string) (*domain.Storage, error)
+type ResourceService interface {
+	Get(ctx context.Context, resourceId string) (interface{}, error)
+	Create(ctx context.Context, resourceId string, resource interface{}) (interface{}, error)
+	Update(ctx context.Context, resourceId string, patchData []byte) (interface{}, error)
+	Replace(ctx context.Context, resourceId string, resource interface{}) (interface{}, error)
+	Delete(ctx context.Context, resourceId string) (interface{}, error)
+	CreateCollection(ctx context.Context, collectionDto dto.CollectionDto) (interface{}, error)
+	AddResourceToCollection(ctx context.Context, collectionId, resourceId string, resource interface{}) (interface{}, error)
+	DeleteResourceFromCollection(ctx context.Context, collectionId, resourceId string) (interface{}, error)
 }

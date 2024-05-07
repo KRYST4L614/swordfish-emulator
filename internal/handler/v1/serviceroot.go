@@ -4,17 +4,16 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/service"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/util"
 )
 
 // ServiceRootHandler addresses to the ServiceRoot endpoint
 type ServiceRootHandler struct {
-	service service.ServiceRootService
+	service service.ResourceService
 }
 
-func NewServiceRootHandler(service service.ServiceRootService) *ServiceRootHandler {
+func NewServiceRootHandler(service service.ResourceService) *ServiceRootHandler {
 	return &ServiceRootHandler{
 		service: service,
 	}
@@ -28,9 +27,7 @@ func (handler *ServiceRootHandler) SetRouter(router *mux.Router) {
 func (handler *ServiceRootHandler) getServiceRoot(writer http.ResponseWriter, request *http.Request) {
 	serviceRoot, err := handler.service.Get(request.Context(), request.RequestURI)
 	if err != nil {
-		jsonErr := errlib.GetJSONError(err)
-		writer.WriteHeader(jsonErr.Error.Code)
-		util.WriteJSON(writer, jsonErr)
+		util.WriteJSONError(writer, err)
 		return
 	}
 

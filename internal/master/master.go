@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 
 	"github.com/sirupsen/logrus"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository"
-	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository/dto"
 )
 
 type InitialConfigurationMaster struct {

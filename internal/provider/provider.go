@@ -6,7 +6,6 @@ import (
 	embeddedpostgres "github.com/fergusstrange/embedded-postgres"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/jmoiron/sqlx"
-	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 )
 
@@ -41,7 +40,7 @@ func NewEmbeddedPsql(config *EmbeddedPsqlConfig) *EmbeddedPsql {
 		Username(config.UserName).
 		Password(config.Password).
 		Locale("en_US").
-		Logger(logrus.StandardLogger().Out).
+		Logger(nil).
 		DataPath(config.DataPath))
 
 	return &EmbeddedPsql{

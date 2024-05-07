@@ -6,18 +6,20 @@ import (
 )
 
 type Handler struct {
-	handlers []ResourceHandler
+	handlers []CommonHandler
 }
 
-type ResourceHandler interface {
+type CommonHandler interface {
 	SetRouter(router *mux.Router)
 }
 
 func NewHandler(services *service.Service) *Handler {
-	handlers := make([]ResourceHandler, 0)
-	handlers = append(handlers, NewServiceRootHandler(services.ServiceRootService))
-	handlers = append(handlers, NewStorageCollectionHandler(services.StorageCollectionService))
-	handlers = append(handlers, NewStorageHandler(services.StorageService))
+	handlers := make([]CommonHandler, 0)
+	handlers = append(handlers, NewServiceRootHandler(services.ResourceService))
+	handlers = append(handlers, NewStorageCollectionHandler(services.ResourceService))
+	handlers = append(handlers, NewStorageHandler(services.ResourceService))
+	handlers = append(handlers, NewStoragePoolCollectionHandler(services.ResourceService))
+	handlers = append(handlers, NewStoragePoolHandler(services.ResourceService))
 	return &Handler{
 		handlers: handlers,
 	}

@@ -6,15 +6,11 @@ import (
 )
 
 type Service struct {
-	ServiceRootService       ServiceRootService
-	StorageService           StorageService
-	StorageCollectionService StorageCollectionService
+	ResourceService ResourceService
 }
 
 func NewService(repository *repository.Repository) *Service {
 	return &Service{
-		ServiceRootService:       impl.NewServiceRootService(repository.ResourceRepository),
-		StorageService:           impl.NewStorageService(repository.ResourceRepository),
-		StorageCollectionService: impl.NewStorageCollectionService(repository.ResourceRepository),
+		ResourceService: impl.NewResourceService(repository.ResourceRepository),
 	}
 }
