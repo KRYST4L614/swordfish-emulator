@@ -1,8 +1,6 @@
 module gitlab.com/IgorNikiforov/swordfish-emulator-go
 
-go 1.21.0
-
-toolchain go1.21.6
+go 1.21
 
 require (
 	github.com/evanphx/json-patch v0.5.2

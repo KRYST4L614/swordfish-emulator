@@ -39,7 +39,6 @@ func NewEmbeddedPsql(config *EmbeddedPsqlConfig) *EmbeddedPsql {
 		Port(config.Port).
 		Username(config.UserName).
 		Password(config.Password).
-		Locale("en_US").
 		Logger(nil).
 		DataPath(config.DataPath))
 

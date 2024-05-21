@@ -15,6 +15,7 @@ type CommonHandler interface {
 
 func NewHandler(services *service.Service) *Handler {
 	handlers := make([]CommonHandler, 0)
+	handlers = append(handlers, NewMetadataHandler(services.ResourceService))
 	handlers = append(handlers, NewServiceRootHandler(services.ResourceService))
 	handlers = append(handlers, NewStorageCollectionHandler(services.ResourceService))
 	handlers = append(handlers, NewStorageHandler(services.ResourceService))
