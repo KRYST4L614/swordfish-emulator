@@ -61,10 +61,13 @@ func (app *App) Start() error {
 			return err
 		}
 	}
+
+	// TODO: move migrations in another tool or make it configurable
 	if err := goose.Up(app.provider.DB.DB, "./database/migration"); err != nil {
 		return err
 	}
 
+	// TODO: need to move handling in configuration master
 	if err := app.master.LoadResources(app.config.DatasetConfig.Path); err != nil {
 		if !errors.Is(err, errlib.ErrResourceAlreadyExists) {
 			return err

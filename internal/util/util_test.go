@@ -7,6 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 )
 
 func TestMarshal(t *testing.T) {
@@ -69,4 +70,31 @@ func TestWriteJSON(t *testing.T) {
 func TestGetParent(t *testing.T) {
 	uri := "redfish/v1/Storage/1"
 	assert.Equal(t, "redfish/v1/Storage", GetParent(uri))
+}
+
+func TestWriteJSONError(t *testing.T) {
+	rr := httptest.NewRecorder()
+	WriteJSONError(rr, errlib.ErrInternal)
+	assert.Equal(t, 500, rr.Code)
+	decoededError, err := UnmarshalFromReader[errlib.JSONError](rr.Body)
+	if assert.NoError(t, err) {
+		assert.Equal(t, 500, decoededError.Error.Code)
+		assert.Contains(t, decoededError.Error.Message, errlib.ErrInternal.Error())
+	}
+}
+
+func TestIdGenerator(t *testing.T) {
+	gen := IdGenerator()
+	cache := make(map[string]struct{}, 10)
+	for count := 0; count < 10; count++ {
+		id, err := gen()
+		if assert.NoError(t, err) {
+			_, ok := cache[id]
+			if !assert.False(t, ok) {
+				t.FailNow()
+			}
+
+			cache[id] = struct{}{}
+		}
+	}
 }

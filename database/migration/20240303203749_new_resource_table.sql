@@ -2,7 +2,7 @@
 -- +goose StatementBegin
 CREATE TABLE IF NOT EXISTS resource (
  id TEXT PRIMARY KEY,
- data JSONB
+ data TEXT
 );
 
 CREATE TABLE IF NOT EXISTS operation_privilege (
@@ -41,5 +41,5 @@ DROP TABLE IF EXISTS operation_privilege;
 DROP TABLE IF EXISTS privilege;
 DROP TABLE IF EXISTS role;
 DROP TABLE IF EXISTS role_privilege;
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS "user";
 -- +goose StatementEnd

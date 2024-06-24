@@ -15,6 +15,10 @@ type ResourceService interface {
 	Replace(ctx context.Context, resourceId string, resource interface{}) (interface{}, error)
 	Delete(ctx context.Context, resourceId string) (interface{}, error)
 	CreateCollection(ctx context.Context, collectionDto dto.CollectionDto) (interface{}, error)
-	AddResourceToCollection(ctx context.Context, collectionId, resourceId string, resource interface{}) (interface{}, error)
+	AddResourceToCollection(ctx context.Context, resourceDto dto.ResourceRequestDto) (interface{}, error)
 	DeleteResourceFromCollection(ctx context.Context, collectionId, resourceId string) (interface{}, error)
+}
+
+type IdGenerator interface {
+	Generate(count uint64) (string, error)
 }

@@ -64,10 +64,16 @@ func WriteJSONError(writer http.ResponseWriter, err error) {
 	WriteJSON(writer, jsonErr)
 }
 
+// GetParent - gets parent path
+//
+// Example: /foo/boo -> /foo
+// works with reverse slash too: \foo\boo -> /foo
 func GetParent(uri string) string {
 	return filepath.ToSlash(filepath.Dir(uri))
 }
 
+// IdGenerator returns simple function that generates unique
+// url-safe ids. Should be removed with service/generator.go
 func IdGenerator() func() (string, error) {
 	s, _ := squids.New()
 	var counter uint64 = 0

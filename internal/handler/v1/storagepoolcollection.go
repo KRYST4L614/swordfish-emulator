@@ -1,10 +1,10 @@
 package v1
 
 import (
-	"context"
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/service"
@@ -12,43 +12,35 @@ import (
 )
 
 type StoragePoolCollectionHandler struct {
-	service   service.ResourceService
-	generator func() (string, error)
+	service service.ResourceService
 }
 
 func NewStoragePoolCollectionHandler(service service.ResourceService) *StoragePoolCollectionHandler {
 	return &StoragePoolCollectionHandler{
-		service:   service,
-		generator: util.IdGenerator(),
+		service: service,
 	}
 }
 
 func (handler *StoragePoolCollectionHandler) SetRouter(router *mux.Router) {
-	router.HandleFunc(`/{root:.*}/ProvidingPools`, handler.getStoragePoolCollection).Methods(http.MethodGet)
-	router.HandleFunc(`/{root:.*}/StoragePools`, handler.getStoragePoolCollection).Methods(http.MethodGet)
-	router.HandleFunc(`/{root:.*}/AllocatedPools`, handler.getStoragePoolCollection).Methods(http.MethodGet)
+	router.HandleFunc(`/{root:.*}/ProvidingPools`, resourceGetter(handler.service)).Methods(http.MethodGet)
+	router.HandleFunc(`/{root:.*}/StoragePools`, resourceGetter(handler.service)).Methods(http.MethodGet)
+	router.HandleFunc(`/{root:.*}/AllocatedPools`, resourceGetter(handler.service)).Methods(http.MethodGet)
 
 	router.HandleFunc(`/{root:.*}/ProvidingPools`, handler.createStoragePool).Methods(http.MethodPost)
 	router.HandleFunc(`/{root:.*}/StoragePools`, handler.createStoragePool).Methods(http.MethodPost)
 	router.HandleFunc(`/{root:.*}/AllocatedPools`, handler.createStoragePool).Methods(http.MethodPost)
 
-	router.HandleFunc(`/{root:.*}/ProvidingPools/Members`, handler.createStoragePoolFromNotCollectionEndpoint).Methods(http.MethodPost)
-	router.HandleFunc(`/{root:.*}/StoragePools/Members`, handler.createStoragePoolFromNotCollectionEndpoint).Methods(http.MethodPost)
-	router.HandleFunc(`/{root:.*}/AllocatedPools/Members`, handler.createStoragePoolFromNotCollectionEndpoint).Methods(http.MethodPost)
+	router.HandleFunc(`/{root:.*}/ProvidingPools/Members`, resourceCreatorFromNotCollectionEndpoint(handler.createStoragePool)).Methods(http.MethodPost)
+	router.HandleFunc(`/{root:.*}/StoragePools/Members`, resourceCreatorFromNotCollectionEndpoint(handler.createStoragePool)).Methods(http.MethodPost)
+	router.HandleFunc(`/{root:.*}/AllocatedPools/Members`, resourceCreatorFromNotCollectionEndpoint(handler.createStoragePool)).Methods(http.MethodPost)
 
-	router.HandleFunc(`/{root:.*}/ProvidingPools/{id:[a-zA-Z0-9]+}`, handler.createStoragePoolFromNotCollectionEndpoint).Methods(http.MethodPost)
-	router.HandleFunc(`/{root:.*}/StoragePools/{id:[a-zA-Z0-9]+}`, handler.createStoragePoolFromNotCollectionEndpoint).Methods(http.MethodPost)
-	router.HandleFunc(`/{root:.*}/AllocatedPools/{id:[a-zA-Z0-9]+}`, handler.createStoragePoolFromNotCollectionEndpoint).Methods(http.MethodPost)
-}
-
-func (handler *StoragePoolCollectionHandler) getStoragePoolCollection(writer http.ResponseWriter, request *http.Request) {
-	serviceRoot, err := handler.service.Get(request.Context(), request.RequestURI)
-	if err != nil {
-		util.WriteJSONError(writer, err)
-		return
-	}
-
-	util.WriteJSON(writer, serviceRoot)
+	// Endpoints only for compatibility with official Swordfish Emulator
+	//
+	// Not a good way, should be removed when Ansible modules will handle
+	// resources creation in right way
+	router.HandleFunc(`/{root:.*}/ProvidingPools`+idPathRegex, resourceCreatorFromNotCollectionEndpoint(handler.createStoragePool)).Methods(http.MethodPost)
+	router.HandleFunc(`/{root:.*}/StoragePools`+idPathRegex, resourceCreatorFromNotCollectionEndpoint(handler.createStoragePool)).Methods(http.MethodPost)
+	router.HandleFunc(`/{root:.*}/AllocatedPools`+idPathRegex, resourceCreatorFromNotCollectionEndpoint(handler.createStoragePool)).Methods(http.MethodPost)
 }
 
 func (handler *StoragePoolCollectionHandler) createStoragePool(writer http.ResponseWriter, request *http.Request) {
@@ -58,44 +50,34 @@ func (handler *StoragePoolCollectionHandler) createStoragePool(writer http.Respo
 		return
 	}
 
-	collectionId := request.RequestURI
-	if storagePool.Id == "" {
-		storagePool.Id, err = handler.generator()
-		if err != nil {
-			util.WriteJSONError(writer, err)
-			return
-		}
+	// Only for compatibility with official Swordfish Emulator.
+	// TODO: Need to be removed when modules handle creation in right way for clearer dataflow.
+	contextId := request.Context().Value(idContext)
+	if contextId != nil {
+		storagePool.Id = contextId.(string)
 	}
-	poolId := collectionId + "/" + storagePool.Id
-	storagePool.OdataId = util.Addr[string](poolId)
 
-	if _, err := handler.service.Get(request.Context(), collectionId); err != nil {
-		_, innerErr := handler.service.CreateCollection(request.Context(), dto.CollectionDto{
-			OdataId:   collectionId,
+	// TODO: Add validation on incoming resource
+	logrus.Info("Pool uri: ", request.RequestURI)
+	pool, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
+		Name:            storagePool.Name,
+		Id:              storagePool.Id,
+		OdataType:       "#StoragePool.v1_9_0.StoragePool",
+		Resource:        storagePool,
+		IdSetter:        func(id string) { storagePool.Id = id },
+		OdataIdSetter:   func(odataId string) { storagePool.OdataId = &odataId },
+		OdataTypeSetter: func(odataType string) { storagePool.OdataType = &odataType },
+		Collection: dto.CollectionDto{
+			OdataId:   request.RequestURI,
 			Name:      "Storage Pool Collection",
 			OdataType: "#StoragePoolCollection.StoragePoolCollection",
-		})
-		if innerErr != nil {
-			util.WriteJSONError(writer, err)
-			return
-		}
-	}
+		},
+	})
 
-	createdStorage, err := handler.service.AddResourceToCollection(request.Context(), collectionId, poolId, storagePool)
 	if err != nil {
 		util.WriteJSONError(writer, err)
 		return
 	}
 	writer.WriteHeader(http.StatusCreated)
-	util.WriteJSON(writer, createdStorage)
-}
-
-func (handler *StoragePoolCollectionHandler) createStoragePoolFromNotCollectionEndpoint(writer http.ResponseWriter, request *http.Request) {
-	if mux.Vars(request)["id"] != "" {
-		request = request.WithContext(
-			context.WithValue(request.Context(), struct{ Id string }{"Id"}, mux.Vars(request)["id"]),
-		)
-	}
-	request.RequestURI = util.GetParent(request.RequestURI)
-	handler.createStoragePool(writer, request)
+	util.WriteJSON(writer, pool)
 }

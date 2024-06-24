@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/lib/pq"
-	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/provider"
@@ -27,8 +26,7 @@ func (s *PsqlResourceRepository) Create(ctx context.Context, resource *dto.Resou
 	_, err := s.db.NamedExecContext(ctx, query, resource)
 	if err != nil {
 		if strings.Contains(err.Error(), "resource_pkey") {
-			logrus.Tracef("Resource with id %s already exists", resource.Id)
-			return fmt.Errorf("%w. Resource with id %s already exists.", errlib.ErrResourceAlreadyExists, resource.Id)
+			return fmt.Errorf("%w, resource with id %s already exists", errlib.ErrResourceAlreadyExists, resource.Id)
 		}
 		return fmt.Errorf("%w.", errlib.ErrInternal)
 	}
@@ -47,15 +45,14 @@ func (s *PsqlResourceRepository) Update(ctx context.Context, resource *dto.Resou
 func (s *PsqlResourceRepository) Get(ctx context.Context, id string) (*dto.ResourceDto, error) {
 	var dto dto.ResourceDto
 	if err := s.db.GetContext(ctx, &dto, `SELECT * FROM resource WHERE id=$1`, id); err != nil {
-		logrus.Tracef("Get resource failed with error %e", err)
 		if pqErr, ok := err.(*pq.Error); ok {
 			switch pqErr.Code.Name() {
 			case "no_data":
-				return nil, fmt.Errorf("%w. Resource with id %s doesn't exist.", errlib.ErrNotFound, id)
+				return nil, fmt.Errorf("%w, resource with id %s doesn't exist", errlib.ErrNotFound, id)
 			}
 		}
 		if strings.Contains(err.Error(), "no rows in result set") {
-			return nil, fmt.Errorf("%w. Resource with id %s doesn't exist.", errlib.ErrNotFound, id)
+			return nil, fmt.Errorf("%w, resource with id %s doesn't exist", errlib.ErrNotFound, id)
 		}
 		return nil, fmt.Errorf("%w.", errlib.ErrInternal)
 	}
@@ -72,7 +69,6 @@ func (s *PsqlResourceRepository) DeleteAll(ctx context.Context) error {
 
 func (s *PsqlResourceRepository) DeleteById(ctx context.Context, id string) error {
 	if _, err := s.db.ExecContext(ctx, `DELETE FROM resource WHERE id=$1`, id); err != nil {
-		logrus.Tracef("Failed to delete resource with id %s due to %e", id, err)
 		return fmt.Errorf("%w.", errlib.ErrInternal)
 	}
 	return nil

@@ -1,3 +1,7 @@
+.PHONY: start
+start: ## Run emulator
+	go run cmd/emulator/main.go
+
 .PHONY: unit-test
 unit-test: ## Run unit tests
 	go test -cover ./... -tags=unit -covermode=count -coverprofile=coverage.out
