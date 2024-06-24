@@ -13,3 +13,7 @@ components:
       $ref: ./StoragePool.yaml#/components/schemas/StoragePool_StoragePool
     StoragePoolCollection:
       $ref: ./StoragePoolCollection.yaml#/components/schemas/StoragePoolCollection_StoragePoolCollection
+    Volume:
+      $ref: ./Volume.yaml#/components/schemas/Volume_Volume
+    VolumeCollection:
+      $ref: ./VolumeCollection.yaml#/components/schemas/VolumeCollection_VolumeCollection

@@ -79,8 +79,8 @@ const (
 
 // Defines values for ChassisV1250IntrusionSensorReArm.
 const (
-	Automatic ChassisV1250IntrusionSensorReArm = "Automatic"
-	Manual    ChassisV1250IntrusionSensorReArm = "Manual"
+	ChassisV1250IntrusionSensorReArmAutomatic ChassisV1250IntrusionSensorReArm = "Automatic"
+	ChassisV1250IntrusionSensorReArmManual    ChassisV1250IntrusionSensorReArm = "Manual"
 )
 
 // Defines values for ChassisV1250ThermalDirection.
@@ -95,6 +95,16 @@ const (
 const (
 	Fixed DataStorageLoSCapabilitiesProvisioningPolicy = "Fixed"
 	Thin  DataStorageLoSCapabilitiesProvisioningPolicy = "Thin"
+)
+
+// Defines values for DataStorageLoSCapabilitiesStorageAccessCapability.
+const (
+	Append    DataStorageLoSCapabilitiesStorageAccessCapability = "Append"
+	Execute   DataStorageLoSCapabilitiesStorageAccessCapability = "Execute"
+	Read      DataStorageLoSCapabilitiesStorageAccessCapability = "Read"
+	Streaming DataStorageLoSCapabilitiesStorageAccessCapability = "Streaming"
+	Write     DataStorageLoSCapabilitiesStorageAccessCapability = "Write"
+	WriteOnce DataStorageLoSCapabilitiesStorageAccessCapability = "WriteOnce"
 )
 
 // Defines values for PCIeDevicePCIeTypes.
@@ -268,6 +278,127 @@ const (
 	StoragePoolPoolTypePool   StoragePoolPoolType = "Pool"
 )
 
+// Defines values for StorageReplicaInfoReplicaFaultDomain.
+const (
+	Local  StorageReplicaInfoReplicaFaultDomain = "Local"
+	Remote StorageReplicaInfoReplicaFaultDomain = "Remote"
+)
+
+// Defines values for StorageReplicaInfoReplicaType.
+const (
+	Clone          StorageReplicaInfoReplicaType = "Clone"
+	Mirror         StorageReplicaInfoReplicaType = "Mirror"
+	Snapshot       StorageReplicaInfoReplicaType = "Snapshot"
+	TokenizedClone StorageReplicaInfoReplicaType = "TokenizedClone"
+)
+
+// Defines values for StorageReplicaInfoReplicaUpdateMode.
+const (
+	Active       StorageReplicaInfoReplicaUpdateMode = "Active"
+	Adaptive     StorageReplicaInfoReplicaUpdateMode = "Adaptive"
+	Asynchronous StorageReplicaInfoReplicaUpdateMode = "Asynchronous"
+	Synchronous  StorageReplicaInfoReplicaUpdateMode = "Synchronous"
+)
+
+// Defines values for StorageReplicaInfoV140ConsistencyState.
+const (
+	Consistent   StorageReplicaInfoV140ConsistencyState = "Consistent"
+	Inconsistent StorageReplicaInfoV140ConsistencyState = "Inconsistent"
+)
+
+// Defines values for StorageReplicaInfoV140ConsistencyStatus.
+const (
+	StorageReplicaInfoV140ConsistencyStatusConsistent StorageReplicaInfoV140ConsistencyStatus = "Consistent"
+	StorageReplicaInfoV140ConsistencyStatusDisabled   StorageReplicaInfoV140ConsistencyStatus = "Disabled"
+	StorageReplicaInfoV140ConsistencyStatusInError    StorageReplicaInfoV140ConsistencyStatus = "InError"
+	StorageReplicaInfoV140ConsistencyStatusInProgress StorageReplicaInfoV140ConsistencyStatus = "InProgress"
+)
+
+// Defines values for StorageReplicaInfoV140ConsistencyType.
+const (
+	SequentiallyConsistent StorageReplicaInfoV140ConsistencyType = "SequentiallyConsistent"
+)
+
+// Defines values for StorageReplicaInfoV140ReplicaPriority.
+const (
+	High   StorageReplicaInfoV140ReplicaPriority = "High"
+	Low    StorageReplicaInfoV140ReplicaPriority = "Low"
+	Same   StorageReplicaInfoV140ReplicaPriority = "Same"
+	Urgent StorageReplicaInfoV140ReplicaPriority = "Urgent"
+)
+
+// Defines values for StorageReplicaInfoV140ReplicaProgressStatus.
+const (
+	StorageReplicaInfoV140ReplicaProgressStatusAborting         StorageReplicaInfoV140ReplicaProgressStatus = "Aborting"
+	StorageReplicaInfoV140ReplicaProgressStatusCompleted        StorageReplicaInfoV140ReplicaProgressStatus = "Completed"
+	StorageReplicaInfoV140ReplicaProgressStatusDetaching        StorageReplicaInfoV140ReplicaProgressStatus = "Detaching"
+	StorageReplicaInfoV140ReplicaProgressStatusDormant          StorageReplicaInfoV140ReplicaProgressStatus = "Dormant"
+	StorageReplicaInfoV140ReplicaProgressStatusFailingBack      StorageReplicaInfoV140ReplicaProgressStatus = "FailingBack"
+	StorageReplicaInfoV140ReplicaProgressStatusFailingOver      StorageReplicaInfoV140ReplicaProgressStatus = "FailingOver"
+	StorageReplicaInfoV140ReplicaProgressStatusFracturing       StorageReplicaInfoV140ReplicaProgressStatus = "Fracturing"
+	StorageReplicaInfoV140ReplicaProgressStatusInitializing     StorageReplicaInfoV140ReplicaProgressStatus = "Initializing"
+	StorageReplicaInfoV140ReplicaProgressStatusMixed            StorageReplicaInfoV140ReplicaProgressStatus = "Mixed"
+	StorageReplicaInfoV140ReplicaProgressStatusPending          StorageReplicaInfoV140ReplicaProgressStatus = "Pending"
+	StorageReplicaInfoV140ReplicaProgressStatusPreparing        StorageReplicaInfoV140ReplicaProgressStatus = "Preparing"
+	StorageReplicaInfoV140ReplicaProgressStatusRequiresActivate StorageReplicaInfoV140ReplicaProgressStatus = "RequiresActivate"
+	StorageReplicaInfoV140ReplicaProgressStatusRequiresDetach   StorageReplicaInfoV140ReplicaProgressStatus = "RequiresDetach"
+	StorageReplicaInfoV140ReplicaProgressStatusRequiresFracture StorageReplicaInfoV140ReplicaProgressStatus = "RequiresFracture"
+	StorageReplicaInfoV140ReplicaProgressStatusRequiresResume   StorageReplicaInfoV140ReplicaProgressStatus = "RequiresResume"
+	StorageReplicaInfoV140ReplicaProgressStatusRequiresResync   StorageReplicaInfoV140ReplicaProgressStatus = "RequiresResync"
+	StorageReplicaInfoV140ReplicaProgressStatusRequiresSplit    StorageReplicaInfoV140ReplicaProgressStatus = "RequiresSplit"
+	StorageReplicaInfoV140ReplicaProgressStatusRestoring        StorageReplicaInfoV140ReplicaProgressStatus = "Restoring"
+	StorageReplicaInfoV140ReplicaProgressStatusResyncing        StorageReplicaInfoV140ReplicaProgressStatus = "Resyncing"
+	StorageReplicaInfoV140ReplicaProgressStatusSplitting        StorageReplicaInfoV140ReplicaProgressStatus = "Splitting"
+	StorageReplicaInfoV140ReplicaProgressStatusSuspending       StorageReplicaInfoV140ReplicaProgressStatus = "Suspending"
+	StorageReplicaInfoV140ReplicaProgressStatusSynchronizing    StorageReplicaInfoV140ReplicaProgressStatus = "Synchronizing"
+	StorageReplicaInfoV140ReplicaProgressStatusTerminating      StorageReplicaInfoV140ReplicaProgressStatus = "Terminating"
+)
+
+// Defines values for StorageReplicaInfoV140ReplicaReadOnlyAccess.
+const (
+	StorageReplicaInfoV140ReplicaReadOnlyAccessBoth           StorageReplicaInfoV140ReplicaReadOnlyAccess = "Both"
+	StorageReplicaInfoV140ReplicaReadOnlyAccessReplicaElement StorageReplicaInfoV140ReplicaReadOnlyAccess = "ReplicaElement"
+	StorageReplicaInfoV140ReplicaReadOnlyAccessSourceElement  StorageReplicaInfoV140ReplicaReadOnlyAccess = "SourceElement"
+)
+
+// Defines values for StorageReplicaInfoV140ReplicaRecoveryMode.
+const (
+	StorageReplicaInfoV140ReplicaRecoveryModeAutomatic StorageReplicaInfoV140ReplicaRecoveryMode = "Automatic"
+	StorageReplicaInfoV140ReplicaRecoveryModeManual    StorageReplicaInfoV140ReplicaRecoveryMode = "Manual"
+)
+
+// Defines values for StorageReplicaInfoV140ReplicaRole.
+const (
+	Source StorageReplicaInfoV140ReplicaRole = "Source"
+	Target StorageReplicaInfoV140ReplicaRole = "Target"
+)
+
+// Defines values for StorageReplicaInfoV140ReplicaState.
+const (
+	StorageReplicaInfoV140ReplicaStateAborted        StorageReplicaInfoV140ReplicaState = "Aborted"
+	StorageReplicaInfoV140ReplicaStateBroken         StorageReplicaInfoV140ReplicaState = "Broken"
+	StorageReplicaInfoV140ReplicaStateFailedover     StorageReplicaInfoV140ReplicaState = "Failedover"
+	StorageReplicaInfoV140ReplicaStateFractured      StorageReplicaInfoV140ReplicaState = "Fractured"
+	StorageReplicaInfoV140ReplicaStateInactive       StorageReplicaInfoV140ReplicaState = "Inactive"
+	StorageReplicaInfoV140ReplicaStateInitialized    StorageReplicaInfoV140ReplicaState = "Initialized"
+	StorageReplicaInfoV140ReplicaStateInvalid        StorageReplicaInfoV140ReplicaState = "Invalid"
+	StorageReplicaInfoV140ReplicaStateMixed          StorageReplicaInfoV140ReplicaState = "Mixed"
+	StorageReplicaInfoV140ReplicaStatePartitioned    StorageReplicaInfoV140ReplicaState = "Partitioned"
+	StorageReplicaInfoV140ReplicaStatePrepared       StorageReplicaInfoV140ReplicaState = "Prepared"
+	StorageReplicaInfoV140ReplicaStateRestored       StorageReplicaInfoV140ReplicaState = "Restored"
+	StorageReplicaInfoV140ReplicaStateSkewed         StorageReplicaInfoV140ReplicaState = "Skewed"
+	StorageReplicaInfoV140ReplicaStateSplit          StorageReplicaInfoV140ReplicaState = "Split"
+	StorageReplicaInfoV140ReplicaStateSuspended      StorageReplicaInfoV140ReplicaState = "Suspended"
+	StorageReplicaInfoV140ReplicaStateSynchronized   StorageReplicaInfoV140ReplicaState = "Synchronized"
+	StorageReplicaInfoV140ReplicaStateUnsynchronized StorageReplicaInfoV140ReplicaState = "Unsynchronized"
+)
+
+// Defines values for StorageReplicaInfoV140UndiscoveredElement.
+const (
+	StorageReplicaInfoV140UndiscoveredElementReplicaElement StorageReplicaInfoV140UndiscoveredElement = "ReplicaElement"
+	StorageReplicaInfoV140UndiscoveredElementSourceElement  StorageReplicaInfoV140UndiscoveredElement = "SourceElement"
+)
+
 // Defines values for StorageV1151AutoVolumeCreate.
 const (
 	StorageV1151AutoVolumeCreateDisabled StorageV1151AutoVolumeCreate = "Disabled"
@@ -278,9 +409,9 @@ const (
 
 // Defines values for StorageV1151EncryptionMode.
 const (
-	Disabled       StorageV1151EncryptionMode = "Disabled"
-	UseExternalKey StorageV1151EncryptionMode = "UseExternalKey"
-	UseLocalKey    StorageV1151EncryptionMode = "UseLocalKey"
+	StorageV1151EncryptionModeDisabled       StorageV1151EncryptionMode = "Disabled"
+	StorageV1151EncryptionModeUseExternalKey StorageV1151EncryptionMode = "UseExternalKey"
+	StorageV1151EncryptionModeUseLocalKey    StorageV1151EncryptionMode = "UseLocalKey"
 )
 
 // Defines values for StorageV1151HotspareActivationPolicy.
@@ -288,6 +419,74 @@ const (
 	OEM                     StorageV1151HotspareActivationPolicy = "OEM"
 	OnDriveFailure          StorageV1151HotspareActivationPolicy = "OnDriveFailure"
 	OnDrivePredictedFailure StorageV1151HotspareActivationPolicy = "OnDrivePredictedFailure"
+)
+
+// Defines values for VolumeEncryptionTypes.
+const (
+	ControllerAssisted    VolumeEncryptionTypes = "ControllerAssisted"
+	NativeDriveEncryption VolumeEncryptionTypes = "NativeDriveEncryption"
+	SoftwareAssisted      VolumeEncryptionTypes = "SoftwareAssisted"
+)
+
+// Defines values for VolumeInitializeMethod.
+const (
+	Background VolumeInitializeMethod = "Background"
+	Foreground VolumeInitializeMethod = "Foreground"
+	Skip       VolumeInitializeMethod = "Skip"
+)
+
+// Defines values for VolumeLBAFormatType.
+const (
+	LBAFormat0  VolumeLBAFormatType = "LBAFormat0"
+	LBAFormat1  VolumeLBAFormatType = "LBAFormat1"
+	LBAFormat10 VolumeLBAFormatType = "LBAFormat10"
+	LBAFormat11 VolumeLBAFormatType = "LBAFormat11"
+	LBAFormat12 VolumeLBAFormatType = "LBAFormat12"
+	LBAFormat13 VolumeLBAFormatType = "LBAFormat13"
+	LBAFormat14 VolumeLBAFormatType = "LBAFormat14"
+	LBAFormat15 VolumeLBAFormatType = "LBAFormat15"
+	LBAFormat2  VolumeLBAFormatType = "LBAFormat2"
+	LBAFormat3  VolumeLBAFormatType = "LBAFormat3"
+	LBAFormat4  VolumeLBAFormatType = "LBAFormat4"
+	LBAFormat5  VolumeLBAFormatType = "LBAFormat5"
+	LBAFormat6  VolumeLBAFormatType = "LBAFormat6"
+	LBAFormat7  VolumeLBAFormatType = "LBAFormat7"
+	LBAFormat8  VolumeLBAFormatType = "LBAFormat8"
+	LBAFormat9  VolumeLBAFormatType = "LBAFormat9"
+)
+
+// Defines values for VolumeLBARelativePerformanceType.
+const (
+	VolumeLBARelativePerformanceTypeBest     VolumeLBARelativePerformanceType = "Best"
+	VolumeLBARelativePerformanceTypeBetter   VolumeLBARelativePerformanceType = "Better"
+	VolumeLBARelativePerformanceTypeDegraded VolumeLBARelativePerformanceType = "Degraded"
+	VolumeLBARelativePerformanceTypeGood     VolumeLBARelativePerformanceType = "Good"
+)
+
+// Defines values for VolumeNamespaceType.
+const (
+	Block         VolumeNamespaceType = "Block"
+	Computational VolumeNamespaceType = "Computational"
+	KeyValue      VolumeNamespaceType = "KeyValue"
+	ZNS           VolumeNamespaceType = "ZNS"
+)
+
+// Defines values for VolumeOperationType.
+const (
+	ChangeRAIDType   VolumeOperationType = "ChangeRAIDType"
+	ChangeStripSize  VolumeOperationType = "ChangeStripSize"
+	CheckConsistency VolumeOperationType = "CheckConsistency"
+	Compress         VolumeOperationType = "Compress"
+	Decrypt          VolumeOperationType = "Decrypt"
+	Deduplicate      VolumeOperationType = "Deduplicate"
+	Delete           VolumeOperationType = "Delete"
+	Encrypt          VolumeOperationType = "Encrypt"
+	Format           VolumeOperationType = "Format"
+	Initialize       VolumeOperationType = "Initialize"
+	Rebuild          VolumeOperationType = "Rebuild"
+	Replicate        VolumeOperationType = "Replicate"
+	Resize           VolumeOperationType = "Resize"
+	Sanitize         VolumeOperationType = "Sanitize"
 )
 
 // Defines values for VolumeRAIDType.
@@ -309,6 +508,55 @@ const (
 	RAID6        VolumeRAIDType = "RAID6"
 	RAID60       VolumeRAIDType = "RAID60"
 	RAID6TP      VolumeRAIDType = "RAID6TP"
+)
+
+// Defines values for VolumeReadCachePolicyType.
+const (
+	VolumeReadCachePolicyTypeAdaptiveReadAhead VolumeReadCachePolicyType = "AdaptiveReadAhead"
+	VolumeReadCachePolicyTypeOff               VolumeReadCachePolicyType = "Off"
+	VolumeReadCachePolicyTypeReadAhead         VolumeReadCachePolicyType = "ReadAhead"
+)
+
+// Defines values for VolumeVolumeType.
+const (
+	Mirrored                 VolumeVolumeType = "Mirrored"
+	NonRedundant             VolumeVolumeType = "NonRedundant"
+	RawDevice                VolumeVolumeType = "RawDevice"
+	SpannedMirrors           VolumeVolumeType = "SpannedMirrors"
+	SpannedStripesWithParity VolumeVolumeType = "SpannedStripesWithParity"
+	StripedWithParity        VolumeVolumeType = "StripedWithParity"
+)
+
+// Defines values for VolumeVolumeUsageType.
+const (
+	CacheOnly          VolumeVolumeUsageType = "CacheOnly"
+	Data               VolumeVolumeUsageType = "Data"
+	ReplicationReserve VolumeVolumeUsageType = "ReplicationReserve"
+	SystemData         VolumeVolumeUsageType = "SystemData"
+	SystemReserve      VolumeVolumeUsageType = "SystemReserve"
+)
+
+// Defines values for VolumeWriteCachePolicyType.
+const (
+	VolumeWriteCachePolicyTypeOff                  VolumeWriteCachePolicyType = "Off"
+	VolumeWriteCachePolicyTypeProtectedWriteBack   VolumeWriteCachePolicyType = "ProtectedWriteBack"
+	VolumeWriteCachePolicyTypeUnprotectedWriteBack VolumeWriteCachePolicyType = "UnprotectedWriteBack"
+	VolumeWriteCachePolicyTypeWriteThrough         VolumeWriteCachePolicyType = "WriteThrough"
+)
+
+// Defines values for VolumeWriteCacheStateType.
+const (
+	VolumeWriteCacheStateTypeDegraded    VolumeWriteCacheStateType = "Degraded"
+	VolumeWriteCacheStateTypeProtected   VolumeWriteCacheStateType = "Protected"
+	VolumeWriteCacheStateTypeUnprotected VolumeWriteCacheStateType = "Unprotected"
+)
+
+// Defines values for VolumeWriteHoleProtectionPolicyType.
+const (
+	DistributedLog VolumeWriteHoleProtectionPolicyType = "DistributedLog"
+	Journaling     VolumeWriteHoleProtectionPolicyType = "Journaling"
+	Oem            VolumeWriteHoleProtectionPolicyType = "Oem"
+	Off            VolumeWriteHoleProtectionPolicyType = "Off"
 )
 
 // ActionInfoV141ParameterTypes defines model for ActionInfo_v1_4_1_ParameterTypes.
@@ -858,6 +1106,9 @@ type ChassisV1250ThermalDirection string
 
 // DataStorageLoSCapabilitiesProvisioningPolicy Space provisioning policy.
 type DataStorageLoSCapabilitiesProvisioningPolicy string
+
+// DataStorageLoSCapabilitiesStorageAccessCapability Values of StorageAccessCapability describe abilities to read or write storage.
+type DataStorageLoSCapabilitiesStorageAccessCapability string
 
 // IOStatisticsV101IOStatistics The properties of this type represent IO statistics.
 type IOStatisticsV101IOStatistics struct {
@@ -1891,6 +2142,136 @@ type StoragePoolV190StoragePool struct {
 	SupportedRAIDTypes *[]VolumeRAIDType `json:"SupportedRAIDTypes,omitempty"`
 }
 
+// StorageReplicaInfoReplicaFaultDomain Values of ReplicaFaultDomain describe the fault domain for the replication relationship.
+type StorageReplicaInfoReplicaFaultDomain string
+
+// StorageReplicaInfoReplicaType Values of ReplicaType describe the intended outcome of the replication.
+type StorageReplicaInfoReplicaType string
+
+// StorageReplicaInfoReplicaUpdateMode Values of ReplicaUpdateMode describe whether the target elements will be updated synchronously or asynchronously.
+type StorageReplicaInfoReplicaUpdateMode string
+
+// StorageReplicaInfoV140ConsistencyState The values of ConsistencyState indicate the consistency type used by the source and its associated target group.
+type StorageReplicaInfoV140ConsistencyState string
+
+// StorageReplicaInfoV140ConsistencyStatus The values of ConsistencyStatus indicate the current status of consistency. Consistency may have been disabled or might be experiencing an error condition.
+type StorageReplicaInfoV140ConsistencyStatus string
+
+// StorageReplicaInfoV140ConsistencyType The values of ConsistencyType indicates the consistency type used by the source and its associated target group.
+type StorageReplicaInfoV140ConsistencyType string
+
+// StorageReplicaInfoV140ReplicaInfo Defines the characteristics of a replica.
+type StorageReplicaInfoV140ReplicaInfo struct {
+	// ConsistencyEnabled True if consistency is enabled.
+	ConsistencyEnabled *bool `json:"ConsistencyEnabled"`
+
+	// ConsistencyState The values of ConsistencyState indicate the consistency type used by the source and its associated target group.
+	ConsistencyState *StorageReplicaInfoV140ConsistencyState `json:"ConsistencyState,omitempty"`
+
+	// ConsistencyStatus The values of ConsistencyStatus indicate the current status of consistency. Consistency may have been disabled or might be experiencing an error condition.
+	ConsistencyStatus *StorageReplicaInfoV140ConsistencyStatus `json:"ConsistencyStatus,omitempty"`
+
+	// ConsistencyType The values of ConsistencyType indicates the consistency type used by the source and its associated target group.
+	ConsistencyType *StorageReplicaInfoV140ConsistencyType `json:"ConsistencyType,omitempty"`
+
+	// DataProtectionLineOfService A reference to a resource.
+	DataProtectionLineOfService *OdataV4IdRef `json:"DataProtectionLineOfService,omitempty"`
+
+	// FailedCopyStopsHostIO If true, the storage array tells host to stop sending data to source element if copying to a remote element fails.
+	FailedCopyStopsHostIO *bool `json:"FailedCopyStopsHostIO"`
+
+	// PercentSynced Specifies the percent of the work completed to reach synchronization.
+	PercentSynced *int64 `json:"PercentSynced"`
+
+	// RemoteSourceReplica ReplicaFaultDomain describes the fault domain (local or remote) of the replica relationship.
+	RemoteSourceReplica *string `json:"RemoteSourceReplica"`
+
+	// Replica A reference to a resource.
+	Replica *OdataV4IdRef `json:"Replica,omitempty"`
+
+	// ReplicaFaultDomain Values of ReplicaFaultDomain describe the fault domain for the replication relationship.
+	ReplicaFaultDomain *StorageReplicaInfoReplicaFaultDomain `json:"ReplicaFaultDomain,omitempty"`
+
+	// ReplicaPriority ReplicaPriority allows the priority of background copy engine I/O to be managed relative to host I/O operations during a sequential background copy operation.
+	ReplicaPriority *StorageReplicaInfoV140ReplicaPriority `json:"ReplicaPriority,omitempty"`
+
+	// ReplicaProgressStatus Values of ReplicaProgressStatus describe the status of the session with respect to Replication activity.
+	ReplicaProgressStatus *StorageReplicaInfoV140ReplicaProgressStatus `json:"ReplicaProgressStatus,omitempty"`
+
+	// ReplicaReadOnlyAccess Values of ReplicaReadOnlyAccess specify whether the source, the target, or both elements are read only to the host.
+	ReplicaReadOnlyAccess *StorageReplicaInfoV140ReplicaReadOnlyAccess `json:"ReplicaReadOnlyAccess,omitempty"`
+
+	// ReplicaRecoveryMode Values of ReplicaRecoveryMode describe whether the copy operation continues after a broken link is restored.
+	ReplicaRecoveryMode *StorageReplicaInfoV140ReplicaRecoveryMode `json:"ReplicaRecoveryMode,omitempty"`
+
+	// ReplicaRole Values of ReplicaRole specify whether the resource is a source of replication or the target of replication.
+	// Deprecated:
+	ReplicaRole *StorageReplicaInfoV140ReplicaRole `json:"ReplicaRole,omitempty"`
+
+	// ReplicaSkewBytes Applies to Adaptive mode and it describes maximum number of bytes the SyncedElement (target) can be out of sync.
+	ReplicaSkewBytes *int64 `json:"ReplicaSkewBytes"`
+
+	// ReplicaState Values of ReplicaState describe the state of the relationship with respect to Replication activity.
+	ReplicaState *StorageReplicaInfoV140ReplicaState `json:"ReplicaState,omitempty"`
+
+	// ReplicaType Values of ReplicaType describe the intended outcome of the replication.
+	ReplicaType *StorageReplicaInfoReplicaType `json:"ReplicaType,omitempty"`
+
+	// ReplicaUpdateMode Values of ReplicaUpdateMode describe whether the target elements will be updated synchronously or asynchronously.
+	ReplicaUpdateMode *StorageReplicaInfoReplicaUpdateMode `json:"ReplicaUpdateMode,omitempty"`
+
+	// RequestedReplicaState Values of ReplicaState describe the state of the relationship with respect to Replication activity.
+	RequestedReplicaState *StorageReplicaInfoV140ReplicaState `json:"RequestedReplicaState,omitempty"`
+
+	// SourceReplica A reference to a resource.
+	SourceReplica *OdataV4IdRef `json:"SourceReplica,omitempty"`
+
+	// SyncMaintained Synchronization is maintained.
+	SyncMaintained *bool `json:"SyncMaintained"`
+
+	// UndiscoveredElement Values of UndiscoveredElement specify whether the source, the target, or both elements involved in a copy operation are undiscovered. An element is considered undiscovered if its object model is not known to the service performing the copy operation.
+	UndiscoveredElement *StorageReplicaInfoV140UndiscoveredElement `json:"UndiscoveredElement,omitempty"`
+
+	// WhenActivated Specifies when point-in-time copy was taken or when the replication relationship is activated, reactivated, resumed or re-established.
+	WhenActivated *string `json:"WhenActivated"`
+
+	// WhenDeactivated Specifies when the replication relationship is deactivated.
+	WhenDeactivated *string `json:"WhenDeactivated"`
+
+	// WhenEstablished Specifies when the replication relationship is established.
+	WhenEstablished *string `json:"WhenEstablished"`
+
+	// WhenSuspended Specifies when the replication relationship is suspended.
+	WhenSuspended *string `json:"WhenSuspended"`
+
+	// WhenSynced The point in time that the Elements were synchronized.
+	WhenSynced *string `json:"WhenSynced"`
+
+	// WhenSynchronized Specifies when the replication relationship is synchronized.
+	WhenSynchronized *string `json:"WhenSynchronized"`
+}
+
+// StorageReplicaInfoV140ReplicaPriority ReplicaPriority allows the priority of background copy engine I/O to be managed relative to host I/O operations during a sequential background copy operation.
+type StorageReplicaInfoV140ReplicaPriority string
+
+// StorageReplicaInfoV140ReplicaProgressStatus Values of ReplicaProgressStatus describe the status of the session with respect to Replication activity.
+type StorageReplicaInfoV140ReplicaProgressStatus string
+
+// StorageReplicaInfoV140ReplicaReadOnlyAccess Values of ReplicaReadOnlyAccess specify whether the source, the target, or both elements are read only to the host.
+type StorageReplicaInfoV140ReplicaReadOnlyAccess string
+
+// StorageReplicaInfoV140ReplicaRecoveryMode Values of ReplicaRecoveryMode describe whether the copy operation continues after a broken link is restored.
+type StorageReplicaInfoV140ReplicaRecoveryMode string
+
+// StorageReplicaInfoV140ReplicaRole Values of ReplicaRole specify whether the resource is a source of replication or the target of replication.
+type StorageReplicaInfoV140ReplicaRole string
+
+// StorageReplicaInfoV140ReplicaState Values of ReplicaState describe the state of the relationship with respect to Replication activity.
+type StorageReplicaInfoV140ReplicaState string
+
+// StorageReplicaInfoV140UndiscoveredElement Values of UndiscoveredElement specify whether the source, the target, or both elements involved in a copy operation are undiscovered. An element is considered undiscovered if its object model is not known to the service performing the copy operation.
+type StorageReplicaInfoV140UndiscoveredElement string
+
 // StorageV1151Actions The available actions for this resource.
 type StorageV1151Actions struct {
 	// HashStorageResetToDefaults The reset action resets the storage device to factory defaults.  This can cause the loss of data.
@@ -2197,8 +2578,547 @@ type StorageV1151StorageControllerLinks struct {
 // StorageV1151StorageControllerOemActions The available OEM-specific actions for this resource.
 type StorageV1151StorageControllerOemActions map[string]interface{}
 
+// Volume Volume contains properties used to describe a volume, virtual disk, LUN, or other logical storage entity for any system.
+type Volume = VolumeV1100Volume
+
+// VolumeCollection A Collection of Volume resource instances.
+type VolumeCollection = VolumeCollectionVolumeCollection
+
+// VolumeCollectionVolumeCollection A Collection of Volume resource instances.
+type VolumeCollectionVolumeCollection struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Description The description of this resource.  Used for commonality in the schema definitions.
+	Description *ResourceDescription `json:"Description,omitempty"`
+
+	// Members The value of each member references a Volume resource.
+	Members *[]OdataV4IdRef `json:"Members,omitempty"`
+
+	// MembersOdataCount The number of items in a collection.
+	MembersOdataCount *OdataV4Count `json:"Members@odata.count,omitempty"`
+
+	// MembersOdataNextLink The URI to the resource containing the next set of partial members.
+	MembersOdataNextLink *OdataV4NextLink `json:"Members@odata.nextLink,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// VolumeEncryptionTypes defines model for Volume_EncryptionTypes.
+type VolumeEncryptionTypes string
+
+// VolumeInitializeMethod defines model for Volume_InitializeMethod.
+type VolumeInitializeMethod string
+
+// VolumeLBAFormatType LBAFormatType is defined in the NVMe specification set. This field indicates the LBA data size supported; implementations may report up to 16 values. For more details refer to the appropriate NVMe specification.
+type VolumeLBAFormatType string
+
+// VolumeLBARelativePerformanceType Indicate the relative performance of the LBA format relative to other LBA formats supported by the controller.
+type VolumeLBARelativePerformanceType string
+
+// VolumeNamespaceType defines model for Volume_NamespaceType.
+type VolumeNamespaceType string
+
+// VolumeOperationType defines model for Volume_OperationType.
+type VolumeOperationType string
+
 // VolumeRAIDType defines model for Volume_RAIDType.
 type VolumeRAIDType string
+
+// VolumeReadCachePolicyType defines model for Volume_ReadCachePolicyType.
+type VolumeReadCachePolicyType string
+
+// VolumeVolumeType defines model for Volume_VolumeType.
+type VolumeVolumeType string
+
+// VolumeVolumeUsageType defines model for Volume_VolumeUsageType.
+type VolumeVolumeUsageType string
+
+// VolumeWriteCachePolicyType defines model for Volume_WriteCachePolicyType.
+type VolumeWriteCachePolicyType string
+
+// VolumeWriteCacheStateType defines model for Volume_WriteCacheStateType.
+type VolumeWriteCacheStateType string
+
+// VolumeWriteHoleProtectionPolicyType defines model for Volume_WriteHoleProtectionPolicyType.
+type VolumeWriteHoleProtectionPolicyType string
+
+// VolumeV1100ALUA defines model for Volume_v1_10_0_ALUA.
+type VolumeV1100ALUA struct {
+	// ANAGroupId The ANA group id for this volume.
+	ANAGroupId *float32 `json:"ANAGroupId"`
+}
+
+// VolumeV1100Actions defines model for Volume_v1_10_0_Actions.
+type VolumeV1100Actions struct {
+	// HashVolumeAssignReplicaTarget This action is used to establish a replication relationship by assigning an existing volume to serve as a target replica for an existing source volume.
+	HashVolumeAssignReplicaTarget *VolumeV1100AssignReplicaTarget `json:"#Volume.AssignReplicaTarget,omitempty"`
+
+	// HashVolumeChangeRAIDLayout Request system change the RAID layout of the volume.
+	HashVolumeChangeRAIDLayout *VolumeV1100ChangeRAIDLayout `json:"#Volume.ChangeRAIDLayout,omitempty"`
+
+	// HashVolumeCheckConsistency This action is used to force a check of the Volume's parity or redundant data to ensure it matches calculated values.
+	HashVolumeCheckConsistency *VolumeV1100CheckConsistency `json:"#Volume.CheckConsistency,omitempty"`
+
+	// HashVolumeCreateReplicaTarget This action is used to create a new volume resource to provide expanded data protection through a replica relationship with the specified source volume.
+	HashVolumeCreateReplicaTarget *VolumeV1100CreateReplicaTarget `json:"#Volume.CreateReplicaTarget,omitempty"`
+
+	// HashVolumeForceEnable Request system force the volume to an enabled state regardless of data loss.
+	HashVolumeForceEnable *VolumeV1100ForceEnable `json:"#Volume.ForceEnable,omitempty"`
+
+	// HashVolumeInitialize This action is used to prepare the contents of the volume for use by the system. If InitializeMethod is not specified in the request body, but the property InitializeMethod is specified, the property InitializeMethod value should be used. If neither is specified, the InitializeMethod should be Foreground.
+	HashVolumeInitialize *VolumeV1100Initialize `json:"#Volume.Initialize,omitempty"`
+
+	// HashVolumeRemoveReplicaRelationship This action is used to disable data synchronization between a source and target volume, remove the replication relationship, and optionally delete the target volume.
+	HashVolumeRemoveReplicaRelationship *VolumeV1100RemoveReplicaRelationship `json:"#Volume.RemoveReplicaRelationship,omitempty"`
+
+	// HashVolumeResumeReplication This action is used to resume the active data synchronization between a source and target volume, without otherwise altering the replication relationship.
+	HashVolumeResumeReplication *VolumeV1100ResumeReplication `json:"#Volume.ResumeReplication,omitempty"`
+
+	// HashVolumeReverseReplicationRelationship This action is used to reverse the replication relationship between a source and target volume.
+	HashVolumeReverseReplicationRelationship *VolumeV1100ReverseReplicationRelationship `json:"#Volume.ReverseReplicationRelationship,omitempty"`
+
+	// HashVolumeSplitReplication This action is used to split the replication relationship and suspend data synchronization between a source and target volume.
+	HashVolumeSplitReplication *VolumeV1100SplitReplication `json:"#Volume.SplitReplication,omitempty"`
+
+	// HashVolumeSuspendReplication This action is used to suspend active data synchronization between a source and target volume, without otherwise altering the replication relationship.
+	HashVolumeSuspendReplication *VolumeV1100SuspendReplication `json:"#Volume.SuspendReplication,omitempty"`
+	Oem                          *VolumeV1100OemActions         `json:"Oem,omitempty"`
+}
+
+// VolumeV1100AssignReplicaTarget This action is used to establish a replication relationship by assigning an existing volume to serve as a target replica for an existing source volume.
+type VolumeV1100AssignReplicaTarget struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100ChangeRAIDLayout Request system change the RAID layout of the volume.
+type VolumeV1100ChangeRAIDLayout struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100CheckConsistency This action is used to force a check of the Volume's parity or redundant data to ensure it matches calculated values.
+type VolumeV1100CheckConsistency struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100CreateReplicaTarget This action is used to create a new volume resource to provide expanded data protection through a replica relationship with the specified source volume.
+type VolumeV1100CreateReplicaTarget struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100ForceEnable Request system force the volume to an enabled state regardless of data loss.
+type VolumeV1100ForceEnable struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100Initialize This action is used to prepare the contents of the volume for use by the system. If InitializeMethod is not specified in the request body, but the property InitializeMethod is specified, the property InitializeMethod value should be used. If neither is specified, the InitializeMethod should be Foreground.
+type VolumeV1100Initialize struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100LBAFormat defines model for Volume_v1_10_0_LBAFormat.
+type VolumeV1100LBAFormat struct {
+	// LBADataSizeBytes The LBA data size in bytes.
+	LBADataSizeBytes *int64 `json:"LBADataSizeBytes"`
+
+	// LBAFormatType LBAFormatType is defined in the NVMe specification set. This field indicates the LBA data size supported; implementations may report up to 16 values. For more details refer to the appropriate NVMe specification.
+	LBAFormatType *VolumeLBAFormatType `json:"LBAFormatType,omitempty"`
+
+	// LBAMetadataSizeBytes The LBA metadata size in bytes.
+	LBAMetadataSizeBytes *int64 `json:"LBAMetadataSizeBytes"`
+
+	// RelativePerformance Indicate the relative performance of the LBA format relative to other LBA formats supported by the controller.
+	RelativePerformance *VolumeLBARelativePerformanceType `json:"RelativePerformance,omitempty"`
+}
+
+// VolumeV1100Links Add ability to manage spare capacity.
+type VolumeV1100Links struct {
+	// CacheDataVolumes A pointer to the data volumes this volume serves as a cache volume.
+	CacheDataVolumes *[]OdataV4IdRef `json:"CacheDataVolumes,omitempty"`
+
+	// CacheDataVolumesOdataCount The number of items in a collection.
+	CacheDataVolumesOdataCount *OdataV4Count `json:"CacheDataVolumes@odata.count,omitempty"`
+
+	// CacheVolumeSource A reference to a resource.
+	CacheVolumeSource *OdataV4IdRef `json:"CacheVolumeSource,omitempty"`
+
+	// ClassOfService A reference to a resource.
+	ClassOfService *OdataV4IdRef `json:"ClassOfService,omitempty"`
+
+	// ClientEndpoints An array of references to the client Endpoints associated with this volume.
+	ClientEndpoints *[]OdataV4IdRef `json:"ClientEndpoints,omitempty"`
+
+	// ClientEndpointsOdataCount The number of items in a collection.
+	ClientEndpointsOdataCount *OdataV4Count `json:"ClientEndpoints@odata.count,omitempty"`
+
+	// ConsistencyGroups An array of references to the ConsistencyGroups associated with this volume.
+	ConsistencyGroups *[]OdataV4IdRef `json:"ConsistencyGroups,omitempty"`
+
+	// ConsistencyGroupsOdataCount The number of items in a collection.
+	ConsistencyGroupsOdataCount *OdataV4Count `json:"ConsistencyGroups@odata.count,omitempty"`
+
+	// Controllers An array of the Controllers associated with this volume.
+	Controllers *[]OdataV4IdRef `json:"Controllers,omitempty"`
+
+	// ControllersOdataCount The number of items in a collection.
+	ControllersOdataCount *OdataV4Count `json:"Controllers@odata.count,omitempty"`
+
+	// DedicatedSpareDrives An array of references to the drives which are dedicated spares for this volume.
+	DedicatedSpareDrives *[]OdataV4IdRef `json:"DedicatedSpareDrives,omitempty"`
+
+	// DedicatedSpareDrivesOdataCount The number of items in a collection.
+	DedicatedSpareDrivesOdataCount *OdataV4Count `json:"DedicatedSpareDrives@odata.count,omitempty"`
+
+	// Drives An array of references to the drives which contain this volume. This will reference Drives that either wholly or only partly contain this volume.
+	Drives *[]OdataV4IdRef `json:"Drives,omitempty"`
+
+	// DrivesOdataCount The number of items in a collection.
+	DrivesOdataCount *OdataV4Count `json:"Drives@odata.count,omitempty"`
+
+	// JournalingMedia A reference to a resource.
+	JournalingMedia *OdataV4IdRef `json:"JournalingMedia,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// OwningStorageResource A reference to a resource.
+	OwningStorageResource *OdataV4IdRef `json:"OwningStorageResource,omitempty"`
+
+	// OwningStorageService A reference to a resource.
+	OwningStorageService *OdataV4IdRef `json:"OwningStorageService,omitempty"`
+
+	// ProvidingStoragePool A reference to a resource.
+	ProvidingStoragePool *OdataV4IdRef `json:"ProvidingStoragePool,omitempty"`
+
+	// ServerEndpoints An array of references to the server Endpoints associated with this volume.
+	ServerEndpoints *[]OdataV4IdRef `json:"ServerEndpoints,omitempty"`
+
+	// ServerEndpointsOdataCount The number of items in a collection.
+	ServerEndpointsOdataCount *OdataV4Count `json:"ServerEndpoints@odata.count,omitempty"`
+
+	// SpareResourceSets An array of references to SpareResourceSets.
+	SpareResourceSets *[]OdataV4IdRef `json:"SpareResourceSets,omitempty"`
+
+	// SpareResourceSetsOdataCount The number of items in a collection.
+	SpareResourceSetsOdataCount *OdataV4Count `json:"SpareResourceSets@odata.count,omitempty"`
+
+	// StorageGroups An array of references to the StorageGroups associated with this volume.
+	StorageGroups *[]OdataV4IdRef `json:"StorageGroups,omitempty"`
+
+	// StorageGroupsOdataCount The number of items in a collection.
+	StorageGroupsOdataCount *OdataV4Count `json:"StorageGroups@odata.count,omitempty"`
+}
+
+// VolumeV1100NVMeNamespaceProperties This contains properties to use when Volume is used to describe an NVMe Namespace.
+type VolumeV1100NVMeNamespaceProperties struct {
+	// FormattedLBASize The LBA data size and metadata size combination that the namespace has been formatted with.
+	FormattedLBASize *string `json:"FormattedLBASize"`
+
+	// IsShareable Indicates the namespace is shareable.
+	IsShareable *bool                 `json:"IsShareable"`
+	LBAFormat   *VolumeV1100LBAFormat `json:"LBAFormat,omitempty"`
+
+	// LBAFormats Describes the LBA format IDs and detailed properties.
+	LBAFormats *[]VolumeV1100LBAFormat `json:"LBAFormats,omitempty"`
+
+	// LBAFormatsSupported A list of the LBA format types supported for the namespace, or potential namespaces.
+	LBAFormatsSupported *[]VolumeLBAFormatType `json:"LBAFormatsSupported,omitempty"`
+
+	// MetadataTransferredAtEndOfDataLBA This property indicates whether or not the metadata is transferred at the end of the LBA creating an extended data LBA.
+	MetadataTransferredAtEndOfDataLBA *bool `json:"MetadataTransferredAtEndOfDataLBA"`
+
+	// NVMeVersion The version of the NVMe Base Specification supported.
+	NVMeVersion       *string                       `json:"NVMeVersion"`
+	NamespaceFeatures *VolumeV1100NamespaceFeatures `json:"NamespaceFeatures,omitempty"`
+
+	// NamespaceId The NVMe Namespace Identifier for this namespace.
+	NamespaceId   *string              `json:"NamespaceId"`
+	NamespaceType *VolumeNamespaceType `json:"NamespaceType,omitempty"`
+
+	// NumberLBAFormats The number of LBA data size and metadata size combinations supported by this namespace. The value of this property is between 0 and 16.
+	NumberLBAFormats *int64 `json:"NumberLBAFormats"`
+
+	// SupportsIOPerformanceHints Indicates whether the namespace supports IO performance hints.
+	SupportsIOPerformanceHints *bool `json:"SupportsIOPerformanceHints"`
+
+	// SupportsMultipleNamespaceAttachments Indicates whether the namespace may be attached to two or more controllers.
+	SupportsMultipleNamespaceAttachments *bool                `json:"SupportsMultipleNamespaceAttachments"`
+	Type                                 *VolumeNamespaceType `json:"Type,omitempty"`
+}
+
+// VolumeV1100NamespaceFeatures defines model for Volume_v1_10_0_NamespaceFeatures.
+type VolumeV1100NamespaceFeatures struct {
+	// SupportsAtomicTransactionSize Indicates that the NVM fields for Namespace preferred write granularity (NPWG), write alignment (NPWA), deallocate granularity (NPDG), deallocate alignment (NPDA) and optimal write size (NOWS)  are defined for this namespace and should be used by the host for I/O optimization.
+	SupportsAtomicTransactionSize *bool `json:"SupportsAtomicTransactionSize"`
+
+	// SupportsDeallocatedOrUnwrittenLBError This property indicates that the controller supports deallocated or unwritten logical block error for this namespace.
+	SupportsDeallocatedOrUnwrittenLBError *bool `json:"SupportsDeallocatedOrUnwrittenLBError"`
+
+	// SupportsIOPerformanceHints Indicates that the Namespace Atomic Write Unit Normal (NAWUN), Namespace Atomic Write Unit Power Fail (NAWUPF), and Namespace Atomic Compare and Write Unit (NACWU) fields are defined for this namespace and should be used by the host for this namespace instead of the controller-level properties AWUN, AWUPF, and ACWU.
+	SupportsIOPerformanceHints *bool `json:"SupportsIOPerformanceHints"`
+
+	// SupportsNGUIDReuse This property indicates that the namespace supports the use of an NGUID (namespace globally unique identifier) value.
+	SupportsNGUIDReuse *bool `json:"SupportsNGUIDReuse"`
+
+	// SupportsThinProvisioning This property indicates whether or not the NVMe Namespace supports thin provisioning.
+	SupportsThinProvisioning *bool `json:"SupportsThinProvisioning"`
+}
+
+// VolumeV1100OemActions defines model for Volume_v1_10_0_OemActions.
+type VolumeV1100OemActions map[string]interface{}
+
+// VolumeV1100Operation defines model for Volume_v1_10_0_Operation.
+type VolumeV1100Operation struct {
+	// AssociatedFeaturesRegistry A reference to a resource.
+	AssociatedFeaturesRegistry *OdataV4IdRef        `json:"AssociatedFeaturesRegistry,omitempty"`
+	Operation                  *VolumeOperationType `json:"Operation,omitempty"`
+
+	// OperationName The name of the operation.
+	// Deprecated:
+	OperationName *string `json:"OperationName"`
+
+	// PercentageComplete The percentage of the operation that has been completed.
+	PercentageComplete *int64 `json:"PercentageComplete"`
+}
+
+// VolumeV1100RemoveReplicaRelationship This action is used to disable data synchronization between a source and target volume, remove the replication relationship, and optionally delete the target volume.
+type VolumeV1100RemoveReplicaRelationship struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100ResumeReplication This action is used to resume the active data synchronization between a source and target volume, without otherwise altering the replication relationship.
+type VolumeV1100ResumeReplication struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100ReverseReplicationRelationship This action is used to reverse the replication relationship between a source and target volume.
+type VolumeV1100ReverseReplicationRelationship struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100SplitReplication This action is used to split the replication relationship and suspend data synchronization between a source and target volume.
+type VolumeV1100SplitReplication struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100SuspendReplication This action is used to suspend active data synchronization between a source and target volume, without otherwise altering the replication relationship.
+type VolumeV1100SuspendReplication struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// VolumeV1100Volume Volume contains properties used to describe a volume, virtual disk, LUN, or other logical storage entity for any system.
+type VolumeV1100Volume struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type     `json:"@odata.type,omitempty"`
+	ALUA      *VolumeV1100ALUA `json:"ALUA,omitempty"`
+
+	// AccessCapabilities Supported IO access capabilities.
+	AccessCapabilities *[]DataStorageLoSCapabilitiesStorageAccessCapability `json:"AccessCapabilities,omitempty"`
+	Actions            *VolumeV1100Actions                                  `json:"Actions,omitempty"`
+
+	// AllocatedPools A reference to a resource.
+	AllocatedPools *OdataV4IdRef `json:"AllocatedPools,omitempty"`
+
+	// BlockSizeBytes The size of the smallest addressable unit (Block) of this volume in bytes.
+	BlockSizeBytes *int64 `json:"BlockSizeBytes"`
+
+	// Capacity This is the schema definition for the Capacity of a device. It represents the properties for capacity for any data store.
+	Capacity *CapacityV100Capacity `json:"Capacity,omitempty"`
+
+	// CapacityBytes The size in bytes of this Volume.
+	CapacityBytes *int64 `json:"CapacityBytes"`
+
+	// CapacitySources An array of space allocations to this volume.
+	CapacitySources *[]CapacityV121CapacitySource `json:"CapacitySources,omitempty"`
+
+	// CapacitySourcesOdataCount The number of items in a collection.
+	CapacitySourcesOdataCount *OdataV4Count `json:"CapacitySources@odata.count,omitempty"`
+
+	// Compressed Indicator of whether or not the Volume has compression enabled.
+	Compressed *bool `json:"Compressed"`
+
+	// Connections An array of references to Connections that includes this volume.
+	Connections *[]OdataV4IdRef `json:"Connections,omitempty"`
+
+	// ConnectionsOdataCount The number of items in a collection.
+	ConnectionsOdataCount *OdataV4Count `json:"Connections@odata.count,omitempty"`
+
+	// Deduplicated Indicator of whether or not the Volume has deduplication enabled.
+	Deduplicated *bool `json:"Deduplicated"`
+
+	// Description The description of this resource.  Used for commonality in the schema definitions.
+	Description *ResourceDescription `json:"Description,omitempty"`
+
+	// DisplayName A user-configurable string to name the volume.
+	DisplayName *string `json:"DisplayName"`
+
+	// Encrypted Is this Volume encrypted.
+	Encrypted *bool `json:"Encrypted"`
+
+	// EncryptionTypes The types of encryption used by this Volume.
+	EncryptionTypes *[]VolumeEncryptionTypes `json:"EncryptionTypes,omitempty"`
+
+	// IOPerfModeEnabled Indicates the IO performance mode setting for the volume.
+	IOPerfModeEnabled *bool `json:"IOPerfModeEnabled"`
+
+	// IOStatistics The properties of this type represent IO statistics.
+	IOStatistics *IOStatisticsV101IOStatistics `json:"IOStatistics,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// Identifiers The Durable names for the volume.
+	Identifiers      *[]ResourceV1180Identifier `json:"Identifiers,omitempty"`
+	InitializeMethod *VolumeInitializeMethod    `json:"InitializeMethod,omitempty"`
+
+	// IsBootCapable This property indicates whether or not the Volume contains a boot image and is capable of booting.
+	IsBootCapable *bool `json:"IsBootCapable"`
+
+	// Links Add ability to manage spare capacity.
+	Links *VolumeV1100Links `json:"Links,omitempty"`
+
+	// LogicalUnitNumber Indicates the host-visible LogicalUnitNumber assigned to this Volume.
+	LogicalUnitNumber *int64 `json:"LogicalUnitNumber"`
+
+	// LowSpaceWarningThresholdPercents Low space warning.
+	LowSpaceWarningThresholdPercents *[]int64 `json:"LowSpaceWarningThresholdPercents,omitempty"`
+
+	// Manufacturer The manufacturer or OEM of this storage volume.
+	Manufacturer *string `json:"Manufacturer"`
+
+	// MaxBlockSizeBytes Max Block size in bytes.
+	MaxBlockSizeBytes *int64 `json:"MaxBlockSizeBytes"`
+
+	// MediaSpanCount Indicates the number of media elements used per span in the secondary RAID for a hierarchical RAID type.
+	MediaSpanCount *int64 `json:"MediaSpanCount"`
+
+	// Metrics A reference to a resource.
+	Metrics *OdataV4IdRef `json:"Metrics,omitempty"`
+
+	// Model The model number for this storage volume.
+	Model *string `json:"Model"`
+
+	// NVMeNamespaceProperties This contains properties to use when Volume is used to describe an NVMe Namespace.
+	NVMeNamespaceProperties *VolumeV1100NVMeNamespaceProperties `json:"NVMeNamespaceProperties,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// Operations The operations currently running on the Volume.
+	Operations *[]VolumeV1100Operation `json:"Operations,omitempty"`
+
+	// OptimumIOSizeBytes The size in bytes of this Volume's optimum IO size.
+	OptimumIOSizeBytes *int64 `json:"OptimumIOSizeBytes"`
+
+	// ProvisioningPolicy Space provisioning policy.
+	ProvisioningPolicy *DataStorageLoSCapabilitiesProvisioningPolicy `json:"ProvisioningPolicy,omitempty"`
+	RAIDType           *VolumeRAIDType                               `json:"RAIDType,omitempty"`
+	ReadCachePolicy    *VolumeReadCachePolicyType                    `json:"ReadCachePolicy,omitempty"`
+
+	// RecoverableCapacitySourceCount Current number of capacity source resources that are available as replacements.
+	RecoverableCapacitySourceCount *int64 `json:"RecoverableCapacitySourceCount"`
+
+	// RemainingCapacityPercent The percentage of the capacity remaining in the Volume.
+	RemainingCapacityPercent *int64 `json:"RemainingCapacityPercent"`
+
+	// RemoteReplicaTargets URIs to the resources that are remote target replicas of this source.
+	RemoteReplicaTargets *[]string `json:"RemoteReplicaTargets,omitempty"`
+
+	// ReplicaInfo Defines the characteristics of a replica.
+	ReplicaInfo *StorageReplicaInfoV140ReplicaInfo `json:"ReplicaInfo,omitempty"`
+
+	// ReplicaTargets The resources that are target replicas of this source.
+	ReplicaTargets *[]OdataV4IdRef `json:"ReplicaTargets,omitempty"`
+
+	// ReplicaTargetsOdataCount The number of items in a collection.
+	ReplicaTargetsOdataCount *OdataV4Count `json:"ReplicaTargets@odata.count,omitempty"`
+
+	// ReplicationEnabled Indicates whether or not replication is enabled on the volume.
+	ReplicationEnabled *bool `json:"ReplicationEnabled"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// StorageGroups A reference to a resource.
+	StorageGroups *OdataV4IdRef `json:"StorageGroups,omitempty"`
+
+	// StripSizeBytes The number of blocks (bytes) in a strip in a disk array that uses striped data mapping.
+	StripSizeBytes            *int64                               `json:"StripSizeBytes"`
+	VolumeType                *VolumeVolumeType                    `json:"VolumeType,omitempty"`
+	VolumeUsage               *VolumeVolumeUsageType               `json:"VolumeUsage,omitempty"`
+	WriteCachePolicy          *VolumeWriteCachePolicyType          `json:"WriteCachePolicy,omitempty"`
+	WriteCacheState           *VolumeWriteCacheStateType           `json:"WriteCacheState,omitempty"`
+	WriteHoleProtectionPolicy *VolumeWriteHoleProtectionPolicyType `json:"WriteHoleProtectionPolicy,omitempty"`
+}
 
 // OdataV4Context The OData description of a payload.
 type OdataV4Context = string

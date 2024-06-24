@@ -39,6 +39,8 @@ func NewEmbeddedPsql(config *EmbeddedPsqlConfig) *EmbeddedPsql {
 		Port(config.Port).
 		Username(config.UserName).
 		Password(config.Password).
+		// TODO: when logs for embedded psql will be fixed, need to
+		// remove nil stub and write them to serr or file
 		Logger(nil).
 		DataPath(config.DataPath))
 

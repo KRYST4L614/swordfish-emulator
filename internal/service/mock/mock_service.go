@@ -41,18 +41,18 @@ func (m *MockResourceService) EXPECT() *MockResourceServiceMockRecorder {
 }
 
 // AddResourceToCollection mocks base method.
-func (m *MockResourceService) AddResourceToCollection(arg0 context.Context, arg1, arg2 string, arg3 any) (any, error) {
+func (m *MockResourceService) AddResourceToCollection(arg0 context.Context, arg1 dto.ResourceRequestDto) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddResourceToCollection", arg0, arg1, arg2, arg3)
+	ret := m.ctrl.Call(m, "AddResourceToCollection", arg0, arg1)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // AddResourceToCollection indicates an expected call of AddResourceToCollection.
-func (mr *MockResourceServiceMockRecorder) AddResourceToCollection(arg0, arg1, arg2, arg3 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) AddResourceToCollection(arg0, arg1 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddResourceToCollection", reflect.TypeOf((*MockResourceService)(nil).AddResourceToCollection), arg0, arg1, arg2, arg3)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddResourceToCollection", reflect.TypeOf((*MockResourceService)(nil).AddResourceToCollection), arg0, arg1)
 }
 
 // Create mocks base method.

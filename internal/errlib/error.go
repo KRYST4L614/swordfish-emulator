@@ -6,14 +6,17 @@ import (
 )
 
 // ErrInternal is error to be matched with 500 http code.
-var ErrInternal = errors.New("Some internal error happened")
+var ErrInternal = errors.New("some internal error happened")
+
+// ErrBadRequest is error to be matched with 400 http code.
+var ErrBadRequest = errors.New("resource not found")
 
 // ErrResourceAlreadyExists is error to be matched with 409 http code.
 // Error is raised when you try to create existing resource.
-var ErrResourceAlreadyExists = errors.New("Resource already exists")
+var ErrResourceAlreadyExists = errors.New("resource already exists")
 
-// ErrInternal is error to be matched with 404 http code.
-var ErrNotFound = errors.New("Resource not found")
+// ErrNotFound is error to be matched with 404 http code.
+var ErrNotFound = errors.New("resource not found")
 
 type JSONError struct {
 	Error struct {
@@ -24,7 +27,7 @@ type JSONError struct {
 
 func GetJSONError(err error) *JSONError {
 	var jsonErr = JSONError{}
-	jsonErr.Error.Message = err.Error()
+	jsonErr.Error.Message = "Error: " + err.Error()
 	switch {
 	case errors.Is(err, ErrInternal):
 		jsonErr.Error.Code = http.StatusInternalServerError
@@ -32,6 +35,8 @@ func GetJSONError(err error) *JSONError {
 		jsonErr.Error.Code = http.StatusConflict
 	case errors.Is(err, ErrNotFound):
 		jsonErr.Error.Code = http.StatusNotFound
+	case errors.Is(err, ErrBadRequest):
+		jsonErr.Error.Code = http.StatusBadRequest
 	default:
 		jsonErr.Error.Code = http.StatusInternalServerError
 	}

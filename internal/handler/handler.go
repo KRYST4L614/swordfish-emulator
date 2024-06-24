@@ -30,10 +30,7 @@ func (h *Handler) SetRouter(router *mux.Router) {
 }
 
 func (h *Handler) notFoundHandler(writer http.ResponseWriter, request *http.Request) {
-	logrus.Errorf("Request to not existing path: %s", request.URL.Path)
+	logrus.Tracef("Request to not existing path: %s %s", request.Method, request.URL.Path)
 	writer.WriteHeader(http.StatusNotFound)
-	util.WriteJSON(
-		writer,
-		errlib.GetJSONError(errlib.ErrNotFound),
-	)
+	util.WriteJSONError(writer, errlib.ErrNotFound)
 }
