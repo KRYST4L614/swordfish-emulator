@@ -6,11 +6,12 @@ import (
 	"os/signal"
 	"syscall"
 
-	prefixed "github.com/x-cray/logrus-prefixed-formatter"
+	"log"
+	"log/slog"
 
-	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/app"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/config"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/logger"
 )
 
 const (
@@ -18,42 +19,38 @@ const (
 )
 
 func main() {
-	logrus.SetFormatter(&prefixed.TextFormatter{
-		DisableColors:   true,
-		TimestampFormat: "2006-01-02 15:04:05",
-		FullTimestamp:   true,
-		ForceFormatting: true,
-	})
 
 	conf, err := config.ReadConfigFromYAML[app.Config](configFile)
 	if err != nil {
-		panic(fmt.Errorf("Read of config from '%s' failed: %w", configFile, err))
+		panic(fmt.Errorf("read of config from '%s' failed: %w", configFile, err))
 	}
 	err = config.ValidateConfig(conf)
 	if err != nil {
 		panic(fmt.Errorf("'%s' parsing failed: %w", configFile, err))
 	}
 
-	logrus.Info("Starting...")
+	slog.SetDefault(logger.GetLogger(conf.LoggerRotationConfig, conf.LoggerConfig))
+
+	slog.Info("Starting...")
 
 	notify := make(chan error, 1)
 	defer close(notify)
 
 	app, err := app.NewApp(conf, notify)
 	if err != nil {
-		logrus.Panic(err)
+		log.Panic(err)
 	}
 
 	err = app.Start()
 	defer func() {
 		appErr := app.Stop()
 		if appErr != nil {
-			logrus.Error(appErr)
+			slog.Error(appErr.Error())
 		}
 	}()
 
 	if err != nil {
-		logrus.Panic(err)
+		log.Panic(err)
 	}
 
 	interupt := make(chan os.Signal, 1)
@@ -63,10 +60,10 @@ func main() {
 
 	select {
 	case serr := <-notify:
-		logrus.Errorf("Notified with app error: %s", serr.Error())
+		slog.Error(fmt.Sprintf("Notified with app error: %s", serr.Error()))
 	case signl := <-interupt:
-		logrus.Info("Cought signal while App running: " + signl.String())
+		slog.Info("Cought signal while App running: " + signl.String())
 	}
 
-	logrus.Info("Shutting down...")
+	slog.Info("Shutting down...")
 }

@@ -7,7 +7,8 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/sirupsen/logrus"
+	"log/slog"
+
 	squids "github.com/sqids/sqids-go"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 )
@@ -19,7 +20,7 @@ func Addr[T any](t T) *T {
 func Marshal(data interface{}) ([]byte, error) {
 	bytes, err := json.Marshal(data)
 	if err != nil {
-		return nil, fmt.Errorf("%w.", errlib.ErrInternal)
+		return nil, fmt.Errorf("%w", errlib.ErrInternal)
 	}
 
 	return bytes, nil
@@ -29,7 +30,7 @@ func Unmarshal[T any](data []byte) (*T, error) {
 	var resource T
 	err := json.Unmarshal(data, &resource)
 	if err != nil {
-		return nil, fmt.Errorf("%w.", errlib.ErrInternal)
+		return nil, fmt.Errorf("%w", errlib.ErrInternal)
 	}
 
 	return &resource, nil
@@ -39,7 +40,7 @@ func UnmarshalFromReader[T any](reader io.Reader) (*T, error) {
 	var resource T
 	err := json.NewDecoder(reader).Decode(&resource)
 	if err != nil {
-		return nil, fmt.Errorf("%w.", errlib.ErrInternal)
+		return nil, fmt.Errorf("%w", errlib.ErrInternal)
 	}
 
 	return &resource, nil
@@ -48,12 +49,19 @@ func UnmarshalFromReader[T any](reader io.Reader) (*T, error) {
 func WriteJSON(writer http.ResponseWriter, jsonStruct interface{}) {
 	writer.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(writer).Encode(jsonStruct)
+
+	logger_opts := &slog.HandlerOptions{
+		AddSource: true,
+	}
+
+	logger := slog.Default().With(logger_opts)
+
 	if err != nil {
-		jsonerr := errlib.GetJSONError(fmt.Errorf("%w.", errlib.ErrInternal))
-		logrus.Error(err)
+		jsonerr := errlib.GetJSONError(fmt.Errorf("%w", errlib.ErrInternal))
+		logger.Warn(err.Error())
 		writer.WriteHeader(jsonerr.Error.Code)
 		if err = json.NewEncoder(writer).Encode(jsonerr); err != nil {
-			logrus.Error(err)
+			logger.Warn(err.Error())
 		}
 	}
 }
