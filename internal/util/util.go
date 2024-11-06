@@ -49,19 +49,12 @@ func UnmarshalFromReader[T any](reader io.Reader) (*T, error) {
 func WriteJSON(writer http.ResponseWriter, jsonStruct interface{}) {
 	writer.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(writer).Encode(jsonStruct)
-
-	logger_opts := &slog.HandlerOptions{
-		AddSource: true,
-	}
-
-	logger := slog.Default().With(logger_opts)
-
 	if err != nil {
 		jsonerr := errlib.GetJSONError(fmt.Errorf("%w", errlib.ErrInternal))
-		logger.Warn(err.Error())
+		slog.Warn(err.Error())
 		writer.WriteHeader(jsonerr.Error.Code)
 		if err = json.NewEncoder(writer).Encode(jsonerr); err != nil {
-			logger.Warn(err.Error())
+			slog.Warn(err.Error())
 		}
 	}
 }
