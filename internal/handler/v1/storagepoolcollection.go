@@ -3,8 +3,9 @@ package v1
 import (
 	"net/http"
 
+	"log/slog"
+
 	"github.com/gorilla/mux"
-	"github.com/sirupsen/logrus"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/dto"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/service"
@@ -58,7 +59,7 @@ func (handler *StoragePoolCollectionHandler) createStoragePool(writer http.Respo
 	}
 
 	// TODO: Add validation on incoming resource
-	logrus.Info("Pool uri: ", request.RequestURI)
+	slog.Info("Pool uri: " + request.RequestURI)
 	pool, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            storagePool.Name,
 		Id:              storagePool.Id,

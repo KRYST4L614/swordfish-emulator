@@ -1,10 +1,11 @@
 package middleware
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
-	"github.com/sirupsen/logrus"
+	"log/slog"
 )
 
 func Logging(next http.Handler) http.Handler {
@@ -13,6 +14,6 @@ func Logging(next http.Handler) http.Handler {
 
 		next.ServeHTTP(w, req)
 
-		logrus.Infof("%s %s %s", req.Method, req.RequestURI, time.Since(start))
+		slog.Info(fmt.Sprintf("%s %s %s", req.Method, req.RequestURI, time.Since(start)))
 	})
 }

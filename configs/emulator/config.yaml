@@ -17,3 +17,14 @@ server:
   host: ":8080"
   write-timeout: 15s
   read-timeout: 15s
+logger:
+  stdout: true
+  file: true
+  format: "json"
+logger-rotation:
+  file-name: "./logs/log.log"
+  max-size: 10
+  max-backups: 5
+  max-age: 28
+  local-time: true
+  compress: true
