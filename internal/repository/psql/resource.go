@@ -28,7 +28,7 @@ func (s *PsqlResourceRepository) Create(ctx context.Context, resource *dto.Resou
 		if strings.Contains(err.Error(), "resource_pkey") {
 			return fmt.Errorf("%w, resource with id %s already exists", errlib.ErrResourceAlreadyExists, resource.Id)
 		}
-		return fmt.Errorf("%w.", errlib.ErrInternal)
+		return fmt.Errorf("resource.Create error %w", errlib.ErrInternal)
 	}
 
 	return nil
@@ -54,7 +54,7 @@ func (s *PsqlResourceRepository) Get(ctx context.Context, id string) (*dto.Resou
 		if strings.Contains(err.Error(), "no rows in result set") {
 			return nil, fmt.Errorf("%w, resource with id %s doesn't exist", errlib.ErrNotFound, id)
 		}
-		return nil, fmt.Errorf("%w.", errlib.ErrInternal)
+		return nil, fmt.Errorf("resource.get %w", errlib.ErrInternal)
 	}
 
 	return &dto, nil
@@ -62,14 +62,14 @@ func (s *PsqlResourceRepository) Get(ctx context.Context, id string) (*dto.Resou
 
 func (s *PsqlResourceRepository) DeleteAll(ctx context.Context) error {
 	if _, err := s.db.ExecContext(ctx, `TRUNCATE resource CASCADE`); err != nil {
-		return fmt.Errorf("%w.", errlib.ErrInternal)
+		return fmt.Errorf("resource.deleteAll %w", errlib.ErrInternal)
 	}
 	return nil
 }
 
 func (s *PsqlResourceRepository) DeleteById(ctx context.Context, id string) error {
 	if _, err := s.db.ExecContext(ctx, `DELETE FROM resource WHERE id=$1`, id); err != nil {
-		return fmt.Errorf("%w.", errlib.ErrInternal)
+		return fmt.Errorf("resource.DeleteById error %w", errlib.ErrInternal)
 	}
 	return nil
 }

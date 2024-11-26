@@ -20,7 +20,7 @@ func Addr[T any](t T) *T {
 func Marshal(data interface{}) ([]byte, error) {
 	bytes, err := json.Marshal(data)
 	if err != nil {
-		return nil, fmt.Errorf("%w", errlib.ErrInternal)
+		return nil, fmt.Errorf("util.marshal error %w", errlib.ErrInternal)
 	}
 
 	return bytes, nil
@@ -30,7 +30,7 @@ func Unmarshal[T any](data []byte) (*T, error) {
 	var resource T
 	err := json.Unmarshal(data, &resource)
 	if err != nil {
-		return nil, fmt.Errorf("%w", errlib.ErrInternal)
+		return nil, fmt.Errorf("util.unmarshal error%w", errlib.ErrInternal)
 	}
 
 	return &resource, nil
@@ -40,7 +40,7 @@ func UnmarshalFromReader[T any](reader io.Reader) (*T, error) {
 	var resource T
 	err := json.NewDecoder(reader).Decode(&resource)
 	if err != nil {
-		return nil, fmt.Errorf("%w", errlib.ErrInternal)
+		return nil, fmt.Errorf("invalid JSON %w", errlib.ErrBadRequest)
 	}
 
 	return &resource, nil
@@ -50,7 +50,7 @@ func WriteJSON(writer http.ResponseWriter, jsonStruct interface{}) {
 	writer.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(writer).Encode(jsonStruct)
 	if err != nil {
-		jsonerr := errlib.GetJSONError(fmt.Errorf("%w", errlib.ErrInternal))
+		jsonerr := errlib.GetJSONError(fmt.Errorf("util.WriteJSON %w", errlib.ErrInternal))
 		slog.Warn(err.Error())
 		writer.WriteHeader(jsonerr.Error.Code)
 		if err = json.NewEncoder(writer).Encode(jsonerr); err != nil {

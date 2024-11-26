@@ -35,8 +35,6 @@ func (handler *VolumeHandler) replaceVolume(writer http.ResponseWriter, request 
 		return
 	}
 
-	// TODO: Add validation on incoming resource
-
 	volumeId := request.RequestURI
 	volume.Id = filepath.Base(volumeId)
 	*volume.OdataId = volumeId
@@ -56,8 +54,6 @@ func (handler *VolumeHandler) updateVolume(writer http.ResponseWriter, request *
 		util.WriteJSONError(writer, err)
 		return
 	}
-
-	// TODO: Add validation on incoming resource
 
 	volumeId := request.RequestURI
 	newVolume, err := handler.service.Update(request.Context(), volumeId, patchData)

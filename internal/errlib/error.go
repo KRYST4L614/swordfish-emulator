@@ -9,7 +9,7 @@ import (
 var ErrInternal = errors.New("some internal error happened")
 
 // ErrBadRequest is error to be matched with 400 http code.
-var ErrBadRequest = errors.New("resource not found")
+var ErrBadRequest = errors.New("bad request")
 
 // ErrResourceAlreadyExists is error to be matched with 409 http code.
 // Error is raised when you try to create existing resource.
