@@ -293,12 +293,12 @@ func getResource[T any](r repository.ResourceRepository, ctx context.Context, id
 }
 
 func validate(service ResourceService, context context.Context, resource any) error {
-	v := reflect.TypeOf(resource)
+	v := reflect.TypeOf(resource).Elem()
 	numFields := v.NumField()
 	for i := 0; i < numFields; i++ {
 		field := v.Field(i)
 		if field.Type.String() == "*[]domain.OdataV4IdRef" {
-			value := reflect.ValueOf(resource)
+			value := reflect.ValueOf(resource).Elem()
 			fieldValue := value.FieldByName(field.Name).Interface()
 			ids, ok := fieldValue.(*[]domain.OdataV4IdRef)
 			if !ok {
@@ -316,7 +316,7 @@ func validate(service ResourceService, context context.Context, resource any) er
 		}
 
 		if field.Type.String() == "*domain.OdataV4IdRef" {
-			value := reflect.ValueOf(resource)
+			value := reflect.ValueOf(resource).Elem()
 			fieldValue := value.FieldByName(field.Name).Interface()
 			id, ok := fieldValue.(*domain.OdataV4IdRef)
 			if !ok {
