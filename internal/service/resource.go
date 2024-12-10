@@ -132,12 +132,12 @@ func (r *resourceService) Update(ctx context.Context, resourceId string, patchDa
 
 // Replace - replaces old resources placed by 'resourceId' with new provided data
 func (r *resourceService) Replace(ctx context.Context, resourceId string, resource interface{}) (interface{}, error) {
-	err := validate(r, ctx, resource)
-	if err != nil {
-		return nil, err
-	}
+	//err := validate(r, ctx, resource)
+	// if err != nil {
+	// 	return nil, err
+	// }
 
-	_, err = r.Delete(ctx, resourceId)
+	_, err := r.Delete(ctx, resourceId)
 	if err != nil {
 		return nil, err
 	}

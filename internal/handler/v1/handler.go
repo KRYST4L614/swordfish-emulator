@@ -25,6 +25,7 @@ func NewHandler(services *service.Service) *Handler {
 	handlers = append(handlers, NewStoragePoolHandler(services.ResourceService))
 	handlers = append(handlers, NewVolumeCollectionHandler(services.ResourceService))
 	handlers = append(handlers, NewVolumeHandler(services.ResourceService))
+	handlers = append(handlers, NewStorageServiceCollectionHandler(services.ResourceService))
 	return &Handler{
 		handlers: handlers,
 	}

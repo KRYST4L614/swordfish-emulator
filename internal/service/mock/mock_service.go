@@ -21,6 +21,7 @@ import (
 type MockResourceService struct {
 	ctrl     *gomock.Controller
 	recorder *MockResourceServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockResourceServiceMockRecorder is the mock recorder for MockResourceService.
@@ -41,121 +42,121 @@ func (m *MockResourceService) EXPECT() *MockResourceServiceMockRecorder {
 }
 
 // AddResourceToCollection mocks base method.
-func (m *MockResourceService) AddResourceToCollection(arg0 context.Context, arg1 dto.ResourceRequestDto) (any, error) {
+func (m *MockResourceService) AddResourceToCollection(ctx context.Context, resourceDto dto.ResourceRequestDto) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddResourceToCollection", arg0, arg1)
+	ret := m.ctrl.Call(m, "AddResourceToCollection", ctx, resourceDto)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // AddResourceToCollection indicates an expected call of AddResourceToCollection.
-func (mr *MockResourceServiceMockRecorder) AddResourceToCollection(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) AddResourceToCollection(ctx, resourceDto any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddResourceToCollection", reflect.TypeOf((*MockResourceService)(nil).AddResourceToCollection), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddResourceToCollection", reflect.TypeOf((*MockResourceService)(nil).AddResourceToCollection), ctx, resourceDto)
 }
 
 // Create mocks base method.
-func (m *MockResourceService) Create(arg0 context.Context, arg1 string, arg2 any) (any, error) {
+func (m *MockResourceService) Create(ctx context.Context, resourceId string, resource any) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Create", arg0, arg1, arg2)
+	ret := m.ctrl.Call(m, "Create", ctx, resourceId, resource)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Create indicates an expected call of Create.
-func (mr *MockResourceServiceMockRecorder) Create(arg0, arg1, arg2 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) Create(ctx, resourceId, resource any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockResourceService)(nil).Create), arg0, arg1, arg2)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockResourceService)(nil).Create), ctx, resourceId, resource)
 }
 
 // CreateCollection mocks base method.
-func (m *MockResourceService) CreateCollection(arg0 context.Context, arg1 dto.CollectionDto) (any, error) {
+func (m *MockResourceService) CreateCollection(ctx context.Context, collectionDto dto.CollectionDto) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "CreateCollection", arg0, arg1)
+	ret := m.ctrl.Call(m, "CreateCollection", ctx, collectionDto)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // CreateCollection indicates an expected call of CreateCollection.
-func (mr *MockResourceServiceMockRecorder) CreateCollection(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) CreateCollection(ctx, collectionDto any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateCollection", reflect.TypeOf((*MockResourceService)(nil).CreateCollection), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateCollection", reflect.TypeOf((*MockResourceService)(nil).CreateCollection), ctx, collectionDto)
 }
 
 // Delete mocks base method.
-func (m *MockResourceService) Delete(arg0 context.Context, arg1 string) (any, error) {
+func (m *MockResourceService) Delete(ctx context.Context, resourceId string) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Delete", arg0, arg1)
+	ret := m.ctrl.Call(m, "Delete", ctx, resourceId)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Delete indicates an expected call of Delete.
-func (mr *MockResourceServiceMockRecorder) Delete(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) Delete(ctx, resourceId any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockResourceService)(nil).Delete), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockResourceService)(nil).Delete), ctx, resourceId)
 }
 
 // DeleteResourceFromCollection mocks base method.
-func (m *MockResourceService) DeleteResourceFromCollection(arg0 context.Context, arg1, arg2 string) (any, error) {
+func (m *MockResourceService) DeleteResourceFromCollection(ctx context.Context, collectionId, resourceId string) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "DeleteResourceFromCollection", arg0, arg1, arg2)
+	ret := m.ctrl.Call(m, "DeleteResourceFromCollection", ctx, collectionId, resourceId)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // DeleteResourceFromCollection indicates an expected call of DeleteResourceFromCollection.
-func (mr *MockResourceServiceMockRecorder) DeleteResourceFromCollection(arg0, arg1, arg2 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) DeleteResourceFromCollection(ctx, collectionId, resourceId any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteResourceFromCollection", reflect.TypeOf((*MockResourceService)(nil).DeleteResourceFromCollection), arg0, arg1, arg2)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteResourceFromCollection", reflect.TypeOf((*MockResourceService)(nil).DeleteResourceFromCollection), ctx, collectionId, resourceId)
 }
 
 // Get mocks base method.
-func (m *MockResourceService) Get(arg0 context.Context, arg1 string) (any, error) {
+func (m *MockResourceService) Get(ctx context.Context, resourceId string) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Get", arg0, arg1)
+	ret := m.ctrl.Call(m, "Get", ctx, resourceId)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Get indicates an expected call of Get.
-func (mr *MockResourceServiceMockRecorder) Get(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) Get(ctx, resourceId any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockResourceService)(nil).Get), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockResourceService)(nil).Get), ctx, resourceId)
 }
 
 // Replace mocks base method.
-func (m *MockResourceService) Replace(arg0 context.Context, arg1 string, arg2 any) (any, error) {
+func (m *MockResourceService) Replace(ctx context.Context, resourceId string, resource any) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Replace", arg0, arg1, arg2)
+	ret := m.ctrl.Call(m, "Replace", ctx, resourceId, resource)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Replace indicates an expected call of Replace.
-func (mr *MockResourceServiceMockRecorder) Replace(arg0, arg1, arg2 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) Replace(ctx, resourceId, resource any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Replace", reflect.TypeOf((*MockResourceService)(nil).Replace), arg0, arg1, arg2)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Replace", reflect.TypeOf((*MockResourceService)(nil).Replace), ctx, resourceId, resource)
 }
 
 // Update mocks base method.
-func (m *MockResourceService) Update(arg0 context.Context, arg1 string, arg2 []byte) (any, error) {
+func (m *MockResourceService) Update(ctx context.Context, resourceId string, patchData []byte) (any, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Update", arg0, arg1, arg2)
+	ret := m.ctrl.Call(m, "Update", ctx, resourceId, patchData)
 	ret0, _ := ret[0].(any)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Update indicates an expected call of Update.
-func (mr *MockResourceServiceMockRecorder) Update(arg0, arg1, arg2 any) *gomock.Call {
+func (mr *MockResourceServiceMockRecorder) Update(ctx, resourceId, patchData any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockResourceService)(nil).Update), arg0, arg1, arg2)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockResourceService)(nil).Update), ctx, resourceId, patchData)
 }
