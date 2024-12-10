@@ -1,13 +1,12 @@
 module gitlab.com/IgorNikiforov/swordfish-emulator-go
 
-go 1.22.0
+go 1.21.0
 
 toolchain go1.23.4
 
 require (
 	github.com/evanphx/json-patch v0.5.2
 	github.com/fergusstrange/embedded-postgres v1.26.0
-	github.com/golang/mock v1.6.0
 	github.com/gorilla/mux v1.8.1
 	github.com/jackc/pgx/v5 v5.5.3
 	github.com/jmoiron/sqlx v1.3.5
