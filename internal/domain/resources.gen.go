@@ -110,6 +110,36 @@ const (
 	WriteOnce DataStorageLoSCapabilitiesStorageAccessCapability = "WriteOnce"
 )
 
+// Defines values for FileShareV130QuotaType.
+const (
+	Hard FileShareV130QuotaType = "Hard"
+	Soft FileShareV130QuotaType = "Soft"
+)
+
+// Defines values for FileSystemFileProtocol.
+const (
+	FileSystemFileProtocolNFSv3   FileSystemFileProtocol = "NFSv3"
+	FileSystemFileProtocolNFSv40  FileSystemFileProtocol = "NFSv4_0"
+	FileSystemFileProtocolNFSv41  FileSystemFileProtocol = "NFSv4_1"
+	FileSystemFileProtocolSMBv20  FileSystemFileProtocol = "SMBv2_0"
+	FileSystemFileProtocolSMBv21  FileSystemFileProtocol = "SMBv2_1"
+	FileSystemFileProtocolSMBv30  FileSystemFileProtocol = "SMBv3_0"
+	FileSystemFileProtocolSMBv302 FileSystemFileProtocol = "SMBv3_0_2"
+	FileSystemFileProtocolSMBv311 FileSystemFileProtocol = "SMBv3_1_1"
+)
+
+// Defines values for FileSystemV141CharacterCodeSet.
+const (
+	ASCII            FileSystemV141CharacterCodeSet = "ASCII"
+	ExtendedUNIXCode FileSystemV141CharacterCodeSet = "ExtendedUNIXCode"
+	ISO2022          FileSystemV141CharacterCodeSet = "ISO2022"
+	ISO88591         FileSystemV141CharacterCodeSet = "ISO8859_1"
+	UCS2             FileSystemV141CharacterCodeSet = "UCS_2"
+	UTF16            FileSystemV141CharacterCodeSet = "UTF_16"
+	UTF8             FileSystemV141CharacterCodeSet = "UTF_8"
+	Unicode          FileSystemV141CharacterCodeSet = "Unicode"
+)
+
 // Defines values for PCIeDevicePCIeTypes.
 const (
 	Gen1 PCIeDevicePCIeTypes = "Gen1"
@@ -422,9 +452,9 @@ const (
 
 // Defines values for StorageV1151HotspareActivationPolicy.
 const (
-	OEM                     StorageV1151HotspareActivationPolicy = "OEM"
-	OnDriveFailure          StorageV1151HotspareActivationPolicy = "OnDriveFailure"
-	OnDrivePredictedFailure StorageV1151HotspareActivationPolicy = "OnDrivePredictedFailure"
+	StorageV1151HotspareActivationPolicyOEM                     StorageV1151HotspareActivationPolicy = "OEM"
+	StorageV1151HotspareActivationPolicyOnDriveFailure          StorageV1151HotspareActivationPolicy = "OnDriveFailure"
+	StorageV1151HotspareActivationPolicyOnDrivePredictedFailure StorageV1151HotspareActivationPolicy = "OnDrivePredictedFailure"
 )
 
 // Defines values for VolumeEncryptionTypes.
@@ -1131,6 +1161,409 @@ type DataStorageLoSCapabilitiesProvisioningPolicy string
 
 // DataStorageLoSCapabilitiesStorageAccessCapability Values of StorageAccessCapability describe abilities to read or write storage.
 type DataStorageLoSCapabilitiesStorageAccessCapability string
+
+// FileShare An instance of a shared set of files with a common directory structure.
+type FileShare = FileShareV130FileShare
+
+// FileShareCollection Contains a collection of references to FileSystem resource instances.
+type FileShareCollection = FileShareCollectionFileShareCollection
+
+// FileShareCollectionFileShareCollection Contains a collection of references to FileSystem resource instances.
+type FileShareCollectionFileShareCollection struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType   *OdataV4Type                                        `json:"@odata.type,omitempty"`
+	Description *FileShareCollectionFileShareCollection_Description `json:"Description,omitempty"`
+
+	// Members References to the members of this FileSystem collection.
+	Members *[]OdataV4IdRef `json:"Members,omitempty"`
+
+	// MembersOdataCount The number of items in a collection.
+	MembersOdataCount *OdataV4Count `json:"Members@odata.count,omitempty"`
+
+	// MembersOdataNextLink The URI to the resource containing the next set of partial members.
+	MembersOdataNextLink *OdataV4NextLink `json:"Members@odata.nextLink,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// FileShareCollectionFileShareCollectionDescription1 defines model for .
+type FileShareCollectionFileShareCollectionDescription1 = interface{}
+
+// FileShareCollectionFileShareCollection_Description defines model for FileShareCollectionFileShareCollection.Description.
+type FileShareCollectionFileShareCollection_Description struct {
+	union json.RawMessage
+}
+
+// FileShareV130Actions The available actions for this resource.
+type FileShareV130Actions struct {
+	// Oem The available OEM specific actions for this resource.
+	Oem *FileShareV130OemActions `json:"Oem,omitempty"`
+}
+
+// FileShareV130FileShare An instance of a shared set of files with a common directory structure.
+type FileShareV130FileShare struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *FileShareV130Actions `json:"Actions,omitempty"`
+
+	// CASupported Continuous Availability is supported. Client/Server mediated recovery from network and server failure with application transparency.
+	CASupported *bool `json:"CASupported"`
+
+	// DefaultAccessCapabilities An array of default access capabilities for the file share. The types of default access can include Read, Write, and/or Execute.
+	DefaultAccessCapabilities *[]FileShareV130FileShare_DefaultAccessCapabilities_Item `json:"DefaultAccessCapabilities,omitempty"`
+	Description               *FileShareV130FileShare_Description                      `json:"Description,omitempty"`
+
+	// EthernetInterfaces A reference to a resource.
+	EthernetInterfaces *OdataV4IdRef `json:"EthernetInterfaces,omitempty"`
+
+	// ExecuteSupport Execute access is supported by the file share.
+	ExecuteSupport *bool `json:"ExecuteSupport"`
+
+	// FileSharePath A path to an exported file or directory on the file system where this file share is hosted.
+	FileSharePath *string `json:"FileSharePath"`
+
+	// FileShareQuotaType Specifies the type of quota enforcement.
+	FileShareQuotaType *FileShareV130FileShare_FileShareQuotaType `json:"FileShareQuotaType,omitempty"`
+
+	// FileShareRemainingQuotaBytes The number of remaining bytes that may be used by this file share.
+	FileShareRemainingQuotaBytes *int64 `json:"FileShareRemainingQuotaBytes"`
+
+	// FileShareTotalQuotaBytes The maximum number of bytes that may be used by this file share.
+	FileShareTotalQuotaBytes *int64 `json:"FileShareTotalQuotaBytes"`
+
+	// FileSharingProtocols An array of file sharing protocols supported by this file share.
+	FileSharingProtocols *[]FileShareV130FileShare_FileSharingProtocols_Item `json:"FileSharingProtocols,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// Links The links object contains the links to other resources that are related to this resource.
+	Links *FileShareV130Links `json:"Links,omitempty"`
+
+	// LowSpaceWarningThresholdPercents An array of low space warning threshold percentages for the file share.
+	LowSpaceWarningThresholdPercents *[]int64 `json:"LowSpaceWarningThresholdPercents,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// RemainingCapacityPercent The percentage of the capacity remaining in the FileShare.
+	RemainingCapacityPercent *int64 `json:"RemainingCapacityPercent"`
+
+	// ReplicationEnabled Indicates whether or not replication is enabled on the file share.
+	ReplicationEnabled *bool `json:"ReplicationEnabled"`
+
+	// RootAccess Root access is allowed by the file share.
+	RootAccess *bool `json:"RootAccess"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// WritePolicy Defines how writes are replicated to the shared source.
+	WritePolicy *FileShareV130FileShare_WritePolicy `json:"WritePolicy,omitempty"`
+}
+
+// FileShareV130FileShareDefaultAccessCapabilities1 defines model for .
+type FileShareV130FileShareDefaultAccessCapabilities1 = interface{}
+
+// FileShareV130FileShare_DefaultAccessCapabilities_Item defines model for FileShare_v1_3_0_FileShare.DefaultAccessCapabilities.Item.
+type FileShareV130FileShare_DefaultAccessCapabilities_Item struct {
+	union json.RawMessage
+}
+
+// FileShareV130FileShareDescription1 defines model for .
+type FileShareV130FileShareDescription1 = interface{}
+
+// FileShareV130FileShare_Description defines model for FileShareV130FileShare.Description.
+type FileShareV130FileShare_Description struct {
+	union json.RawMessage
+}
+
+// FileShareV130FileShareFileShareQuotaType1 defines model for .
+type FileShareV130FileShareFileShareQuotaType1 = interface{}
+
+// FileShareV130FileShare_FileShareQuotaType Specifies the type of quota enforcement.
+type FileShareV130FileShare_FileShareQuotaType struct {
+	union json.RawMessage
+}
+
+// FileShareV130FileShareFileSharingProtocols1 defines model for .
+type FileShareV130FileShareFileSharingProtocols1 = interface{}
+
+// FileShareV130FileShare_FileSharingProtocols_Item defines model for FileShare_v1_3_0_FileShare.FileSharingProtocols.Item.
+type FileShareV130FileShare_FileSharingProtocols_Item struct {
+	union json.RawMessage
+}
+
+// FileShareV130FileShareWritePolicy1 defines model for .
+type FileShareV130FileShareWritePolicy1 = interface{}
+
+// FileShareV130FileShare_WritePolicy Defines how writes are replicated to the shared source.
+type FileShareV130FileShare_WritePolicy struct {
+	union json.RawMessage
+}
+
+// FileShareV130Links The links object contains the links to other resources that are related to this resource.
+type FileShareV130Links struct {
+	// ClassOfService A reference to a resource.
+	ClassOfService *OdataV4IdRef `json:"ClassOfService,omitempty"`
+
+	// FileSystem A reference to a resource.
+	FileSystem *OdataV4IdRef `json:"FileSystem,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// FileShareV130OemActions The available OEM specific actions for this resource.
+type FileShareV130OemActions map[string]interface{}
+
+// FileShareV130QuotaType Indicates whether quotas are enabled and enforced by this file share. A value of Soft means that quotas are enabled but not enforced, and a value of Hard means that quotas are enabled and enforced.
+type FileShareV130QuotaType string
+
+// FileSystem An instance of a hierarchical namespace of files.
+type FileSystem = FileSystemV141FileSystem
+
+// FileSystemCollection Contains a collection of references to FileSystem resource instances.
+type FileSystemCollection = FileSystemCollectionFileSystemCollection
+
+// FileSystemCollectionFileSystemCollection Contains a collection of references to FileSystem resource instances.
+type FileSystemCollectionFileSystemCollection struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType   *OdataV4Type                                          `json:"@odata.type,omitempty"`
+	Description *FileSystemCollectionFileSystemCollection_Description `json:"Description,omitempty"`
+
+	// Members References to the members of this FileSystem collection.
+	Members *[]OdataV4IdRef `json:"Members,omitempty"`
+
+	// MembersOdataCount The number of items in a collection.
+	MembersOdataCount *OdataV4Count `json:"Members@odata.count,omitempty"`
+
+	// MembersOdataNextLink The URI to the resource containing the next set of partial members.
+	MembersOdataNextLink *OdataV4NextLink `json:"Members@odata.nextLink,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// FileSystemCollectionFileSystemCollectionDescription1 defines model for .
+type FileSystemCollectionFileSystemCollectionDescription1 = interface{}
+
+// FileSystemCollectionFileSystemCollection_Description defines model for FileSystemCollectionFileSystemCollection.Description.
+type FileSystemCollectionFileSystemCollection_Description struct {
+	union json.RawMessage
+}
+
+// FileSystemFileProtocol The file sharing protocols supported by the file system.
+type FileSystemFileProtocol string
+
+// FileSystemImportedShare defines model for FileSystem_ImportedShare.
+type FileSystemImportedShare struct {
+}
+
+// FileSystemV141Actions The available actions for this resource.
+type FileSystemV141Actions struct {
+	// Oem The available OEM specific actions for this resource.
+	Oem *FileSystemV141OemActions `json:"Oem,omitempty"`
+}
+
+// FileSystemV141CharacterCodeSet Supported character code standards for different alphabets and languages.
+type FileSystemV141CharacterCodeSet string
+
+// FileSystemV141FileSystem An instance of a hierarchical namespace of files.
+type FileSystemV141FileSystem struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// AccessCapabilities An array of supported IO access capabilities.
+	AccessCapabilities *[]FileSystemV141FileSystem_AccessCapabilities_Item `json:"AccessCapabilities,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *FileSystemV141Actions `json:"Actions,omitempty"`
+
+	// BlockSizeBytes Block size of the file system in bytes.
+	BlockSizeBytes *int64 `json:"BlockSizeBytes"`
+
+	// Capacity This is the schema definition for the Capacity of a device. It represents the properties for capacity for any data store.
+	Capacity *CapacityV100Capacity `json:"Capacity,omitempty"`
+
+	// CapacitySources An array of capacity sources for the file system.
+	CapacitySources *[]CapacityV121CapacitySource `json:"CapacitySources,omitempty"`
+
+	// CapacitySourcesOdataCount The number of items in a collection.
+	CapacitySourcesOdataCount *OdataV4Count `json:"CapacitySources@odata.count,omitempty"`
+
+	// CasePreserved The case of file names is preserved by the file system.
+	CasePreserved *bool `json:"CasePreserved"`
+
+	// CaseSensitive Case sensitive file names are supported by the file system.
+	CaseSensitive *bool `json:"CaseSensitive"`
+
+	// CharacterCodeSet An array of the character sets or encodings supported by the file system.
+	CharacterCodeSet *[]FileSystemV141FileSystem_CharacterCodeSet_Item `json:"CharacterCodeSet,omitempty"`
+
+	// ClusterSizeBytes A value indicating the minimum file allocation size imposed by the file system.
+	ClusterSizeBytes *int64                                `json:"ClusterSizeBytes"`
+	Description      *FileSystemV141FileSystem_Description `json:"Description,omitempty"`
+
+	// ExportedShares A reference to a resource.
+	ExportedShares *OdataV4IdRef `json:"ExportedShares,omitempty"`
+
+	// IOStatistics The properties of this type represent IO statistics.
+	IOStatistics *IOStatisticsV104IOStatistics `json:"IOStatistics,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// Identifiers The durable names for this file system.
+	Identifiers *[]ResourceV1200Identifier `json:"Identifiers,omitempty"`
+
+	// ImportedShares An array of imported file shares.
+	ImportedShares *[]FileSystemImportedShare `json:"ImportedShares,omitempty"`
+
+	// Links Contains links to other resources that are related to this resource.
+	Links *FileSystemV141Links `json:"Links,omitempty"`
+
+	// LowSpaceWarningThresholdPercents An array of low space warning threshold percentages for the file system.
+	LowSpaceWarningThresholdPercents *[]int64 `json:"LowSpaceWarningThresholdPercents,omitempty"`
+
+	// MaxFileNameLengthBytes A value indicating the maximum length of a file name within the file system.
+	MaxFileNameLengthBytes *int64 `json:"MaxFileNameLengthBytes"`
+
+	// Metrics The link to the metrics for this file system.
+	Metrics *FileSystemV141FileSystem_Metrics `json:"Metrics,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// RecoverableCapacitySourceCount Current number of capacity source resources that are available as replacements.
+	RecoverableCapacitySourceCount *int64 `json:"RecoverableCapacitySourceCount"`
+
+	// RemainingCapacity This is the schema definition for the Capacity of a device. It represents the properties for capacity for any data store.
+	RemainingCapacity *CapacityV100Capacity `json:"RemainingCapacity,omitempty"`
+
+	// RemainingCapacityPercent The percentage of the capacity remaining in the FileSystem.
+	RemainingCapacityPercent *int64 `json:"RemainingCapacityPercent"`
+
+	// ReplicaInfo Defines the characteristics of a replica.
+	ReplicaInfo *StorageReplicaInfoV140ReplicaInfo `json:"ReplicaInfo,omitempty"`
+
+	// ReplicaTargets The resources that are target replicas of this source.
+	ReplicaTargets *[]OdataV4IdRef `json:"ReplicaTargets,omitempty"`
+
+	// ReplicaTargetsOdataCount The number of items in a collection.
+	ReplicaTargetsOdataCount *OdataV4Count `json:"ReplicaTargets@odata.count,omitempty"`
+
+	// ReplicationEnabled Indicates whether or not replication is enabled on the file system.
+	ReplicationEnabled *bool `json:"ReplicationEnabled"`
+}
+
+// FileSystemV141FileSystemAccessCapabilities1 defines model for .
+type FileSystemV141FileSystemAccessCapabilities1 = interface{}
+
+// FileSystemV141FileSystem_AccessCapabilities_Item defines model for FileSystem_v1_4_1_FileSystem.AccessCapabilities.Item.
+type FileSystemV141FileSystem_AccessCapabilities_Item struct {
+	union json.RawMessage
+}
+
+// FileSystemV141FileSystemCharacterCodeSet1 defines model for .
+type FileSystemV141FileSystemCharacterCodeSet1 = interface{}
+
+// FileSystemV141FileSystem_CharacterCodeSet_Item defines model for FileSystem_v1_4_1_FileSystem.CharacterCodeSet.Item.
+type FileSystemV141FileSystem_CharacterCodeSet_Item struct {
+	union json.RawMessage
+}
+
+// FileSystemV141FileSystemDescription1 defines model for .
+type FileSystemV141FileSystemDescription1 = interface{}
+
+// FileSystemV141FileSystem_Description defines model for FileSystemV141FileSystem.Description.
+type FileSystemV141FileSystem_Description struct {
+	union json.RawMessage
+}
+
+// FileSystemV141FileSystemMetrics1 defines model for .
+type FileSystemV141FileSystemMetrics1 = interface{}
+
+// FileSystemV141FileSystem_Metrics The link to the metrics for this file system.
+type FileSystemV141FileSystem_Metrics struct {
+	union json.RawMessage
+}
+
+// FileSystemV141Links Contains links to other resources that are related to this resource.
+type FileSystemV141Links struct {
+	// ClassOfService A reference to a resource.
+	ClassOfService *OdataV4IdRef `json:"ClassOfService,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// ReplicaCollection An array of links to replicas for this file system.
+	// Deprecated:
+	ReplicaCollection *[]OdataV4IdRef `json:"ReplicaCollection,omitempty"`
+
+	// ReplicaCollectionOdataCount The number of items in a collection.
+	ReplicaCollectionOdataCount *OdataV4Count `json:"ReplicaCollection@odata.count,omitempty"`
+
+	// SpareResourceSets An array of references to SpareResourceSets.
+	SpareResourceSets *[]OdataV4IdRef `json:"SpareResourceSets,omitempty"`
+
+	// SpareResourceSetsOdataCount The number of items in a collection.
+	SpareResourceSetsOdataCount *OdataV4Count `json:"SpareResourceSets@odata.count,omitempty"`
+}
+
+// FileSystemV141OemActions The available OEM specific actions for this resource.
+type FileSystemV141OemActions map[string]interface{}
 
 // IOStatisticsV104IOStatistics The properties of this type represent IO statistics.
 type IOStatisticsV104IOStatistics struct {
@@ -4074,6 +4507,688 @@ func (t CapacityV121CapacitySource_Description) MarshalJSON() ([]byte, error) {
 }
 
 func (t *CapacityV121CapacitySource_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceDescription returns the union data inside the FileShareCollectionFileShareCollection_Description as a ResourceDescription
+func (t FileShareCollectionFileShareCollection_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the FileShareCollectionFileShareCollection_Description as the provided ResourceDescription
+func (t *FileShareCollectionFileShareCollection_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the FileShareCollectionFileShareCollection_Description, using the provided ResourceDescription
+func (t *FileShareCollectionFileShareCollection_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileShareCollectionFileShareCollectionDescription1 returns the union data inside the FileShareCollectionFileShareCollection_Description as a FileShareCollectionFileShareCollectionDescription1
+func (t FileShareCollectionFileShareCollection_Description) AsFileShareCollectionFileShareCollectionDescription1() (FileShareCollectionFileShareCollectionDescription1, error) {
+	var body FileShareCollectionFileShareCollectionDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileShareCollectionFileShareCollectionDescription1 overwrites any union data inside the FileShareCollectionFileShareCollection_Description as the provided FileShareCollectionFileShareCollectionDescription1
+func (t *FileShareCollectionFileShareCollection_Description) FromFileShareCollectionFileShareCollectionDescription1(v FileShareCollectionFileShareCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileShareCollectionFileShareCollectionDescription1 performs a merge with any union data inside the FileShareCollectionFileShareCollection_Description, using the provided FileShareCollectionFileShareCollectionDescription1
+func (t *FileShareCollectionFileShareCollection_Description) MergeFileShareCollectionFileShareCollectionDescription1(v FileShareCollectionFileShareCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileShareCollectionFileShareCollection_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileShareCollectionFileShareCollection_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataStorageLoSCapabilitiesStorageAccessCapability returns the union data inside the FileShareV130FileShare_DefaultAccessCapabilities_Item as a DataStorageLoSCapabilitiesStorageAccessCapability
+func (t FileShareV130FileShare_DefaultAccessCapabilities_Item) AsDataStorageLoSCapabilitiesStorageAccessCapability() (DataStorageLoSCapabilitiesStorageAccessCapability, error) {
+	var body DataStorageLoSCapabilitiesStorageAccessCapability
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataStorageLoSCapabilitiesStorageAccessCapability overwrites any union data inside the FileShareV130FileShare_DefaultAccessCapabilities_Item as the provided DataStorageLoSCapabilitiesStorageAccessCapability
+func (t *FileShareV130FileShare_DefaultAccessCapabilities_Item) FromDataStorageLoSCapabilitiesStorageAccessCapability(v DataStorageLoSCapabilitiesStorageAccessCapability) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataStorageLoSCapabilitiesStorageAccessCapability performs a merge with any union data inside the FileShareV130FileShare_DefaultAccessCapabilities_Item, using the provided DataStorageLoSCapabilitiesStorageAccessCapability
+func (t *FileShareV130FileShare_DefaultAccessCapabilities_Item) MergeDataStorageLoSCapabilitiesStorageAccessCapability(v DataStorageLoSCapabilitiesStorageAccessCapability) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileShareV130FileShareDefaultAccessCapabilities1 returns the union data inside the FileShareV130FileShare_DefaultAccessCapabilities_Item as a FileShareV130FileShareDefaultAccessCapabilities1
+func (t FileShareV130FileShare_DefaultAccessCapabilities_Item) AsFileShareV130FileShareDefaultAccessCapabilities1() (FileShareV130FileShareDefaultAccessCapabilities1, error) {
+	var body FileShareV130FileShareDefaultAccessCapabilities1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileShareV130FileShareDefaultAccessCapabilities1 overwrites any union data inside the FileShareV130FileShare_DefaultAccessCapabilities_Item as the provided FileShareV130FileShareDefaultAccessCapabilities1
+func (t *FileShareV130FileShare_DefaultAccessCapabilities_Item) FromFileShareV130FileShareDefaultAccessCapabilities1(v FileShareV130FileShareDefaultAccessCapabilities1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileShareV130FileShareDefaultAccessCapabilities1 performs a merge with any union data inside the FileShareV130FileShare_DefaultAccessCapabilities_Item, using the provided FileShareV130FileShareDefaultAccessCapabilities1
+func (t *FileShareV130FileShare_DefaultAccessCapabilities_Item) MergeFileShareV130FileShareDefaultAccessCapabilities1(v FileShareV130FileShareDefaultAccessCapabilities1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileShareV130FileShare_DefaultAccessCapabilities_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileShareV130FileShare_DefaultAccessCapabilities_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceDescription returns the union data inside the FileShareV130FileShare_Description as a ResourceDescription
+func (t FileShareV130FileShare_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the FileShareV130FileShare_Description as the provided ResourceDescription
+func (t *FileShareV130FileShare_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the FileShareV130FileShare_Description, using the provided ResourceDescription
+func (t *FileShareV130FileShare_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileShareV130FileShareDescription1 returns the union data inside the FileShareV130FileShare_Description as a FileShareV130FileShareDescription1
+func (t FileShareV130FileShare_Description) AsFileShareV130FileShareDescription1() (FileShareV130FileShareDescription1, error) {
+	var body FileShareV130FileShareDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileShareV130FileShareDescription1 overwrites any union data inside the FileShareV130FileShare_Description as the provided FileShareV130FileShareDescription1
+func (t *FileShareV130FileShare_Description) FromFileShareV130FileShareDescription1(v FileShareV130FileShareDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileShareV130FileShareDescription1 performs a merge with any union data inside the FileShareV130FileShare_Description, using the provided FileShareV130FileShareDescription1
+func (t *FileShareV130FileShare_Description) MergeFileShareV130FileShareDescription1(v FileShareV130FileShareDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileShareV130FileShare_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileShareV130FileShare_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsFileShareV130QuotaType returns the union data inside the FileShareV130FileShare_FileShareQuotaType as a FileShareV130QuotaType
+func (t FileShareV130FileShare_FileShareQuotaType) AsFileShareV130QuotaType() (FileShareV130QuotaType, error) {
+	var body FileShareV130QuotaType
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileShareV130QuotaType overwrites any union data inside the FileShareV130FileShare_FileShareQuotaType as the provided FileShareV130QuotaType
+func (t *FileShareV130FileShare_FileShareQuotaType) FromFileShareV130QuotaType(v FileShareV130QuotaType) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileShareV130QuotaType performs a merge with any union data inside the FileShareV130FileShare_FileShareQuotaType, using the provided FileShareV130QuotaType
+func (t *FileShareV130FileShare_FileShareQuotaType) MergeFileShareV130QuotaType(v FileShareV130QuotaType) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileShareV130FileShareFileShareQuotaType1 returns the union data inside the FileShareV130FileShare_FileShareQuotaType as a FileShareV130FileShareFileShareQuotaType1
+func (t FileShareV130FileShare_FileShareQuotaType) AsFileShareV130FileShareFileShareQuotaType1() (FileShareV130FileShareFileShareQuotaType1, error) {
+	var body FileShareV130FileShareFileShareQuotaType1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileShareV130FileShareFileShareQuotaType1 overwrites any union data inside the FileShareV130FileShare_FileShareQuotaType as the provided FileShareV130FileShareFileShareQuotaType1
+func (t *FileShareV130FileShare_FileShareQuotaType) FromFileShareV130FileShareFileShareQuotaType1(v FileShareV130FileShareFileShareQuotaType1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileShareV130FileShareFileShareQuotaType1 performs a merge with any union data inside the FileShareV130FileShare_FileShareQuotaType, using the provided FileShareV130FileShareFileShareQuotaType1
+func (t *FileShareV130FileShare_FileShareQuotaType) MergeFileShareV130FileShareFileShareQuotaType1(v FileShareV130FileShareFileShareQuotaType1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileShareV130FileShare_FileShareQuotaType) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileShareV130FileShare_FileShareQuotaType) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsFileSystemFileProtocol returns the union data inside the FileShareV130FileShare_FileSharingProtocols_Item as a FileSystemFileProtocol
+func (t FileShareV130FileShare_FileSharingProtocols_Item) AsFileSystemFileProtocol() (FileSystemFileProtocol, error) {
+	var body FileSystemFileProtocol
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileSystemFileProtocol overwrites any union data inside the FileShareV130FileShare_FileSharingProtocols_Item as the provided FileSystemFileProtocol
+func (t *FileShareV130FileShare_FileSharingProtocols_Item) FromFileSystemFileProtocol(v FileSystemFileProtocol) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileSystemFileProtocol performs a merge with any union data inside the FileShareV130FileShare_FileSharingProtocols_Item, using the provided FileSystemFileProtocol
+func (t *FileShareV130FileShare_FileSharingProtocols_Item) MergeFileSystemFileProtocol(v FileSystemFileProtocol) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileShareV130FileShareFileSharingProtocols1 returns the union data inside the FileShareV130FileShare_FileSharingProtocols_Item as a FileShareV130FileShareFileSharingProtocols1
+func (t FileShareV130FileShare_FileSharingProtocols_Item) AsFileShareV130FileShareFileSharingProtocols1() (FileShareV130FileShareFileSharingProtocols1, error) {
+	var body FileShareV130FileShareFileSharingProtocols1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileShareV130FileShareFileSharingProtocols1 overwrites any union data inside the FileShareV130FileShare_FileSharingProtocols_Item as the provided FileShareV130FileShareFileSharingProtocols1
+func (t *FileShareV130FileShare_FileSharingProtocols_Item) FromFileShareV130FileShareFileSharingProtocols1(v FileShareV130FileShareFileSharingProtocols1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileShareV130FileShareFileSharingProtocols1 performs a merge with any union data inside the FileShareV130FileShare_FileSharingProtocols_Item, using the provided FileShareV130FileShareFileSharingProtocols1
+func (t *FileShareV130FileShare_FileSharingProtocols_Item) MergeFileShareV130FileShareFileSharingProtocols1(v FileShareV130FileShareFileSharingProtocols1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileShareV130FileShare_FileSharingProtocols_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileShareV130FileShare_FileSharingProtocols_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsStorageReplicaInfoReplicaUpdateMode returns the union data inside the FileShareV130FileShare_WritePolicy as a StorageReplicaInfoReplicaUpdateMode
+func (t FileShareV130FileShare_WritePolicy) AsStorageReplicaInfoReplicaUpdateMode() (StorageReplicaInfoReplicaUpdateMode, error) {
+	var body StorageReplicaInfoReplicaUpdateMode
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromStorageReplicaInfoReplicaUpdateMode overwrites any union data inside the FileShareV130FileShare_WritePolicy as the provided StorageReplicaInfoReplicaUpdateMode
+func (t *FileShareV130FileShare_WritePolicy) FromStorageReplicaInfoReplicaUpdateMode(v StorageReplicaInfoReplicaUpdateMode) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeStorageReplicaInfoReplicaUpdateMode performs a merge with any union data inside the FileShareV130FileShare_WritePolicy, using the provided StorageReplicaInfoReplicaUpdateMode
+func (t *FileShareV130FileShare_WritePolicy) MergeStorageReplicaInfoReplicaUpdateMode(v StorageReplicaInfoReplicaUpdateMode) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileShareV130FileShareWritePolicy1 returns the union data inside the FileShareV130FileShare_WritePolicy as a FileShareV130FileShareWritePolicy1
+func (t FileShareV130FileShare_WritePolicy) AsFileShareV130FileShareWritePolicy1() (FileShareV130FileShareWritePolicy1, error) {
+	var body FileShareV130FileShareWritePolicy1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileShareV130FileShareWritePolicy1 overwrites any union data inside the FileShareV130FileShare_WritePolicy as the provided FileShareV130FileShareWritePolicy1
+func (t *FileShareV130FileShare_WritePolicy) FromFileShareV130FileShareWritePolicy1(v FileShareV130FileShareWritePolicy1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileShareV130FileShareWritePolicy1 performs a merge with any union data inside the FileShareV130FileShare_WritePolicy, using the provided FileShareV130FileShareWritePolicy1
+func (t *FileShareV130FileShare_WritePolicy) MergeFileShareV130FileShareWritePolicy1(v FileShareV130FileShareWritePolicy1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileShareV130FileShare_WritePolicy) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileShareV130FileShare_WritePolicy) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceDescription returns the union data inside the FileSystemCollectionFileSystemCollection_Description as a ResourceDescription
+func (t FileSystemCollectionFileSystemCollection_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the FileSystemCollectionFileSystemCollection_Description as the provided ResourceDescription
+func (t *FileSystemCollectionFileSystemCollection_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the FileSystemCollectionFileSystemCollection_Description, using the provided ResourceDescription
+func (t *FileSystemCollectionFileSystemCollection_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileSystemCollectionFileSystemCollectionDescription1 returns the union data inside the FileSystemCollectionFileSystemCollection_Description as a FileSystemCollectionFileSystemCollectionDescription1
+func (t FileSystemCollectionFileSystemCollection_Description) AsFileSystemCollectionFileSystemCollectionDescription1() (FileSystemCollectionFileSystemCollectionDescription1, error) {
+	var body FileSystemCollectionFileSystemCollectionDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileSystemCollectionFileSystemCollectionDescription1 overwrites any union data inside the FileSystemCollectionFileSystemCollection_Description as the provided FileSystemCollectionFileSystemCollectionDescription1
+func (t *FileSystemCollectionFileSystemCollection_Description) FromFileSystemCollectionFileSystemCollectionDescription1(v FileSystemCollectionFileSystemCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileSystemCollectionFileSystemCollectionDescription1 performs a merge with any union data inside the FileSystemCollectionFileSystemCollection_Description, using the provided FileSystemCollectionFileSystemCollectionDescription1
+func (t *FileSystemCollectionFileSystemCollection_Description) MergeFileSystemCollectionFileSystemCollectionDescription1(v FileSystemCollectionFileSystemCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileSystemCollectionFileSystemCollection_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileSystemCollectionFileSystemCollection_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataStorageLoSCapabilitiesStorageAccessCapability returns the union data inside the FileSystemV141FileSystem_AccessCapabilities_Item as a DataStorageLoSCapabilitiesStorageAccessCapability
+func (t FileSystemV141FileSystem_AccessCapabilities_Item) AsDataStorageLoSCapabilitiesStorageAccessCapability() (DataStorageLoSCapabilitiesStorageAccessCapability, error) {
+	var body DataStorageLoSCapabilitiesStorageAccessCapability
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataStorageLoSCapabilitiesStorageAccessCapability overwrites any union data inside the FileSystemV141FileSystem_AccessCapabilities_Item as the provided DataStorageLoSCapabilitiesStorageAccessCapability
+func (t *FileSystemV141FileSystem_AccessCapabilities_Item) FromDataStorageLoSCapabilitiesStorageAccessCapability(v DataStorageLoSCapabilitiesStorageAccessCapability) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataStorageLoSCapabilitiesStorageAccessCapability performs a merge with any union data inside the FileSystemV141FileSystem_AccessCapabilities_Item, using the provided DataStorageLoSCapabilitiesStorageAccessCapability
+func (t *FileSystemV141FileSystem_AccessCapabilities_Item) MergeDataStorageLoSCapabilitiesStorageAccessCapability(v DataStorageLoSCapabilitiesStorageAccessCapability) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileSystemV141FileSystemAccessCapabilities1 returns the union data inside the FileSystemV141FileSystem_AccessCapabilities_Item as a FileSystemV141FileSystemAccessCapabilities1
+func (t FileSystemV141FileSystem_AccessCapabilities_Item) AsFileSystemV141FileSystemAccessCapabilities1() (FileSystemV141FileSystemAccessCapabilities1, error) {
+	var body FileSystemV141FileSystemAccessCapabilities1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileSystemV141FileSystemAccessCapabilities1 overwrites any union data inside the FileSystemV141FileSystem_AccessCapabilities_Item as the provided FileSystemV141FileSystemAccessCapabilities1
+func (t *FileSystemV141FileSystem_AccessCapabilities_Item) FromFileSystemV141FileSystemAccessCapabilities1(v FileSystemV141FileSystemAccessCapabilities1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileSystemV141FileSystemAccessCapabilities1 performs a merge with any union data inside the FileSystemV141FileSystem_AccessCapabilities_Item, using the provided FileSystemV141FileSystemAccessCapabilities1
+func (t *FileSystemV141FileSystem_AccessCapabilities_Item) MergeFileSystemV141FileSystemAccessCapabilities1(v FileSystemV141FileSystemAccessCapabilities1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileSystemV141FileSystem_AccessCapabilities_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileSystemV141FileSystem_AccessCapabilities_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsFileSystemV141CharacterCodeSet returns the union data inside the FileSystemV141FileSystem_CharacterCodeSet_Item as a FileSystemV141CharacterCodeSet
+func (t FileSystemV141FileSystem_CharacterCodeSet_Item) AsFileSystemV141CharacterCodeSet() (FileSystemV141CharacterCodeSet, error) {
+	var body FileSystemV141CharacterCodeSet
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileSystemV141CharacterCodeSet overwrites any union data inside the FileSystemV141FileSystem_CharacterCodeSet_Item as the provided FileSystemV141CharacterCodeSet
+func (t *FileSystemV141FileSystem_CharacterCodeSet_Item) FromFileSystemV141CharacterCodeSet(v FileSystemV141CharacterCodeSet) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileSystemV141CharacterCodeSet performs a merge with any union data inside the FileSystemV141FileSystem_CharacterCodeSet_Item, using the provided FileSystemV141CharacterCodeSet
+func (t *FileSystemV141FileSystem_CharacterCodeSet_Item) MergeFileSystemV141CharacterCodeSet(v FileSystemV141CharacterCodeSet) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileSystemV141FileSystemCharacterCodeSet1 returns the union data inside the FileSystemV141FileSystem_CharacterCodeSet_Item as a FileSystemV141FileSystemCharacterCodeSet1
+func (t FileSystemV141FileSystem_CharacterCodeSet_Item) AsFileSystemV141FileSystemCharacterCodeSet1() (FileSystemV141FileSystemCharacterCodeSet1, error) {
+	var body FileSystemV141FileSystemCharacterCodeSet1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileSystemV141FileSystemCharacterCodeSet1 overwrites any union data inside the FileSystemV141FileSystem_CharacterCodeSet_Item as the provided FileSystemV141FileSystemCharacterCodeSet1
+func (t *FileSystemV141FileSystem_CharacterCodeSet_Item) FromFileSystemV141FileSystemCharacterCodeSet1(v FileSystemV141FileSystemCharacterCodeSet1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileSystemV141FileSystemCharacterCodeSet1 performs a merge with any union data inside the FileSystemV141FileSystem_CharacterCodeSet_Item, using the provided FileSystemV141FileSystemCharacterCodeSet1
+func (t *FileSystemV141FileSystem_CharacterCodeSet_Item) MergeFileSystemV141FileSystemCharacterCodeSet1(v FileSystemV141FileSystemCharacterCodeSet1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileSystemV141FileSystem_CharacterCodeSet_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileSystemV141FileSystem_CharacterCodeSet_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceDescription returns the union data inside the FileSystemV141FileSystem_Description as a ResourceDescription
+func (t FileSystemV141FileSystem_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the FileSystemV141FileSystem_Description as the provided ResourceDescription
+func (t *FileSystemV141FileSystem_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the FileSystemV141FileSystem_Description, using the provided ResourceDescription
+func (t *FileSystemV141FileSystem_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileSystemV141FileSystemDescription1 returns the union data inside the FileSystemV141FileSystem_Description as a FileSystemV141FileSystemDescription1
+func (t FileSystemV141FileSystem_Description) AsFileSystemV141FileSystemDescription1() (FileSystemV141FileSystemDescription1, error) {
+	var body FileSystemV141FileSystemDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileSystemV141FileSystemDescription1 overwrites any union data inside the FileSystemV141FileSystem_Description as the provided FileSystemV141FileSystemDescription1
+func (t *FileSystemV141FileSystem_Description) FromFileSystemV141FileSystemDescription1(v FileSystemV141FileSystemDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileSystemV141FileSystemDescription1 performs a merge with any union data inside the FileSystemV141FileSystem_Description, using the provided FileSystemV141FileSystemDescription1
+func (t *FileSystemV141FileSystem_Description) MergeFileSystemV141FileSystemDescription1(v FileSystemV141FileSystemDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileSystemV141FileSystem_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileSystemV141FileSystem_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOdataV4IdRef returns the union data inside the FileSystemV141FileSystem_Metrics as a OdataV4IdRef
+func (t FileSystemV141FileSystem_Metrics) AsOdataV4IdRef() (OdataV4IdRef, error) {
+	var body OdataV4IdRef
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOdataV4IdRef overwrites any union data inside the FileSystemV141FileSystem_Metrics as the provided OdataV4IdRef
+func (t *FileSystemV141FileSystem_Metrics) FromOdataV4IdRef(v OdataV4IdRef) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOdataV4IdRef performs a merge with any union data inside the FileSystemV141FileSystem_Metrics, using the provided OdataV4IdRef
+func (t *FileSystemV141FileSystem_Metrics) MergeOdataV4IdRef(v OdataV4IdRef) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsFileSystemV141FileSystemMetrics1 returns the union data inside the FileSystemV141FileSystem_Metrics as a FileSystemV141FileSystemMetrics1
+func (t FileSystemV141FileSystem_Metrics) AsFileSystemV141FileSystemMetrics1() (FileSystemV141FileSystemMetrics1, error) {
+	var body FileSystemV141FileSystemMetrics1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromFileSystemV141FileSystemMetrics1 overwrites any union data inside the FileSystemV141FileSystem_Metrics as the provided FileSystemV141FileSystemMetrics1
+func (t *FileSystemV141FileSystem_Metrics) FromFileSystemV141FileSystemMetrics1(v FileSystemV141FileSystemMetrics1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeFileSystemV141FileSystemMetrics1 performs a merge with any union data inside the FileSystemV141FileSystem_Metrics, using the provided FileSystemV141FileSystemMetrics1
+func (t *FileSystemV141FileSystem_Metrics) MergeFileSystemV141FileSystemMetrics1(v FileSystemV141FileSystemMetrics1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t FileSystemV141FileSystem_Metrics) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *FileSystemV141FileSystem_Metrics) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }

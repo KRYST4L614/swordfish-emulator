@@ -21,3 +21,12 @@ components:
       $ref: ./Volume.yaml#/components/schemas/Volume_Volume
     VolumeCollection:
       $ref: ./VolumeCollection.yaml#/components/schemas/VolumeCollection_VolumeCollection
+    FileSystemCollection:
+      $ref: ./FileSystemCollection.yaml#/components/schemas/FileSystemCollection_FileSystemCollection
+    FileSystem:
+      $ref: ./FileSystem.yaml#/components/schemas/FileSystem_FileSystem
+    FileShareCollection:
+      $ref: ./FileShareCollection.yaml#/components/schemas/FileShareCollection_FileShareCollection
+    FileShare:
+      $ref: ./FileShare.yaml#/components/schemas/FileShare_FileShare
+    
