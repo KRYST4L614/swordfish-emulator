@@ -22,6 +22,11 @@ func NewStorageServiceHandler(service service.ResourceService) *StorageServiceHa
 }
 
 func (handler *StorageServiceHandler) SetRouter(router *mux.Router) {
+	router.HandleFunc(`/StorageServices`+idPathRegex, resourceGetter(handler.service)).Methods(http.MethodGet)
+	router.HandleFunc(`/StorageServices`+idPathRegex, handler.updateStorageService).Methods(http.MethodPatch)
+	router.HandleFunc(`/StorageServices`+idPathRegex, handler.replaceStorageService).Methods(http.MethodPut)
+	router.HandleFunc(`/StorageServices`+idPathRegex, resourceDeleter(handler.service)).Methods(http.MethodDelete)
+
 	router.HandleFunc(`/{root:.*}/StorageServices`+idPathRegex, resourceGetter(handler.service)).Methods(http.MethodGet)
 	router.HandleFunc(`/{root:.*}/StorageServices`+idPathRegex, handler.updateStorageService).Methods(http.MethodPatch)
 	router.HandleFunc(`/{root:.*}/StorageServices`+idPathRegex, handler.replaceStorageService).Methods(http.MethodPut)
@@ -34,7 +39,6 @@ func (handler *StorageServiceHandler) replaceStorageService(writer http.Response
 		util.WriteJSONError(writer, err)
 		return
 	}
-
 
 	storageServiceId := request.RequestURI
 	storageService.Id = filepath.Base(storageServiceId)

@@ -37,6 +37,9 @@
     ],
     "MaxFileNameLengthBytes": 256,
     "ClusterSizeBytes": 256,
+    "ExportedShares": {
+        "@odata.id": "/redfish/v1/StorageServices/FileService/FileSystems/FS1/ExportedFileShares"
+    },
     "@odata.id": "/redfish/v1/StorageServices/FileService/FileSystems/FS1",
     "@Redfish.Copyright": "Copyright 2015-2024 SNIA. All rights reserved."
 }

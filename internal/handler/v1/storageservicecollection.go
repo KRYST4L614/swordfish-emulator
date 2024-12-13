@@ -54,15 +54,15 @@ func (handler *StorageServiceCollectionHandler) createStorageService(writer http
 	pool, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            storageService.Name,
 		Id:              storageService.Id,
-		OdataType:       "#StoragePool.v1_9_0.StoragePool",
+		OdataType:       "#StorageServiceCollection.StorageServiceCollection",
 		Resource:        storageService,
 		IdSetter:        func(id string) { storageService.Id = id },
 		OdataIdSetter:   func(odataId string) { storageService.OdataId = &odataId },
 		OdataTypeSetter: func(odataType string) { storageService.OdataType = &odataType },
 		Collection: dto.CollectionDto{
 			OdataId:   request.RequestURI,
-			Name:      "StorageServieCollection",
-			OdataType: "#StorageServieCollection.StorageServieCollection",
+			Name:      "StorageServiceCollection",
+			OdataType: "#StorageService.v1_7_0.StorageService",
 		},
 	})
 
