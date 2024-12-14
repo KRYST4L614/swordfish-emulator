@@ -51,7 +51,7 @@ func (handler *FileShareCollectionHandler) createFileShare(writer http.ResponseW
 	// TODO: Need to be removed when modules handle creation in right way for clearer dataflow.
 
 	slog.Info("FileShareCollection uri: " + request.RequestURI)
-	pool, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
+	createdFileShare, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            fileShare.Name,
 		Id:              fileShare.Id,
 		OdataType:       "#FileShare.v1_2_0.FileShare",
@@ -71,5 +71,5 @@ func (handler *FileShareCollectionHandler) createFileShare(writer http.ResponseW
 		return
 	}
 	writer.WriteHeader(http.StatusCreated)
-	util.WriteJSON(writer, pool)
+	util.WriteJSON(writer, createdFileShare)
 }

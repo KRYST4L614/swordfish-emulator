@@ -94,6 +94,202 @@ const (
 	ChassisV1250ThermalDirectionTopExhaust  ChassisV1250ThermalDirection = "TopExhaust"
 )
 
+// Defines values for ComputerSystemBootSource.
+const (
+	ComputerSystemBootSourceBiosSetup    ComputerSystemBootSource = "BiosSetup"
+	ComputerSystemBootSourceCd           ComputerSystemBootSource = "Cd"
+	ComputerSystemBootSourceDiags        ComputerSystemBootSource = "Diags"
+	ComputerSystemBootSourceFloppy       ComputerSystemBootSource = "Floppy"
+	ComputerSystemBootSourceHdd          ComputerSystemBootSource = "Hdd"
+	ComputerSystemBootSourceNone         ComputerSystemBootSource = "None"
+	ComputerSystemBootSourcePxe          ComputerSystemBootSource = "Pxe"
+	ComputerSystemBootSourceRecovery     ComputerSystemBootSource = "Recovery"
+	ComputerSystemBootSourceRemoteDrive  ComputerSystemBootSource = "RemoteDrive"
+	ComputerSystemBootSourceSDCard       ComputerSystemBootSource = "SDCard"
+	ComputerSystemBootSourceUefiBootNext ComputerSystemBootSource = "UefiBootNext"
+	ComputerSystemBootSourceUefiHttp     ComputerSystemBootSource = "UefiHttp"
+	ComputerSystemBootSourceUefiShell    ComputerSystemBootSource = "UefiShell"
+	ComputerSystemBootSourceUefiTarget   ComputerSystemBootSource = "UefiTarget"
+	ComputerSystemBootSourceUsb          ComputerSystemBootSource = "Usb"
+	ComputerSystemBootSourceUtilities    ComputerSystemBootSource = "Utilities"
+)
+
+// Defines values for ComputerSystemV1230AutomaticRetryConfig.
+const (
+	ComputerSystemV1230AutomaticRetryConfigDisabled      ComputerSystemV1230AutomaticRetryConfig = "Disabled"
+	ComputerSystemV1230AutomaticRetryConfigRetryAlways   ComputerSystemV1230AutomaticRetryConfig = "RetryAlways"
+	ComputerSystemV1230AutomaticRetryConfigRetryAttempts ComputerSystemV1230AutomaticRetryConfig = "RetryAttempts"
+)
+
+// Defines values for ComputerSystemV1230BootOrderTypes.
+const (
+	AliasBootOrder ComputerSystemV1230BootOrderTypes = "AliasBootOrder"
+	BootOrder      ComputerSystemV1230BootOrderTypes = "BootOrder"
+)
+
+// Defines values for ComputerSystemV1230BootProgressTypes.
+const (
+	ComputerSystemV1230BootProgressTypesBusInitializationStarted                ComputerSystemV1230BootProgressTypes = "BusInitializationStarted"
+	ComputerSystemV1230BootProgressTypesMemoryInitializationStarted             ComputerSystemV1230BootProgressTypes = "MemoryInitializationStarted"
+	ComputerSystemV1230BootProgressTypesNone                                    ComputerSystemV1230BootProgressTypes = "None"
+	ComputerSystemV1230BootProgressTypesOEM                                     ComputerSystemV1230BootProgressTypes = "OEM"
+	ComputerSystemV1230BootProgressTypesOSBootStarted                           ComputerSystemV1230BootProgressTypes = "OSBootStarted"
+	ComputerSystemV1230BootProgressTypesOSRunning                               ComputerSystemV1230BootProgressTypes = "OSRunning"
+	ComputerSystemV1230BootProgressTypesPCIResourceConfigStarted                ComputerSystemV1230BootProgressTypes = "PCIResourceConfigStarted"
+	ComputerSystemV1230BootProgressTypesPrimaryProcessorInitializationStarted   ComputerSystemV1230BootProgressTypes = "PrimaryProcessorInitializationStarted"
+	ComputerSystemV1230BootProgressTypesSecondaryProcessorInitializationStarted ComputerSystemV1230BootProgressTypes = "SecondaryProcessorInitializationStarted"
+	ComputerSystemV1230BootProgressTypesSetupEntered                            ComputerSystemV1230BootProgressTypes = "SetupEntered"
+	ComputerSystemV1230BootProgressTypesSystemHardwareInitializationComplete    ComputerSystemV1230BootProgressTypes = "SystemHardwareInitializationComplete"
+)
+
+// Defines values for ComputerSystemV1230BootSourceOverrideEnabled.
+const (
+	ComputerSystemV1230BootSourceOverrideEnabledContinuous ComputerSystemV1230BootSourceOverrideEnabled = "Continuous"
+	ComputerSystemV1230BootSourceOverrideEnabledDisabled   ComputerSystemV1230BootSourceOverrideEnabled = "Disabled"
+	ComputerSystemV1230BootSourceOverrideEnabledOnce       ComputerSystemV1230BootSourceOverrideEnabled = "Once"
+)
+
+// Defines values for ComputerSystemV1230BootSourceOverrideMode.
+const (
+	Legacy ComputerSystemV1230BootSourceOverrideMode = "Legacy"
+	UEFI   ComputerSystemV1230BootSourceOverrideMode = "UEFI"
+)
+
+// Defines values for ComputerSystemV1230CompositionUseCase.
+const (
+	ExpandableSystem     ComputerSystemV1230CompositionUseCase = "ExpandableSystem"
+	ResourceBlockCapable ComputerSystemV1230CompositionUseCase = "ResourceBlockCapable"
+)
+
+// Defines values for ComputerSystemV1230GraphicalConnectTypesSupported.
+const (
+	ComputerSystemV1230GraphicalConnectTypesSupportedKVMIP ComputerSystemV1230GraphicalConnectTypesSupported = "KVMIP"
+	ComputerSystemV1230GraphicalConnectTypesSupportedOEM   ComputerSystemV1230GraphicalConnectTypesSupported = "OEM"
+)
+
+// Defines values for ComputerSystemV1230HostingRole.
+const (
+	Appliance            ComputerSystemV1230HostingRole = "Appliance"
+	ApplicationServer    ComputerSystemV1230HostingRole = "ApplicationServer"
+	BareMetalServer      ComputerSystemV1230HostingRole = "BareMetalServer"
+	ContainerServer      ComputerSystemV1230HostingRole = "ContainerServer"
+	StorageServer        ComputerSystemV1230HostingRole = "StorageServer"
+	Switch               ComputerSystemV1230HostingRole = "Switch"
+	VirtualMachineServer ComputerSystemV1230HostingRole = "VirtualMachineServer"
+)
+
+// Defines values for ComputerSystemV1230IndicatorLED.
+const (
+	ComputerSystemV1230IndicatorLEDBlinking ComputerSystemV1230IndicatorLED = "Blinking"
+	ComputerSystemV1230IndicatorLEDLit      ComputerSystemV1230IndicatorLED = "Lit"
+	ComputerSystemV1230IndicatorLEDOff      ComputerSystemV1230IndicatorLED = "Off"
+	ComputerSystemV1230IndicatorLEDUnknown  ComputerSystemV1230IndicatorLED = "Unknown"
+)
+
+// Defines values for ComputerSystemV1230InterfaceType.
+const (
+	TCM10 ComputerSystemV1230InterfaceType = "TCM1_0"
+	TPM12 ComputerSystemV1230InterfaceType = "TPM1_2"
+	TPM20 ComputerSystemV1230InterfaceType = "TPM2_0"
+)
+
+// Defines values for ComputerSystemV1230InterfaceTypeSelection.
+const (
+	ComputerSystemV1230InterfaceTypeSelectionBiosSetting    ComputerSystemV1230InterfaceTypeSelection = "BiosSetting"
+	ComputerSystemV1230InterfaceTypeSelectionFirmwareUpdate ComputerSystemV1230InterfaceTypeSelection = "FirmwareUpdate"
+	ComputerSystemV1230InterfaceTypeSelectionNone           ComputerSystemV1230InterfaceTypeSelection = "None"
+	ComputerSystemV1230InterfaceTypeSelectionOemMethod      ComputerSystemV1230InterfaceTypeSelection = "OemMethod"
+)
+
+// Defines values for ComputerSystemV1230KMIPCachePolicy.
+const (
+	ComputerSystemV1230KMIPCachePolicyAfterFirstUse ComputerSystemV1230KMIPCachePolicy = "AfterFirstUse"
+	ComputerSystemV1230KMIPCachePolicyNone          ComputerSystemV1230KMIPCachePolicy = "None"
+)
+
+// Defines values for ComputerSystemV1230LastResetCauses.
+const (
+	ManagementCommand  ComputerSystemV1230LastResetCauses = "ManagementCommand"
+	OSSoftRestart      ComputerSystemV1230LastResetCauses = "OSSoftRestart"
+	PowerButtonPress   ComputerSystemV1230LastResetCauses = "PowerButtonPress"
+	PowerEvent         ComputerSystemV1230LastResetCauses = "PowerEvent"
+	PowerRestorePolicy ComputerSystemV1230LastResetCauses = "PowerRestorePolicy"
+	RTCWakeup          ComputerSystemV1230LastResetCauses = "RTCWakeup"
+	SystemCrash        ComputerSystemV1230LastResetCauses = "SystemCrash"
+	ThermalEvent       ComputerSystemV1230LastResetCauses = "ThermalEvent"
+	Unknown            ComputerSystemV1230LastResetCauses = "Unknown"
+	WatchdogExpiration ComputerSystemV1230LastResetCauses = "WatchdogExpiration"
+)
+
+// Defines values for ComputerSystemV1230MemoryMirroring.
+const (
+	ComputerSystemV1230MemoryMirroringDIMM   ComputerSystemV1230MemoryMirroring = "DIMM"
+	ComputerSystemV1230MemoryMirroringHybrid ComputerSystemV1230MemoryMirroring = "Hybrid"
+	ComputerSystemV1230MemoryMirroringNone   ComputerSystemV1230MemoryMirroring = "None"
+	ComputerSystemV1230MemoryMirroringSystem ComputerSystemV1230MemoryMirroring = "System"
+)
+
+// Defines values for ComputerSystemV1230PowerMode.
+const (
+	ComputerSystemV1230PowerModeBalancedPerformance        ComputerSystemV1230PowerMode = "BalancedPerformance"
+	ComputerSystemV1230PowerModeEfficiencyFavorPerformance ComputerSystemV1230PowerMode = "EfficiencyFavorPerformance"
+	ComputerSystemV1230PowerModeEfficiencyFavorPower       ComputerSystemV1230PowerMode = "EfficiencyFavorPower"
+	ComputerSystemV1230PowerModeMaximumPerformance         ComputerSystemV1230PowerMode = "MaximumPerformance"
+	ComputerSystemV1230PowerModeOEM                        ComputerSystemV1230PowerMode = "OEM"
+	ComputerSystemV1230PowerModeOSControlled               ComputerSystemV1230PowerMode = "OSControlled"
+	ComputerSystemV1230PowerModePowerSaving                ComputerSystemV1230PowerMode = "PowerSaving"
+	ComputerSystemV1230PowerModeStatic                     ComputerSystemV1230PowerMode = "Static"
+)
+
+// Defines values for ComputerSystemV1230PowerRestorePolicyTypes.
+const (
+	AlwaysOff ComputerSystemV1230PowerRestorePolicyTypes = "AlwaysOff"
+	AlwaysOn  ComputerSystemV1230PowerRestorePolicyTypes = "AlwaysOn"
+	LastState ComputerSystemV1230PowerRestorePolicyTypes = "LastState"
+)
+
+// Defines values for ComputerSystemV1230StopBootOnFault.
+const (
+	AnyFault ComputerSystemV1230StopBootOnFault = "AnyFault"
+	Never    ComputerSystemV1230StopBootOnFault = "Never"
+)
+
+// Defines values for ComputerSystemV1230SystemType.
+const (
+	ComputerSystemV1230SystemTypeComposed              ComputerSystemV1230SystemType = "Composed"
+	ComputerSystemV1230SystemTypeDPU                   ComputerSystemV1230SystemType = "DPU"
+	ComputerSystemV1230SystemTypeOS                    ComputerSystemV1230SystemType = "OS"
+	ComputerSystemV1230SystemTypePhysical              ComputerSystemV1230SystemType = "Physical"
+	ComputerSystemV1230SystemTypePhysicallyPartitioned ComputerSystemV1230SystemType = "PhysicallyPartitioned"
+	ComputerSystemV1230SystemTypeVirtual               ComputerSystemV1230SystemType = "Virtual"
+	ComputerSystemV1230SystemTypeVirtuallyPartitioned  ComputerSystemV1230SystemType = "VirtuallyPartitioned"
+)
+
+// Defines values for ComputerSystemV1230TrustedModuleRequiredToBoot.
+const (
+	ComputerSystemV1230TrustedModuleRequiredToBootDisabled ComputerSystemV1230TrustedModuleRequiredToBoot = "Disabled"
+	ComputerSystemV1230TrustedModuleRequiredToBootRequired ComputerSystemV1230TrustedModuleRequiredToBoot = "Required"
+)
+
+// Defines values for ComputerSystemV1230WatchdogTimeoutActions.
+const (
+	ComputerSystemV1230WatchdogTimeoutActionsNone        ComputerSystemV1230WatchdogTimeoutActions = "None"
+	ComputerSystemV1230WatchdogTimeoutActionsOEM         ComputerSystemV1230WatchdogTimeoutActions = "OEM"
+	ComputerSystemV1230WatchdogTimeoutActionsPowerCycle  ComputerSystemV1230WatchdogTimeoutActions = "PowerCycle"
+	ComputerSystemV1230WatchdogTimeoutActionsPowerDown   ComputerSystemV1230WatchdogTimeoutActions = "PowerDown"
+	ComputerSystemV1230WatchdogTimeoutActionsResetSystem ComputerSystemV1230WatchdogTimeoutActions = "ResetSystem"
+)
+
+// Defines values for ComputerSystemV1230WatchdogWarningActions.
+const (
+	ComputerSystemV1230WatchdogWarningActionsDiagnosticInterrupt ComputerSystemV1230WatchdogWarningActions = "DiagnosticInterrupt"
+	ComputerSystemV1230WatchdogWarningActionsMessagingInterrupt  ComputerSystemV1230WatchdogWarningActions = "MessagingInterrupt"
+	ComputerSystemV1230WatchdogWarningActionsNone                ComputerSystemV1230WatchdogWarningActions = "None"
+	ComputerSystemV1230WatchdogWarningActionsOEM                 ComputerSystemV1230WatchdogWarningActions = "OEM"
+	ComputerSystemV1230WatchdogWarningActionsSCI                 ComputerSystemV1230WatchdogWarningActions = "SCI"
+	ComputerSystemV1230WatchdogWarningActionsSMI                 ComputerSystemV1230WatchdogWarningActions = "SMI"
+)
+
 // Defines values for DataStorageLoSCapabilitiesProvisioningPolicy.
 const (
 	Fixed DataStorageLoSCapabilitiesProvisioningPolicy = "Fixed"
@@ -108,6 +304,54 @@ const (
 	Streaming DataStorageLoSCapabilitiesStorageAccessCapability = "Streaming"
 	Write     DataStorageLoSCapabilitiesStorageAccessCapability = "Write"
 	WriteOnce DataStorageLoSCapabilitiesStorageAccessCapability = "WriteOnce"
+)
+
+// Defines values for EthernetInterfaceV1122DHCPFallback.
+const (
+	EthernetInterfaceV1122DHCPFallbackAutoConfig EthernetInterfaceV1122DHCPFallback = "AutoConfig"
+	EthernetInterfaceV1122DHCPFallbackNone       EthernetInterfaceV1122DHCPFallback = "None"
+	EthernetInterfaceV1122DHCPFallbackStatic     EthernetInterfaceV1122DHCPFallback = "Static"
+)
+
+// Defines values for EthernetInterfaceV1122DHCPv6OperatingMode.
+const (
+	EthernetInterfaceV1122DHCPv6OperatingModeDisabled  EthernetInterfaceV1122DHCPv6OperatingMode = "Disabled"
+	EthernetInterfaceV1122DHCPv6OperatingModeEnabled   EthernetInterfaceV1122DHCPv6OperatingMode = "Enabled"
+	EthernetInterfaceV1122DHCPv6OperatingModeStateful  EthernetInterfaceV1122DHCPv6OperatingMode = "Stateful"
+	EthernetInterfaceV1122DHCPv6OperatingModeStateless EthernetInterfaceV1122DHCPv6OperatingMode = "Stateless"
+)
+
+// Defines values for EthernetInterfaceV1122EthernetDeviceType.
+const (
+	EthernetInterfaceV1122EthernetDeviceTypePhysical EthernetInterfaceV1122EthernetDeviceType = "Physical"
+	EthernetInterfaceV1122EthernetDeviceTypeVirtual  EthernetInterfaceV1122EthernetDeviceType = "Virtual"
+)
+
+// Defines values for EthernetInterfaceV1122LinkStatus.
+const (
+	LinkDown EthernetInterfaceV1122LinkStatus = "LinkDown"
+	LinkUp   EthernetInterfaceV1122LinkStatus = "LinkUp"
+	NoLink   EthernetInterfaceV1122LinkStatus = "NoLink"
+)
+
+// Defines values for EthernetInterfaceV1122RoutingScope.
+const (
+	External EthernetInterfaceV1122RoutingScope = "External"
+	HostOnly EthernetInterfaceV1122RoutingScope = "HostOnly"
+	Internal EthernetInterfaceV1122RoutingScope = "Internal"
+	Limited  EthernetInterfaceV1122RoutingScope = "Limited"
+)
+
+// Defines values for EthernetInterfaceV1122TeamMode.
+const (
+	EthernetInterfaceV1122TeamModeActiveBackup                  EthernetInterfaceV1122TeamMode = "ActiveBackup"
+	EthernetInterfaceV1122TeamModeAdaptiveLoadBalancing         EthernetInterfaceV1122TeamMode = "AdaptiveLoadBalancing"
+	EthernetInterfaceV1122TeamModeAdaptiveTransmitLoadBalancing EthernetInterfaceV1122TeamMode = "AdaptiveTransmitLoadBalancing"
+	EthernetInterfaceV1122TeamModeBroadcast                     EthernetInterfaceV1122TeamMode = "Broadcast"
+	EthernetInterfaceV1122TeamModeIEEE8023ad                    EthernetInterfaceV1122TeamMode = "IEEE802_3ad"
+	EthernetInterfaceV1122TeamModeNone                          EthernetInterfaceV1122TeamMode = "None"
+	EthernetInterfaceV1122TeamModeRoundRobin                    EthernetInterfaceV1122TeamMode = "RoundRobin"
+	EthernetInterfaceV1122TeamModeXOR                           EthernetInterfaceV1122TeamMode = "XOR"
 )
 
 // Defines values for FileShareV130QuotaType.
@@ -138,6 +382,30 @@ const (
 	UTF16            FileSystemV141CharacterCodeSet = "UTF_16"
 	UTF8             FileSystemV141CharacterCodeSet = "UTF_8"
 	Unicode          FileSystemV141CharacterCodeSet = "Unicode"
+)
+
+// Defines values for IPAddressesV115AddressState.
+const (
+	Deprecated IPAddressesV115AddressState = "Deprecated"
+	Failed     IPAddressesV115AddressState = "Failed"
+	Preferred  IPAddressesV115AddressState = "Preferred"
+	Tentative  IPAddressesV115AddressState = "Tentative"
+)
+
+// Defines values for IPAddressesV115IPv4AddressOrigin.
+const (
+	IPAddressesV115IPv4AddressOriginBOOTP         IPAddressesV115IPv4AddressOrigin = "BOOTP"
+	IPAddressesV115IPv4AddressOriginDHCP          IPAddressesV115IPv4AddressOrigin = "DHCP"
+	IPAddressesV115IPv4AddressOriginIPv4LinkLocal IPAddressesV115IPv4AddressOrigin = "IPv4LinkLocal"
+	IPAddressesV115IPv4AddressOriginStatic        IPAddressesV115IPv4AddressOrigin = "Static"
+)
+
+// Defines values for IPAddressesV115IPv6AddressOrigin.
+const (
+	IPAddressesV115IPv6AddressOriginDHCPv6    IPAddressesV115IPv6AddressOrigin = "DHCPv6"
+	IPAddressesV115IPv6AddressOriginLinkLocal IPAddressesV115IPv6AddressOrigin = "LinkLocal"
+	IPAddressesV115IPv6AddressOriginSLAAC     IPAddressesV115IPv6AddressOrigin = "SLAAC"
+	IPAddressesV115IPv6AddressOriginStatic    IPAddressesV115IPv6AddressOrigin = "Static"
 )
 
 // Defines values for PCIeDevicePCIeTypes.
@@ -527,23 +795,23 @@ const (
 
 // Defines values for VolumeRAIDType.
 const (
-	None         VolumeRAIDType = "None"
-	RAID0        VolumeRAIDType = "RAID0"
-	RAID00       VolumeRAIDType = "RAID00"
-	RAID01       VolumeRAIDType = "RAID01"
-	RAID1        VolumeRAIDType = "RAID1"
-	RAID10       VolumeRAIDType = "RAID10"
-	RAID10E      VolumeRAIDType = "RAID10E"
-	RAID10Triple VolumeRAIDType = "RAID10Triple"
-	RAID1E       VolumeRAIDType = "RAID1E"
-	RAID1Triple  VolumeRAIDType = "RAID1Triple"
-	RAID3        VolumeRAIDType = "RAID3"
-	RAID4        VolumeRAIDType = "RAID4"
-	RAID5        VolumeRAIDType = "RAID5"
-	RAID50       VolumeRAIDType = "RAID50"
-	RAID6        VolumeRAIDType = "RAID6"
-	RAID60       VolumeRAIDType = "RAID60"
-	RAID6TP      VolumeRAIDType = "RAID6TP"
+	VolumeRAIDTypeNone         VolumeRAIDType = "None"
+	VolumeRAIDTypeRAID0        VolumeRAIDType = "RAID0"
+	VolumeRAIDTypeRAID00       VolumeRAIDType = "RAID00"
+	VolumeRAIDTypeRAID01       VolumeRAIDType = "RAID01"
+	VolumeRAIDTypeRAID1        VolumeRAIDType = "RAID1"
+	VolumeRAIDTypeRAID10       VolumeRAIDType = "RAID10"
+	VolumeRAIDTypeRAID10E      VolumeRAIDType = "RAID10E"
+	VolumeRAIDTypeRAID10Triple VolumeRAIDType = "RAID10Triple"
+	VolumeRAIDTypeRAID1E       VolumeRAIDType = "RAID1E"
+	VolumeRAIDTypeRAID1Triple  VolumeRAIDType = "RAID1Triple"
+	VolumeRAIDTypeRAID3        VolumeRAIDType = "RAID3"
+	VolumeRAIDTypeRAID4        VolumeRAIDType = "RAID4"
+	VolumeRAIDTypeRAID5        VolumeRAIDType = "RAID5"
+	VolumeRAIDTypeRAID50       VolumeRAIDType = "RAID50"
+	VolumeRAIDTypeRAID6        VolumeRAIDType = "RAID6"
+	VolumeRAIDTypeRAID60       VolumeRAIDType = "RAID60"
+	VolumeRAIDTypeRAID6TP      VolumeRAIDType = "RAID6TP"
 )
 
 // Defines values for VolumeReadCachePolicyType.
@@ -589,10 +857,10 @@ const (
 
 // Defines values for VolumeWriteHoleProtectionPolicyType.
 const (
-	DistributedLog VolumeWriteHoleProtectionPolicyType = "DistributedLog"
-	Journaling     VolumeWriteHoleProtectionPolicyType = "Journaling"
-	Oem            VolumeWriteHoleProtectionPolicyType = "Oem"
-	Off            VolumeWriteHoleProtectionPolicyType = "Off"
+	VolumeWriteHoleProtectionPolicyTypeDistributedLog VolumeWriteHoleProtectionPolicyType = "DistributedLog"
+	VolumeWriteHoleProtectionPolicyTypeJournaling     VolumeWriteHoleProtectionPolicyType = "Journaling"
+	VolumeWriteHoleProtectionPolicyTypeOem            VolumeWriteHoleProtectionPolicyType = "Oem"
+	VolumeWriteHoleProtectionPolicyTypeOff            VolumeWriteHoleProtectionPolicyType = "Off"
 )
 
 // ActionInfoV142ParameterTypes defines model for ActionInfo_v1_4_2_ParameterTypes.
@@ -1156,11 +1424,1382 @@ type ChassisV1250Reset struct {
 // ChassisV1250ThermalDirection defines model for Chassis_v1_25_0_ThermalDirection.
 type ChassisV1250ThermalDirection string
 
+// ComputerSystem The `ComputerSystem` schema represents a computer or system instance and the software-visible resources, or items within the data plane, such as memory, CPU, and other devices that it can access.  Details of those resources or subsystems are also linked through this resource.
+type ComputerSystem = ComputerSystemV1230ComputerSystem
+
+// ComputerSystemCollection The collection of `ComputerSystem` resource instances.
+type ComputerSystemCollection = ComputerSystemCollectionComputerSystemCollection
+
+// ComputerSystemCollectionComputerSystemCollection The collection of `ComputerSystem` resource instances.
+type ComputerSystemCollectionComputerSystemCollection struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType   *OdataV4Type                                                  `json:"@odata.type,omitempty"`
+	Description *ComputerSystemCollectionComputerSystemCollection_Description `json:"Description,omitempty"`
+
+	// Members The members of this collection.
+	Members *[]OdataV4IdRef `json:"Members,omitempty"`
+
+	// MembersOdataCount The number of items in a collection.
+	MembersOdataCount *OdataV4Count `json:"Members@odata.count,omitempty"`
+
+	// MembersOdataNextLink The URI to the resource containing the next set of partial members.
+	MembersOdataNextLink *OdataV4NextLink `json:"Members@odata.nextLink,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// ComputerSystemCollectionComputerSystemCollectionDescription1 defines model for .
+type ComputerSystemCollectionComputerSystemCollectionDescription1 = interface{}
+
+// ComputerSystemCollectionComputerSystemCollection_Description defines model for ComputerSystemCollectionComputerSystemCollection.Description.
+type ComputerSystemCollectionComputerSystemCollection_Description struct {
+	union json.RawMessage
+}
+
+// ComputerSystemBootSource defines model for ComputerSystem_BootSource.
+type ComputerSystemBootSource string
+
+// ComputerSystemV1230Actions The available actions for this resource.
+type ComputerSystemV1230Actions struct {
+	// HashComputerSystemAddResourceBlock This action adds a resource block to a system.
+	HashComputerSystemAddResourceBlock *ComputerSystemV1230AddResourceBlock `json:"#ComputerSystem.AddResourceBlock,omitempty"`
+
+	// HashComputerSystemDecommission This action decommissions a system.
+	HashComputerSystemDecommission *ComputerSystemV1230Decommission `json:"#ComputerSystem.Decommission,omitempty"`
+
+	// HashComputerSystemRemoveResourceBlock This action removes a resource block from a system.
+	HashComputerSystemRemoveResourceBlock *ComputerSystemV1230RemoveResourceBlock `json:"#ComputerSystem.RemoveResourceBlock,omitempty"`
+
+	// HashComputerSystemReset This action resets the system.
+	HashComputerSystemReset *ComputerSystemV1230Reset `json:"#ComputerSystem.Reset,omitempty"`
+
+	// HashComputerSystemSetDefaultBootOrder This action sets the `BootOrder` property to the default settings.
+	HashComputerSystemSetDefaultBootOrder *ComputerSystemV1230SetDefaultBootOrder `json:"#ComputerSystem.SetDefaultBootOrder,omitempty"`
+
+	// Oem The available OEM-specific actions for this resource.
+	Oem *ComputerSystemV1230OemActions `json:"Oem,omitempty"`
+}
+
+// ComputerSystemV1230AddResourceBlock This action adds a resource block to a system.
+type ComputerSystemV1230AddResourceBlock struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// ComputerSystemV1230AutomaticRetryConfig defines model for ComputerSystem_v1_23_0_AutomaticRetryConfig.
+type ComputerSystemV1230AutomaticRetryConfig string
+
+// ComputerSystemV1230Boot The boot information for this resource.
+type ComputerSystemV1230Boot struct {
+	// AliasBootOrder Ordered array of boot source aliases representing the persistent boot order associated with this computer system.
+	AliasBootOrder *[]ComputerSystemV1230Boot_AliasBootOrder_Item `json:"AliasBootOrder,omitempty"`
+
+	// AutomaticRetryAttempts The number of attempts the system will automatically retry booting.
+	AutomaticRetryAttempts *int64 `json:"AutomaticRetryAttempts"`
+
+	// AutomaticRetryConfig The configuration of how the system retries booting automatically.
+	AutomaticRetryConfig *ComputerSystemV1230Boot_AutomaticRetryConfig `json:"AutomaticRetryConfig,omitempty"`
+
+	// BootNext The `BootOptionReference` of the Boot Option to perform a one-time boot from when `BootSourceOverrideTarget` is `UefiBootNext`.
+	BootNext *string `json:"BootNext"`
+
+	// BootOptions A reference to a resource.
+	BootOptions *OdataV4IdRef `json:"BootOptions,omitempty"`
+
+	// BootOrder An array of `BootOptionReference` strings that represent the persistent boot order for with this computer system.  Changes to the boot order typically require a system reset before they take effect.  It is likely that a client finds the `@Redfish.Settings` term in this resource, and if it is found, the client makes requests to change boot order settings by modifying the resource identified by the `@Redfish.Settings` term.
+	BootOrder *[]string `json:"BootOrder,omitempty"`
+
+	// BootOrderPropertySelection The name of the boot order property that the system uses for the persistent boot order.
+	BootOrderPropertySelection *ComputerSystemV1230Boot_BootOrderPropertySelection `json:"BootOrderPropertySelection,omitempty"`
+
+	// BootSourceOverrideEnabled The state of the boot source override feature.
+	BootSourceOverrideEnabled *ComputerSystemV1230Boot_BootSourceOverrideEnabled `json:"BootSourceOverrideEnabled,omitempty"`
+
+	// BootSourceOverrideMode The BIOS boot mode to use when the system boots from the `BootSourceOverrideTarget` boot source.
+	BootSourceOverrideMode *ComputerSystemV1230Boot_BootSourceOverrideMode `json:"BootSourceOverrideMode,omitempty"`
+
+	// BootSourceOverrideTarget The current boot source to use at the next boot instead of the normal boot device, if `BootSourceOverrideEnabled` does not contain `Disabled`.
+	BootSourceOverrideTarget *ComputerSystemV1230Boot_BootSourceOverrideTarget `json:"BootSourceOverrideTarget,omitempty"`
+
+	// Certificates A reference to a resource.
+	Certificates *OdataV4IdRef `json:"Certificates,omitempty"`
+
+	// HttpBootUri The URI to boot from when `BootSourceOverrideTarget` is set to `UefiHttp`.
+	HttpBootUri *string `json:"HttpBootUri"`
+
+	// RemainingAutomaticRetryAttempts The number of remaining automatic retry boots.
+	RemainingAutomaticRetryAttempts *int64 `json:"RemainingAutomaticRetryAttempts"`
+
+	// StopBootOnFault If the boot should stop on a fault.
+	StopBootOnFault *ComputerSystemV1230Boot_StopBootOnFault `json:"StopBootOnFault,omitempty"`
+
+	// TrustedModuleRequiredToBoot The Trusted Module boot requirement.
+	TrustedModuleRequiredToBoot *ComputerSystemV1230Boot_TrustedModuleRequiredToBoot `json:"TrustedModuleRequiredToBoot,omitempty"`
+
+	// UefiTargetBootSourceOverride The UEFI device path of the device from which to boot when `BootSourceOverrideTarget` is `UefiTarget`.
+	UefiTargetBootSourceOverride *string `json:"UefiTargetBootSourceOverride"`
+}
+
+// ComputerSystemV1230BootAliasBootOrder1 defines model for .
+type ComputerSystemV1230BootAliasBootOrder1 = interface{}
+
+// ComputerSystemV1230Boot_AliasBootOrder_Item defines model for ComputerSystem_v1_23_0_Boot.AliasBootOrder.Item.
+type ComputerSystemV1230Boot_AliasBootOrder_Item struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootAutomaticRetryConfig1 defines model for .
+type ComputerSystemV1230BootAutomaticRetryConfig1 = interface{}
+
+// ComputerSystemV1230Boot_AutomaticRetryConfig The configuration of how the system retries booting automatically.
+type ComputerSystemV1230Boot_AutomaticRetryConfig struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootBootOrderPropertySelection1 defines model for .
+type ComputerSystemV1230BootBootOrderPropertySelection1 = interface{}
+
+// ComputerSystemV1230Boot_BootOrderPropertySelection The name of the boot order property that the system uses for the persistent boot order.
+type ComputerSystemV1230Boot_BootOrderPropertySelection struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootBootSourceOverrideEnabled1 defines model for .
+type ComputerSystemV1230BootBootSourceOverrideEnabled1 = interface{}
+
+// ComputerSystemV1230Boot_BootSourceOverrideEnabled The state of the boot source override feature.
+type ComputerSystemV1230Boot_BootSourceOverrideEnabled struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootBootSourceOverrideMode1 defines model for .
+type ComputerSystemV1230BootBootSourceOverrideMode1 = interface{}
+
+// ComputerSystemV1230Boot_BootSourceOverrideMode The BIOS boot mode to use when the system boots from the `BootSourceOverrideTarget` boot source.
+type ComputerSystemV1230Boot_BootSourceOverrideMode struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootBootSourceOverrideTarget1 defines model for .
+type ComputerSystemV1230BootBootSourceOverrideTarget1 = interface{}
+
+// ComputerSystemV1230Boot_BootSourceOverrideTarget The current boot source to use at the next boot instead of the normal boot device, if `BootSourceOverrideEnabled` does not contain `Disabled`.
+type ComputerSystemV1230Boot_BootSourceOverrideTarget struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootStopBootOnFault1 defines model for .
+type ComputerSystemV1230BootStopBootOnFault1 = interface{}
+
+// ComputerSystemV1230Boot_StopBootOnFault If the boot should stop on a fault.
+type ComputerSystemV1230Boot_StopBootOnFault struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootTrustedModuleRequiredToBoot1 defines model for .
+type ComputerSystemV1230BootTrustedModuleRequiredToBoot1 = interface{}
+
+// ComputerSystemV1230Boot_TrustedModuleRequiredToBoot The Trusted Module boot requirement.
+type ComputerSystemV1230Boot_TrustedModuleRequiredToBoot struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootOrderTypes The enumerations of `BootOrderTypes` specify the choice of boot order property to use when controller the persistent boot order for this computer system.
+type ComputerSystemV1230BootOrderTypes string
+
+// ComputerSystemV1230BootProgress This object describes the last boot progress state.
+type ComputerSystemV1230BootProgress struct {
+	// LastBootTimeSeconds The number of seconds the system spent booting to the operating system during the last boot.
+	LastBootTimeSeconds *float32 `json:"LastBootTimeSeconds"`
+
+	// LastState The last boot progress state.
+	LastState *ComputerSystemV1230BootProgress_LastState `json:"LastState,omitempty"`
+
+	// LastStateTime The date and time when the last boot state was updated.
+	LastStateTime *time.Time `json:"LastStateTime"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// OemLastState The OEM-specific last state, if the LastState type is `OEM`.
+	OemLastState *string `json:"OemLastState"`
+}
+
+// ComputerSystemV1230BootProgressLastState1 defines model for .
+type ComputerSystemV1230BootProgressLastState1 = interface{}
+
+// ComputerSystemV1230BootProgress_LastState The last boot progress state.
+type ComputerSystemV1230BootProgress_LastState struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230BootProgressTypes defines model for ComputerSystem_v1_23_0_BootProgressTypes.
+type ComputerSystemV1230BootProgressTypes string
+
+// ComputerSystemV1230BootSourceOverrideEnabled defines model for ComputerSystem_v1_23_0_BootSourceOverrideEnabled.
+type ComputerSystemV1230BootSourceOverrideEnabled string
+
+// ComputerSystemV1230BootSourceOverrideMode defines model for ComputerSystem_v1_23_0_BootSourceOverrideMode.
+type ComputerSystemV1230BootSourceOverrideMode string
+
+// ComputerSystemV1230Composition Information about the composition capabilities and state of a computer system.
+type ComputerSystemV1230Composition struct {
+	// UseCases The composition use cases in which this computer system can participate.
+	UseCases *[]ComputerSystemV1230Composition_UseCases_Item `json:"UseCases,omitempty"`
+}
+
+// ComputerSystemV1230CompositionUseCases1 defines model for .
+type ComputerSystemV1230CompositionUseCases1 = interface{}
+
+// ComputerSystemV1230Composition_UseCases_Item defines model for ComputerSystem_v1_23_0_Composition.UseCases.Item.
+type ComputerSystemV1230Composition_UseCases_Item struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230CompositionUseCase defines model for ComputerSystem_v1_23_0_CompositionUseCase.
+type ComputerSystemV1230CompositionUseCase string
+
+// ComputerSystemV1230ComputerSystem The `ComputerSystem` schema represents a computer or system instance and the software-visible resources, or items within the data plane, such as memory, CPU, and other devices that it can access.  Details of those resources or subsystems are also linked through this resource.
+type ComputerSystemV1230ComputerSystem struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *ComputerSystemV1230Actions `json:"Actions,omitempty"`
+
+	// AssetTag The user-definable tag that can track this computer system for inventory or other client purposes.
+	AssetTag *string `json:"AssetTag"`
+
+	// Bios A reference to a resource.
+	Bios *OdataV4IdRef `json:"Bios,omitempty"`
+
+	// BiosVersion The version of the system BIOS or primary system firmware.
+	BiosVersion *string `json:"BiosVersion"`
+
+	// Boot The boot information for this resource.
+	Boot *ComputerSystemV1230Boot `json:"Boot,omitempty"`
+
+	// BootProgress This object describes the last boot progress state.
+	BootProgress *ComputerSystemV1230ComputerSystem_BootProgress `json:"BootProgress,omitempty"`
+
+	// Certificates A reference to a resource.
+	Certificates *OdataV4IdRef `json:"Certificates,omitempty"`
+
+	// Composition Information about the composition capabilities and state of the computer system.
+	Composition *ComputerSystemV1230ComputerSystem_Composition `json:"Composition,omitempty"`
+	Description *ComputerSystemV1230ComputerSystem_Description `json:"Description,omitempty"`
+
+	// EthernetInterfaces A reference to a resource.
+	EthernetInterfaces *OdataV4IdRef `json:"EthernetInterfaces,omitempty"`
+
+	// FabricAdapters A reference to a resource.
+	FabricAdapters *OdataV4IdRef `json:"FabricAdapters,omitempty"`
+
+	// GraphicalConsole The information about a graphical console service for this system.
+	GraphicalConsole *ComputerSystemV1230HostGraphicalConsole `json:"GraphicalConsole,omitempty"`
+
+	// GraphicsControllers A reference to a resource.
+	GraphicsControllers *OdataV4IdRef `json:"GraphicsControllers,omitempty"`
+
+	// HostName The DNS host name, without any domain information.
+	HostName *string `json:"HostName"`
+
+	// HostWatchdogTimer This type describes the host watchdog timer functionality for this system.
+	HostWatchdogTimer *ComputerSystemV1230WatchdogTimer `json:"HostWatchdogTimer,omitempty"`
+
+	// HostedServices The services that might be running or installed on the system.
+	HostedServices *ComputerSystemV1230HostedServices `json:"HostedServices,omitempty"`
+
+	// HostingRoles The hosting roles that this computer system supports.
+	HostingRoles *[]ComputerSystemV1230HostingRole `json:"HostingRoles,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// IdlePowerSaver The idle power saver settings of the computer system.
+	IdlePowerSaver *ComputerSystemV1230ComputerSystem_IdlePowerSaver `json:"IdlePowerSaver,omitempty"`
+
+	// IndicatorLED The state of the indicator LED, which identifies the system.
+	// Deprecated:
+	IndicatorLED *ComputerSystemV1230ComputerSystem_IndicatorLED `json:"IndicatorLED,omitempty"`
+
+	// KeyManagement The key management settings of the computer system.
+	KeyManagement  *ComputerSystemV1230ComputerSystem_KeyManagement `json:"KeyManagement,omitempty"`
+	LastResetCause *ComputerSystemV1230LastResetCauses              `json:"LastResetCause,omitempty"`
+
+	// LastResetTime The date and time when the system was last reset or rebooted.
+	LastResetTime *time.Time `json:"LastResetTime,omitempty"`
+
+	// Links The links to other resources that are related to this resource.
+	Links *ComputerSystemV1230Links `json:"Links,omitempty"`
+
+	// LocationIndicatorActive An indicator allowing an operator to physically locate this resource.
+	LocationIndicatorActive *bool `json:"LocationIndicatorActive"`
+
+	// LogServices A reference to a resource.
+	LogServices *OdataV4IdRef `json:"LogServices,omitempty"`
+
+	// Manufacturer The manufacturer or OEM of this system.
+	Manufacturer *string `json:"Manufacturer"`
+
+	// ManufacturingMode An indication of whether the system is in manufacturing mode.  Manufacturing mode is a special boot mode, not normally available to end users, that modifies features and settings for use while the system is being manufactured and tested.
+	ManufacturingMode *bool `json:"ManufacturingMode"`
+
+	// Measurements An array of DSP0274-defined measurement blocks.
+	// Deprecated:
+	Measurements *[]SoftwareInventoryV1102MeasurementBlock `json:"Measurements,omitempty"`
+
+	// Memory A reference to a resource.
+	Memory *OdataV4IdRef `json:"Memory,omitempty"`
+
+	// MemoryDomains A reference to a resource.
+	MemoryDomains *OdataV4IdRef `json:"MemoryDomains,omitempty"`
+
+	// MemorySummary The memory of the system in general detail.
+	MemorySummary *ComputerSystemV1230MemorySummary `json:"MemorySummary,omitempty"`
+
+	// Model The product name for this system, without the manufacturer name.
+	Model *string `json:"Model"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// NetworkInterfaces A reference to a resource.
+	NetworkInterfaces *OdataV4IdRef `json:"NetworkInterfaces,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// OperatingSystem A reference to a resource.
+	OperatingSystem *OdataV4IdRef `json:"OperatingSystem,omitempty"`
+
+	// PCIeDevices The link to a collection of PCIe devices that this computer system uses.
+	PCIeDevices *[]OdataV4IdRef `json:"PCIeDevices,omitempty"`
+
+	// PCIeDevicesOdataCount The number of items in a collection.
+	PCIeDevicesOdataCount *OdataV4Count `json:"PCIeDevices@odata.count,omitempty"`
+
+	// PCIeFunctions The link to a collection of PCIe functions that this computer system uses.
+	PCIeFunctions *[]OdataV4IdRef `json:"PCIeFunctions,omitempty"`
+
+	// PCIeFunctionsOdataCount The number of items in a collection.
+	PCIeFunctionsOdataCount *OdataV4Count `json:"PCIeFunctions@odata.count,omitempty"`
+
+	// PartNumber The part number for this system.
+	PartNumber *string `json:"PartNumber"`
+
+	// PowerCycleDelaySeconds The number of seconds to delay power on after a `Reset` action requesting `PowerCycle`.  Zero seconds indicates no delay.
+	PowerCycleDelaySeconds *float32 `json:"PowerCycleDelaySeconds"`
+
+	// PowerMode The power mode setting of the computer system.
+	PowerMode *ComputerSystemV1230ComputerSystem_PowerMode `json:"PowerMode,omitempty"`
+
+	// PowerOffDelaySeconds The number of seconds to delay power off during a reset.  Zero seconds indicates no delay to power off.
+	PowerOffDelaySeconds *float32 `json:"PowerOffDelaySeconds"`
+
+	// PowerOnDelaySeconds The number of seconds to delay power on after a power cycle or during a reset.  Zero seconds indicates no delay to power up.
+	PowerOnDelaySeconds *float32 `json:"PowerOnDelaySeconds"`
+
+	// PowerRestorePolicy The enumerations of `PowerRestorePolicyTypes` specify the choice of power state for the system when power is applied.
+	PowerRestorePolicy *ComputerSystemV1230PowerRestorePolicyTypes `json:"PowerRestorePolicy,omitempty"`
+
+	// PowerState The current power state of the system.
+	PowerState *ComputerSystemV1230ComputerSystem_PowerState `json:"PowerState,omitempty"`
+
+	// ProcessorSummary The central processors of the system in general detail.
+	ProcessorSummary *ComputerSystemV1230ProcessorSummary `json:"ProcessorSummary,omitempty"`
+
+	// Processors A reference to a resource.
+	Processors *OdataV4IdRef `json:"Processors,omitempty"`
+
+	// Redundancy The link to a collection of redundancy entities.  Each entity specifies a kind and level of redundancy and a collection, or redundancy set, of other computer systems that provide the specified redundancy to this computer system.
+	Redundancy *[]RedundancyV142Redundancy `json:"Redundancy,omitempty"`
+
+	// RedundancyOdataCount The number of items in a collection.
+	RedundancyOdataCount *OdataV4Count `json:"Redundancy@odata.count,omitempty"`
+
+	// SKU The manufacturer SKU for this system.
+	SKU *string `json:"SKU"`
+
+	// SecureBoot A reference to a resource.
+	SecureBoot *OdataV4IdRef `json:"SecureBoot,omitempty"`
+
+	// SerialConsole The information about the serial console services that this system provides.
+	SerialConsole *ComputerSystemV1230HostSerialConsole `json:"SerialConsole,omitempty"`
+
+	// SerialNumber The serial number for this system.
+	SerialNumber *string `json:"SerialNumber"`
+
+	// SimpleStorage A reference to a resource.
+	SimpleStorage *OdataV4IdRef `json:"SimpleStorage,omitempty"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// Storage A reference to a resource.
+	Storage *OdataV4IdRef `json:"Storage,omitempty"`
+
+	// SubModel The sub-model for this system.
+	SubModel   *string                        `json:"SubModel"`
+	SystemType *ComputerSystemV1230SystemType `json:"SystemType,omitempty"`
+
+	// TrustedModules An array of trusted modules in the system.
+	// Deprecated:
+	TrustedModules *[]ComputerSystemV1230TrustedModules `json:"TrustedModules,omitempty"`
+
+	// USBControllers A reference to a resource.
+	USBControllers *OdataV4IdRef `json:"USBControllers,omitempty"`
+
+	// UUID The UUID for this system.
+	UUID *ComputerSystemV1230ComputerSystem_UUID `json:"UUID,omitempty"`
+
+	// VirtualMedia A reference to a resource.
+	VirtualMedia *OdataV4IdRef `json:"VirtualMedia,omitempty"`
+
+	// VirtualMediaConfig The information about virtual media service for this system.
+	VirtualMediaConfig *ComputerSystemV1230VirtualMediaConfig `json:"VirtualMediaConfig,omitempty"`
+}
+
+// ComputerSystemV1230ComputerSystemBootProgress1 defines model for .
+type ComputerSystemV1230ComputerSystemBootProgress1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_BootProgress This object describes the last boot progress state.
+type ComputerSystemV1230ComputerSystem_BootProgress struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemComposition1 defines model for .
+type ComputerSystemV1230ComputerSystemComposition1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_Composition Information about the composition capabilities and state of the computer system.
+type ComputerSystemV1230ComputerSystem_Composition struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemDescription1 defines model for .
+type ComputerSystemV1230ComputerSystemDescription1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_Description defines model for ComputerSystemV1230ComputerSystem.Description.
+type ComputerSystemV1230ComputerSystem_Description struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemIdlePowerSaver1 defines model for .
+type ComputerSystemV1230ComputerSystemIdlePowerSaver1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_IdlePowerSaver The idle power saver settings of the computer system.
+type ComputerSystemV1230ComputerSystem_IdlePowerSaver struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemIndicatorLED1 defines model for .
+type ComputerSystemV1230ComputerSystemIndicatorLED1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_IndicatorLED The state of the indicator LED, which identifies the system.
+type ComputerSystemV1230ComputerSystem_IndicatorLED struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemKeyManagement1 defines model for .
+type ComputerSystemV1230ComputerSystemKeyManagement1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_KeyManagement The key management settings of the computer system.
+type ComputerSystemV1230ComputerSystem_KeyManagement struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemPowerMode1 defines model for .
+type ComputerSystemV1230ComputerSystemPowerMode1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_PowerMode The power mode setting of the computer system.
+type ComputerSystemV1230ComputerSystem_PowerMode struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemPowerState1 defines model for .
+type ComputerSystemV1230ComputerSystemPowerState1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_PowerState The current power state of the system.
+type ComputerSystemV1230ComputerSystem_PowerState struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230ComputerSystemUUID1 defines model for .
+type ComputerSystemV1230ComputerSystemUUID1 = interface{}
+
+// ComputerSystemV1230ComputerSystem_UUID The UUID for this system.
+type ComputerSystemV1230ComputerSystem_UUID struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230Decommission This action decommissions a system.
+type ComputerSystemV1230Decommission struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// ComputerSystemV1230GraphicalConnectTypesSupported defines model for ComputerSystem_v1_23_0_GraphicalConnectTypesSupported.
+type ComputerSystemV1230GraphicalConnectTypesSupported string
+
+// ComputerSystemV1230HostGraphicalConsole The information about a graphical console service for this system.
+type ComputerSystemV1230HostGraphicalConsole struct {
+	// ConnectTypesSupported This property enumerates the graphical console connection types that the implementation allows.
+	ConnectTypesSupported *[]ComputerSystemV1230GraphicalConnectTypesSupported `json:"ConnectTypesSupported,omitempty"`
+
+	// MaxConcurrentSessions The maximum number of service sessions, regardless of protocol, that this system can support.
+	MaxConcurrentSessions *int64 `json:"MaxConcurrentSessions,omitempty"`
+
+	// Port The protocol port.
+	Port *int64 `json:"Port"`
+
+	// ServiceEnabled An indication of whether the service is enabled for this system.
+	ServiceEnabled *bool `json:"ServiceEnabled,omitempty"`
+}
+
+// ComputerSystemV1230HostSerialConsole The information about the serial console services that this system provides.
+type ComputerSystemV1230HostSerialConsole struct {
+	// IPMI The information about a serial console service that this system provides.
+	IPMI *ComputerSystemV1230SerialConsoleProtocol `json:"IPMI,omitempty"`
+
+	// MaxConcurrentSessions The maximum number of service sessions, regardless of protocol, that this system can support.
+	MaxConcurrentSessions *int64 `json:"MaxConcurrentSessions,omitempty"`
+
+	// SSH The information about a serial console service that this system provides.
+	SSH *ComputerSystemV1230SerialConsoleProtocol `json:"SSH,omitempty"`
+
+	// Telnet The information about a serial console service that this system provides.
+	Telnet *ComputerSystemV1230SerialConsoleProtocol `json:"Telnet,omitempty"`
+}
+
+// ComputerSystemV1230HostedServices The services that might be running or installed on the system.
+type ComputerSystemV1230HostedServices struct {
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// StorageServices A reference to a resource.
+	StorageServices *OdataV4IdRef `json:"StorageServices,omitempty"`
+}
+
+// ComputerSystemV1230HostingRole The enumerations of `HostingRole` specify different features that the hosting computer system supports.
+type ComputerSystemV1230HostingRole string
+
+// ComputerSystemV1230IdlePowerSaver The idle power saver settings of a computer system.
+type ComputerSystemV1230IdlePowerSaver struct {
+	// Enabled An indication of whether idle power saver is enabled.
+	Enabled *bool `json:"Enabled,omitempty"`
+
+	// EnterDwellTimeSeconds The duration in seconds the computer system is below the `EnterUtilizationPercent` value before the idle power save is activated.
+	EnterDwellTimeSeconds *int64 `json:"EnterDwellTimeSeconds"`
+
+	// EnterUtilizationPercent The percentage of utilization when the computer system enters idle power save.  If the computer system's utilization goes below this value, it enters idle power save.
+	EnterUtilizationPercent *float32 `json:"EnterUtilizationPercent"`
+
+	// ExitDwellTimeSeconds The duration in seconds the computer system is above the `ExitUtilizationPercent` value before the idle power save is stopped.
+	ExitDwellTimeSeconds *int64 `json:"ExitDwellTimeSeconds"`
+
+	// ExitUtilizationPercent The percentage of utilization when the computer system exits idle power save.  If the computer system's utilization goes above this value, it exits idle power save.
+	ExitUtilizationPercent *float32 `json:"ExitUtilizationPercent"`
+}
+
+// ComputerSystemV1230IndicatorLED defines model for ComputerSystem_v1_23_0_IndicatorLED.
+type ComputerSystemV1230IndicatorLED string
+
+// ComputerSystemV1230InterfaceType defines model for ComputerSystem_v1_23_0_InterfaceType.
+type ComputerSystemV1230InterfaceType string
+
+// ComputerSystemV1230InterfaceTypeSelection The enumerations of `InterfaceTypeSelection` specify the method for switching the TrustedModule InterfaceType, for instance between TPM1_2 and TPM2_0, if supported.
+type ComputerSystemV1230InterfaceTypeSelection string
+
+// ComputerSystemV1230KMIPCachePolicy defines model for ComputerSystem_v1_23_0_KMIPCachePolicy.
+type ComputerSystemV1230KMIPCachePolicy string
+
+// ComputerSystemV1230KMIPServer The KMIP server settings for a computer system.
+type ComputerSystemV1230KMIPServer struct {
+	// Address The KMIP server address.
+	Address *string `json:"Address"`
+
+	// CacheDuration The duration the system caches KMIP data.
+	CacheDuration *string `json:"CacheDuration"`
+
+	// CachePolicy The cache policy to control how KMIP data is cached.
+	CachePolicy *ComputerSystemV1230KMIPServer_CachePolicy `json:"CachePolicy,omitempty"`
+
+	// Password The password to access the KMIP server.  The value is `null` in responses.
+	Password *string `json:"Password"`
+
+	// Port The KMIP server port.
+	Port *int64 `json:"Port"`
+
+	// Username The username to access the KMIP server.
+	Username *string `json:"Username"`
+}
+
+// ComputerSystemV1230KMIPServerCachePolicy1 defines model for .
+type ComputerSystemV1230KMIPServerCachePolicy1 = interface{}
+
+// ComputerSystemV1230KMIPServer_CachePolicy The cache policy to control how KMIP data is cached.
+type ComputerSystemV1230KMIPServer_CachePolicy struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230KeyManagement The key management settings of a computer system.
+type ComputerSystemV1230KeyManagement struct {
+	// KMIPCertificates A reference to a resource.
+	KMIPCertificates *OdataV4IdRef `json:"KMIPCertificates,omitempty"`
+
+	// KMIPServers The KMIP servers to which this computer system is subscribed.
+	KMIPServers *[]ComputerSystemV1230KeyManagement_KMIPServers_Item `json:"KMIPServers,omitempty"`
+}
+
+// ComputerSystemV1230KeyManagementKMIPServers1 defines model for .
+type ComputerSystemV1230KeyManagementKMIPServers1 = interface{}
+
+// ComputerSystemV1230KeyManagement_KMIPServers_Item defines model for ComputerSystem_v1_23_0_KeyManagement.KMIPServers.Item.
+type ComputerSystemV1230KeyManagement_KMIPServers_Item struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230LastResetCauses defines model for ComputerSystem_v1_23_0_LastResetCauses.
+type ComputerSystemV1230LastResetCauses string
+
+// ComputerSystemV1230Links The links to other resources that are related to this resource.
+type ComputerSystemV1230Links struct {
+	// Chassis An array of links to the chassis that contains this system.
+	Chassis *[]OdataV4IdRef `json:"Chassis,omitempty"`
+
+	// ChassisOdataCount The number of items in a collection.
+	ChassisOdataCount *OdataV4Count `json:"Chassis@odata.count,omitempty"`
+
+	// ConsumingComputerSystems An array of links to computer systems that are realized, in whole or in part, from this computer system.
+	ConsumingComputerSystems *[]OdataV4IdRef `json:"ConsumingComputerSystems,omitempty"`
+
+	// ConsumingComputerSystemsOdataCount The number of items in a collection.
+	ConsumingComputerSystemsOdataCount *OdataV4Count `json:"ConsumingComputerSystems@odata.count,omitempty"`
+
+	// CooledBy An array of links to resources or objects that cool this computer system.  Normally, the link is for either a chassis or a specific set of fans.
+	CooledBy *[]OdataV4IdRef `json:"CooledBy,omitempty"`
+
+	// CooledByOdataCount The number of items in a collection.
+	CooledByOdataCount *OdataV4Count `json:"CooledBy@odata.count,omitempty"`
+
+	// Endpoints An array of links to the endpoints that connect to this system.
+	Endpoints *[]OdataV4IdRef `json:"Endpoints,omitempty"`
+
+	// EndpointsOdataCount The number of items in a collection.
+	EndpointsOdataCount *OdataV4Count `json:"Endpoints@odata.count,omitempty"`
+
+	// HostingComputerSystem The link to the system that is hosting this virtual machine.
+	HostingComputerSystem *ComputerSystemV1230Links_HostingComputerSystem `json:"HostingComputerSystem,omitempty"`
+
+	// ManagedBy An array of links to the managers responsible for this system.
+	ManagedBy *[]OdataV4IdRef `json:"ManagedBy,omitempty"`
+
+	// ManagedByOdataCount The number of items in a collection.
+	ManagedByOdataCount *OdataV4Count `json:"ManagedBy@odata.count,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// OffloadedNetworkDeviceFunctions The network device functions to which this system performs offload computation, such as with a SmartNIC.
+	OffloadedNetworkDeviceFunctions *[]OdataV4IdRef `json:"OffloadedNetworkDeviceFunctions,omitempty"`
+
+	// OffloadedNetworkDeviceFunctionsOdataCount The number of items in a collection.
+	OffloadedNetworkDeviceFunctionsOdataCount *OdataV4Count `json:"OffloadedNetworkDeviceFunctions@odata.count,omitempty"`
+
+	// PoweredBy An array of links to resources or objects that power this computer system.  Normally, the link is for either a chassis or a specific set of power supplies.
+	PoweredBy *[]OdataV4IdRef `json:"PoweredBy,omitempty"`
+
+	// PoweredByOdataCount The number of items in a collection.
+	PoweredByOdataCount *OdataV4Count `json:"PoweredBy@odata.count,omitempty"`
+
+	// ResourceBlocks An array of links to the resource blocks that are used in this computer system.
+	ResourceBlocks *[]OdataV4IdRef `json:"ResourceBlocks,omitempty"`
+
+	// ResourceBlocksOdataCount The number of items in a collection.
+	ResourceBlocksOdataCount *OdataV4Count `json:"ResourceBlocks@odata.count,omitempty"`
+
+	// SupplyingComputerSystems An array of links to computer systems that contribute, in whole or in part, to the implementation of this computer system.
+	SupplyingComputerSystems *[]OdataV4IdRef `json:"SupplyingComputerSystems,omitempty"`
+
+	// SupplyingComputerSystemsOdataCount The number of items in a collection.
+	SupplyingComputerSystemsOdataCount *OdataV4Count `json:"SupplyingComputerSystems@odata.count,omitempty"`
+
+	// TrustedComponents An array of links to the trusted components for this system.
+	TrustedComponents *[]OdataV4IdRef `json:"TrustedComponents,omitempty"`
+
+	// TrustedComponentsOdataCount The number of items in a collection.
+	TrustedComponentsOdataCount *OdataV4Count `json:"TrustedComponents@odata.count,omitempty"`
+
+	// VirtualMachines An array of links to the virtual machines this system is hosting.
+	VirtualMachines *[]OdataV4IdRef `json:"VirtualMachines,omitempty"`
+
+	// VirtualMachinesOdataCount The number of items in a collection.
+	VirtualMachinesOdataCount *OdataV4Count `json:"VirtualMachines@odata.count,omitempty"`
+}
+
+// ComputerSystemV1230LinksHostingComputerSystem1 defines model for .
+type ComputerSystemV1230LinksHostingComputerSystem1 = interface{}
+
+// ComputerSystemV1230Links_HostingComputerSystem The link to the system that is hosting this virtual machine.
+type ComputerSystemV1230Links_HostingComputerSystem struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230MemoryMirroring defines model for ComputerSystem_v1_23_0_MemoryMirroring.
+type ComputerSystemV1230MemoryMirroring string
+
+// ComputerSystemV1230MemorySummary The memory of the system in general detail.
+type ComputerSystemV1230MemorySummary struct {
+	// MemoryMirroring The ability and type of memory mirroring that this computer system supports.
+	MemoryMirroring *ComputerSystemV1230MemorySummary_MemoryMirroring `json:"MemoryMirroring,omitempty"`
+
+	// Metrics A reference to a resource.
+	Metrics *OdataV4IdRef `json:"Metrics,omitempty"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// TotalSystemMemoryGiB The total configured operating system-accessible memory (RAM), measured in GiB.
+	TotalSystemMemoryGiB *float32 `json:"TotalSystemMemoryGiB"`
+
+	// TotalSystemPersistentMemoryGiB The total configured, system-accessible persistent memory, measured in GiB.
+	TotalSystemPersistentMemoryGiB *float32 `json:"TotalSystemPersistentMemoryGiB"`
+}
+
+// ComputerSystemV1230MemorySummaryMemoryMirroring1 defines model for .
+type ComputerSystemV1230MemorySummaryMemoryMirroring1 = interface{}
+
+// ComputerSystemV1230MemorySummary_MemoryMirroring The ability and type of memory mirroring that this computer system supports.
+type ComputerSystemV1230MemorySummary_MemoryMirroring struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230OemActions The available OEM-specific actions for this resource.
+type ComputerSystemV1230OemActions map[string]interface{}
+
+// ComputerSystemV1230PowerMode defines model for ComputerSystem_v1_23_0_PowerMode.
+type ComputerSystemV1230PowerMode string
+
+// ComputerSystemV1230PowerRestorePolicyTypes The enumerations of `PowerRestorePolicyTypes` specify the choice of power state for the system when power is applied.
+type ComputerSystemV1230PowerRestorePolicyTypes string
+
+// ComputerSystemV1230ProcessorSummary The central processors of the system in general detail.
+type ComputerSystemV1230ProcessorSummary struct {
+	// CoreCount The number of processor cores in the system.
+	CoreCount *int64 `json:"CoreCount"`
+
+	// Count The number of physical processors in the system.
+	Count *int64 `json:"Count"`
+
+	// LogicalProcessorCount The number of logical processors in the system.
+	LogicalProcessorCount *int64 `json:"LogicalProcessorCount"`
+
+	// Metrics A reference to a resource.
+	Metrics *OdataV4IdRef `json:"Metrics,omitempty"`
+
+	// Model The processor model for the primary or majority of processors in this system.
+	Model *string `json:"Model"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// ThreadingEnabled An indication of whether threading is enabled on all processors in this system.
+	ThreadingEnabled *bool `json:"ThreadingEnabled,omitempty"`
+}
+
+// ComputerSystemV1230RemoveResourceBlock This action removes a resource block from a system.
+type ComputerSystemV1230RemoveResourceBlock struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// ComputerSystemV1230Reset This action resets the system.
+type ComputerSystemV1230Reset struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// ComputerSystemV1230SerialConsoleProtocol The information about a serial console service that this system provides.
+type ComputerSystemV1230SerialConsoleProtocol struct {
+	// ConsoleEntryCommand The command string passed to the service to select or enter the system's serial console.
+	ConsoleEntryCommand *string `json:"ConsoleEntryCommand"`
+
+	// HotKeySequenceDisplay The hotkey sequence available for the user to exit the serial console session.
+	HotKeySequenceDisplay *string `json:"HotKeySequenceDisplay"`
+
+	// Port The protocol port.
+	Port *int64 `json:"Port"`
+
+	// ServiceEnabled An indication of whether the service is enabled for this system.
+	ServiceEnabled *bool `json:"ServiceEnabled,omitempty"`
+
+	// SharedWithManagerCLI Indicates whether the serial console service is shared with access to the manager's command-line interface (CLI).
+	SharedWithManagerCLI *bool `json:"SharedWithManagerCLI,omitempty"`
+}
+
+// ComputerSystemV1230SetDefaultBootOrder This action sets the `BootOrder` property to the default settings.
+type ComputerSystemV1230SetDefaultBootOrder struct {
+	// Target Link to invoke action
+	Target *string `json:"target,omitempty"`
+
+	// Title Friendly action name
+	Title *string `json:"title,omitempty"`
+}
+
+// ComputerSystemV1230StopBootOnFault defines model for ComputerSystem_v1_23_0_StopBootOnFault.
+type ComputerSystemV1230StopBootOnFault string
+
+// ComputerSystemV1230SystemType defines model for ComputerSystem_v1_23_0_SystemType.
+type ComputerSystemV1230SystemType string
+
+// ComputerSystemV1230TrustedModuleRequiredToBoot defines model for ComputerSystem_v1_23_0_TrustedModuleRequiredToBoot.
+type ComputerSystemV1230TrustedModuleRequiredToBoot string
+
+// ComputerSystemV1230TrustedModules The Trusted Module installed in the system.
+type ComputerSystemV1230TrustedModules struct {
+	// FirmwareVersion The firmware version of this Trusted Module.
+	FirmwareVersion *string `json:"FirmwareVersion"`
+
+	// FirmwareVersion2 The second firmware version of this Trusted Module, if applicable.
+	FirmwareVersion2 *string `json:"FirmwareVersion2"`
+
+	// InterfaceType The interface type of the Trusted Module.
+	InterfaceType *ComputerSystemV1230TrustedModules_InterfaceType `json:"InterfaceType,omitempty"`
+
+	// InterfaceTypeSelection The interface type selection supported by this Trusted Module.
+	InterfaceTypeSelection *ComputerSystemV1230TrustedModules_InterfaceTypeSelection `json:"InterfaceTypeSelection,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+}
+
+// ComputerSystemV1230TrustedModulesInterfaceType1 defines model for .
+type ComputerSystemV1230TrustedModulesInterfaceType1 = interface{}
+
+// ComputerSystemV1230TrustedModules_InterfaceType The interface type of the Trusted Module.
+type ComputerSystemV1230TrustedModules_InterfaceType struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230TrustedModulesInterfaceTypeSelection1 defines model for .
+type ComputerSystemV1230TrustedModulesInterfaceTypeSelection1 = interface{}
+
+// ComputerSystemV1230TrustedModules_InterfaceTypeSelection The interface type selection supported by this Trusted Module.
+type ComputerSystemV1230TrustedModules_InterfaceTypeSelection struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230VirtualMediaConfig The information about virtual media service for this system.
+type ComputerSystemV1230VirtualMediaConfig struct {
+	// Port The protocol port.
+	Port *int64 `json:"Port"`
+
+	// ServiceEnabled An indication of whether the service is enabled for this system.
+	ServiceEnabled *bool `json:"ServiceEnabled,omitempty"`
+}
+
+// ComputerSystemV1230WatchdogTimeoutActions The enumerations of `WatchdogTimeoutActions` specify the choice of action to take when the host watchdog timer reaches its timeout value.
+type ComputerSystemV1230WatchdogTimeoutActions string
+
+// ComputerSystemV1230WatchdogTimer This type describes the host watchdog timer functionality for this system.
+type ComputerSystemV1230WatchdogTimer struct {
+	// FunctionEnabled An indication of whether a user has enabled the host watchdog timer functionality.  This property indicates only that a user has enabled the timer.  To activate the timer, installation of additional host-based software is necessary; an update to this property does not initiate the timer.
+	FunctionEnabled *bool `json:"FunctionEnabled"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// TimeoutAction The action to perform when the watchdog timer reaches its timeout value.
+	TimeoutAction ComputerSystemV1230WatchdogTimer_TimeoutAction `json:"TimeoutAction"`
+
+	// WarningAction The action to perform when the watchdog timer is close to reaching its timeout value.  This action typically occurs from three to ten seconds before to the timeout value, but the exact timing is dependent on the implementation.
+	WarningAction *ComputerSystemV1230WatchdogTimer_WarningAction `json:"WarningAction,omitempty"`
+}
+
+// ComputerSystemV1230WatchdogTimerTimeoutAction1 defines model for .
+type ComputerSystemV1230WatchdogTimerTimeoutAction1 = interface{}
+
+// ComputerSystemV1230WatchdogTimer_TimeoutAction The action to perform when the watchdog timer reaches its timeout value.
+type ComputerSystemV1230WatchdogTimer_TimeoutAction struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230WatchdogTimerWarningAction1 defines model for .
+type ComputerSystemV1230WatchdogTimerWarningAction1 = interface{}
+
+// ComputerSystemV1230WatchdogTimer_WarningAction The action to perform when the watchdog timer is close to reaching its timeout value.  This action typically occurs from three to ten seconds before to the timeout value, but the exact timing is dependent on the implementation.
+type ComputerSystemV1230WatchdogTimer_WarningAction struct {
+	union json.RawMessage
+}
+
+// ComputerSystemV1230WatchdogWarningActions The enumerations of `WatchdogWarningActions` specify the choice of action to take when the host watchdog timer is close (typically 3-10 seconds) to reaching its timeout value.
+type ComputerSystemV1230WatchdogWarningActions string
+
 // DataStorageLoSCapabilitiesProvisioningPolicy Space provisioning policy.
 type DataStorageLoSCapabilitiesProvisioningPolicy string
 
 // DataStorageLoSCapabilitiesStorageAccessCapability Values of StorageAccessCapability describe abilities to read or write storage.
 type DataStorageLoSCapabilitiesStorageAccessCapability string
+
+// EthernetInterface The `EthernetInterface` schema represents a single, logical Ethernet interface or network interface controller (NIC).
+type EthernetInterface = EthernetInterfaceV1122EthernetInterface
+
+// EthernetInterfaceCollection The collection of `EthernetInterface` resource instances.
+type EthernetInterfaceCollection = EthernetInterfaceCollectionEthernetInterfaceCollection
+
+// EthernetInterfaceCollectionEthernetInterfaceCollection The collection of `EthernetInterface` resource instances.
+type EthernetInterfaceCollectionEthernetInterfaceCollection struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType   *OdataV4Type                                                        `json:"@odata.type,omitempty"`
+	Description *EthernetInterfaceCollectionEthernetInterfaceCollection_Description `json:"Description,omitempty"`
+
+	// Members The members of this collection.
+	Members *[]OdataV4IdRef `json:"Members,omitempty"`
+
+	// MembersOdataCount The number of items in a collection.
+	MembersOdataCount *OdataV4Count `json:"Members@odata.count,omitempty"`
+
+	// MembersOdataNextLink The URI to the resource containing the next set of partial members.
+	MembersOdataNextLink *OdataV4NextLink `json:"Members@odata.nextLink,omitempty"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+}
+
+// EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1 defines model for .
+type EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1 = interface{}
+
+// EthernetInterfaceCollectionEthernetInterfaceCollection_Description defines model for EthernetInterfaceCollectionEthernetInterfaceCollection.Description.
+type EthernetInterfaceCollectionEthernetInterfaceCollection_Description struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122Actions The available actions for this resource.
+type EthernetInterfaceV1122Actions struct {
+	// Oem The available OEM-specific actions for this resource.
+	Oem *EthernetInterfaceV1122OemActions `json:"Oem,omitempty"`
+}
+
+// EthernetInterfaceV1122DHCPFallback defines model for EthernetInterface_v1_12_2_DHCPFallback.
+type EthernetInterfaceV1122DHCPFallback string
+
+// EthernetInterfaceV1122DHCPv4Configuration DHCPv4 configuration for this interface.
+type EthernetInterfaceV1122DHCPv4Configuration struct {
+	// DHCPEnabled An indication of whether DHCP v4 is enabled on this Ethernet interface.
+	DHCPEnabled *bool `json:"DHCPEnabled"`
+
+	// FallbackAddress DHCPv4 fallback address method for this interface.
+	FallbackAddress *EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress `json:"FallbackAddress,omitempty"`
+
+	// UseDNSServers An indication of whether this interface uses DHCP v4-supplied DNS servers.
+	UseDNSServers *bool `json:"UseDNSServers"`
+
+	// UseDomainName An indication of whether this interface uses a DHCP v4-supplied domain name.
+	UseDomainName *bool `json:"UseDomainName"`
+
+	// UseGateway An indication of whether this interface uses a DHCP v4-supplied gateway.
+	UseGateway *bool `json:"UseGateway"`
+
+	// UseNTPServers An indication of whether the interface uses DHCP v4-supplied NTP servers.
+	UseNTPServers *bool `json:"UseNTPServers"`
+
+	// UseStaticRoutes An indication of whether the interface uses DHCP v4-supplied static routes.
+	UseStaticRoutes *bool `json:"UseStaticRoutes"`
+}
+
+// EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1 defines model for .
+type EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1 = interface{}
+
+// EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress DHCPv4 fallback address method for this interface.
+type EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122DHCPv6Configuration DHCPv6 configuration for this interface.
+type EthernetInterfaceV1122DHCPv6Configuration struct {
+	// OperatingMode Determines the DHCPv6 operating mode for this interface.
+	OperatingMode *EthernetInterfaceV1122DHCPv6Configuration_OperatingMode `json:"OperatingMode,omitempty"`
+
+	// UseDNSServers An indication of whether the interface uses DHCP v6-supplied DNS servers.
+	UseDNSServers *bool `json:"UseDNSServers"`
+
+	// UseDomainName An indication of whether this interface uses a DHCP v6-supplied domain name.
+	UseDomainName *bool `json:"UseDomainName"`
+
+	// UseNTPServers An indication of whether the interface uses DHCP v6-supplied NTP servers.
+	UseNTPServers *bool `json:"UseNTPServers"`
+
+	// UseRapidCommit An indication of whether the interface uses DHCP v6 rapid commit mode for stateful mode address assignments.  Do not enable this option in networks where more than one DHCP v6 server is configured to provide address assignments.
+	UseRapidCommit *bool `json:"UseRapidCommit"`
+}
+
+// EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1 defines model for .
+type EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1 = interface{}
+
+// EthernetInterfaceV1122DHCPv6Configuration_OperatingMode Determines the DHCPv6 operating mode for this interface.
+type EthernetInterfaceV1122DHCPv6Configuration_OperatingMode struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122DHCPv6OperatingMode defines model for EthernetInterface_v1_12_2_DHCPv6OperatingMode.
+type EthernetInterfaceV1122DHCPv6OperatingMode string
+
+// EthernetInterfaceV1122EthernetDeviceType defines model for EthernetInterface_v1_12_2_EthernetDeviceType.
+type EthernetInterfaceV1122EthernetDeviceType string
+
+// EthernetInterfaceV1122EthernetInterface The `EthernetInterface` schema represents a single, logical Ethernet interface or network interface controller (NIC).
+type EthernetInterfaceV1122EthernetInterface struct {
+	// OdataContext The OData description of a payload.
+	OdataContext *OdataV4Context `json:"@odata.context,omitempty"`
+
+	// OdataEtag The current ETag of the resource.
+	OdataEtag *OdataV4Etag `json:"@odata.etag,omitempty"`
+
+	// OdataId The unique identifier for a resource.
+	OdataId *OdataV4Id `json:"@odata.id,omitempty"`
+
+	// OdataType The type of a resource.
+	OdataType *OdataV4Type `json:"@odata.type,omitempty"`
+
+	// Actions The available actions for this resource.
+	Actions *EthernetInterfaceV1122Actions `json:"Actions,omitempty"`
+
+	// AutoNeg An indication of whether the speed and duplex are automatically negotiated and configured on this interface.
+	AutoNeg *bool `json:"AutoNeg"`
+
+	// DHCPv4 DHCPv4 configuration for this interface.
+	DHCPv4 *EthernetInterfaceV1122DHCPv4Configuration `json:"DHCPv4,omitempty"`
+
+	// DHCPv6 DHCPv6 configuration for this interface.
+	DHCPv6      *EthernetInterfaceV1122DHCPv6Configuration           `json:"DHCPv6,omitempty"`
+	Description *EthernetInterfaceV1122EthernetInterface_Description `json:"Description,omitempty"`
+
+	// EthernetInterfaceType The type of interface.
+	EthernetInterfaceType *EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType `json:"EthernetInterfaceType,omitempty"`
+
+	// FQDN The complete, fully qualified domain name that DNS obtains for this interface.
+	FQDN *string `json:"FQDN"`
+
+	// FullDuplex An indication of whether full-duplex mode is enabled on the Ethernet connection for this interface.
+	FullDuplex *bool `json:"FullDuplex"`
+
+	// HostName The DNS host name, without any domain information.
+	HostName *string `json:"HostName"`
+
+	// IPv4Addresses The IPv4 addresses currently in use by this interface.
+	IPv4Addresses *[]IPAddressesV115IPv4Address `json:"IPv4Addresses,omitempty"`
+
+	// IPv4StaticAddresses The IPv4 static addresses assigned to this interface.  See `IPv4Addresses` for the addresses in use by this interface.
+	IPv4StaticAddresses *[]EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item `json:"IPv4StaticAddresses,omitempty"`
+
+	// IPv6AddressPolicyTable An array that represents the RFC6724-defined address selection policy table.
+	IPv6AddressPolicyTable *[]EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item `json:"IPv6AddressPolicyTable,omitempty"`
+
+	// IPv6Addresses The IPv6 addresses currently in use by this interface.
+	IPv6Addresses *[]IPAddressesV115IPv6Address `json:"IPv6Addresses,omitempty"`
+
+	// IPv6DefaultGateway The IPv6 default gateway address in use on this interface.
+	IPv6DefaultGateway *string `json:"IPv6DefaultGateway"`
+
+	// IPv6Enabled An indication of whether IPv6 is enabled on this interface.
+	IPv6Enabled *bool `json:"IPv6Enabled"`
+
+	// IPv6StaticAddresses The IPv6 static addresses assigned to this interface.  See `IPv6Addresses` for the addresses in use by this interface.
+	IPv6StaticAddresses *[]EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item `json:"IPv6StaticAddresses,omitempty"`
+
+	// IPv6StaticDefaultGateways The IPv6 static default gateways for this interface.
+	IPv6StaticDefaultGateways *[]EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item `json:"IPv6StaticDefaultGateways,omitempty"`
+
+	// Id The unique identifier for this resource within the collection of similar resources.
+	Id ResourceId `json:"Id"`
+
+	// InterfaceEnabled An indication of whether this interface is enabled.
+	InterfaceEnabled *bool `json:"InterfaceEnabled"`
+
+	// LinkStatus The link status of this interface, or port.
+	LinkStatus *EthernetInterfaceV1122EthernetInterface_LinkStatus `json:"LinkStatus,omitempty"`
+
+	// Links The links to other resources that are related to this resource.
+	Links *EthernetInterfaceV1122Links `json:"Links,omitempty"`
+
+	// MACAddress The currently configured MAC address of the interface, or logical port.
+	MACAddress *EthernetInterfaceV1122EthernetInterface_MACAddress `json:"MACAddress,omitempty"`
+
+	// MTUSize The currently configured maximum transmission unit (MTU), in bytes, on this interface.
+	MTUSize *int64 `json:"MTUSize"`
+
+	// MaxIPv6StaticAddresses The maximum number of static IPv6 addresses that can be configured on this interface.
+	MaxIPv6StaticAddresses *int64 `json:"MaxIPv6StaticAddresses"`
+
+	// Name The name of the resource or array member.
+	Name ResourceName `json:"Name"`
+
+	// NameServers The DNS servers in use on this interface.
+	NameServers *[]string `json:"NameServers,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// PermanentMACAddress The permanent MAC address assigned to this interface, or port.
+	PermanentMACAddress *EthernetInterfaceV1122EthernetInterface_PermanentMACAddress `json:"PermanentMACAddress,omitempty"`
+
+	// RoutingScope The routing scope for this interface.
+	RoutingScope *EthernetInterfaceV1122EthernetInterface_RoutingScope `json:"RoutingScope,omitempty"`
+
+	// SpeedMbps The current speed, in Mbit/s, of this interface.
+	SpeedMbps *int64 `json:"SpeedMbps"`
+
+	// StatelessAddressAutoConfig Stateless address autoconfiguration (SLAAC) parameters for this interface.
+	StatelessAddressAutoConfig *EthernetInterfaceV1122StatelessAddressAutoConfiguration `json:"StatelessAddressAutoConfig,omitempty"`
+
+	// StaticNameServers The statically-defined set of DNS server IPv4 and IPv6 addresses.
+	StaticNameServers *[]string `json:"StaticNameServers,omitempty"`
+
+	// Status The status and health of a resource and its children.
+	Status *ResourceStatus `json:"Status,omitempty"`
+
+	// TeamMode The team mode for this interface.
+	TeamMode *EthernetInterfaceV1122EthernetInterface_TeamMode `json:"TeamMode,omitempty"`
+
+	// UefiDevicePath The UEFI device path for this interface.
+	UefiDevicePath *string `json:"UefiDevicePath"`
+
+	// VLAN The attributes of a VLAN.
+	VLAN *VLanNetworkInterfaceV131VLAN `json:"VLAN,omitempty"`
+
+	// VLANs A reference to a resource.
+	VLANs *OdataV4IdRef `json:"VLANs,omitempty"`
+}
+
+// EthernetInterfaceV1122EthernetInterfaceDescription1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceDescription1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_Description defines model for EthernetInterfaceV1122EthernetInterface.Description.
+type EthernetInterfaceV1122EthernetInterface_Description struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType The type of interface.
+type EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item defines model for EthernetInterface_v1_12_2_EthernetInterface.IPv4StaticAddresses.Item.
+type EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item defines model for EthernetInterface_v1_12_2_EthernetInterface.IPv6AddressPolicyTable.Item.
+type EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item defines model for EthernetInterface_v1_12_2_EthernetInterface.IPv6StaticAddresses.Item.
+type EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item defines model for EthernetInterface_v1_12_2_EthernetInterface.IPv6StaticDefaultGateways.Item.
+type EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceLinkStatus1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceLinkStatus1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_LinkStatus The link status of this interface, or port.
+type EthernetInterfaceV1122EthernetInterface_LinkStatus struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceMACAddress1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceMACAddress1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_MACAddress The currently configured MAC address of the interface, or logical port.
+type EthernetInterfaceV1122EthernetInterface_MACAddress struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1 defines model for .
+type EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_PermanentMACAddress The permanent MAC address assigned to this interface, or port.
+type EthernetInterfaceV1122EthernetInterface_PermanentMACAddress struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceRoutingScope1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceRoutingScope1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_RoutingScope The routing scope for this interface.
+type EthernetInterfaceV1122EthernetInterface_RoutingScope struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122EthernetInterfaceTeamMode1 defines model for .
+type EthernetInterfaceV1122EthernetInterfaceTeamMode1 = interface{}
+
+// EthernetInterfaceV1122EthernetInterface_TeamMode The team mode for this interface.
+type EthernetInterfaceV1122EthernetInterface_TeamMode struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122IPv6AddressPolicyEntry The entry in the RFC6724-defined address selection policy table.
+type EthernetInterfaceV1122IPv6AddressPolicyEntry struct {
+	// Label The IPv6 label, as defined in RFC6724, section 2.1.
+	Label *int64 `json:"Label"`
+
+	// Precedence The IPv6 precedence, as defined in RFC6724, section 2.1.
+	Precedence *int64 `json:"Precedence"`
+
+	// Prefix The IPv6 address prefix, as defined in RFC6724, section 2.1.
+	Prefix *string `json:"Prefix"`
+}
+
+// EthernetInterfaceV1122LinkStatus defines model for EthernetInterface_v1_12_2_LinkStatus.
+type EthernetInterfaceV1122LinkStatus string
+
+// EthernetInterfaceV1122Links The links to other resources that are related to this resource.
+type EthernetInterfaceV1122Links struct {
+	// AffiliatedInterfaces The links to the Ethernet interfaces that are affiliated with this interface, such as a VLAN or a team that uses this interface.
+	AffiliatedInterfaces *[]OdataV4IdRef `json:"AffiliatedInterfaces,omitempty"`
+
+	// AffiliatedInterfacesOdataCount The number of items in a collection.
+	AffiliatedInterfacesOdataCount *OdataV4Count `json:"AffiliatedInterfaces@odata.count,omitempty"`
+
+	// Chassis A reference to a resource.
+	Chassis *OdataV4IdRef `json:"Chassis,omitempty"`
+
+	// Endpoints An array of links to the endpoints that connect to this Ethernet interface.
+	Endpoints *[]OdataV4IdRef `json:"Endpoints,omitempty"`
+
+	// EndpointsOdataCount The number of items in a collection.
+	EndpointsOdataCount *OdataV4Count `json:"Endpoints@odata.count,omitempty"`
+
+	// HostInterface A reference to a resource.
+	HostInterface *OdataV4IdRef `json:"HostInterface,omitempty"`
+
+	// NetworkDeviceFunction The link to the parent network device function and is only used when representing one of the VLANs on that network device function, such as is done in Unix.
+	// Deprecated:
+	NetworkDeviceFunction *EthernetInterfaceV1122Links_NetworkDeviceFunction `json:"NetworkDeviceFunction,omitempty"`
+
+	// NetworkDeviceFunctions The link to the network device functions that constitute this Ethernet interface.
+	NetworkDeviceFunctions *[]OdataV4IdRef `json:"NetworkDeviceFunctions,omitempty"`
+
+	// NetworkDeviceFunctionsOdataCount The number of items in a collection.
+	NetworkDeviceFunctionsOdataCount *OdataV4Count `json:"NetworkDeviceFunctions@odata.count,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// Ports The links to the ports providing this Ethernet interface.
+	Ports *[]OdataV4IdRef `json:"Ports,omitempty"`
+
+	// PortsOdataCount The number of items in a collection.
+	PortsOdataCount *OdataV4Count `json:"Ports@odata.count,omitempty"`
+
+	// RelatedInterfaces The links to the Ethernet interfaces that constitute this Ethernet interface.
+	RelatedInterfaces *[]OdataV4IdRef `json:"RelatedInterfaces,omitempty"`
+
+	// RelatedInterfacesOdataCount The number of items in a collection.
+	RelatedInterfacesOdataCount *OdataV4Count `json:"RelatedInterfaces@odata.count,omitempty"`
+}
+
+// EthernetInterfaceV1122LinksNetworkDeviceFunction1 defines model for .
+type EthernetInterfaceV1122LinksNetworkDeviceFunction1 = interface{}
+
+// EthernetInterfaceV1122Links_NetworkDeviceFunction The link to the parent network device function and is only used when representing one of the VLANs on that network device function, such as is done in Unix.
+type EthernetInterfaceV1122Links_NetworkDeviceFunction struct {
+	union json.RawMessage
+}
+
+// EthernetInterfaceV1122MACAddress defines model for EthernetInterface_v1_12_2_MACAddress.
+type EthernetInterfaceV1122MACAddress = string
+
+// EthernetInterfaceV1122OemActions The available OEM-specific actions for this resource.
+type EthernetInterfaceV1122OemActions map[string]interface{}
+
+// EthernetInterfaceV1122RoutingScope defines model for EthernetInterface_v1_12_2_RoutingScope.
+type EthernetInterfaceV1122RoutingScope string
+
+// EthernetInterfaceV1122StatelessAddressAutoConfiguration Stateless address autoconfiguration (SLAAC) parameters for this interface.
+type EthernetInterfaceV1122StatelessAddressAutoConfiguration struct {
+	// IPv4AutoConfigEnabled An indication of whether IPv4 stateless address autoconfiguration (SLAAC) is enabled for this interface.
+	IPv4AutoConfigEnabled *bool `json:"IPv4AutoConfigEnabled"`
+
+	// IPv6AutoConfigEnabled An indication of whether IPv6 stateless address autoconfiguration (SLAAC) is enabled for this interface.
+	IPv6AutoConfigEnabled *bool `json:"IPv6AutoConfigEnabled"`
+}
+
+// EthernetInterfaceV1122TeamMode defines model for EthernetInterface_v1_12_2_TeamMode.
+type EthernetInterfaceV1122TeamMode string
 
 // FileShare An instance of a shared set of files with a common directory structure.
 type FileShare = FileShareV130FileShare
@@ -1597,6 +3236,137 @@ type IOStatisticsV104IOStatistics struct {
 	// WriteIORequests Count of write IO requests.
 	WriteIORequests *int64 `json:"WriteIORequests"`
 }
+
+// IPAddressesV115AddressState defines model for IPAddresses_v1_1_5_AddressState.
+type IPAddressesV115AddressState string
+
+// IPAddressesV115IPv4Address This type describes an IPv4 address.
+type IPAddressesV115IPv4Address struct {
+	// Address The IPv4 address.
+	Address *string `json:"Address"`
+
+	// AddressOrigin This indicates how the address was determined.
+	AddressOrigin *IPAddressesV115IPv4Address_AddressOrigin `json:"AddressOrigin,omitempty"`
+
+	// Gateway The IPv4 gateway for this address.
+	Gateway *string `json:"Gateway"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// SubnetMask The IPv4 subnet mask.
+	SubnetMask *IPAddressesV115IPv4Address_SubnetMask `json:"SubnetMask,omitempty"`
+}
+
+// IPAddressesV115IPv4AddressAddressOrigin1 defines model for .
+type IPAddressesV115IPv4AddressAddressOrigin1 = interface{}
+
+// IPAddressesV115IPv4Address_AddressOrigin This indicates how the address was determined.
+type IPAddressesV115IPv4Address_AddressOrigin struct {
+	union json.RawMessage
+}
+
+// IPAddressesV115IPv4AddressSubnetMask1 defines model for .
+type IPAddressesV115IPv4AddressSubnetMask1 = interface{}
+
+// IPAddressesV115IPv4Address_SubnetMask The IPv4 subnet mask.
+type IPAddressesV115IPv4Address_SubnetMask struct {
+	union json.RawMessage
+}
+
+// IPAddressesV115IPv4AddressOrigin defines model for IPAddresses_v1_1_5_IPv4AddressOrigin.
+type IPAddressesV115IPv4AddressOrigin string
+
+// IPAddressesV115IPv6Address This type describes an IPv6 address.
+type IPAddressesV115IPv6Address struct {
+	// Address The IPv6 address.
+	Address *string `json:"Address"`
+
+	// AddressOrigin This indicates how the address was determined.
+	AddressOrigin *IPAddressesV115IPv6Address_AddressOrigin `json:"AddressOrigin,omitempty"`
+
+	// AddressState The current RFC4862-defined state of this address.
+	AddressState *IPAddressesV115IPv6Address_AddressState `json:"AddressState,omitempty"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// PrefixLength The IPv6 address prefix Length.
+	PrefixLength *IPAddressesV115IPv6Address_PrefixLength `json:"PrefixLength,omitempty"`
+}
+
+// IPAddressesV115IPv6AddressAddressOrigin1 defines model for .
+type IPAddressesV115IPv6AddressAddressOrigin1 = interface{}
+
+// IPAddressesV115IPv6Address_AddressOrigin This indicates how the address was determined.
+type IPAddressesV115IPv6Address_AddressOrigin struct {
+	union json.RawMessage
+}
+
+// IPAddressesV115IPv6AddressAddressState1 defines model for .
+type IPAddressesV115IPv6AddressAddressState1 = interface{}
+
+// IPAddressesV115IPv6Address_AddressState The current RFC4862-defined state of this address.
+type IPAddressesV115IPv6Address_AddressState struct {
+	union json.RawMessage
+}
+
+// IPAddressesV115IPv6AddressPrefixLength1 defines model for .
+type IPAddressesV115IPv6AddressPrefixLength1 = interface{}
+
+// IPAddressesV115IPv6Address_PrefixLength The IPv6 address prefix Length.
+type IPAddressesV115IPv6Address_PrefixLength struct {
+	union json.RawMessage
+}
+
+// IPAddressesV115IPv6AddressOrigin defines model for IPAddresses_v1_1_5_IPv6AddressOrigin.
+type IPAddressesV115IPv6AddressOrigin string
+
+// IPAddressesV115IPv6GatewayStaticAddress This type represents a single IPv6 static address to be assigned on a network interface.
+type IPAddressesV115IPv6GatewayStaticAddress struct {
+	// Address A valid IPv6 address.
+	Address *string `json:"Address"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// PrefixLength The IPv6 network prefix length, in bits, for this address.
+	PrefixLength *IPAddressesV115IPv6GatewayStaticAddress_PrefixLength `json:"PrefixLength,omitempty"`
+}
+
+// IPAddressesV115IPv6GatewayStaticAddressPrefixLength1 defines model for .
+type IPAddressesV115IPv6GatewayStaticAddressPrefixLength1 = interface{}
+
+// IPAddressesV115IPv6GatewayStaticAddress_PrefixLength The IPv6 network prefix length, in bits, for this address.
+type IPAddressesV115IPv6GatewayStaticAddress_PrefixLength struct {
+	union json.RawMessage
+}
+
+// IPAddressesV115IPv6StaticAddress This type represents a single IPv6 static address to be assigned on a network interface.
+type IPAddressesV115IPv6StaticAddress struct {
+	// Address A valid IPv6 address.
+	Address *string `json:"Address"`
+
+	// Oem The OEM extension.
+	Oem *ResourceOem `json:"Oem,omitempty"`
+
+	// PrefixLength The prefix length, in bits, of this IPv6 address.
+	PrefixLength IPAddressesV115IPv6StaticAddress_PrefixLength `json:"PrefixLength"`
+}
+
+// IPAddressesV115IPv6StaticAddressPrefixLength1 defines model for .
+type IPAddressesV115IPv6StaticAddressPrefixLength1 = interface{}
+
+// IPAddressesV115IPv6StaticAddress_PrefixLength The prefix length, in bits, of this IPv6 address.
+type IPAddressesV115IPv6StaticAddress_PrefixLength struct {
+	union json.RawMessage
+}
+
+// IPAddressesV115PrefixLength defines model for IPAddresses_v1_1_5_PrefixLength.
+type IPAddressesV115PrefixLength = int64
+
+// IPAddressesV115SubnetMask defines model for IPAddresses_v1_1_5_SubnetMask.
+type IPAddressesV115SubnetMask = string
 
 // PCIeDevicePCIeTypes defines model for PCIeDevice_PCIeTypes.
 type PCIeDevicePCIeTypes string
@@ -3604,6 +5374,43 @@ type StorageV1151StorageControllerLinks struct {
 // StorageV1151StorageControllerOemActions The available OEM-specific actions for this resource.
 type StorageV1151StorageControllerOemActions map[string]interface{}
 
+// VLanNetworkInterfaceV131VLAN The attributes of a VLAN.
+type VLanNetworkInterfaceV131VLAN struct {
+	// Tagged An indication of whether this VLAN is tagged or untagged for this interface.
+	Tagged *bool `json:"Tagged"`
+
+	// VLANEnable An indication of whether this VLAN is enabled for this VLAN network interface.
+	VLANEnable *bool `json:"VLANEnable"`
+
+	// VLANId The ID for this VLAN.
+	VLANId *VLanNetworkInterfaceV131VLAN_VLANId `json:"VLANId,omitempty"`
+
+	// VLANPriority The priority for this VLAN.
+	VLANPriority *VLanNetworkInterfaceV131VLAN_VLANPriority `json:"VLANPriority,omitempty"`
+}
+
+// VLanNetworkInterfaceV131VLANVLANId1 defines model for .
+type VLanNetworkInterfaceV131VLANVLANId1 = interface{}
+
+// VLanNetworkInterfaceV131VLAN_VLANId The ID for this VLAN.
+type VLanNetworkInterfaceV131VLAN_VLANId struct {
+	union json.RawMessage
+}
+
+// VLanNetworkInterfaceV131VLANVLANPriority1 defines model for .
+type VLanNetworkInterfaceV131VLANVLANPriority1 = interface{}
+
+// VLanNetworkInterfaceV131VLAN_VLANPriority The priority for this VLAN.
+type VLanNetworkInterfaceV131VLAN_VLANPriority struct {
+	union json.RawMessage
+}
+
+// VLanNetworkInterfaceV131VLANId defines model for VLanNetworkInterface_v1_3_1_VLANId.
+type VLanNetworkInterfaceV131VLANId = int64
+
+// VLanNetworkInterfaceV131VLANPriority defines model for VLanNetworkInterface_v1_3_1_VLANPriority.
+type VLanNetworkInterfaceV131VLANPriority = int64
+
 // Volume Volume contains properties used to describe a volume, virtual disk, LUN, or other logical storage entity for any system.
 type Volume = VolumeV1100Volume
 
@@ -4511,6 +6318,2672 @@ func (t *CapacityV121CapacitySource_Description) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsResourceDescription returns the union data inside the ComputerSystemCollectionComputerSystemCollection_Description as a ResourceDescription
+func (t ComputerSystemCollectionComputerSystemCollection_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the ComputerSystemCollectionComputerSystemCollection_Description as the provided ResourceDescription
+func (t *ComputerSystemCollectionComputerSystemCollection_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the ComputerSystemCollectionComputerSystemCollection_Description, using the provided ResourceDescription
+func (t *ComputerSystemCollectionComputerSystemCollection_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemCollectionComputerSystemCollectionDescription1 returns the union data inside the ComputerSystemCollectionComputerSystemCollection_Description as a ComputerSystemCollectionComputerSystemCollectionDescription1
+func (t ComputerSystemCollectionComputerSystemCollection_Description) AsComputerSystemCollectionComputerSystemCollectionDescription1() (ComputerSystemCollectionComputerSystemCollectionDescription1, error) {
+	var body ComputerSystemCollectionComputerSystemCollectionDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemCollectionComputerSystemCollectionDescription1 overwrites any union data inside the ComputerSystemCollectionComputerSystemCollection_Description as the provided ComputerSystemCollectionComputerSystemCollectionDescription1
+func (t *ComputerSystemCollectionComputerSystemCollection_Description) FromComputerSystemCollectionComputerSystemCollectionDescription1(v ComputerSystemCollectionComputerSystemCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemCollectionComputerSystemCollectionDescription1 performs a merge with any union data inside the ComputerSystemCollectionComputerSystemCollection_Description, using the provided ComputerSystemCollectionComputerSystemCollectionDescription1
+func (t *ComputerSystemCollectionComputerSystemCollection_Description) MergeComputerSystemCollectionComputerSystemCollectionDescription1(v ComputerSystemCollectionComputerSystemCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemCollectionComputerSystemCollection_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemCollectionComputerSystemCollection_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemBootSource returns the union data inside the ComputerSystemV1230Boot_AliasBootOrder_Item as a ComputerSystemBootSource
+func (t ComputerSystemV1230Boot_AliasBootOrder_Item) AsComputerSystemBootSource() (ComputerSystemBootSource, error) {
+	var body ComputerSystemBootSource
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemBootSource overwrites any union data inside the ComputerSystemV1230Boot_AliasBootOrder_Item as the provided ComputerSystemBootSource
+func (t *ComputerSystemV1230Boot_AliasBootOrder_Item) FromComputerSystemBootSource(v ComputerSystemBootSource) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemBootSource performs a merge with any union data inside the ComputerSystemV1230Boot_AliasBootOrder_Item, using the provided ComputerSystemBootSource
+func (t *ComputerSystemV1230Boot_AliasBootOrder_Item) MergeComputerSystemBootSource(v ComputerSystemBootSource) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootAliasBootOrder1 returns the union data inside the ComputerSystemV1230Boot_AliasBootOrder_Item as a ComputerSystemV1230BootAliasBootOrder1
+func (t ComputerSystemV1230Boot_AliasBootOrder_Item) AsComputerSystemV1230BootAliasBootOrder1() (ComputerSystemV1230BootAliasBootOrder1, error) {
+	var body ComputerSystemV1230BootAliasBootOrder1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootAliasBootOrder1 overwrites any union data inside the ComputerSystemV1230Boot_AliasBootOrder_Item as the provided ComputerSystemV1230BootAliasBootOrder1
+func (t *ComputerSystemV1230Boot_AliasBootOrder_Item) FromComputerSystemV1230BootAliasBootOrder1(v ComputerSystemV1230BootAliasBootOrder1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootAliasBootOrder1 performs a merge with any union data inside the ComputerSystemV1230Boot_AliasBootOrder_Item, using the provided ComputerSystemV1230BootAliasBootOrder1
+func (t *ComputerSystemV1230Boot_AliasBootOrder_Item) MergeComputerSystemV1230BootAliasBootOrder1(v ComputerSystemV1230BootAliasBootOrder1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_AliasBootOrder_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_AliasBootOrder_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230AutomaticRetryConfig returns the union data inside the ComputerSystemV1230Boot_AutomaticRetryConfig as a ComputerSystemV1230AutomaticRetryConfig
+func (t ComputerSystemV1230Boot_AutomaticRetryConfig) AsComputerSystemV1230AutomaticRetryConfig() (ComputerSystemV1230AutomaticRetryConfig, error) {
+	var body ComputerSystemV1230AutomaticRetryConfig
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230AutomaticRetryConfig overwrites any union data inside the ComputerSystemV1230Boot_AutomaticRetryConfig as the provided ComputerSystemV1230AutomaticRetryConfig
+func (t *ComputerSystemV1230Boot_AutomaticRetryConfig) FromComputerSystemV1230AutomaticRetryConfig(v ComputerSystemV1230AutomaticRetryConfig) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230AutomaticRetryConfig performs a merge with any union data inside the ComputerSystemV1230Boot_AutomaticRetryConfig, using the provided ComputerSystemV1230AutomaticRetryConfig
+func (t *ComputerSystemV1230Boot_AutomaticRetryConfig) MergeComputerSystemV1230AutomaticRetryConfig(v ComputerSystemV1230AutomaticRetryConfig) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootAutomaticRetryConfig1 returns the union data inside the ComputerSystemV1230Boot_AutomaticRetryConfig as a ComputerSystemV1230BootAutomaticRetryConfig1
+func (t ComputerSystemV1230Boot_AutomaticRetryConfig) AsComputerSystemV1230BootAutomaticRetryConfig1() (ComputerSystemV1230BootAutomaticRetryConfig1, error) {
+	var body ComputerSystemV1230BootAutomaticRetryConfig1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootAutomaticRetryConfig1 overwrites any union data inside the ComputerSystemV1230Boot_AutomaticRetryConfig as the provided ComputerSystemV1230BootAutomaticRetryConfig1
+func (t *ComputerSystemV1230Boot_AutomaticRetryConfig) FromComputerSystemV1230BootAutomaticRetryConfig1(v ComputerSystemV1230BootAutomaticRetryConfig1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootAutomaticRetryConfig1 performs a merge with any union data inside the ComputerSystemV1230Boot_AutomaticRetryConfig, using the provided ComputerSystemV1230BootAutomaticRetryConfig1
+func (t *ComputerSystemV1230Boot_AutomaticRetryConfig) MergeComputerSystemV1230BootAutomaticRetryConfig1(v ComputerSystemV1230BootAutomaticRetryConfig1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_AutomaticRetryConfig) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_AutomaticRetryConfig) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230BootOrderTypes returns the union data inside the ComputerSystemV1230Boot_BootOrderPropertySelection as a ComputerSystemV1230BootOrderTypes
+func (t ComputerSystemV1230Boot_BootOrderPropertySelection) AsComputerSystemV1230BootOrderTypes() (ComputerSystemV1230BootOrderTypes, error) {
+	var body ComputerSystemV1230BootOrderTypes
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootOrderTypes overwrites any union data inside the ComputerSystemV1230Boot_BootOrderPropertySelection as the provided ComputerSystemV1230BootOrderTypes
+func (t *ComputerSystemV1230Boot_BootOrderPropertySelection) FromComputerSystemV1230BootOrderTypes(v ComputerSystemV1230BootOrderTypes) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootOrderTypes performs a merge with any union data inside the ComputerSystemV1230Boot_BootOrderPropertySelection, using the provided ComputerSystemV1230BootOrderTypes
+func (t *ComputerSystemV1230Boot_BootOrderPropertySelection) MergeComputerSystemV1230BootOrderTypes(v ComputerSystemV1230BootOrderTypes) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootBootOrderPropertySelection1 returns the union data inside the ComputerSystemV1230Boot_BootOrderPropertySelection as a ComputerSystemV1230BootBootOrderPropertySelection1
+func (t ComputerSystemV1230Boot_BootOrderPropertySelection) AsComputerSystemV1230BootBootOrderPropertySelection1() (ComputerSystemV1230BootBootOrderPropertySelection1, error) {
+	var body ComputerSystemV1230BootBootOrderPropertySelection1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootBootOrderPropertySelection1 overwrites any union data inside the ComputerSystemV1230Boot_BootOrderPropertySelection as the provided ComputerSystemV1230BootBootOrderPropertySelection1
+func (t *ComputerSystemV1230Boot_BootOrderPropertySelection) FromComputerSystemV1230BootBootOrderPropertySelection1(v ComputerSystemV1230BootBootOrderPropertySelection1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootBootOrderPropertySelection1 performs a merge with any union data inside the ComputerSystemV1230Boot_BootOrderPropertySelection, using the provided ComputerSystemV1230BootBootOrderPropertySelection1
+func (t *ComputerSystemV1230Boot_BootOrderPropertySelection) MergeComputerSystemV1230BootBootOrderPropertySelection1(v ComputerSystemV1230BootBootOrderPropertySelection1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_BootOrderPropertySelection) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_BootOrderPropertySelection) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230BootSourceOverrideEnabled returns the union data inside the ComputerSystemV1230Boot_BootSourceOverrideEnabled as a ComputerSystemV1230BootSourceOverrideEnabled
+func (t ComputerSystemV1230Boot_BootSourceOverrideEnabled) AsComputerSystemV1230BootSourceOverrideEnabled() (ComputerSystemV1230BootSourceOverrideEnabled, error) {
+	var body ComputerSystemV1230BootSourceOverrideEnabled
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootSourceOverrideEnabled overwrites any union data inside the ComputerSystemV1230Boot_BootSourceOverrideEnabled as the provided ComputerSystemV1230BootSourceOverrideEnabled
+func (t *ComputerSystemV1230Boot_BootSourceOverrideEnabled) FromComputerSystemV1230BootSourceOverrideEnabled(v ComputerSystemV1230BootSourceOverrideEnabled) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootSourceOverrideEnabled performs a merge with any union data inside the ComputerSystemV1230Boot_BootSourceOverrideEnabled, using the provided ComputerSystemV1230BootSourceOverrideEnabled
+func (t *ComputerSystemV1230Boot_BootSourceOverrideEnabled) MergeComputerSystemV1230BootSourceOverrideEnabled(v ComputerSystemV1230BootSourceOverrideEnabled) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootBootSourceOverrideEnabled1 returns the union data inside the ComputerSystemV1230Boot_BootSourceOverrideEnabled as a ComputerSystemV1230BootBootSourceOverrideEnabled1
+func (t ComputerSystemV1230Boot_BootSourceOverrideEnabled) AsComputerSystemV1230BootBootSourceOverrideEnabled1() (ComputerSystemV1230BootBootSourceOverrideEnabled1, error) {
+	var body ComputerSystemV1230BootBootSourceOverrideEnabled1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootBootSourceOverrideEnabled1 overwrites any union data inside the ComputerSystemV1230Boot_BootSourceOverrideEnabled as the provided ComputerSystemV1230BootBootSourceOverrideEnabled1
+func (t *ComputerSystemV1230Boot_BootSourceOverrideEnabled) FromComputerSystemV1230BootBootSourceOverrideEnabled1(v ComputerSystemV1230BootBootSourceOverrideEnabled1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootBootSourceOverrideEnabled1 performs a merge with any union data inside the ComputerSystemV1230Boot_BootSourceOverrideEnabled, using the provided ComputerSystemV1230BootBootSourceOverrideEnabled1
+func (t *ComputerSystemV1230Boot_BootSourceOverrideEnabled) MergeComputerSystemV1230BootBootSourceOverrideEnabled1(v ComputerSystemV1230BootBootSourceOverrideEnabled1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_BootSourceOverrideEnabled) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_BootSourceOverrideEnabled) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230BootSourceOverrideMode returns the union data inside the ComputerSystemV1230Boot_BootSourceOverrideMode as a ComputerSystemV1230BootSourceOverrideMode
+func (t ComputerSystemV1230Boot_BootSourceOverrideMode) AsComputerSystemV1230BootSourceOverrideMode() (ComputerSystemV1230BootSourceOverrideMode, error) {
+	var body ComputerSystemV1230BootSourceOverrideMode
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootSourceOverrideMode overwrites any union data inside the ComputerSystemV1230Boot_BootSourceOverrideMode as the provided ComputerSystemV1230BootSourceOverrideMode
+func (t *ComputerSystemV1230Boot_BootSourceOverrideMode) FromComputerSystemV1230BootSourceOverrideMode(v ComputerSystemV1230BootSourceOverrideMode) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootSourceOverrideMode performs a merge with any union data inside the ComputerSystemV1230Boot_BootSourceOverrideMode, using the provided ComputerSystemV1230BootSourceOverrideMode
+func (t *ComputerSystemV1230Boot_BootSourceOverrideMode) MergeComputerSystemV1230BootSourceOverrideMode(v ComputerSystemV1230BootSourceOverrideMode) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootBootSourceOverrideMode1 returns the union data inside the ComputerSystemV1230Boot_BootSourceOverrideMode as a ComputerSystemV1230BootBootSourceOverrideMode1
+func (t ComputerSystemV1230Boot_BootSourceOverrideMode) AsComputerSystemV1230BootBootSourceOverrideMode1() (ComputerSystemV1230BootBootSourceOverrideMode1, error) {
+	var body ComputerSystemV1230BootBootSourceOverrideMode1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootBootSourceOverrideMode1 overwrites any union data inside the ComputerSystemV1230Boot_BootSourceOverrideMode as the provided ComputerSystemV1230BootBootSourceOverrideMode1
+func (t *ComputerSystemV1230Boot_BootSourceOverrideMode) FromComputerSystemV1230BootBootSourceOverrideMode1(v ComputerSystemV1230BootBootSourceOverrideMode1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootBootSourceOverrideMode1 performs a merge with any union data inside the ComputerSystemV1230Boot_BootSourceOverrideMode, using the provided ComputerSystemV1230BootBootSourceOverrideMode1
+func (t *ComputerSystemV1230Boot_BootSourceOverrideMode) MergeComputerSystemV1230BootBootSourceOverrideMode1(v ComputerSystemV1230BootBootSourceOverrideMode1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_BootSourceOverrideMode) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_BootSourceOverrideMode) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemBootSource returns the union data inside the ComputerSystemV1230Boot_BootSourceOverrideTarget as a ComputerSystemBootSource
+func (t ComputerSystemV1230Boot_BootSourceOverrideTarget) AsComputerSystemBootSource() (ComputerSystemBootSource, error) {
+	var body ComputerSystemBootSource
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemBootSource overwrites any union data inside the ComputerSystemV1230Boot_BootSourceOverrideTarget as the provided ComputerSystemBootSource
+func (t *ComputerSystemV1230Boot_BootSourceOverrideTarget) FromComputerSystemBootSource(v ComputerSystemBootSource) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemBootSource performs a merge with any union data inside the ComputerSystemV1230Boot_BootSourceOverrideTarget, using the provided ComputerSystemBootSource
+func (t *ComputerSystemV1230Boot_BootSourceOverrideTarget) MergeComputerSystemBootSource(v ComputerSystemBootSource) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootBootSourceOverrideTarget1 returns the union data inside the ComputerSystemV1230Boot_BootSourceOverrideTarget as a ComputerSystemV1230BootBootSourceOverrideTarget1
+func (t ComputerSystemV1230Boot_BootSourceOverrideTarget) AsComputerSystemV1230BootBootSourceOverrideTarget1() (ComputerSystemV1230BootBootSourceOverrideTarget1, error) {
+	var body ComputerSystemV1230BootBootSourceOverrideTarget1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootBootSourceOverrideTarget1 overwrites any union data inside the ComputerSystemV1230Boot_BootSourceOverrideTarget as the provided ComputerSystemV1230BootBootSourceOverrideTarget1
+func (t *ComputerSystemV1230Boot_BootSourceOverrideTarget) FromComputerSystemV1230BootBootSourceOverrideTarget1(v ComputerSystemV1230BootBootSourceOverrideTarget1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootBootSourceOverrideTarget1 performs a merge with any union data inside the ComputerSystemV1230Boot_BootSourceOverrideTarget, using the provided ComputerSystemV1230BootBootSourceOverrideTarget1
+func (t *ComputerSystemV1230Boot_BootSourceOverrideTarget) MergeComputerSystemV1230BootBootSourceOverrideTarget1(v ComputerSystemV1230BootBootSourceOverrideTarget1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_BootSourceOverrideTarget) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_BootSourceOverrideTarget) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230StopBootOnFault returns the union data inside the ComputerSystemV1230Boot_StopBootOnFault as a ComputerSystemV1230StopBootOnFault
+func (t ComputerSystemV1230Boot_StopBootOnFault) AsComputerSystemV1230StopBootOnFault() (ComputerSystemV1230StopBootOnFault, error) {
+	var body ComputerSystemV1230StopBootOnFault
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230StopBootOnFault overwrites any union data inside the ComputerSystemV1230Boot_StopBootOnFault as the provided ComputerSystemV1230StopBootOnFault
+func (t *ComputerSystemV1230Boot_StopBootOnFault) FromComputerSystemV1230StopBootOnFault(v ComputerSystemV1230StopBootOnFault) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230StopBootOnFault performs a merge with any union data inside the ComputerSystemV1230Boot_StopBootOnFault, using the provided ComputerSystemV1230StopBootOnFault
+func (t *ComputerSystemV1230Boot_StopBootOnFault) MergeComputerSystemV1230StopBootOnFault(v ComputerSystemV1230StopBootOnFault) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootStopBootOnFault1 returns the union data inside the ComputerSystemV1230Boot_StopBootOnFault as a ComputerSystemV1230BootStopBootOnFault1
+func (t ComputerSystemV1230Boot_StopBootOnFault) AsComputerSystemV1230BootStopBootOnFault1() (ComputerSystemV1230BootStopBootOnFault1, error) {
+	var body ComputerSystemV1230BootStopBootOnFault1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootStopBootOnFault1 overwrites any union data inside the ComputerSystemV1230Boot_StopBootOnFault as the provided ComputerSystemV1230BootStopBootOnFault1
+func (t *ComputerSystemV1230Boot_StopBootOnFault) FromComputerSystemV1230BootStopBootOnFault1(v ComputerSystemV1230BootStopBootOnFault1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootStopBootOnFault1 performs a merge with any union data inside the ComputerSystemV1230Boot_StopBootOnFault, using the provided ComputerSystemV1230BootStopBootOnFault1
+func (t *ComputerSystemV1230Boot_StopBootOnFault) MergeComputerSystemV1230BootStopBootOnFault1(v ComputerSystemV1230BootStopBootOnFault1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_StopBootOnFault) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_StopBootOnFault) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230TrustedModuleRequiredToBoot returns the union data inside the ComputerSystemV1230Boot_TrustedModuleRequiredToBoot as a ComputerSystemV1230TrustedModuleRequiredToBoot
+func (t ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) AsComputerSystemV1230TrustedModuleRequiredToBoot() (ComputerSystemV1230TrustedModuleRequiredToBoot, error) {
+	var body ComputerSystemV1230TrustedModuleRequiredToBoot
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230TrustedModuleRequiredToBoot overwrites any union data inside the ComputerSystemV1230Boot_TrustedModuleRequiredToBoot as the provided ComputerSystemV1230TrustedModuleRequiredToBoot
+func (t *ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) FromComputerSystemV1230TrustedModuleRequiredToBoot(v ComputerSystemV1230TrustedModuleRequiredToBoot) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230TrustedModuleRequiredToBoot performs a merge with any union data inside the ComputerSystemV1230Boot_TrustedModuleRequiredToBoot, using the provided ComputerSystemV1230TrustedModuleRequiredToBoot
+func (t *ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) MergeComputerSystemV1230TrustedModuleRequiredToBoot(v ComputerSystemV1230TrustedModuleRequiredToBoot) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootTrustedModuleRequiredToBoot1 returns the union data inside the ComputerSystemV1230Boot_TrustedModuleRequiredToBoot as a ComputerSystemV1230BootTrustedModuleRequiredToBoot1
+func (t ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) AsComputerSystemV1230BootTrustedModuleRequiredToBoot1() (ComputerSystemV1230BootTrustedModuleRequiredToBoot1, error) {
+	var body ComputerSystemV1230BootTrustedModuleRequiredToBoot1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootTrustedModuleRequiredToBoot1 overwrites any union data inside the ComputerSystemV1230Boot_TrustedModuleRequiredToBoot as the provided ComputerSystemV1230BootTrustedModuleRequiredToBoot1
+func (t *ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) FromComputerSystemV1230BootTrustedModuleRequiredToBoot1(v ComputerSystemV1230BootTrustedModuleRequiredToBoot1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootTrustedModuleRequiredToBoot1 performs a merge with any union data inside the ComputerSystemV1230Boot_TrustedModuleRequiredToBoot, using the provided ComputerSystemV1230BootTrustedModuleRequiredToBoot1
+func (t *ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) MergeComputerSystemV1230BootTrustedModuleRequiredToBoot1(v ComputerSystemV1230BootTrustedModuleRequiredToBoot1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Boot_TrustedModuleRequiredToBoot) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230BootProgressTypes returns the union data inside the ComputerSystemV1230BootProgress_LastState as a ComputerSystemV1230BootProgressTypes
+func (t ComputerSystemV1230BootProgress_LastState) AsComputerSystemV1230BootProgressTypes() (ComputerSystemV1230BootProgressTypes, error) {
+	var body ComputerSystemV1230BootProgressTypes
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootProgressTypes overwrites any union data inside the ComputerSystemV1230BootProgress_LastState as the provided ComputerSystemV1230BootProgressTypes
+func (t *ComputerSystemV1230BootProgress_LastState) FromComputerSystemV1230BootProgressTypes(v ComputerSystemV1230BootProgressTypes) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootProgressTypes performs a merge with any union data inside the ComputerSystemV1230BootProgress_LastState, using the provided ComputerSystemV1230BootProgressTypes
+func (t *ComputerSystemV1230BootProgress_LastState) MergeComputerSystemV1230BootProgressTypes(v ComputerSystemV1230BootProgressTypes) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230BootProgressLastState1 returns the union data inside the ComputerSystemV1230BootProgress_LastState as a ComputerSystemV1230BootProgressLastState1
+func (t ComputerSystemV1230BootProgress_LastState) AsComputerSystemV1230BootProgressLastState1() (ComputerSystemV1230BootProgressLastState1, error) {
+	var body ComputerSystemV1230BootProgressLastState1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootProgressLastState1 overwrites any union data inside the ComputerSystemV1230BootProgress_LastState as the provided ComputerSystemV1230BootProgressLastState1
+func (t *ComputerSystemV1230BootProgress_LastState) FromComputerSystemV1230BootProgressLastState1(v ComputerSystemV1230BootProgressLastState1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootProgressLastState1 performs a merge with any union data inside the ComputerSystemV1230BootProgress_LastState, using the provided ComputerSystemV1230BootProgressLastState1
+func (t *ComputerSystemV1230BootProgress_LastState) MergeComputerSystemV1230BootProgressLastState1(v ComputerSystemV1230BootProgressLastState1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230BootProgress_LastState) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230BootProgress_LastState) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230CompositionUseCase returns the union data inside the ComputerSystemV1230Composition_UseCases_Item as a ComputerSystemV1230CompositionUseCase
+func (t ComputerSystemV1230Composition_UseCases_Item) AsComputerSystemV1230CompositionUseCase() (ComputerSystemV1230CompositionUseCase, error) {
+	var body ComputerSystemV1230CompositionUseCase
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230CompositionUseCase overwrites any union data inside the ComputerSystemV1230Composition_UseCases_Item as the provided ComputerSystemV1230CompositionUseCase
+func (t *ComputerSystemV1230Composition_UseCases_Item) FromComputerSystemV1230CompositionUseCase(v ComputerSystemV1230CompositionUseCase) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230CompositionUseCase performs a merge with any union data inside the ComputerSystemV1230Composition_UseCases_Item, using the provided ComputerSystemV1230CompositionUseCase
+func (t *ComputerSystemV1230Composition_UseCases_Item) MergeComputerSystemV1230CompositionUseCase(v ComputerSystemV1230CompositionUseCase) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230CompositionUseCases1 returns the union data inside the ComputerSystemV1230Composition_UseCases_Item as a ComputerSystemV1230CompositionUseCases1
+func (t ComputerSystemV1230Composition_UseCases_Item) AsComputerSystemV1230CompositionUseCases1() (ComputerSystemV1230CompositionUseCases1, error) {
+	var body ComputerSystemV1230CompositionUseCases1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230CompositionUseCases1 overwrites any union data inside the ComputerSystemV1230Composition_UseCases_Item as the provided ComputerSystemV1230CompositionUseCases1
+func (t *ComputerSystemV1230Composition_UseCases_Item) FromComputerSystemV1230CompositionUseCases1(v ComputerSystemV1230CompositionUseCases1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230CompositionUseCases1 performs a merge with any union data inside the ComputerSystemV1230Composition_UseCases_Item, using the provided ComputerSystemV1230CompositionUseCases1
+func (t *ComputerSystemV1230Composition_UseCases_Item) MergeComputerSystemV1230CompositionUseCases1(v ComputerSystemV1230CompositionUseCases1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Composition_UseCases_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Composition_UseCases_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230BootProgress returns the union data inside the ComputerSystemV1230ComputerSystem_BootProgress as a ComputerSystemV1230BootProgress
+func (t ComputerSystemV1230ComputerSystem_BootProgress) AsComputerSystemV1230BootProgress() (ComputerSystemV1230BootProgress, error) {
+	var body ComputerSystemV1230BootProgress
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230BootProgress overwrites any union data inside the ComputerSystemV1230ComputerSystem_BootProgress as the provided ComputerSystemV1230BootProgress
+func (t *ComputerSystemV1230ComputerSystem_BootProgress) FromComputerSystemV1230BootProgress(v ComputerSystemV1230BootProgress) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230BootProgress performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_BootProgress, using the provided ComputerSystemV1230BootProgress
+func (t *ComputerSystemV1230ComputerSystem_BootProgress) MergeComputerSystemV1230BootProgress(v ComputerSystemV1230BootProgress) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemBootProgress1 returns the union data inside the ComputerSystemV1230ComputerSystem_BootProgress as a ComputerSystemV1230ComputerSystemBootProgress1
+func (t ComputerSystemV1230ComputerSystem_BootProgress) AsComputerSystemV1230ComputerSystemBootProgress1() (ComputerSystemV1230ComputerSystemBootProgress1, error) {
+	var body ComputerSystemV1230ComputerSystemBootProgress1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemBootProgress1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_BootProgress as the provided ComputerSystemV1230ComputerSystemBootProgress1
+func (t *ComputerSystemV1230ComputerSystem_BootProgress) FromComputerSystemV1230ComputerSystemBootProgress1(v ComputerSystemV1230ComputerSystemBootProgress1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemBootProgress1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_BootProgress, using the provided ComputerSystemV1230ComputerSystemBootProgress1
+func (t *ComputerSystemV1230ComputerSystem_BootProgress) MergeComputerSystemV1230ComputerSystemBootProgress1(v ComputerSystemV1230ComputerSystemBootProgress1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_BootProgress) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_BootProgress) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230Composition returns the union data inside the ComputerSystemV1230ComputerSystem_Composition as a ComputerSystemV1230Composition
+func (t ComputerSystemV1230ComputerSystem_Composition) AsComputerSystemV1230Composition() (ComputerSystemV1230Composition, error) {
+	var body ComputerSystemV1230Composition
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230Composition overwrites any union data inside the ComputerSystemV1230ComputerSystem_Composition as the provided ComputerSystemV1230Composition
+func (t *ComputerSystemV1230ComputerSystem_Composition) FromComputerSystemV1230Composition(v ComputerSystemV1230Composition) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230Composition performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_Composition, using the provided ComputerSystemV1230Composition
+func (t *ComputerSystemV1230ComputerSystem_Composition) MergeComputerSystemV1230Composition(v ComputerSystemV1230Composition) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemComposition1 returns the union data inside the ComputerSystemV1230ComputerSystem_Composition as a ComputerSystemV1230ComputerSystemComposition1
+func (t ComputerSystemV1230ComputerSystem_Composition) AsComputerSystemV1230ComputerSystemComposition1() (ComputerSystemV1230ComputerSystemComposition1, error) {
+	var body ComputerSystemV1230ComputerSystemComposition1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemComposition1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_Composition as the provided ComputerSystemV1230ComputerSystemComposition1
+func (t *ComputerSystemV1230ComputerSystem_Composition) FromComputerSystemV1230ComputerSystemComposition1(v ComputerSystemV1230ComputerSystemComposition1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemComposition1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_Composition, using the provided ComputerSystemV1230ComputerSystemComposition1
+func (t *ComputerSystemV1230ComputerSystem_Composition) MergeComputerSystemV1230ComputerSystemComposition1(v ComputerSystemV1230ComputerSystemComposition1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_Composition) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_Composition) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceDescription returns the union data inside the ComputerSystemV1230ComputerSystem_Description as a ResourceDescription
+func (t ComputerSystemV1230ComputerSystem_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the ComputerSystemV1230ComputerSystem_Description as the provided ResourceDescription
+func (t *ComputerSystemV1230ComputerSystem_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_Description, using the provided ResourceDescription
+func (t *ComputerSystemV1230ComputerSystem_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemDescription1 returns the union data inside the ComputerSystemV1230ComputerSystem_Description as a ComputerSystemV1230ComputerSystemDescription1
+func (t ComputerSystemV1230ComputerSystem_Description) AsComputerSystemV1230ComputerSystemDescription1() (ComputerSystemV1230ComputerSystemDescription1, error) {
+	var body ComputerSystemV1230ComputerSystemDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemDescription1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_Description as the provided ComputerSystemV1230ComputerSystemDescription1
+func (t *ComputerSystemV1230ComputerSystem_Description) FromComputerSystemV1230ComputerSystemDescription1(v ComputerSystemV1230ComputerSystemDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemDescription1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_Description, using the provided ComputerSystemV1230ComputerSystemDescription1
+func (t *ComputerSystemV1230ComputerSystem_Description) MergeComputerSystemV1230ComputerSystemDescription1(v ComputerSystemV1230ComputerSystemDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230IdlePowerSaver returns the union data inside the ComputerSystemV1230ComputerSystem_IdlePowerSaver as a ComputerSystemV1230IdlePowerSaver
+func (t ComputerSystemV1230ComputerSystem_IdlePowerSaver) AsComputerSystemV1230IdlePowerSaver() (ComputerSystemV1230IdlePowerSaver, error) {
+	var body ComputerSystemV1230IdlePowerSaver
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230IdlePowerSaver overwrites any union data inside the ComputerSystemV1230ComputerSystem_IdlePowerSaver as the provided ComputerSystemV1230IdlePowerSaver
+func (t *ComputerSystemV1230ComputerSystem_IdlePowerSaver) FromComputerSystemV1230IdlePowerSaver(v ComputerSystemV1230IdlePowerSaver) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230IdlePowerSaver performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_IdlePowerSaver, using the provided ComputerSystemV1230IdlePowerSaver
+func (t *ComputerSystemV1230ComputerSystem_IdlePowerSaver) MergeComputerSystemV1230IdlePowerSaver(v ComputerSystemV1230IdlePowerSaver) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemIdlePowerSaver1 returns the union data inside the ComputerSystemV1230ComputerSystem_IdlePowerSaver as a ComputerSystemV1230ComputerSystemIdlePowerSaver1
+func (t ComputerSystemV1230ComputerSystem_IdlePowerSaver) AsComputerSystemV1230ComputerSystemIdlePowerSaver1() (ComputerSystemV1230ComputerSystemIdlePowerSaver1, error) {
+	var body ComputerSystemV1230ComputerSystemIdlePowerSaver1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemIdlePowerSaver1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_IdlePowerSaver as the provided ComputerSystemV1230ComputerSystemIdlePowerSaver1
+func (t *ComputerSystemV1230ComputerSystem_IdlePowerSaver) FromComputerSystemV1230ComputerSystemIdlePowerSaver1(v ComputerSystemV1230ComputerSystemIdlePowerSaver1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemIdlePowerSaver1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_IdlePowerSaver, using the provided ComputerSystemV1230ComputerSystemIdlePowerSaver1
+func (t *ComputerSystemV1230ComputerSystem_IdlePowerSaver) MergeComputerSystemV1230ComputerSystemIdlePowerSaver1(v ComputerSystemV1230ComputerSystemIdlePowerSaver1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_IdlePowerSaver) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_IdlePowerSaver) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230IndicatorLED returns the union data inside the ComputerSystemV1230ComputerSystem_IndicatorLED as a ComputerSystemV1230IndicatorLED
+func (t ComputerSystemV1230ComputerSystem_IndicatorLED) AsComputerSystemV1230IndicatorLED() (ComputerSystemV1230IndicatorLED, error) {
+	var body ComputerSystemV1230IndicatorLED
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230IndicatorLED overwrites any union data inside the ComputerSystemV1230ComputerSystem_IndicatorLED as the provided ComputerSystemV1230IndicatorLED
+func (t *ComputerSystemV1230ComputerSystem_IndicatorLED) FromComputerSystemV1230IndicatorLED(v ComputerSystemV1230IndicatorLED) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230IndicatorLED performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_IndicatorLED, using the provided ComputerSystemV1230IndicatorLED
+func (t *ComputerSystemV1230ComputerSystem_IndicatorLED) MergeComputerSystemV1230IndicatorLED(v ComputerSystemV1230IndicatorLED) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemIndicatorLED1 returns the union data inside the ComputerSystemV1230ComputerSystem_IndicatorLED as a ComputerSystemV1230ComputerSystemIndicatorLED1
+func (t ComputerSystemV1230ComputerSystem_IndicatorLED) AsComputerSystemV1230ComputerSystemIndicatorLED1() (ComputerSystemV1230ComputerSystemIndicatorLED1, error) {
+	var body ComputerSystemV1230ComputerSystemIndicatorLED1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemIndicatorLED1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_IndicatorLED as the provided ComputerSystemV1230ComputerSystemIndicatorLED1
+func (t *ComputerSystemV1230ComputerSystem_IndicatorLED) FromComputerSystemV1230ComputerSystemIndicatorLED1(v ComputerSystemV1230ComputerSystemIndicatorLED1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemIndicatorLED1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_IndicatorLED, using the provided ComputerSystemV1230ComputerSystemIndicatorLED1
+func (t *ComputerSystemV1230ComputerSystem_IndicatorLED) MergeComputerSystemV1230ComputerSystemIndicatorLED1(v ComputerSystemV1230ComputerSystemIndicatorLED1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_IndicatorLED) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_IndicatorLED) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230KeyManagement returns the union data inside the ComputerSystemV1230ComputerSystem_KeyManagement as a ComputerSystemV1230KeyManagement
+func (t ComputerSystemV1230ComputerSystem_KeyManagement) AsComputerSystemV1230KeyManagement() (ComputerSystemV1230KeyManagement, error) {
+	var body ComputerSystemV1230KeyManagement
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230KeyManagement overwrites any union data inside the ComputerSystemV1230ComputerSystem_KeyManagement as the provided ComputerSystemV1230KeyManagement
+func (t *ComputerSystemV1230ComputerSystem_KeyManagement) FromComputerSystemV1230KeyManagement(v ComputerSystemV1230KeyManagement) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230KeyManagement performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_KeyManagement, using the provided ComputerSystemV1230KeyManagement
+func (t *ComputerSystemV1230ComputerSystem_KeyManagement) MergeComputerSystemV1230KeyManagement(v ComputerSystemV1230KeyManagement) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemKeyManagement1 returns the union data inside the ComputerSystemV1230ComputerSystem_KeyManagement as a ComputerSystemV1230ComputerSystemKeyManagement1
+func (t ComputerSystemV1230ComputerSystem_KeyManagement) AsComputerSystemV1230ComputerSystemKeyManagement1() (ComputerSystemV1230ComputerSystemKeyManagement1, error) {
+	var body ComputerSystemV1230ComputerSystemKeyManagement1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemKeyManagement1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_KeyManagement as the provided ComputerSystemV1230ComputerSystemKeyManagement1
+func (t *ComputerSystemV1230ComputerSystem_KeyManagement) FromComputerSystemV1230ComputerSystemKeyManagement1(v ComputerSystemV1230ComputerSystemKeyManagement1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemKeyManagement1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_KeyManagement, using the provided ComputerSystemV1230ComputerSystemKeyManagement1
+func (t *ComputerSystemV1230ComputerSystem_KeyManagement) MergeComputerSystemV1230ComputerSystemKeyManagement1(v ComputerSystemV1230ComputerSystemKeyManagement1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_KeyManagement) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_KeyManagement) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230PowerMode returns the union data inside the ComputerSystemV1230ComputerSystem_PowerMode as a ComputerSystemV1230PowerMode
+func (t ComputerSystemV1230ComputerSystem_PowerMode) AsComputerSystemV1230PowerMode() (ComputerSystemV1230PowerMode, error) {
+	var body ComputerSystemV1230PowerMode
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230PowerMode overwrites any union data inside the ComputerSystemV1230ComputerSystem_PowerMode as the provided ComputerSystemV1230PowerMode
+func (t *ComputerSystemV1230ComputerSystem_PowerMode) FromComputerSystemV1230PowerMode(v ComputerSystemV1230PowerMode) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230PowerMode performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_PowerMode, using the provided ComputerSystemV1230PowerMode
+func (t *ComputerSystemV1230ComputerSystem_PowerMode) MergeComputerSystemV1230PowerMode(v ComputerSystemV1230PowerMode) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemPowerMode1 returns the union data inside the ComputerSystemV1230ComputerSystem_PowerMode as a ComputerSystemV1230ComputerSystemPowerMode1
+func (t ComputerSystemV1230ComputerSystem_PowerMode) AsComputerSystemV1230ComputerSystemPowerMode1() (ComputerSystemV1230ComputerSystemPowerMode1, error) {
+	var body ComputerSystemV1230ComputerSystemPowerMode1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemPowerMode1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_PowerMode as the provided ComputerSystemV1230ComputerSystemPowerMode1
+func (t *ComputerSystemV1230ComputerSystem_PowerMode) FromComputerSystemV1230ComputerSystemPowerMode1(v ComputerSystemV1230ComputerSystemPowerMode1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemPowerMode1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_PowerMode, using the provided ComputerSystemV1230ComputerSystemPowerMode1
+func (t *ComputerSystemV1230ComputerSystem_PowerMode) MergeComputerSystemV1230ComputerSystemPowerMode1(v ComputerSystemV1230ComputerSystemPowerMode1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_PowerMode) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_PowerMode) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourcePowerState returns the union data inside the ComputerSystemV1230ComputerSystem_PowerState as a ResourcePowerState
+func (t ComputerSystemV1230ComputerSystem_PowerState) AsResourcePowerState() (ResourcePowerState, error) {
+	var body ResourcePowerState
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourcePowerState overwrites any union data inside the ComputerSystemV1230ComputerSystem_PowerState as the provided ResourcePowerState
+func (t *ComputerSystemV1230ComputerSystem_PowerState) FromResourcePowerState(v ResourcePowerState) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourcePowerState performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_PowerState, using the provided ResourcePowerState
+func (t *ComputerSystemV1230ComputerSystem_PowerState) MergeResourcePowerState(v ResourcePowerState) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemPowerState1 returns the union data inside the ComputerSystemV1230ComputerSystem_PowerState as a ComputerSystemV1230ComputerSystemPowerState1
+func (t ComputerSystemV1230ComputerSystem_PowerState) AsComputerSystemV1230ComputerSystemPowerState1() (ComputerSystemV1230ComputerSystemPowerState1, error) {
+	var body ComputerSystemV1230ComputerSystemPowerState1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemPowerState1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_PowerState as the provided ComputerSystemV1230ComputerSystemPowerState1
+func (t *ComputerSystemV1230ComputerSystem_PowerState) FromComputerSystemV1230ComputerSystemPowerState1(v ComputerSystemV1230ComputerSystemPowerState1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemPowerState1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_PowerState, using the provided ComputerSystemV1230ComputerSystemPowerState1
+func (t *ComputerSystemV1230ComputerSystem_PowerState) MergeComputerSystemV1230ComputerSystemPowerState1(v ComputerSystemV1230ComputerSystemPowerState1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_PowerState) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_PowerState) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceUUID returns the union data inside the ComputerSystemV1230ComputerSystem_UUID as a ResourceUUID
+func (t ComputerSystemV1230ComputerSystem_UUID) AsResourceUUID() (ResourceUUID, error) {
+	var body ResourceUUID
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceUUID overwrites any union data inside the ComputerSystemV1230ComputerSystem_UUID as the provided ResourceUUID
+func (t *ComputerSystemV1230ComputerSystem_UUID) FromResourceUUID(v ResourceUUID) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceUUID performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_UUID, using the provided ResourceUUID
+func (t *ComputerSystemV1230ComputerSystem_UUID) MergeResourceUUID(v ResourceUUID) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230ComputerSystemUUID1 returns the union data inside the ComputerSystemV1230ComputerSystem_UUID as a ComputerSystemV1230ComputerSystemUUID1
+func (t ComputerSystemV1230ComputerSystem_UUID) AsComputerSystemV1230ComputerSystemUUID1() (ComputerSystemV1230ComputerSystemUUID1, error) {
+	var body ComputerSystemV1230ComputerSystemUUID1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230ComputerSystemUUID1 overwrites any union data inside the ComputerSystemV1230ComputerSystem_UUID as the provided ComputerSystemV1230ComputerSystemUUID1
+func (t *ComputerSystemV1230ComputerSystem_UUID) FromComputerSystemV1230ComputerSystemUUID1(v ComputerSystemV1230ComputerSystemUUID1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230ComputerSystemUUID1 performs a merge with any union data inside the ComputerSystemV1230ComputerSystem_UUID, using the provided ComputerSystemV1230ComputerSystemUUID1
+func (t *ComputerSystemV1230ComputerSystem_UUID) MergeComputerSystemV1230ComputerSystemUUID1(v ComputerSystemV1230ComputerSystemUUID1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230ComputerSystem_UUID) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230ComputerSystem_UUID) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230KMIPCachePolicy returns the union data inside the ComputerSystemV1230KMIPServer_CachePolicy as a ComputerSystemV1230KMIPCachePolicy
+func (t ComputerSystemV1230KMIPServer_CachePolicy) AsComputerSystemV1230KMIPCachePolicy() (ComputerSystemV1230KMIPCachePolicy, error) {
+	var body ComputerSystemV1230KMIPCachePolicy
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230KMIPCachePolicy overwrites any union data inside the ComputerSystemV1230KMIPServer_CachePolicy as the provided ComputerSystemV1230KMIPCachePolicy
+func (t *ComputerSystemV1230KMIPServer_CachePolicy) FromComputerSystemV1230KMIPCachePolicy(v ComputerSystemV1230KMIPCachePolicy) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230KMIPCachePolicy performs a merge with any union data inside the ComputerSystemV1230KMIPServer_CachePolicy, using the provided ComputerSystemV1230KMIPCachePolicy
+func (t *ComputerSystemV1230KMIPServer_CachePolicy) MergeComputerSystemV1230KMIPCachePolicy(v ComputerSystemV1230KMIPCachePolicy) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230KMIPServerCachePolicy1 returns the union data inside the ComputerSystemV1230KMIPServer_CachePolicy as a ComputerSystemV1230KMIPServerCachePolicy1
+func (t ComputerSystemV1230KMIPServer_CachePolicy) AsComputerSystemV1230KMIPServerCachePolicy1() (ComputerSystemV1230KMIPServerCachePolicy1, error) {
+	var body ComputerSystemV1230KMIPServerCachePolicy1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230KMIPServerCachePolicy1 overwrites any union data inside the ComputerSystemV1230KMIPServer_CachePolicy as the provided ComputerSystemV1230KMIPServerCachePolicy1
+func (t *ComputerSystemV1230KMIPServer_CachePolicy) FromComputerSystemV1230KMIPServerCachePolicy1(v ComputerSystemV1230KMIPServerCachePolicy1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230KMIPServerCachePolicy1 performs a merge with any union data inside the ComputerSystemV1230KMIPServer_CachePolicy, using the provided ComputerSystemV1230KMIPServerCachePolicy1
+func (t *ComputerSystemV1230KMIPServer_CachePolicy) MergeComputerSystemV1230KMIPServerCachePolicy1(v ComputerSystemV1230KMIPServerCachePolicy1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230KMIPServer_CachePolicy) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230KMIPServer_CachePolicy) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230KMIPServer returns the union data inside the ComputerSystemV1230KeyManagement_KMIPServers_Item as a ComputerSystemV1230KMIPServer
+func (t ComputerSystemV1230KeyManagement_KMIPServers_Item) AsComputerSystemV1230KMIPServer() (ComputerSystemV1230KMIPServer, error) {
+	var body ComputerSystemV1230KMIPServer
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230KMIPServer overwrites any union data inside the ComputerSystemV1230KeyManagement_KMIPServers_Item as the provided ComputerSystemV1230KMIPServer
+func (t *ComputerSystemV1230KeyManagement_KMIPServers_Item) FromComputerSystemV1230KMIPServer(v ComputerSystemV1230KMIPServer) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230KMIPServer performs a merge with any union data inside the ComputerSystemV1230KeyManagement_KMIPServers_Item, using the provided ComputerSystemV1230KMIPServer
+func (t *ComputerSystemV1230KeyManagement_KMIPServers_Item) MergeComputerSystemV1230KMIPServer(v ComputerSystemV1230KMIPServer) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230KeyManagementKMIPServers1 returns the union data inside the ComputerSystemV1230KeyManagement_KMIPServers_Item as a ComputerSystemV1230KeyManagementKMIPServers1
+func (t ComputerSystemV1230KeyManagement_KMIPServers_Item) AsComputerSystemV1230KeyManagementKMIPServers1() (ComputerSystemV1230KeyManagementKMIPServers1, error) {
+	var body ComputerSystemV1230KeyManagementKMIPServers1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230KeyManagementKMIPServers1 overwrites any union data inside the ComputerSystemV1230KeyManagement_KMIPServers_Item as the provided ComputerSystemV1230KeyManagementKMIPServers1
+func (t *ComputerSystemV1230KeyManagement_KMIPServers_Item) FromComputerSystemV1230KeyManagementKMIPServers1(v ComputerSystemV1230KeyManagementKMIPServers1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230KeyManagementKMIPServers1 performs a merge with any union data inside the ComputerSystemV1230KeyManagement_KMIPServers_Item, using the provided ComputerSystemV1230KeyManagementKMIPServers1
+func (t *ComputerSystemV1230KeyManagement_KMIPServers_Item) MergeComputerSystemV1230KeyManagementKMIPServers1(v ComputerSystemV1230KeyManagementKMIPServers1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230KeyManagement_KMIPServers_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230KeyManagement_KMIPServers_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOdataV4IdRef returns the union data inside the ComputerSystemV1230Links_HostingComputerSystem as a OdataV4IdRef
+func (t ComputerSystemV1230Links_HostingComputerSystem) AsOdataV4IdRef() (OdataV4IdRef, error) {
+	var body OdataV4IdRef
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOdataV4IdRef overwrites any union data inside the ComputerSystemV1230Links_HostingComputerSystem as the provided OdataV4IdRef
+func (t *ComputerSystemV1230Links_HostingComputerSystem) FromOdataV4IdRef(v OdataV4IdRef) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOdataV4IdRef performs a merge with any union data inside the ComputerSystemV1230Links_HostingComputerSystem, using the provided OdataV4IdRef
+func (t *ComputerSystemV1230Links_HostingComputerSystem) MergeOdataV4IdRef(v OdataV4IdRef) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230LinksHostingComputerSystem1 returns the union data inside the ComputerSystemV1230Links_HostingComputerSystem as a ComputerSystemV1230LinksHostingComputerSystem1
+func (t ComputerSystemV1230Links_HostingComputerSystem) AsComputerSystemV1230LinksHostingComputerSystem1() (ComputerSystemV1230LinksHostingComputerSystem1, error) {
+	var body ComputerSystemV1230LinksHostingComputerSystem1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230LinksHostingComputerSystem1 overwrites any union data inside the ComputerSystemV1230Links_HostingComputerSystem as the provided ComputerSystemV1230LinksHostingComputerSystem1
+func (t *ComputerSystemV1230Links_HostingComputerSystem) FromComputerSystemV1230LinksHostingComputerSystem1(v ComputerSystemV1230LinksHostingComputerSystem1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230LinksHostingComputerSystem1 performs a merge with any union data inside the ComputerSystemV1230Links_HostingComputerSystem, using the provided ComputerSystemV1230LinksHostingComputerSystem1
+func (t *ComputerSystemV1230Links_HostingComputerSystem) MergeComputerSystemV1230LinksHostingComputerSystem1(v ComputerSystemV1230LinksHostingComputerSystem1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230Links_HostingComputerSystem) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230Links_HostingComputerSystem) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230MemoryMirroring returns the union data inside the ComputerSystemV1230MemorySummary_MemoryMirroring as a ComputerSystemV1230MemoryMirroring
+func (t ComputerSystemV1230MemorySummary_MemoryMirroring) AsComputerSystemV1230MemoryMirroring() (ComputerSystemV1230MemoryMirroring, error) {
+	var body ComputerSystemV1230MemoryMirroring
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230MemoryMirroring overwrites any union data inside the ComputerSystemV1230MemorySummary_MemoryMirroring as the provided ComputerSystemV1230MemoryMirroring
+func (t *ComputerSystemV1230MemorySummary_MemoryMirroring) FromComputerSystemV1230MemoryMirroring(v ComputerSystemV1230MemoryMirroring) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230MemoryMirroring performs a merge with any union data inside the ComputerSystemV1230MemorySummary_MemoryMirroring, using the provided ComputerSystemV1230MemoryMirroring
+func (t *ComputerSystemV1230MemorySummary_MemoryMirroring) MergeComputerSystemV1230MemoryMirroring(v ComputerSystemV1230MemoryMirroring) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230MemorySummaryMemoryMirroring1 returns the union data inside the ComputerSystemV1230MemorySummary_MemoryMirroring as a ComputerSystemV1230MemorySummaryMemoryMirroring1
+func (t ComputerSystemV1230MemorySummary_MemoryMirroring) AsComputerSystemV1230MemorySummaryMemoryMirroring1() (ComputerSystemV1230MemorySummaryMemoryMirroring1, error) {
+	var body ComputerSystemV1230MemorySummaryMemoryMirroring1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230MemorySummaryMemoryMirroring1 overwrites any union data inside the ComputerSystemV1230MemorySummary_MemoryMirroring as the provided ComputerSystemV1230MemorySummaryMemoryMirroring1
+func (t *ComputerSystemV1230MemorySummary_MemoryMirroring) FromComputerSystemV1230MemorySummaryMemoryMirroring1(v ComputerSystemV1230MemorySummaryMemoryMirroring1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230MemorySummaryMemoryMirroring1 performs a merge with any union data inside the ComputerSystemV1230MemorySummary_MemoryMirroring, using the provided ComputerSystemV1230MemorySummaryMemoryMirroring1
+func (t *ComputerSystemV1230MemorySummary_MemoryMirroring) MergeComputerSystemV1230MemorySummaryMemoryMirroring1(v ComputerSystemV1230MemorySummaryMemoryMirroring1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230MemorySummary_MemoryMirroring) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230MemorySummary_MemoryMirroring) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230InterfaceType returns the union data inside the ComputerSystemV1230TrustedModules_InterfaceType as a ComputerSystemV1230InterfaceType
+func (t ComputerSystemV1230TrustedModules_InterfaceType) AsComputerSystemV1230InterfaceType() (ComputerSystemV1230InterfaceType, error) {
+	var body ComputerSystemV1230InterfaceType
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230InterfaceType overwrites any union data inside the ComputerSystemV1230TrustedModules_InterfaceType as the provided ComputerSystemV1230InterfaceType
+func (t *ComputerSystemV1230TrustedModules_InterfaceType) FromComputerSystemV1230InterfaceType(v ComputerSystemV1230InterfaceType) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230InterfaceType performs a merge with any union data inside the ComputerSystemV1230TrustedModules_InterfaceType, using the provided ComputerSystemV1230InterfaceType
+func (t *ComputerSystemV1230TrustedModules_InterfaceType) MergeComputerSystemV1230InterfaceType(v ComputerSystemV1230InterfaceType) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230TrustedModulesInterfaceType1 returns the union data inside the ComputerSystemV1230TrustedModules_InterfaceType as a ComputerSystemV1230TrustedModulesInterfaceType1
+func (t ComputerSystemV1230TrustedModules_InterfaceType) AsComputerSystemV1230TrustedModulesInterfaceType1() (ComputerSystemV1230TrustedModulesInterfaceType1, error) {
+	var body ComputerSystemV1230TrustedModulesInterfaceType1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230TrustedModulesInterfaceType1 overwrites any union data inside the ComputerSystemV1230TrustedModules_InterfaceType as the provided ComputerSystemV1230TrustedModulesInterfaceType1
+func (t *ComputerSystemV1230TrustedModules_InterfaceType) FromComputerSystemV1230TrustedModulesInterfaceType1(v ComputerSystemV1230TrustedModulesInterfaceType1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230TrustedModulesInterfaceType1 performs a merge with any union data inside the ComputerSystemV1230TrustedModules_InterfaceType, using the provided ComputerSystemV1230TrustedModulesInterfaceType1
+func (t *ComputerSystemV1230TrustedModules_InterfaceType) MergeComputerSystemV1230TrustedModulesInterfaceType1(v ComputerSystemV1230TrustedModulesInterfaceType1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230TrustedModules_InterfaceType) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230TrustedModules_InterfaceType) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230InterfaceTypeSelection returns the union data inside the ComputerSystemV1230TrustedModules_InterfaceTypeSelection as a ComputerSystemV1230InterfaceTypeSelection
+func (t ComputerSystemV1230TrustedModules_InterfaceTypeSelection) AsComputerSystemV1230InterfaceTypeSelection() (ComputerSystemV1230InterfaceTypeSelection, error) {
+	var body ComputerSystemV1230InterfaceTypeSelection
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230InterfaceTypeSelection overwrites any union data inside the ComputerSystemV1230TrustedModules_InterfaceTypeSelection as the provided ComputerSystemV1230InterfaceTypeSelection
+func (t *ComputerSystemV1230TrustedModules_InterfaceTypeSelection) FromComputerSystemV1230InterfaceTypeSelection(v ComputerSystemV1230InterfaceTypeSelection) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230InterfaceTypeSelection performs a merge with any union data inside the ComputerSystemV1230TrustedModules_InterfaceTypeSelection, using the provided ComputerSystemV1230InterfaceTypeSelection
+func (t *ComputerSystemV1230TrustedModules_InterfaceTypeSelection) MergeComputerSystemV1230InterfaceTypeSelection(v ComputerSystemV1230InterfaceTypeSelection) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230TrustedModulesInterfaceTypeSelection1 returns the union data inside the ComputerSystemV1230TrustedModules_InterfaceTypeSelection as a ComputerSystemV1230TrustedModulesInterfaceTypeSelection1
+func (t ComputerSystemV1230TrustedModules_InterfaceTypeSelection) AsComputerSystemV1230TrustedModulesInterfaceTypeSelection1() (ComputerSystemV1230TrustedModulesInterfaceTypeSelection1, error) {
+	var body ComputerSystemV1230TrustedModulesInterfaceTypeSelection1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230TrustedModulesInterfaceTypeSelection1 overwrites any union data inside the ComputerSystemV1230TrustedModules_InterfaceTypeSelection as the provided ComputerSystemV1230TrustedModulesInterfaceTypeSelection1
+func (t *ComputerSystemV1230TrustedModules_InterfaceTypeSelection) FromComputerSystemV1230TrustedModulesInterfaceTypeSelection1(v ComputerSystemV1230TrustedModulesInterfaceTypeSelection1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230TrustedModulesInterfaceTypeSelection1 performs a merge with any union data inside the ComputerSystemV1230TrustedModules_InterfaceTypeSelection, using the provided ComputerSystemV1230TrustedModulesInterfaceTypeSelection1
+func (t *ComputerSystemV1230TrustedModules_InterfaceTypeSelection) MergeComputerSystemV1230TrustedModulesInterfaceTypeSelection1(v ComputerSystemV1230TrustedModulesInterfaceTypeSelection1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230TrustedModules_InterfaceTypeSelection) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230TrustedModules_InterfaceTypeSelection) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230WatchdogTimeoutActions returns the union data inside the ComputerSystemV1230WatchdogTimer_TimeoutAction as a ComputerSystemV1230WatchdogTimeoutActions
+func (t ComputerSystemV1230WatchdogTimer_TimeoutAction) AsComputerSystemV1230WatchdogTimeoutActions() (ComputerSystemV1230WatchdogTimeoutActions, error) {
+	var body ComputerSystemV1230WatchdogTimeoutActions
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230WatchdogTimeoutActions overwrites any union data inside the ComputerSystemV1230WatchdogTimer_TimeoutAction as the provided ComputerSystemV1230WatchdogTimeoutActions
+func (t *ComputerSystemV1230WatchdogTimer_TimeoutAction) FromComputerSystemV1230WatchdogTimeoutActions(v ComputerSystemV1230WatchdogTimeoutActions) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230WatchdogTimeoutActions performs a merge with any union data inside the ComputerSystemV1230WatchdogTimer_TimeoutAction, using the provided ComputerSystemV1230WatchdogTimeoutActions
+func (t *ComputerSystemV1230WatchdogTimer_TimeoutAction) MergeComputerSystemV1230WatchdogTimeoutActions(v ComputerSystemV1230WatchdogTimeoutActions) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230WatchdogTimerTimeoutAction1 returns the union data inside the ComputerSystemV1230WatchdogTimer_TimeoutAction as a ComputerSystemV1230WatchdogTimerTimeoutAction1
+func (t ComputerSystemV1230WatchdogTimer_TimeoutAction) AsComputerSystemV1230WatchdogTimerTimeoutAction1() (ComputerSystemV1230WatchdogTimerTimeoutAction1, error) {
+	var body ComputerSystemV1230WatchdogTimerTimeoutAction1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230WatchdogTimerTimeoutAction1 overwrites any union data inside the ComputerSystemV1230WatchdogTimer_TimeoutAction as the provided ComputerSystemV1230WatchdogTimerTimeoutAction1
+func (t *ComputerSystemV1230WatchdogTimer_TimeoutAction) FromComputerSystemV1230WatchdogTimerTimeoutAction1(v ComputerSystemV1230WatchdogTimerTimeoutAction1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230WatchdogTimerTimeoutAction1 performs a merge with any union data inside the ComputerSystemV1230WatchdogTimer_TimeoutAction, using the provided ComputerSystemV1230WatchdogTimerTimeoutAction1
+func (t *ComputerSystemV1230WatchdogTimer_TimeoutAction) MergeComputerSystemV1230WatchdogTimerTimeoutAction1(v ComputerSystemV1230WatchdogTimerTimeoutAction1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230WatchdogTimer_TimeoutAction) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230WatchdogTimer_TimeoutAction) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsComputerSystemV1230WatchdogWarningActions returns the union data inside the ComputerSystemV1230WatchdogTimer_WarningAction as a ComputerSystemV1230WatchdogWarningActions
+func (t ComputerSystemV1230WatchdogTimer_WarningAction) AsComputerSystemV1230WatchdogWarningActions() (ComputerSystemV1230WatchdogWarningActions, error) {
+	var body ComputerSystemV1230WatchdogWarningActions
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230WatchdogWarningActions overwrites any union data inside the ComputerSystemV1230WatchdogTimer_WarningAction as the provided ComputerSystemV1230WatchdogWarningActions
+func (t *ComputerSystemV1230WatchdogTimer_WarningAction) FromComputerSystemV1230WatchdogWarningActions(v ComputerSystemV1230WatchdogWarningActions) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230WatchdogWarningActions performs a merge with any union data inside the ComputerSystemV1230WatchdogTimer_WarningAction, using the provided ComputerSystemV1230WatchdogWarningActions
+func (t *ComputerSystemV1230WatchdogTimer_WarningAction) MergeComputerSystemV1230WatchdogWarningActions(v ComputerSystemV1230WatchdogWarningActions) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsComputerSystemV1230WatchdogTimerWarningAction1 returns the union data inside the ComputerSystemV1230WatchdogTimer_WarningAction as a ComputerSystemV1230WatchdogTimerWarningAction1
+func (t ComputerSystemV1230WatchdogTimer_WarningAction) AsComputerSystemV1230WatchdogTimerWarningAction1() (ComputerSystemV1230WatchdogTimerWarningAction1, error) {
+	var body ComputerSystemV1230WatchdogTimerWarningAction1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromComputerSystemV1230WatchdogTimerWarningAction1 overwrites any union data inside the ComputerSystemV1230WatchdogTimer_WarningAction as the provided ComputerSystemV1230WatchdogTimerWarningAction1
+func (t *ComputerSystemV1230WatchdogTimer_WarningAction) FromComputerSystemV1230WatchdogTimerWarningAction1(v ComputerSystemV1230WatchdogTimerWarningAction1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeComputerSystemV1230WatchdogTimerWarningAction1 performs a merge with any union data inside the ComputerSystemV1230WatchdogTimer_WarningAction, using the provided ComputerSystemV1230WatchdogTimerWarningAction1
+func (t *ComputerSystemV1230WatchdogTimer_WarningAction) MergeComputerSystemV1230WatchdogTimerWarningAction1(v ComputerSystemV1230WatchdogTimerWarningAction1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t ComputerSystemV1230WatchdogTimer_WarningAction) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *ComputerSystemV1230WatchdogTimer_WarningAction) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceDescription returns the union data inside the EthernetInterfaceCollectionEthernetInterfaceCollection_Description as a ResourceDescription
+func (t EthernetInterfaceCollectionEthernetInterfaceCollection_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the EthernetInterfaceCollectionEthernetInterfaceCollection_Description as the provided ResourceDescription
+func (t *EthernetInterfaceCollectionEthernetInterfaceCollection_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the EthernetInterfaceCollectionEthernetInterfaceCollection_Description, using the provided ResourceDescription
+func (t *EthernetInterfaceCollectionEthernetInterfaceCollection_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceCollectionEthernetInterfaceCollectionDescription1 returns the union data inside the EthernetInterfaceCollectionEthernetInterfaceCollection_Description as a EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1
+func (t EthernetInterfaceCollectionEthernetInterfaceCollection_Description) AsEthernetInterfaceCollectionEthernetInterfaceCollectionDescription1() (EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1, error) {
+	var body EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceCollectionEthernetInterfaceCollectionDescription1 overwrites any union data inside the EthernetInterfaceCollectionEthernetInterfaceCollection_Description as the provided EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1
+func (t *EthernetInterfaceCollectionEthernetInterfaceCollection_Description) FromEthernetInterfaceCollectionEthernetInterfaceCollectionDescription1(v EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceCollectionEthernetInterfaceCollectionDescription1 performs a merge with any union data inside the EthernetInterfaceCollectionEthernetInterfaceCollection_Description, using the provided EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1
+func (t *EthernetInterfaceCollectionEthernetInterfaceCollection_Description) MergeEthernetInterfaceCollectionEthernetInterfaceCollectionDescription1(v EthernetInterfaceCollectionEthernetInterfaceCollectionDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceCollectionEthernetInterfaceCollection_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceCollectionEthernetInterfaceCollection_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122DHCPFallback returns the union data inside the EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress as a EthernetInterfaceV1122DHCPFallback
+func (t EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) AsEthernetInterfaceV1122DHCPFallback() (EthernetInterfaceV1122DHCPFallback, error) {
+	var body EthernetInterfaceV1122DHCPFallback
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122DHCPFallback overwrites any union data inside the EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress as the provided EthernetInterfaceV1122DHCPFallback
+func (t *EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) FromEthernetInterfaceV1122DHCPFallback(v EthernetInterfaceV1122DHCPFallback) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122DHCPFallback performs a merge with any union data inside the EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress, using the provided EthernetInterfaceV1122DHCPFallback
+func (t *EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) MergeEthernetInterfaceV1122DHCPFallback(v EthernetInterfaceV1122DHCPFallback) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1 returns the union data inside the EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress as a EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1
+func (t EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) AsEthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1() (EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1, error) {
+	var body EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1 overwrites any union data inside the EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress as the provided EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1
+func (t *EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) FromEthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1(v EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1 performs a merge with any union data inside the EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress, using the provided EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1
+func (t *EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) MergeEthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1(v EthernetInterfaceV1122DHCPv4ConfigurationFallbackAddress1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122DHCPv4Configuration_FallbackAddress) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122DHCPv6OperatingMode returns the union data inside the EthernetInterfaceV1122DHCPv6Configuration_OperatingMode as a EthernetInterfaceV1122DHCPv6OperatingMode
+func (t EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) AsEthernetInterfaceV1122DHCPv6OperatingMode() (EthernetInterfaceV1122DHCPv6OperatingMode, error) {
+	var body EthernetInterfaceV1122DHCPv6OperatingMode
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122DHCPv6OperatingMode overwrites any union data inside the EthernetInterfaceV1122DHCPv6Configuration_OperatingMode as the provided EthernetInterfaceV1122DHCPv6OperatingMode
+func (t *EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) FromEthernetInterfaceV1122DHCPv6OperatingMode(v EthernetInterfaceV1122DHCPv6OperatingMode) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122DHCPv6OperatingMode performs a merge with any union data inside the EthernetInterfaceV1122DHCPv6Configuration_OperatingMode, using the provided EthernetInterfaceV1122DHCPv6OperatingMode
+func (t *EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) MergeEthernetInterfaceV1122DHCPv6OperatingMode(v EthernetInterfaceV1122DHCPv6OperatingMode) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1 returns the union data inside the EthernetInterfaceV1122DHCPv6Configuration_OperatingMode as a EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1
+func (t EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) AsEthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1() (EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1, error) {
+	var body EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1 overwrites any union data inside the EthernetInterfaceV1122DHCPv6Configuration_OperatingMode as the provided EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1
+func (t *EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) FromEthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1(v EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1 performs a merge with any union data inside the EthernetInterfaceV1122DHCPv6Configuration_OperatingMode, using the provided EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1
+func (t *EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) MergeEthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1(v EthernetInterfaceV1122DHCPv6ConfigurationOperatingMode1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122DHCPv6Configuration_OperatingMode) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsResourceDescription returns the union data inside the EthernetInterfaceV1122EthernetInterface_Description as a ResourceDescription
+func (t EthernetInterfaceV1122EthernetInterface_Description) AsResourceDescription() (ResourceDescription, error) {
+	var body ResourceDescription
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromResourceDescription overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_Description as the provided ResourceDescription
+func (t *EthernetInterfaceV1122EthernetInterface_Description) FromResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeResourceDescription performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_Description, using the provided ResourceDescription
+func (t *EthernetInterfaceV1122EthernetInterface_Description) MergeResourceDescription(v ResourceDescription) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceDescription1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_Description as a EthernetInterfaceV1122EthernetInterfaceDescription1
+func (t EthernetInterfaceV1122EthernetInterface_Description) AsEthernetInterfaceV1122EthernetInterfaceDescription1() (EthernetInterfaceV1122EthernetInterfaceDescription1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceDescription1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceDescription1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_Description as the provided EthernetInterfaceV1122EthernetInterfaceDescription1
+func (t *EthernetInterfaceV1122EthernetInterface_Description) FromEthernetInterfaceV1122EthernetInterfaceDescription1(v EthernetInterfaceV1122EthernetInterfaceDescription1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceDescription1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_Description, using the provided EthernetInterfaceV1122EthernetInterfaceDescription1
+func (t *EthernetInterfaceV1122EthernetInterface_Description) MergeEthernetInterfaceV1122EthernetInterfaceDescription1(v EthernetInterfaceV1122EthernetInterfaceDescription1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_Description) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_Description) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetDeviceType returns the union data inside the EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType as a EthernetInterfaceV1122EthernetDeviceType
+func (t EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) AsEthernetInterfaceV1122EthernetDeviceType() (EthernetInterfaceV1122EthernetDeviceType, error) {
+	var body EthernetInterfaceV1122EthernetDeviceType
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetDeviceType overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType as the provided EthernetInterfaceV1122EthernetDeviceType
+func (t *EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) FromEthernetInterfaceV1122EthernetDeviceType(v EthernetInterfaceV1122EthernetDeviceType) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetDeviceType performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType, using the provided EthernetInterfaceV1122EthernetDeviceType
+func (t *EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) MergeEthernetInterfaceV1122EthernetDeviceType(v EthernetInterfaceV1122EthernetDeviceType) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType as a EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1
+func (t EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) AsEthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1() (EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType as the provided EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1
+func (t *EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) FromEthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1(v EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType, using the provided EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1
+func (t *EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) MergeEthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1(v EthernetInterfaceV1122EthernetInterfaceEthernetInterfaceType1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_EthernetInterfaceType) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115IPv4Address returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item as a IPAddressesV115IPv4Address
+func (t EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) AsIPAddressesV115IPv4Address() (IPAddressesV115IPv4Address, error) {
+	var body IPAddressesV115IPv4Address
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv4Address overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item as the provided IPAddressesV115IPv4Address
+func (t *EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) FromIPAddressesV115IPv4Address(v IPAddressesV115IPv4Address) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv4Address performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item, using the provided IPAddressesV115IPv4Address
+func (t *EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) MergeIPAddressesV115IPv4Address(v IPAddressesV115IPv4Address) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item as a EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1
+func (t EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) AsEthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1() (EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item as the provided EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) FromEthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1(v EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item, using the provided EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) MergeEthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1(v EthernetInterfaceV1122EthernetInterfaceIPv4StaticAddresses1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_IPv4StaticAddresses_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122IPv6AddressPolicyEntry returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item as a EthernetInterfaceV1122IPv6AddressPolicyEntry
+func (t EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) AsEthernetInterfaceV1122IPv6AddressPolicyEntry() (EthernetInterfaceV1122IPv6AddressPolicyEntry, error) {
+	var body EthernetInterfaceV1122IPv6AddressPolicyEntry
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122IPv6AddressPolicyEntry overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item as the provided EthernetInterfaceV1122IPv6AddressPolicyEntry
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) FromEthernetInterfaceV1122IPv6AddressPolicyEntry(v EthernetInterfaceV1122IPv6AddressPolicyEntry) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122IPv6AddressPolicyEntry performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item, using the provided EthernetInterfaceV1122IPv6AddressPolicyEntry
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) MergeEthernetInterfaceV1122IPv6AddressPolicyEntry(v EthernetInterfaceV1122IPv6AddressPolicyEntry) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item as a EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1
+func (t EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) AsEthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1() (EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item as the provided EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) FromEthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1(v EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item, using the provided EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) MergeEthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1(v EthernetInterfaceV1122EthernetInterfaceIPv6AddressPolicyTable1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6AddressPolicyTable_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115IPv6StaticAddress returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item as a IPAddressesV115IPv6StaticAddress
+func (t EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) AsIPAddressesV115IPv6StaticAddress() (IPAddressesV115IPv6StaticAddress, error) {
+	var body IPAddressesV115IPv6StaticAddress
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6StaticAddress overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item as the provided IPAddressesV115IPv6StaticAddress
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) FromIPAddressesV115IPv6StaticAddress(v IPAddressesV115IPv6StaticAddress) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6StaticAddress performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item, using the provided IPAddressesV115IPv6StaticAddress
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) MergeIPAddressesV115IPv6StaticAddress(v IPAddressesV115IPv6StaticAddress) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item as a EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1
+func (t EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) AsEthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1() (EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item as the provided EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) FromEthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1(v EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item, using the provided EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) MergeEthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1(v EthernetInterfaceV1122EthernetInterfaceIPv6StaticAddresses1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticAddresses_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115IPv6GatewayStaticAddress returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item as a IPAddressesV115IPv6GatewayStaticAddress
+func (t EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) AsIPAddressesV115IPv6GatewayStaticAddress() (IPAddressesV115IPv6GatewayStaticAddress, error) {
+	var body IPAddressesV115IPv6GatewayStaticAddress
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6GatewayStaticAddress overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item as the provided IPAddressesV115IPv6GatewayStaticAddress
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) FromIPAddressesV115IPv6GatewayStaticAddress(v IPAddressesV115IPv6GatewayStaticAddress) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6GatewayStaticAddress performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item, using the provided IPAddressesV115IPv6GatewayStaticAddress
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) MergeIPAddressesV115IPv6GatewayStaticAddress(v IPAddressesV115IPv6GatewayStaticAddress) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item as a EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1
+func (t EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) AsEthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1() (EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item as the provided EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) FromEthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1(v EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item, using the provided EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) MergeEthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1(v EthernetInterfaceV1122EthernetInterfaceIPv6StaticDefaultGateways1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_IPv6StaticDefaultGateways_Item) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122LinkStatus returns the union data inside the EthernetInterfaceV1122EthernetInterface_LinkStatus as a EthernetInterfaceV1122LinkStatus
+func (t EthernetInterfaceV1122EthernetInterface_LinkStatus) AsEthernetInterfaceV1122LinkStatus() (EthernetInterfaceV1122LinkStatus, error) {
+	var body EthernetInterfaceV1122LinkStatus
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122LinkStatus overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_LinkStatus as the provided EthernetInterfaceV1122LinkStatus
+func (t *EthernetInterfaceV1122EthernetInterface_LinkStatus) FromEthernetInterfaceV1122LinkStatus(v EthernetInterfaceV1122LinkStatus) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122LinkStatus performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_LinkStatus, using the provided EthernetInterfaceV1122LinkStatus
+func (t *EthernetInterfaceV1122EthernetInterface_LinkStatus) MergeEthernetInterfaceV1122LinkStatus(v EthernetInterfaceV1122LinkStatus) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceLinkStatus1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_LinkStatus as a EthernetInterfaceV1122EthernetInterfaceLinkStatus1
+func (t EthernetInterfaceV1122EthernetInterface_LinkStatus) AsEthernetInterfaceV1122EthernetInterfaceLinkStatus1() (EthernetInterfaceV1122EthernetInterfaceLinkStatus1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceLinkStatus1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceLinkStatus1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_LinkStatus as the provided EthernetInterfaceV1122EthernetInterfaceLinkStatus1
+func (t *EthernetInterfaceV1122EthernetInterface_LinkStatus) FromEthernetInterfaceV1122EthernetInterfaceLinkStatus1(v EthernetInterfaceV1122EthernetInterfaceLinkStatus1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceLinkStatus1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_LinkStatus, using the provided EthernetInterfaceV1122EthernetInterfaceLinkStatus1
+func (t *EthernetInterfaceV1122EthernetInterface_LinkStatus) MergeEthernetInterfaceV1122EthernetInterfaceLinkStatus1(v EthernetInterfaceV1122EthernetInterfaceLinkStatus1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_LinkStatus) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_LinkStatus) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122MACAddress returns the union data inside the EthernetInterfaceV1122EthernetInterface_MACAddress as a EthernetInterfaceV1122MACAddress
+func (t EthernetInterfaceV1122EthernetInterface_MACAddress) AsEthernetInterfaceV1122MACAddress() (EthernetInterfaceV1122MACAddress, error) {
+	var body EthernetInterfaceV1122MACAddress
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122MACAddress overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_MACAddress as the provided EthernetInterfaceV1122MACAddress
+func (t *EthernetInterfaceV1122EthernetInterface_MACAddress) FromEthernetInterfaceV1122MACAddress(v EthernetInterfaceV1122MACAddress) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122MACAddress performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_MACAddress, using the provided EthernetInterfaceV1122MACAddress
+func (t *EthernetInterfaceV1122EthernetInterface_MACAddress) MergeEthernetInterfaceV1122MACAddress(v EthernetInterfaceV1122MACAddress) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceMACAddress1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_MACAddress as a EthernetInterfaceV1122EthernetInterfaceMACAddress1
+func (t EthernetInterfaceV1122EthernetInterface_MACAddress) AsEthernetInterfaceV1122EthernetInterfaceMACAddress1() (EthernetInterfaceV1122EthernetInterfaceMACAddress1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceMACAddress1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceMACAddress1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_MACAddress as the provided EthernetInterfaceV1122EthernetInterfaceMACAddress1
+func (t *EthernetInterfaceV1122EthernetInterface_MACAddress) FromEthernetInterfaceV1122EthernetInterfaceMACAddress1(v EthernetInterfaceV1122EthernetInterfaceMACAddress1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceMACAddress1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_MACAddress, using the provided EthernetInterfaceV1122EthernetInterfaceMACAddress1
+func (t *EthernetInterfaceV1122EthernetInterface_MACAddress) MergeEthernetInterfaceV1122EthernetInterfaceMACAddress1(v EthernetInterfaceV1122EthernetInterfaceMACAddress1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_MACAddress) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_MACAddress) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122MACAddress returns the union data inside the EthernetInterfaceV1122EthernetInterface_PermanentMACAddress as a EthernetInterfaceV1122MACAddress
+func (t EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) AsEthernetInterfaceV1122MACAddress() (EthernetInterfaceV1122MACAddress, error) {
+	var body EthernetInterfaceV1122MACAddress
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122MACAddress overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_PermanentMACAddress as the provided EthernetInterfaceV1122MACAddress
+func (t *EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) FromEthernetInterfaceV1122MACAddress(v EthernetInterfaceV1122MACAddress) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122MACAddress performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_PermanentMACAddress, using the provided EthernetInterfaceV1122MACAddress
+func (t *EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) MergeEthernetInterfaceV1122MACAddress(v EthernetInterfaceV1122MACAddress) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfacePermanentMACAddress1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_PermanentMACAddress as a EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1
+func (t EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) AsEthernetInterfaceV1122EthernetInterfacePermanentMACAddress1() (EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1, error) {
+	var body EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfacePermanentMACAddress1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_PermanentMACAddress as the provided EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1
+func (t *EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) FromEthernetInterfaceV1122EthernetInterfacePermanentMACAddress1(v EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfacePermanentMACAddress1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_PermanentMACAddress, using the provided EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1
+func (t *EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) MergeEthernetInterfaceV1122EthernetInterfacePermanentMACAddress1(v EthernetInterfaceV1122EthernetInterfacePermanentMACAddress1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_PermanentMACAddress) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122RoutingScope returns the union data inside the EthernetInterfaceV1122EthernetInterface_RoutingScope as a EthernetInterfaceV1122RoutingScope
+func (t EthernetInterfaceV1122EthernetInterface_RoutingScope) AsEthernetInterfaceV1122RoutingScope() (EthernetInterfaceV1122RoutingScope, error) {
+	var body EthernetInterfaceV1122RoutingScope
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122RoutingScope overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_RoutingScope as the provided EthernetInterfaceV1122RoutingScope
+func (t *EthernetInterfaceV1122EthernetInterface_RoutingScope) FromEthernetInterfaceV1122RoutingScope(v EthernetInterfaceV1122RoutingScope) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122RoutingScope performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_RoutingScope, using the provided EthernetInterfaceV1122RoutingScope
+func (t *EthernetInterfaceV1122EthernetInterface_RoutingScope) MergeEthernetInterfaceV1122RoutingScope(v EthernetInterfaceV1122RoutingScope) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceRoutingScope1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_RoutingScope as a EthernetInterfaceV1122EthernetInterfaceRoutingScope1
+func (t EthernetInterfaceV1122EthernetInterface_RoutingScope) AsEthernetInterfaceV1122EthernetInterfaceRoutingScope1() (EthernetInterfaceV1122EthernetInterfaceRoutingScope1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceRoutingScope1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceRoutingScope1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_RoutingScope as the provided EthernetInterfaceV1122EthernetInterfaceRoutingScope1
+func (t *EthernetInterfaceV1122EthernetInterface_RoutingScope) FromEthernetInterfaceV1122EthernetInterfaceRoutingScope1(v EthernetInterfaceV1122EthernetInterfaceRoutingScope1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceRoutingScope1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_RoutingScope, using the provided EthernetInterfaceV1122EthernetInterfaceRoutingScope1
+func (t *EthernetInterfaceV1122EthernetInterface_RoutingScope) MergeEthernetInterfaceV1122EthernetInterfaceRoutingScope1(v EthernetInterfaceV1122EthernetInterfaceRoutingScope1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_RoutingScope) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_RoutingScope) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsEthernetInterfaceV1122TeamMode returns the union data inside the EthernetInterfaceV1122EthernetInterface_TeamMode as a EthernetInterfaceV1122TeamMode
+func (t EthernetInterfaceV1122EthernetInterface_TeamMode) AsEthernetInterfaceV1122TeamMode() (EthernetInterfaceV1122TeamMode, error) {
+	var body EthernetInterfaceV1122TeamMode
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122TeamMode overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_TeamMode as the provided EthernetInterfaceV1122TeamMode
+func (t *EthernetInterfaceV1122EthernetInterface_TeamMode) FromEthernetInterfaceV1122TeamMode(v EthernetInterfaceV1122TeamMode) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122TeamMode performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_TeamMode, using the provided EthernetInterfaceV1122TeamMode
+func (t *EthernetInterfaceV1122EthernetInterface_TeamMode) MergeEthernetInterfaceV1122TeamMode(v EthernetInterfaceV1122TeamMode) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122EthernetInterfaceTeamMode1 returns the union data inside the EthernetInterfaceV1122EthernetInterface_TeamMode as a EthernetInterfaceV1122EthernetInterfaceTeamMode1
+func (t EthernetInterfaceV1122EthernetInterface_TeamMode) AsEthernetInterfaceV1122EthernetInterfaceTeamMode1() (EthernetInterfaceV1122EthernetInterfaceTeamMode1, error) {
+	var body EthernetInterfaceV1122EthernetInterfaceTeamMode1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122EthernetInterfaceTeamMode1 overwrites any union data inside the EthernetInterfaceV1122EthernetInterface_TeamMode as the provided EthernetInterfaceV1122EthernetInterfaceTeamMode1
+func (t *EthernetInterfaceV1122EthernetInterface_TeamMode) FromEthernetInterfaceV1122EthernetInterfaceTeamMode1(v EthernetInterfaceV1122EthernetInterfaceTeamMode1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122EthernetInterfaceTeamMode1 performs a merge with any union data inside the EthernetInterfaceV1122EthernetInterface_TeamMode, using the provided EthernetInterfaceV1122EthernetInterfaceTeamMode1
+func (t *EthernetInterfaceV1122EthernetInterface_TeamMode) MergeEthernetInterfaceV1122EthernetInterfaceTeamMode1(v EthernetInterfaceV1122EthernetInterfaceTeamMode1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122EthernetInterface_TeamMode) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122EthernetInterface_TeamMode) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsOdataV4IdRef returns the union data inside the EthernetInterfaceV1122Links_NetworkDeviceFunction as a OdataV4IdRef
+func (t EthernetInterfaceV1122Links_NetworkDeviceFunction) AsOdataV4IdRef() (OdataV4IdRef, error) {
+	var body OdataV4IdRef
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromOdataV4IdRef overwrites any union data inside the EthernetInterfaceV1122Links_NetworkDeviceFunction as the provided OdataV4IdRef
+func (t *EthernetInterfaceV1122Links_NetworkDeviceFunction) FromOdataV4IdRef(v OdataV4IdRef) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeOdataV4IdRef performs a merge with any union data inside the EthernetInterfaceV1122Links_NetworkDeviceFunction, using the provided OdataV4IdRef
+func (t *EthernetInterfaceV1122Links_NetworkDeviceFunction) MergeOdataV4IdRef(v OdataV4IdRef) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsEthernetInterfaceV1122LinksNetworkDeviceFunction1 returns the union data inside the EthernetInterfaceV1122Links_NetworkDeviceFunction as a EthernetInterfaceV1122LinksNetworkDeviceFunction1
+func (t EthernetInterfaceV1122Links_NetworkDeviceFunction) AsEthernetInterfaceV1122LinksNetworkDeviceFunction1() (EthernetInterfaceV1122LinksNetworkDeviceFunction1, error) {
+	var body EthernetInterfaceV1122LinksNetworkDeviceFunction1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromEthernetInterfaceV1122LinksNetworkDeviceFunction1 overwrites any union data inside the EthernetInterfaceV1122Links_NetworkDeviceFunction as the provided EthernetInterfaceV1122LinksNetworkDeviceFunction1
+func (t *EthernetInterfaceV1122Links_NetworkDeviceFunction) FromEthernetInterfaceV1122LinksNetworkDeviceFunction1(v EthernetInterfaceV1122LinksNetworkDeviceFunction1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeEthernetInterfaceV1122LinksNetworkDeviceFunction1 performs a merge with any union data inside the EthernetInterfaceV1122Links_NetworkDeviceFunction, using the provided EthernetInterfaceV1122LinksNetworkDeviceFunction1
+func (t *EthernetInterfaceV1122Links_NetworkDeviceFunction) MergeEthernetInterfaceV1122LinksNetworkDeviceFunction1(v EthernetInterfaceV1122LinksNetworkDeviceFunction1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t EthernetInterfaceV1122Links_NetworkDeviceFunction) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *EthernetInterfaceV1122Links_NetworkDeviceFunction) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsResourceDescription returns the union data inside the FileShareCollectionFileShareCollection_Description as a ResourceDescription
 func (t FileShareCollectionFileShareCollection_Description) AsResourceDescription() (ResourceDescription, error) {
 	var body ResourceDescription
@@ -5189,6 +9662,440 @@ func (t FileSystemV141FileSystem_Metrics) MarshalJSON() ([]byte, error) {
 }
 
 func (t *FileSystemV141FileSystem_Metrics) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115IPv4AddressOrigin returns the union data inside the IPAddressesV115IPv4Address_AddressOrigin as a IPAddressesV115IPv4AddressOrigin
+func (t IPAddressesV115IPv4Address_AddressOrigin) AsIPAddressesV115IPv4AddressOrigin() (IPAddressesV115IPv4AddressOrigin, error) {
+	var body IPAddressesV115IPv4AddressOrigin
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv4AddressOrigin overwrites any union data inside the IPAddressesV115IPv4Address_AddressOrigin as the provided IPAddressesV115IPv4AddressOrigin
+func (t *IPAddressesV115IPv4Address_AddressOrigin) FromIPAddressesV115IPv4AddressOrigin(v IPAddressesV115IPv4AddressOrigin) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv4AddressOrigin performs a merge with any union data inside the IPAddressesV115IPv4Address_AddressOrigin, using the provided IPAddressesV115IPv4AddressOrigin
+func (t *IPAddressesV115IPv4Address_AddressOrigin) MergeIPAddressesV115IPv4AddressOrigin(v IPAddressesV115IPv4AddressOrigin) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsIPAddressesV115IPv4AddressAddressOrigin1 returns the union data inside the IPAddressesV115IPv4Address_AddressOrigin as a IPAddressesV115IPv4AddressAddressOrigin1
+func (t IPAddressesV115IPv4Address_AddressOrigin) AsIPAddressesV115IPv4AddressAddressOrigin1() (IPAddressesV115IPv4AddressAddressOrigin1, error) {
+	var body IPAddressesV115IPv4AddressAddressOrigin1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv4AddressAddressOrigin1 overwrites any union data inside the IPAddressesV115IPv4Address_AddressOrigin as the provided IPAddressesV115IPv4AddressAddressOrigin1
+func (t *IPAddressesV115IPv4Address_AddressOrigin) FromIPAddressesV115IPv4AddressAddressOrigin1(v IPAddressesV115IPv4AddressAddressOrigin1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv4AddressAddressOrigin1 performs a merge with any union data inside the IPAddressesV115IPv4Address_AddressOrigin, using the provided IPAddressesV115IPv4AddressAddressOrigin1
+func (t *IPAddressesV115IPv4Address_AddressOrigin) MergeIPAddressesV115IPv4AddressAddressOrigin1(v IPAddressesV115IPv4AddressAddressOrigin1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t IPAddressesV115IPv4Address_AddressOrigin) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *IPAddressesV115IPv4Address_AddressOrigin) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115SubnetMask returns the union data inside the IPAddressesV115IPv4Address_SubnetMask as a IPAddressesV115SubnetMask
+func (t IPAddressesV115IPv4Address_SubnetMask) AsIPAddressesV115SubnetMask() (IPAddressesV115SubnetMask, error) {
+	var body IPAddressesV115SubnetMask
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115SubnetMask overwrites any union data inside the IPAddressesV115IPv4Address_SubnetMask as the provided IPAddressesV115SubnetMask
+func (t *IPAddressesV115IPv4Address_SubnetMask) FromIPAddressesV115SubnetMask(v IPAddressesV115SubnetMask) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115SubnetMask performs a merge with any union data inside the IPAddressesV115IPv4Address_SubnetMask, using the provided IPAddressesV115SubnetMask
+func (t *IPAddressesV115IPv4Address_SubnetMask) MergeIPAddressesV115SubnetMask(v IPAddressesV115SubnetMask) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsIPAddressesV115IPv4AddressSubnetMask1 returns the union data inside the IPAddressesV115IPv4Address_SubnetMask as a IPAddressesV115IPv4AddressSubnetMask1
+func (t IPAddressesV115IPv4Address_SubnetMask) AsIPAddressesV115IPv4AddressSubnetMask1() (IPAddressesV115IPv4AddressSubnetMask1, error) {
+	var body IPAddressesV115IPv4AddressSubnetMask1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv4AddressSubnetMask1 overwrites any union data inside the IPAddressesV115IPv4Address_SubnetMask as the provided IPAddressesV115IPv4AddressSubnetMask1
+func (t *IPAddressesV115IPv4Address_SubnetMask) FromIPAddressesV115IPv4AddressSubnetMask1(v IPAddressesV115IPv4AddressSubnetMask1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv4AddressSubnetMask1 performs a merge with any union data inside the IPAddressesV115IPv4Address_SubnetMask, using the provided IPAddressesV115IPv4AddressSubnetMask1
+func (t *IPAddressesV115IPv4Address_SubnetMask) MergeIPAddressesV115IPv4AddressSubnetMask1(v IPAddressesV115IPv4AddressSubnetMask1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t IPAddressesV115IPv4Address_SubnetMask) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *IPAddressesV115IPv4Address_SubnetMask) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115IPv6AddressOrigin returns the union data inside the IPAddressesV115IPv6Address_AddressOrigin as a IPAddressesV115IPv6AddressOrigin
+func (t IPAddressesV115IPv6Address_AddressOrigin) AsIPAddressesV115IPv6AddressOrigin() (IPAddressesV115IPv6AddressOrigin, error) {
+	var body IPAddressesV115IPv6AddressOrigin
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6AddressOrigin overwrites any union data inside the IPAddressesV115IPv6Address_AddressOrigin as the provided IPAddressesV115IPv6AddressOrigin
+func (t *IPAddressesV115IPv6Address_AddressOrigin) FromIPAddressesV115IPv6AddressOrigin(v IPAddressesV115IPv6AddressOrigin) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6AddressOrigin performs a merge with any union data inside the IPAddressesV115IPv6Address_AddressOrigin, using the provided IPAddressesV115IPv6AddressOrigin
+func (t *IPAddressesV115IPv6Address_AddressOrigin) MergeIPAddressesV115IPv6AddressOrigin(v IPAddressesV115IPv6AddressOrigin) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsIPAddressesV115IPv6AddressAddressOrigin1 returns the union data inside the IPAddressesV115IPv6Address_AddressOrigin as a IPAddressesV115IPv6AddressAddressOrigin1
+func (t IPAddressesV115IPv6Address_AddressOrigin) AsIPAddressesV115IPv6AddressAddressOrigin1() (IPAddressesV115IPv6AddressAddressOrigin1, error) {
+	var body IPAddressesV115IPv6AddressAddressOrigin1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6AddressAddressOrigin1 overwrites any union data inside the IPAddressesV115IPv6Address_AddressOrigin as the provided IPAddressesV115IPv6AddressAddressOrigin1
+func (t *IPAddressesV115IPv6Address_AddressOrigin) FromIPAddressesV115IPv6AddressAddressOrigin1(v IPAddressesV115IPv6AddressAddressOrigin1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6AddressAddressOrigin1 performs a merge with any union data inside the IPAddressesV115IPv6Address_AddressOrigin, using the provided IPAddressesV115IPv6AddressAddressOrigin1
+func (t *IPAddressesV115IPv6Address_AddressOrigin) MergeIPAddressesV115IPv6AddressAddressOrigin1(v IPAddressesV115IPv6AddressAddressOrigin1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t IPAddressesV115IPv6Address_AddressOrigin) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *IPAddressesV115IPv6Address_AddressOrigin) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115AddressState returns the union data inside the IPAddressesV115IPv6Address_AddressState as a IPAddressesV115AddressState
+func (t IPAddressesV115IPv6Address_AddressState) AsIPAddressesV115AddressState() (IPAddressesV115AddressState, error) {
+	var body IPAddressesV115AddressState
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115AddressState overwrites any union data inside the IPAddressesV115IPv6Address_AddressState as the provided IPAddressesV115AddressState
+func (t *IPAddressesV115IPv6Address_AddressState) FromIPAddressesV115AddressState(v IPAddressesV115AddressState) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115AddressState performs a merge with any union data inside the IPAddressesV115IPv6Address_AddressState, using the provided IPAddressesV115AddressState
+func (t *IPAddressesV115IPv6Address_AddressState) MergeIPAddressesV115AddressState(v IPAddressesV115AddressState) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsIPAddressesV115IPv6AddressAddressState1 returns the union data inside the IPAddressesV115IPv6Address_AddressState as a IPAddressesV115IPv6AddressAddressState1
+func (t IPAddressesV115IPv6Address_AddressState) AsIPAddressesV115IPv6AddressAddressState1() (IPAddressesV115IPv6AddressAddressState1, error) {
+	var body IPAddressesV115IPv6AddressAddressState1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6AddressAddressState1 overwrites any union data inside the IPAddressesV115IPv6Address_AddressState as the provided IPAddressesV115IPv6AddressAddressState1
+func (t *IPAddressesV115IPv6Address_AddressState) FromIPAddressesV115IPv6AddressAddressState1(v IPAddressesV115IPv6AddressAddressState1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6AddressAddressState1 performs a merge with any union data inside the IPAddressesV115IPv6Address_AddressState, using the provided IPAddressesV115IPv6AddressAddressState1
+func (t *IPAddressesV115IPv6Address_AddressState) MergeIPAddressesV115IPv6AddressAddressState1(v IPAddressesV115IPv6AddressAddressState1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t IPAddressesV115IPv6Address_AddressState) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *IPAddressesV115IPv6Address_AddressState) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115PrefixLength returns the union data inside the IPAddressesV115IPv6Address_PrefixLength as a IPAddressesV115PrefixLength
+func (t IPAddressesV115IPv6Address_PrefixLength) AsIPAddressesV115PrefixLength() (IPAddressesV115PrefixLength, error) {
+	var body IPAddressesV115PrefixLength
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115PrefixLength overwrites any union data inside the IPAddressesV115IPv6Address_PrefixLength as the provided IPAddressesV115PrefixLength
+func (t *IPAddressesV115IPv6Address_PrefixLength) FromIPAddressesV115PrefixLength(v IPAddressesV115PrefixLength) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115PrefixLength performs a merge with any union data inside the IPAddressesV115IPv6Address_PrefixLength, using the provided IPAddressesV115PrefixLength
+func (t *IPAddressesV115IPv6Address_PrefixLength) MergeIPAddressesV115PrefixLength(v IPAddressesV115PrefixLength) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsIPAddressesV115IPv6AddressPrefixLength1 returns the union data inside the IPAddressesV115IPv6Address_PrefixLength as a IPAddressesV115IPv6AddressPrefixLength1
+func (t IPAddressesV115IPv6Address_PrefixLength) AsIPAddressesV115IPv6AddressPrefixLength1() (IPAddressesV115IPv6AddressPrefixLength1, error) {
+	var body IPAddressesV115IPv6AddressPrefixLength1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6AddressPrefixLength1 overwrites any union data inside the IPAddressesV115IPv6Address_PrefixLength as the provided IPAddressesV115IPv6AddressPrefixLength1
+func (t *IPAddressesV115IPv6Address_PrefixLength) FromIPAddressesV115IPv6AddressPrefixLength1(v IPAddressesV115IPv6AddressPrefixLength1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6AddressPrefixLength1 performs a merge with any union data inside the IPAddressesV115IPv6Address_PrefixLength, using the provided IPAddressesV115IPv6AddressPrefixLength1
+func (t *IPAddressesV115IPv6Address_PrefixLength) MergeIPAddressesV115IPv6AddressPrefixLength1(v IPAddressesV115IPv6AddressPrefixLength1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t IPAddressesV115IPv6Address_PrefixLength) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *IPAddressesV115IPv6Address_PrefixLength) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115PrefixLength returns the union data inside the IPAddressesV115IPv6GatewayStaticAddress_PrefixLength as a IPAddressesV115PrefixLength
+func (t IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) AsIPAddressesV115PrefixLength() (IPAddressesV115PrefixLength, error) {
+	var body IPAddressesV115PrefixLength
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115PrefixLength overwrites any union data inside the IPAddressesV115IPv6GatewayStaticAddress_PrefixLength as the provided IPAddressesV115PrefixLength
+func (t *IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) FromIPAddressesV115PrefixLength(v IPAddressesV115PrefixLength) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115PrefixLength performs a merge with any union data inside the IPAddressesV115IPv6GatewayStaticAddress_PrefixLength, using the provided IPAddressesV115PrefixLength
+func (t *IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) MergeIPAddressesV115PrefixLength(v IPAddressesV115PrefixLength) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsIPAddressesV115IPv6GatewayStaticAddressPrefixLength1 returns the union data inside the IPAddressesV115IPv6GatewayStaticAddress_PrefixLength as a IPAddressesV115IPv6GatewayStaticAddressPrefixLength1
+func (t IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) AsIPAddressesV115IPv6GatewayStaticAddressPrefixLength1() (IPAddressesV115IPv6GatewayStaticAddressPrefixLength1, error) {
+	var body IPAddressesV115IPv6GatewayStaticAddressPrefixLength1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6GatewayStaticAddressPrefixLength1 overwrites any union data inside the IPAddressesV115IPv6GatewayStaticAddress_PrefixLength as the provided IPAddressesV115IPv6GatewayStaticAddressPrefixLength1
+func (t *IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) FromIPAddressesV115IPv6GatewayStaticAddressPrefixLength1(v IPAddressesV115IPv6GatewayStaticAddressPrefixLength1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6GatewayStaticAddressPrefixLength1 performs a merge with any union data inside the IPAddressesV115IPv6GatewayStaticAddress_PrefixLength, using the provided IPAddressesV115IPv6GatewayStaticAddressPrefixLength1
+func (t *IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) MergeIPAddressesV115IPv6GatewayStaticAddressPrefixLength1(v IPAddressesV115IPv6GatewayStaticAddressPrefixLength1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *IPAddressesV115IPv6GatewayStaticAddress_PrefixLength) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsIPAddressesV115PrefixLength returns the union data inside the IPAddressesV115IPv6StaticAddress_PrefixLength as a IPAddressesV115PrefixLength
+func (t IPAddressesV115IPv6StaticAddress_PrefixLength) AsIPAddressesV115PrefixLength() (IPAddressesV115PrefixLength, error) {
+	var body IPAddressesV115PrefixLength
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115PrefixLength overwrites any union data inside the IPAddressesV115IPv6StaticAddress_PrefixLength as the provided IPAddressesV115PrefixLength
+func (t *IPAddressesV115IPv6StaticAddress_PrefixLength) FromIPAddressesV115PrefixLength(v IPAddressesV115PrefixLength) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115PrefixLength performs a merge with any union data inside the IPAddressesV115IPv6StaticAddress_PrefixLength, using the provided IPAddressesV115PrefixLength
+func (t *IPAddressesV115IPv6StaticAddress_PrefixLength) MergeIPAddressesV115PrefixLength(v IPAddressesV115PrefixLength) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsIPAddressesV115IPv6StaticAddressPrefixLength1 returns the union data inside the IPAddressesV115IPv6StaticAddress_PrefixLength as a IPAddressesV115IPv6StaticAddressPrefixLength1
+func (t IPAddressesV115IPv6StaticAddress_PrefixLength) AsIPAddressesV115IPv6StaticAddressPrefixLength1() (IPAddressesV115IPv6StaticAddressPrefixLength1, error) {
+	var body IPAddressesV115IPv6StaticAddressPrefixLength1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromIPAddressesV115IPv6StaticAddressPrefixLength1 overwrites any union data inside the IPAddressesV115IPv6StaticAddress_PrefixLength as the provided IPAddressesV115IPv6StaticAddressPrefixLength1
+func (t *IPAddressesV115IPv6StaticAddress_PrefixLength) FromIPAddressesV115IPv6StaticAddressPrefixLength1(v IPAddressesV115IPv6StaticAddressPrefixLength1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeIPAddressesV115IPv6StaticAddressPrefixLength1 performs a merge with any union data inside the IPAddressesV115IPv6StaticAddress_PrefixLength, using the provided IPAddressesV115IPv6StaticAddressPrefixLength1
+func (t *IPAddressesV115IPv6StaticAddress_PrefixLength) MergeIPAddressesV115IPv6StaticAddressPrefixLength1(v IPAddressesV115IPv6StaticAddressPrefixLength1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t IPAddressesV115IPv6StaticAddress_PrefixLength) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *IPAddressesV115IPv6StaticAddress_PrefixLength) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -7855,6 +12762,130 @@ func (t StorageServiceV170StorageService_Metrics) MarshalJSON() ([]byte, error) 
 }
 
 func (t *StorageServiceV170StorageService_Metrics) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsVLanNetworkInterfaceV131VLANId returns the union data inside the VLanNetworkInterfaceV131VLAN_VLANId as a VLanNetworkInterfaceV131VLANId
+func (t VLanNetworkInterfaceV131VLAN_VLANId) AsVLanNetworkInterfaceV131VLANId() (VLanNetworkInterfaceV131VLANId, error) {
+	var body VLanNetworkInterfaceV131VLANId
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromVLanNetworkInterfaceV131VLANId overwrites any union data inside the VLanNetworkInterfaceV131VLAN_VLANId as the provided VLanNetworkInterfaceV131VLANId
+func (t *VLanNetworkInterfaceV131VLAN_VLANId) FromVLanNetworkInterfaceV131VLANId(v VLanNetworkInterfaceV131VLANId) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeVLanNetworkInterfaceV131VLANId performs a merge with any union data inside the VLanNetworkInterfaceV131VLAN_VLANId, using the provided VLanNetworkInterfaceV131VLANId
+func (t *VLanNetworkInterfaceV131VLAN_VLANId) MergeVLanNetworkInterfaceV131VLANId(v VLanNetworkInterfaceV131VLANId) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsVLanNetworkInterfaceV131VLANVLANId1 returns the union data inside the VLanNetworkInterfaceV131VLAN_VLANId as a VLanNetworkInterfaceV131VLANVLANId1
+func (t VLanNetworkInterfaceV131VLAN_VLANId) AsVLanNetworkInterfaceV131VLANVLANId1() (VLanNetworkInterfaceV131VLANVLANId1, error) {
+	var body VLanNetworkInterfaceV131VLANVLANId1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromVLanNetworkInterfaceV131VLANVLANId1 overwrites any union data inside the VLanNetworkInterfaceV131VLAN_VLANId as the provided VLanNetworkInterfaceV131VLANVLANId1
+func (t *VLanNetworkInterfaceV131VLAN_VLANId) FromVLanNetworkInterfaceV131VLANVLANId1(v VLanNetworkInterfaceV131VLANVLANId1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeVLanNetworkInterfaceV131VLANVLANId1 performs a merge with any union data inside the VLanNetworkInterfaceV131VLAN_VLANId, using the provided VLanNetworkInterfaceV131VLANVLANId1
+func (t *VLanNetworkInterfaceV131VLAN_VLANId) MergeVLanNetworkInterfaceV131VLANVLANId1(v VLanNetworkInterfaceV131VLANVLANId1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t VLanNetworkInterfaceV131VLAN_VLANId) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *VLanNetworkInterfaceV131VLAN_VLANId) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsVLanNetworkInterfaceV131VLANPriority returns the union data inside the VLanNetworkInterfaceV131VLAN_VLANPriority as a VLanNetworkInterfaceV131VLANPriority
+func (t VLanNetworkInterfaceV131VLAN_VLANPriority) AsVLanNetworkInterfaceV131VLANPriority() (VLanNetworkInterfaceV131VLANPriority, error) {
+	var body VLanNetworkInterfaceV131VLANPriority
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromVLanNetworkInterfaceV131VLANPriority overwrites any union data inside the VLanNetworkInterfaceV131VLAN_VLANPriority as the provided VLanNetworkInterfaceV131VLANPriority
+func (t *VLanNetworkInterfaceV131VLAN_VLANPriority) FromVLanNetworkInterfaceV131VLANPriority(v VLanNetworkInterfaceV131VLANPriority) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeVLanNetworkInterfaceV131VLANPriority performs a merge with any union data inside the VLanNetworkInterfaceV131VLAN_VLANPriority, using the provided VLanNetworkInterfaceV131VLANPriority
+func (t *VLanNetworkInterfaceV131VLAN_VLANPriority) MergeVLanNetworkInterfaceV131VLANPriority(v VLanNetworkInterfaceV131VLANPriority) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsVLanNetworkInterfaceV131VLANVLANPriority1 returns the union data inside the VLanNetworkInterfaceV131VLAN_VLANPriority as a VLanNetworkInterfaceV131VLANVLANPriority1
+func (t VLanNetworkInterfaceV131VLAN_VLANPriority) AsVLanNetworkInterfaceV131VLANVLANPriority1() (VLanNetworkInterfaceV131VLANVLANPriority1, error) {
+	var body VLanNetworkInterfaceV131VLANVLANPriority1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromVLanNetworkInterfaceV131VLANVLANPriority1 overwrites any union data inside the VLanNetworkInterfaceV131VLAN_VLANPriority as the provided VLanNetworkInterfaceV131VLANVLANPriority1
+func (t *VLanNetworkInterfaceV131VLAN_VLANPriority) FromVLanNetworkInterfaceV131VLANVLANPriority1(v VLanNetworkInterfaceV131VLANVLANPriority1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeVLanNetworkInterfaceV131VLANVLANPriority1 performs a merge with any union data inside the VLanNetworkInterfaceV131VLAN_VLANPriority, using the provided VLanNetworkInterfaceV131VLANVLANPriority1
+func (t *VLanNetworkInterfaceV131VLAN_VLANPriority) MergeVLanNetworkInterfaceV131VLANVLANPriority1(v VLanNetworkInterfaceV131VLANVLANPriority1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t VLanNetworkInterfaceV131VLAN_VLANPriority) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *VLanNetworkInterfaceV131VLAN_VLANPriority) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
