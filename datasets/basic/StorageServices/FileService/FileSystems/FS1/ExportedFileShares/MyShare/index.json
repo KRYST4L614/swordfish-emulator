@@ -5,7 +5,7 @@
     "Description": "My File Share.",
     "FileSharePath": "/Shares/MyShare",
     "FileSharingProtocols": [
-        "SMBv3_1_1"
+        "NFSv4_0"
     ],
     "Status": {
         "State": "Enabled",
@@ -20,6 +20,9 @@
     "ExecuteSupport": true,
     "RootAccess": true,
     "CASupported": true,
+    "EthernetInterfaces": {
+        "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces/1"
+    },
     "Links": {
         "FileSystem": {
             "@odata.id": "/redfish/v1/StorageServices/FileService/FileSystems/FS1"

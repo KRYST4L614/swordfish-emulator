@@ -51,7 +51,7 @@ func (handler *StorageServiceCollectionHandler) createStorageService(writer http
 	// TODO: Need to be removed when modules handle creation in right way for clearer dataflow.
 
 	slog.Info("StorageServieCollection uri: " + request.RequestURI)
-	pool, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
+	createdStorageService, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            storageService.Name,
 		Id:              storageService.Id,
 		OdataType:       "#StorageServiceCollection.StorageServiceCollection",
@@ -71,5 +71,5 @@ func (handler *StorageServiceCollectionHandler) createStorageService(writer http
 		return
 	}
 	writer.WriteHeader(http.StatusCreated)
-	util.WriteJSON(writer, pool)
+	util.WriteJSON(writer, createdStorageService)
 }

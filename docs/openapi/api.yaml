@@ -29,4 +29,12 @@ components:
       $ref: ./FileShareCollection.yaml#/components/schemas/FileShareCollection_FileShareCollection
     FileShare:
       $ref: ./FileShare.yaml#/components/schemas/FileShare_FileShare
+    EthernetInterfaceCollection:
+      $ref: ./EthernetInterfaceCollection.yaml#/components/schemas/EthernetInterfaceCollection_EthernetInterfaceCollection
+    EthernetInterface:
+      $ref: ./EthernetInterface.yaml#/components/schemas/EthernetInterface_EthernetInterface
+    ComputerSystemCollection:
+      $ref: ./ComputerSystemCollection.yaml#/components/schemas/ComputerSystemCollection_ComputerSystemCollection
+    ComputerSystem:
+      $ref: ./ComputerSystem.yaml#/components/schemas/ComputerSystem_ComputerSystem
     

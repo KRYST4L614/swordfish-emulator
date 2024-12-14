@@ -51,10 +51,10 @@ func (handler *FileSystemCollectionHandler) createFileSystem(writer http.Respons
 	// TODO: Need to be removed when modules handle creation in right way for clearer dataflow.
 
 	slog.Info("FileSystemCollection uri: " + request.RequestURI)
-	pool, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
+	createdFileSystem, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            fileSystem.Name,
 		Id:              fileSystem.Id,
-		OdataType:       "#FileSystem.FileSystem",
+		OdataType:       "#FileSystem.v1_4_0.FileSystem",
 		Resource:        fileSystem,
 		IdSetter:        func(id string) { fileSystem.Id = id },
 		OdataIdSetter:   func(odataId string) { fileSystem.OdataId = &odataId },
@@ -71,5 +71,5 @@ func (handler *FileSystemCollectionHandler) createFileSystem(writer http.Respons
 		return
 	}
 	writer.WriteHeader(http.StatusCreated)
-	util.WriteJSON(writer, pool)
+	util.WriteJSON(writer, createdFileSystem)
 }
