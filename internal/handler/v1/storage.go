@@ -42,8 +42,6 @@ func (handler *StorageHandler) replaceStorage(writer http.ResponseWriter, reques
 		return
 	}
 
-	// TODO: Add validation on incoming resource
-
 	storageId := request.RequestURI
 	storage.Id = filepath.Base(storageId)
 	*storage.OdataId = storageId

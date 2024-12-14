@@ -40,8 +40,6 @@ func (handler *VolumeCollectionHandler) createVolume(writer http.ResponseWriter,
 		return
 	}
 
-	// TODO: Add validation on incoming resource
-
 	// Only for compatibility with official Swordfish Emulator.
 	// TODO: Need to be removed when modules handle creation in right way for clearer dataflow.
 	contextId := request.Context().Value(idContext)

@@ -21,6 +21,7 @@ import (
 type MockResourceRepository struct {
 	ctrl     *gomock.Controller
 	recorder *MockResourceRepositoryMockRecorder
+	isgomock struct{}
 }
 
 // MockResourceRepositoryMockRecorder is the mock recorder for MockResourceRepository.
@@ -41,86 +42,86 @@ func (m *MockResourceRepository) EXPECT() *MockResourceRepositoryMockRecorder {
 }
 
 // Create mocks base method.
-func (m *MockResourceRepository) Create(arg0 context.Context, arg1 *dto.ResourceDto) error {
+func (m *MockResourceRepository) Create(ctx context.Context, resource *dto.ResourceDto) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Create", arg0, arg1)
+	ret := m.ctrl.Call(m, "Create", ctx, resource)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // Create indicates an expected call of Create.
-func (mr *MockResourceRepositoryMockRecorder) Create(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceRepositoryMockRecorder) Create(ctx, resource any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockResourceRepository)(nil).Create), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockResourceRepository)(nil).Create), ctx, resource)
 }
 
 // DeleteAll mocks base method.
-func (m *MockResourceRepository) DeleteAll(arg0 context.Context) error {
+func (m *MockResourceRepository) DeleteAll(ctx context.Context) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "DeleteAll", arg0)
+	ret := m.ctrl.Call(m, "DeleteAll", ctx)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // DeleteAll indicates an expected call of DeleteAll.
-func (mr *MockResourceRepositoryMockRecorder) DeleteAll(arg0 any) *gomock.Call {
+func (mr *MockResourceRepositoryMockRecorder) DeleteAll(ctx any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteAll", reflect.TypeOf((*MockResourceRepository)(nil).DeleteAll), arg0)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteAll", reflect.TypeOf((*MockResourceRepository)(nil).DeleteAll), ctx)
 }
 
 // DeleteById mocks base method.
-func (m *MockResourceRepository) DeleteById(arg0 context.Context, arg1 string) error {
+func (m *MockResourceRepository) DeleteById(ctx context.Context, id string) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "DeleteById", arg0, arg1)
+	ret := m.ctrl.Call(m, "DeleteById", ctx, id)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // DeleteById indicates an expected call of DeleteById.
-func (mr *MockResourceRepositoryMockRecorder) DeleteById(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceRepositoryMockRecorder) DeleteById(ctx, id any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteById", reflect.TypeOf((*MockResourceRepository)(nil).DeleteById), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteById", reflect.TypeOf((*MockResourceRepository)(nil).DeleteById), ctx, id)
 }
 
 // DeleteStartsWith mocks base method.
-func (m *MockResourceRepository) DeleteStartsWith(arg0 context.Context, arg1 string) error {
+func (m *MockResourceRepository) DeleteStartsWith(ctx context.Context, prefix string) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "DeleteStartsWith", arg0, arg1)
+	ret := m.ctrl.Call(m, "DeleteStartsWith", ctx, prefix)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // DeleteStartsWith indicates an expected call of DeleteStartsWith.
-func (mr *MockResourceRepositoryMockRecorder) DeleteStartsWith(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceRepositoryMockRecorder) DeleteStartsWith(ctx, prefix any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteStartsWith", reflect.TypeOf((*MockResourceRepository)(nil).DeleteStartsWith), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteStartsWith", reflect.TypeOf((*MockResourceRepository)(nil).DeleteStartsWith), ctx, prefix)
 }
 
 // Get mocks base method.
-func (m *MockResourceRepository) Get(arg0 context.Context, arg1 string) (*dto.ResourceDto, error) {
+func (m *MockResourceRepository) Get(ctx context.Context, id string) (*dto.ResourceDto, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Get", arg0, arg1)
+	ret := m.ctrl.Call(m, "Get", ctx, id)
 	ret0, _ := ret[0].(*dto.ResourceDto)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Get indicates an expected call of Get.
-func (mr *MockResourceRepositoryMockRecorder) Get(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceRepositoryMockRecorder) Get(ctx, id any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockResourceRepository)(nil).Get), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockResourceRepository)(nil).Get), ctx, id)
 }
 
 // Update mocks base method.
-func (m *MockResourceRepository) Update(arg0 context.Context, arg1 *dto.ResourceDto) error {
+func (m *MockResourceRepository) Update(ctx context.Context, resource *dto.ResourceDto) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Update", arg0, arg1)
+	ret := m.ctrl.Call(m, "Update", ctx, resource)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // Update indicates an expected call of Update.
-func (mr *MockResourceRepositoryMockRecorder) Update(arg0, arg1 any) *gomock.Call {
+func (mr *MockResourceRepositoryMockRecorder) Update(ctx, resource any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockResourceRepository)(nil).Update), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockResourceRepository)(nil).Update), ctx, resource)
 }

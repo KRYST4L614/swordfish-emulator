@@ -58,7 +58,6 @@ func (handler *StoragePoolCollectionHandler) createStoragePool(writer http.Respo
 		storagePool.Id = contextId.(string)
 	}
 
-	// TODO: Add validation on incoming resource
 	slog.Info("Pool uri: " + request.RequestURI)
 	pool, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            storagePool.Name,

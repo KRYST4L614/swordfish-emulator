@@ -3,6 +3,9 @@ package service
 import (
 	"context"
 	"errors"
+	"fmt"
+	"log/slog"
+	"reflect"
 	"slices"
 
 	jsonpatch "github.com/evanphx/json-patch"
@@ -106,12 +109,20 @@ func (r *resourceService) Update(ctx context.Context, resourceId string, patchDa
 	}
 
 	resourceDto.Data = patchedData
-	err = r.repo.Update(ctx, resourceDto)
+
+	resource, err := util.Unmarshal[interface{}](resourceDto.Data)
 	if err != nil {
 		return nil, err
 	}
 
-	resource, err := util.Unmarshal[interface{}](resourceDto.Data)
+	//TODO: Remake signature of Update method
+
+	// err = validate(r, ctx, resource)
+	// if err != nil {
+	// 	return nil, err
+	// }
+
+	err = r.repo.Update(ctx, resourceDto)
 	if err != nil {
 		return nil, err
 	}
@@ -121,6 +132,11 @@ func (r *resourceService) Update(ctx context.Context, resourceId string, patchDa
 
 // Replace - replaces old resources placed by 'resourceId' with new provided data
 func (r *resourceService) Replace(ctx context.Context, resourceId string, resource interface{}) (interface{}, error) {
+	//err := validate(r, ctx, resource)
+	// if err != nil {
+	// 	return nil, err
+	// }
+
 	_, err := r.Delete(ctx, resourceId)
 	if err != nil {
 		return nil, err
@@ -160,6 +176,11 @@ func (r *resourceService) Delete(ctx context.Context, resourceId string) (interf
 // AddResourceToCollection adds new resource in provided collection
 func (r *resourceService) AddResourceToCollection(ctx context.Context, resourceDto dto.ResourceRequestDto) (interface{}, error) {
 	collection, err := getResource[collection](r.repo, ctx, resourceDto.Collection.OdataId)
+	if err != nil {
+		return nil, err
+	}
+
+	err = validate(r, ctx, resourceDto.Resource)
 
 	switch {
 	case err == nil:
@@ -269,4 +290,47 @@ func getResource[T any](r repository.ResourceRepository, ctx context.Context, id
 	}
 
 	return resource, nil
+}
+
+func validate(service ResourceService, context context.Context, resource any) error {
+	v := reflect.TypeOf(resource).Elem()
+	numFields := v.NumField()
+	for i := 0; i < numFields; i++ {
+		field := v.Field(i)
+		if field.Type.String() == "*[]domain.OdataV4IdRef" {
+			value := reflect.ValueOf(resource).Elem()
+			fieldValue := value.FieldByName(field.Name).Interface()
+			ids, ok := fieldValue.(*[]domain.OdataV4IdRef)
+			if !ok {
+				return errlib.ErrInternal
+			}
+			if ids == nil {
+				continue
+			}
+			for _, i := range *ids {
+				_, err := service.Get(context, *i.OdataId)
+				if err != nil {
+					return fmt.Errorf("validation resource error: %w", err)
+				}
+			}
+		}
+
+		if field.Type.String() == "*domain.OdataV4IdRef" {
+			value := reflect.ValueOf(resource).Elem()
+			fieldValue := value.FieldByName(field.Name).Interface()
+			id, ok := fieldValue.(*domain.OdataV4IdRef)
+			if !ok {
+				return errlib.ErrInternal
+			}
+			if id == nil {
+				continue
+			}
+			_, err := service.Get(context, *id.OdataId)
+			slog.Info(*id.OdataId)
+			if err != nil {
+				return fmt.Errorf("validation resource error: %w", err)
+			}
+		}
+	}
+	return nil
 }
