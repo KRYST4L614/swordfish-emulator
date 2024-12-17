@@ -3,7 +3,7 @@
     "Id": "MyShare",
     "Name": "MyShare",
     "Description": "My File Share.",
-    "FileSharePath": "/Shares/MyShare",
+    "FileSharePath": "/srv/nfs_share",
     "FileSharingProtocols": [
         "NFSv4_0"
     ],
