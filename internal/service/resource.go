@@ -175,12 +175,15 @@ func (r *resourceService) Delete(ctx context.Context, resourceId string) (interf
 
 // AddResourceToCollection adds new resource in provided collection
 func (r *resourceService) AddResourceToCollection(ctx context.Context, resourceDto dto.ResourceRequestDto) (interface{}, error) {
+
+	err := validate(r, ctx, resourceDto.Resource)
+	if err != nil {
+		return nil, err
+	}
 	collection, err := getResource[collection](r.repo, ctx, resourceDto.Collection.OdataId)
 	if err != nil {
 		return nil, err
 	}
-
-	err = validate(r, ctx, resourceDto.Resource)
 
 	switch {
 	case err == nil:
@@ -274,6 +277,7 @@ func (r *resourceService) populateResource(count int64, resourceDto dto.Resource
 	odataId := resourceDto.Collection.OdataId + "/" + resourceDto.Id
 	resourceDto.OdataIdSetter(odataId)
 	resourceDto.OdataTypeSetter(resourceDto.OdataType)
+	fmt.Println(odataId)
 
 	return odataId, nil
 }
@@ -310,7 +314,7 @@ func validate(service ResourceService, context context.Context, resource any) er
 			for _, i := range *ids {
 				_, err := service.Get(context, *i.OdataId)
 				if err != nil {
-					return fmt.Errorf("validation resource error: %w", err)
+					return fmt.Errorf("%w: validation resource error %v", errlib.ErrBadRequest, err.Error())
 				}
 			}
 		}
@@ -328,7 +332,7 @@ func validate(service ResourceService, context context.Context, resource any) er
 			_, err := service.Get(context, *id.OdataId)
 			slog.Info(*id.OdataId)
 			if err != nil {
-				return fmt.Errorf("validation resource error: %w", err)
+				return fmt.Errorf("%w: validation resource error %v", errlib.ErrBadRequest, err.Error())
 			}
 		}
 	}
