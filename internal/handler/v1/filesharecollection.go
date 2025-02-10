@@ -113,18 +113,31 @@ func mountFS(fileShare domain.FileShare, ip string) error {
 		return err
 	}
 
-	if err := configureNFSExport(*fileShare.FileSharePath, ip); err != nil {
-		if isNew {
-			removeDirectory(*fileShare.FileSharePath)
+	if err = configureNFSExport(*fileShare.FileSharePath, ip); err != nil && isNew {
+		if removeError := removeDirectory(*fileShare.FileSharePath); removeError != nil {
+			return removeError
 		}
 		return err
 	}
 
-	if err := exportFS(); err != nil {
-		if isNew {
-			removeDirectory(*fileShare.FileSharePath)
+	if err != nil {
+		return err
+	}
+
+	if err := exportFS(); err != nil && isNew {
+		if removeError := removeDirectory(*fileShare.FileSharePath); removeError != nil {
+			return removeError
 		}
-		clearNFSExport()
+		if clearError := clearNFSExport(); clearError != nil {
+			return clearError
+		}
+		return err
+	}
+
+	if err != nil {
+		if clearError := clearNFSExport(); clearError != nil {
+			return clearError
+		}
 		return err
 	}
 
