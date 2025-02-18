@@ -13,7 +13,28 @@ components:
       $ref: ./StoragePool.yaml#/components/schemas/StoragePool_StoragePool
     StoragePoolCollection:
       $ref: ./StoragePoolCollection.yaml#/components/schemas/StoragePoolCollection_StoragePoolCollection
+    StorageServiceCollection:
+      $ref: ./StorageServiceCollection.yaml#/components/schemas/StorageServiceCollection_StorageServiceCollection
+    StorageService:
+      $ref: ./StorageService.yaml#/components/schemas/StorageService_StorageService
     Volume:
       $ref: ./Volume.yaml#/components/schemas/Volume_Volume
     VolumeCollection:
       $ref: ./VolumeCollection.yaml#/components/schemas/VolumeCollection_VolumeCollection
+    FileSystemCollection:
+      $ref: ./FileSystemCollection.yaml#/components/schemas/FileSystemCollection_FileSystemCollection
+    FileSystem:
+      $ref: ./FileSystem.yaml#/components/schemas/FileSystem_FileSystem
+    FileShareCollection:
+      $ref: ./FileShareCollection.yaml#/components/schemas/FileShareCollection_FileShareCollection
+    FileShare:
+      $ref: ./FileShare.yaml#/components/schemas/FileShare_FileShare
+    EthernetInterfaceCollection:
+      $ref: ./EthernetInterfaceCollection.yaml#/components/schemas/EthernetInterfaceCollection_EthernetInterfaceCollection
+    EthernetInterface:
+      $ref: ./EthernetInterface.yaml#/components/schemas/EthernetInterface_EthernetInterface
+    ComputerSystemCollection:
+      $ref: ./ComputerSystemCollection.yaml#/components/schemas/ComputerSystemCollection_ComputerSystemCollection
+    ComputerSystem:
+      $ref: ./ComputerSystem.yaml#/components/schemas/ComputerSystem_ComputerSystem
+    

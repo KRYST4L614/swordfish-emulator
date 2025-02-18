@@ -1,0 +1,45 @@
+{
+    "@odata.type": "#FileSystem.v1_4_0.FileSystem",
+    "Id": "FS1",
+    "Name": "Root",
+    "Description": "Root FileSystem, not replicated.",
+    "BlockSizeBytes": 8192,
+    "Capacity": {
+        "Data": {
+            "ConsumedBytes": 500000000000,
+            "AllocatedBytes": 1000000000000,
+            "ProvisionedBytes": 3000000000000
+        },
+        "Metadata": {
+            "ConsumedBytes": 0,
+            "AllocatedBytes": 0,
+            "ProvisionedBytes": 0
+        },
+        "Snapshot": {
+            "ConsumedBytes": 0,
+            "AllocatedBytes": 0,
+            "ProvisionedBytes": 0
+        }
+    },
+    "LowSpaceWarningThresholdPercents": [
+        60,
+        90
+    ],
+    "AccessCapabilities": [
+        "Read",
+        "Write"
+    ],
+    "CaseSensitive": false,
+    "CasePreserved": false,
+    "CharacterCodeSet": [
+        "ASCII",
+        "Unicode"
+    ],
+    "MaxFileNameLengthBytes": 256,
+    "ClusterSizeBytes": 256,
+    "ExportedShares": {
+        "@odata.id": "/redfish/v1/StorageServices/FileService/FileSystems/FS1/ExportedFileShares"
+    },
+    "@odata.id": "/redfish/v1/StorageServices/FileService/FileSystems/FS1",
+    "@Redfish.Copyright": "Copyright 2015-2024 SNIA. All rights reserved."
+}

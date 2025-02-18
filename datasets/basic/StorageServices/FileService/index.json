@@ -1,0 +1,20 @@
+{
+    "@odata.type": "#StorageService.v1_7_0.StorageService",
+    "Id": "1",
+    "Name": "My Storage Service",
+    "Description": "Description of storage",
+    "Identifier": {
+        "DurableName": "4289a3dd-ba52-41b8-9d3d-38de196e071c",
+        "DurableNameFormat": "UUID"
+    },
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "FileSystems": {
+        "@odata.id": "/redfish/v1/StorageServices/FileService/FileSystems"
+    },
+    "Oem": {},
+    "@odata.id": "/redfish/v1/StorageServices/FileService",
+    "@Redfish.Copyright": "Copyright 2015-2024 SNIA. All rights reserved."
+}

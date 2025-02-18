@@ -1,0 +1,56 @@
+{
+    "@odata.type": "#ComputerSystem.v1_18_0.ComputerSystem",
+    "Id": "FileServer",
+    "Name": "My File Server",
+    "SystemType": "Physical",
+    "AssetTag": "free form asset tag",
+    "Manufacturer": "Manufacturer Name",
+    "Model": "Model Name",
+    "SKU": "N/A",
+    "SerialNumber": "2M220100SL",
+    "PartNumber": "N/A",
+    "Description": "Description of server",
+    "UUID": "00000000-0000-0000-0000-000000000000",
+    "HostName": "web-srv344",
+    "HostingRoles": [
+        "StorageServer"
+    ],
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "PowerState": "On",
+    "Boot": {
+        "BootSourceOverrideEnabled": "Once",
+        "BootSourceOverrideTarget": "Pxe",
+        "BootSourceOverrideTarget@Redfish.AllowableValues": [
+            "None",
+            "BiosSetup",
+            "UefiTarget"
+        ]
+    },
+    "BiosVersion": "Xxxx",
+    "ProcessorSummary": {
+        "Count": 2,
+        "Model": "Multi-Core Broadcom(R) ARM processor Xxxx Series",
+        "Status": {
+            "State": "Enabled",
+            "Health": "OK",
+            "HealthRollup": "OK"
+        }
+    },
+    "MemorySummary": {
+        "TotalSystemMemoryGiB": 16,
+        "Status": {
+            "State": "Enabled",
+            "Health": "OK",
+            "HealthRollup": "OK"
+        }
+    },
+    "EthernetInterfaces": {
+        "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces"
+    },
+    "@odata.id": "/redfish/v1/Systems/FileServer",
+    "@Redfish.Copyright": "Copyright 2015-2024 SNIA. All rights reserved."
+}
