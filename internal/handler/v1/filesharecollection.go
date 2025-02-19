@@ -2,7 +2,6 @@ package v1
 
 import (
 	"fmt"
-	"net"
 	"net/http"
 	"os"
 	"os/exec"
@@ -57,29 +56,10 @@ func (handler *FileShareCollectionHandler) createFileShare(writer http.ResponseW
 
 	slog.Info("FileShareCollection uri: " + request.RequestURI)
 
-	ethernetInterface, err := handler.service.Get(request.Context(), *fileShare.EthernetInterfaces.OdataId)
-
-	if err != nil {
+	//Временное решение - разрешаем подключение к шаре всем из локальной сети
+	if err := mountFS(*fileShare, "192.168.0.0/24"); err != nil {
 		util.WriteJSONError(writer, err)
 		return
-	}
-
-	a, _ := util.Marshal(ethernetInterface)
-
-	ethernetInterfaceDto, ok := util.Unmarshal[domain.EthernetInterface](a)
-	if ok != nil {
-		util.WriteJSONError(writer, fmt.Errorf("type cast error"))
-		return
-	}
-
-	for _, ip := range *ethernetInterfaceDto.IPv4Addresses {
-		subnet, _ := ip.SubnetMask.AsIPAddressesV115SubnetMask()
-		mask := net.IPMask(net.ParseIP(subnet).To4())
-		prefixSize, _ := mask.Size()
-		if err := mountFS(*fileShare, fmt.Sprintf("%s/%v", *ip.Address, prefixSize)); err != nil {
-			util.WriteJSONError(writer, err)
-			return
-		}
 	}
 
 	createdFileShare, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
