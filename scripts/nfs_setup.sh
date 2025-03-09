@@ -18,7 +18,8 @@ else
 fi
 
 echo "Root permission for root directory..."
-chmod 777 /
+chmod 666 /etc/exports
+chmod 777 /var/lib/nfs/.etab.lock
 
 echo "Add current user to sudo group..."
 usermod -aG sudo "$USER"

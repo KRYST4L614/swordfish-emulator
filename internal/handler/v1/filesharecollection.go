@@ -128,7 +128,7 @@ func mountFS(fileShare domain.FileShare, ip string) error {
 func createDirectory(path string) (bool, error) {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		slog.Info(fmt.Sprintf("Creating directory: %s\n", path))
-		return true, os.MkdirAll(path, 0777)
+		return true, os.MkdirAll(path, 0600)
 	}
 	return false, nil
 }
