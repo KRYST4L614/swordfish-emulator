@@ -39,3 +39,7 @@ stop-runner: ## Stop runner
 oapi-gen: ## Generate resources structs from OpenAPI spec
 	openapi bundle -o docs/openapi/merged.yaml --ext yaml docs/openapi/api.yaml
 	oapi-codegen -config=configs/openapi-generator.yaml docs/openapi/merged.yaml
+
+.PHONY: nfs-setup
+nfs-setup: 
+	sudo ./scripts/nfs_setup.sh;
