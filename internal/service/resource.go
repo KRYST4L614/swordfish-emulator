@@ -186,8 +186,6 @@ func (r *resourceService) AddResourceToCollection(ctx context.Context, resourceD
 	}
 
 	switch {
-	case err == nil:
-		// Do nothing if no error happened
 	case errors.Is(err, errlib.ErrNotFound):
 		collection, err = r.createCollection(ctx, resourceDto.Collection)
 		if err != nil {

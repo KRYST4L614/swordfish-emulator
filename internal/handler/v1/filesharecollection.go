@@ -1,7 +1,11 @@
 package v1
 
 import (
+	"fmt"
 	"net/http"
+	"os"
+	"os/exec"
+	"strings"
 
 	"log/slog"
 
@@ -51,6 +55,13 @@ func (handler *FileShareCollectionHandler) createFileShare(writer http.ResponseW
 	// TODO: Need to be removed when modules handle creation in right way for clearer dataflow.
 
 	slog.Info("FileShareCollection uri: " + request.RequestURI)
+
+	//Временное решение - разрешаем подключение к шаре всем из локальной сети
+	if err := mountFS(*fileShare, "192.168.0.0/24"); err != nil {
+		util.WriteJSONError(writer, err)
+		return
+	}
+
 	createdFileShare, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            fileShare.Name,
 		Id:              fileShare.Id,
@@ -70,6 +81,117 @@ func (handler *FileShareCollectionHandler) createFileShare(writer http.ResponseW
 		util.WriteJSONError(writer, err)
 		return
 	}
+
 	writer.WriteHeader(http.StatusCreated)
 	util.WriteJSON(writer, createdFileShare)
+}
+
+// mount FileShare
+func mountFS(fileShare domain.FileShare, ip string) error {
+	isNew, err := createDirectory(*fileShare.FileSharePath)
+	if err != nil {
+		return err
+	}
+
+	if err = configureNFSExport(*fileShare.FileSharePath, ip); err != nil && isNew {
+		if removeError := removeDirectory(*fileShare.FileSharePath); removeError != nil {
+			return removeError
+		}
+		return err
+	}
+
+	if err != nil {
+		return err
+	}
+
+	if err := exportFS(); err != nil && isNew {
+		if removeError := removeDirectory(*fileShare.FileSharePath); removeError != nil {
+			return removeError
+		}
+		if clearError := clearNFSExport(); clearError != nil {
+			return clearError
+		}
+		return err
+	}
+
+	if err != nil {
+		if clearError := clearNFSExport(); clearError != nil {
+			return clearError
+		}
+		return err
+	}
+
+	return nil
+}
+
+// create Directory if not exists
+func createDirectory(path string) (bool, error) {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		slog.Info(fmt.Sprintf("Creating directory: %s\n", path))
+		return true, os.MkdirAll(path, 0600)
+	}
+	return false, nil
+}
+
+// remove Directory if not exists
+func removeDirectory(path string) error {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		return fmt.Errorf("directory doesn't exists")
+	}
+
+	return os.RemoveAll(path)
+}
+
+// configureNFSExport add note about FileShare to /etc/exports
+func configureNFSExport(sharePath, clientIP string) error {
+	exportEntry := fmt.Sprintf("%s %s(rw,sync,no_subtree_check)\n", sharePath, clientIP)
+	exportsFile := "/etc/exports"
+
+	//Открываем файл /etc/exports для добавления записи
+	file, err := os.OpenFile(exportsFile, os.O_APPEND|os.O_WRONLY, os.ModeAppend)
+	if err != nil {
+		return fmt.Errorf("failed to open file /etc/exports: %v", err)
+	}
+	defer file.Close()
+
+	if _, err := file.WriteString(exportEntry); err != nil {
+		return fmt.Errorf("failed to write to file /etc/exports: %v", err)
+	}
+
+	slog.Info(fmt.Sprintf("Note about FileShare added to /etc/export: %v", exportEntry))
+	return nil
+}
+
+// clearNFSExport remove last line from /etc/exports
+func clearNFSExport() error {
+	exportsFile := "/etc/exports"
+
+	//Открываем файл /etc/exports для добавления записи
+	content, err := os.ReadFile(exportsFile)
+	if err != nil {
+		return fmt.Errorf("file read  %w", err)
+	}
+
+	lines := strings.Split(strings.TrimSpace(string(content)), "\n")
+	if len(lines) > 0 {
+		lines = lines[:len(lines)-1]
+	}
+
+	newContent := strings.Join(lines, "\n") + "\n"
+
+	if err := os.WriteFile(exportsFile, []byte(newContent), 0644); err != nil {
+		return fmt.Errorf("file write error %w", err)
+	}
+
+	return nil
+}
+
+// Export FS
+func exportFS() error {
+	slog.Info("Exporting FS...")
+	cmd := exec.Command("exportfs", "-ra")
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("exportfs error: %v", err)
+	}
+	return nil
 }
