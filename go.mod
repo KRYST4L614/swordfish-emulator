@@ -1,6 +1,6 @@
 module gitlab.com/IgorNikiforov/swordfish-emulator-go
 
-go 1.21.0
+go 1.22.0
 
 toolchain go1.23.4
 

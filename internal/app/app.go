@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/pressly/goose/v3"
+
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/handler"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/master"
@@ -14,6 +15,7 @@ import (
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/repository"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/server"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/service"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/util"
 )
 
 type App struct {
@@ -81,6 +83,9 @@ func (app *App) Start() error {
 				return err
 			}
 		}
+	}
+	if err := util.InitEthernetInterface(); err != nil {
+		return err
 	}
 	app.server.Start()
 	return nil

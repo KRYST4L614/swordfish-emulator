@@ -5,10 +5,10 @@
     "Members@odata.count": 1,
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/Simple/EthernetInterfaces/1"
+            "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces/1"
         }
     ],
     "Oem": {},
-    "@odata.id": "/redfish/v1/Systems/Simple/EthernetInterfaces",
+    "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces",
     "@Redfish.Copyright": "Copyright 2015-2024 SNIA. All rights reserved."
 }
