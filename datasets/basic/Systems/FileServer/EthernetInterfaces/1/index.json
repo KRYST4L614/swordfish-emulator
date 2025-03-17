@@ -29,7 +29,7 @@
     "SpeedMbps": null,
     "Status": {
         "Health": "OK",
-        "State": "Enable"
+        "State": "Enabled"
     },
     "UefiDevicePath": null
 }

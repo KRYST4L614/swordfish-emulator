@@ -9,6 +9,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -111,8 +112,8 @@ func InitEthernetInterface() error {
 		IPv4Addresses:       &ipv4Addresses,
 		MACAddress:          initMacAddress(iface),
 		PermanentMACAddress: initPermanentMacAddress(iface),
-		LinkStatus:          initEthernetInterfaceLinkStatus(),
-		Status:              initEthernetInterfaceStatus(),
+		LinkStatus:          initEthernetInterfaceLinkStatus(iface),
+		Status:              initEthernetInterfaceStatus(iface),
 	}
 
 	ethernetInterfaceJson, err := Marshal(ethernetInterface)
@@ -196,13 +197,17 @@ func initPermanentMacAddress(iface *net.Interface) *domain.EthernetInterfaceV112
 	return &permanentMacAddress
 }
 
-func initEthernetInterfaceStatus() *domain.ResourceStatus {
-
+func initEthernetInterfaceStatus(iface *net.Interface) *domain.ResourceStatus {
 	statusState := domain.ResourceStatus_State{}
-	statusState.FromResourceState("Enable")
-
 	statusHealth := domain.ResourceStatus_Health{}
+
 	statusHealth.FromResourceHealth("OK")
+
+	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagUp.String()) {
+		statusState.FromResourceState("Enabled")
+	} else {
+		statusState.FromResourceState("Disabled")
+	}
 
 	status := domain.ResourceStatus{
 		State:  &statusState,
@@ -211,8 +216,12 @@ func initEthernetInterfaceStatus() *domain.ResourceStatus {
 	return &status
 }
 
-func initEthernetInterfaceLinkStatus() *domain.EthernetInterfaceV1122EthernetInterface_LinkStatus {
+func initEthernetInterfaceLinkStatus(iface *net.Interface) *domain.EthernetInterfaceV1122EthernetInterface_LinkStatus {
 	linkStatus := domain.EthernetInterfaceV1122EthernetInterface_LinkStatus{}
-	linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkUp")
+	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagUp.String()) {
+		linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkUp")
+	} else {
+		linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkDown")
+	}
 	return &linkStatus
 }
