@@ -105,15 +105,35 @@ func InitEthernetInterface() error {
 
 	ethernetInterfaceType := "#EthernetInterface.v1_7_0.EthernetInterface"
 
+	macAddress, err := initMacAddress(iface)
+	if err != nil {
+		return err
+	}
+
+	permanentMacAddress, err := initPermanentMacAddress(iface)
+	if err != nil {
+		return err
+	}
+
+	linkStatus, err := initEthernetInterfaceLinkStatus(iface)
+	if err != nil {
+		return err
+	}
+
+	status, err := initEthernetInterfaceStatus(iface)
+	if err != nil {
+		return err
+	}
+
 	ethernetInterface := domain.EthernetInterface{
 		OdataType:           &ethernetInterfaceType,
 		Id:                  "1",
 		Name:                iface.Name,
 		IPv4Addresses:       &ipv4Addresses,
-		MACAddress:          initMacAddress(iface),
-		PermanentMACAddress: initPermanentMacAddress(iface),
-		LinkStatus:          initEthernetInterfaceLinkStatus(iface),
-		Status:              initEthernetInterfaceStatus(iface),
+		MACAddress:          macAddress,
+		PermanentMACAddress: permanentMacAddress,
+		LinkStatus:          linkStatus,
+		Status:              status,
 	}
 
 	ethernetInterfaceJson, err := Marshal(ethernetInterface)
@@ -176,7 +196,10 @@ func getIPv4Address(addr net.Addr) (*domain.IPAddressesV115IPv4Address, error) {
 	}
 
 	subnetMask := domain.IPAddressesV115IPv4Address_SubnetMask{}
-	subnetMask.FromIPAddressesV115SubnetMask(strings.Trim(string(mask), "\""))
+	err = subnetMask.FromIPAddressesV115SubnetMask(strings.Trim(string(mask), "\""))
+	if err != nil {
+		return nil, err
+	}
 
 	return &domain.IPAddressesV115IPv4Address{
 		Address:    &ipAddr[0],
@@ -185,43 +208,60 @@ func getIPv4Address(addr net.Addr) (*domain.IPAddressesV115IPv4Address, error) {
 	}, nil
 }
 
-func initMacAddress(iface *net.Interface) *domain.EthernetInterfaceV1122EthernetInterface_MACAddress {
+func initMacAddress(iface *net.Interface) (*domain.EthernetInterfaceV1122EthernetInterface_MACAddress, error) {
 	macAddress := domain.EthernetInterfaceV1122EthernetInterface_MACAddress{}
-	macAddress.FromEthernetInterfaceV1122MACAddress(iface.HardwareAddr.String())
-	return &macAddress
+	err := macAddress.FromEthernetInterfaceV1122MACAddress(iface.HardwareAddr.String())
+	if err != nil {
+		return nil, err
+	}
+	return &macAddress, nil
 }
 
-func initPermanentMacAddress(iface *net.Interface) *domain.EthernetInterfaceV1122EthernetInterface_PermanentMACAddress {
+func initPermanentMacAddress(iface *net.Interface) (*domain.EthernetInterfaceV1122EthernetInterface_PermanentMACAddress, error) {
 	permanentMacAddress := domain.EthernetInterfaceV1122EthernetInterface_PermanentMACAddress{}
-	permanentMacAddress.FromEthernetInterfaceV1122MACAddress(iface.HardwareAddr.String())
-	return &permanentMacAddress
+	err := permanentMacAddress.FromEthernetInterfaceV1122MACAddress(iface.HardwareAddr.String())
+	if err != nil {
+		return nil, err
+	}
+	return &permanentMacAddress, nil
 }
 
-func initEthernetInterfaceStatus(iface *net.Interface) *domain.ResourceStatus {
+func initEthernetInterfaceStatus(iface *net.Interface) (*domain.ResourceStatus, error) {
 	statusState := domain.ResourceStatus_State{}
 	statusHealth := domain.ResourceStatus_Health{}
 
-	statusHealth.FromResourceHealth("OK")
+	err := statusHealth.FromResourceHealth("OK")
+	if err != nil {
+		return nil, err
+	}
 
 	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagUp.String()) {
-		statusState.FromResourceState("Enabled")
+		err = statusState.FromResourceState("Enabled")
 	} else {
-		statusState.FromResourceState("Disabled")
+		err = statusState.FromResourceState("Disabled")
+	}
+	if err != nil {
+		return nil, err
 	}
 
 	status := domain.ResourceStatus{
 		State:  &statusState,
 		Health: &statusHealth,
 	}
-	return &status
+	return &status, nil
 }
 
-func initEthernetInterfaceLinkStatus(iface *net.Interface) *domain.EthernetInterfaceV1122EthernetInterface_LinkStatus {
+func initEthernetInterfaceLinkStatus(iface *net.Interface) (*domain.EthernetInterfaceV1122EthernetInterface_LinkStatus, error) {
 	linkStatus := domain.EthernetInterfaceV1122EthernetInterface_LinkStatus{}
+	var err error
 	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagUp.String()) {
-		linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkUp")
+		err = linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkUp")
 	} else {
-		linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkDown")
+		err = linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkDown")
 	}
-	return &linkStatus
+	if err != nil {
+		return nil, err
+	}
+
+	return &linkStatus, nil
 }
