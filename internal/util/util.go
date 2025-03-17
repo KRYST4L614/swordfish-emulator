@@ -125,6 +125,8 @@ func InitEthernetInterface() error {
 		return err
 	}
 
+	oDataId := "/redfish/v1/Systems/FileServer/EthernetInterfaces/1"
+
 	ethernetInterface := domain.EthernetInterface{
 		OdataType:           &ethernetInterfaceType,
 		Id:                  "1",
@@ -134,6 +136,7 @@ func InitEthernetInterface() error {
 		PermanentMACAddress: permanentMacAddress,
 		LinkStatus:          linkStatus,
 		Status:              status,
+		OdataId:             &oDataId,
 	}
 
 	ethernetInterfaceJson, err := Marshal(ethernetInterface)

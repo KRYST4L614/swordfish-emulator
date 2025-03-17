@@ -1,4 +1,5 @@
 {
+    "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces/1",
     "@odata.type": "#EthernetInterface.v1_7_0.EthernetInterface",
     "AutoNeg": null,
     "FQDN": null,
