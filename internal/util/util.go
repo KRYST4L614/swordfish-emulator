@@ -4,12 +4,19 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"net"
 	"net/http"
+	"os"
+	"os/exec"
 	"path/filepath"
+	"slices"
+	"strconv"
+	"strings"
 
 	"log/slog"
 
 	squids "github.com/sqids/sqids-go"
+	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/domain"
 	"gitlab.com/IgorNikiforov/swordfish-emulator-go/internal/errlib"
 )
 
@@ -83,4 +90,181 @@ func IdGenerator() func() (string, error) {
 		counter++
 		return id, err
 	}
+}
+
+func InitEthernetInterface() error {
+	iface, err := net.InterfaceByName("enp0s3")
+	if err != nil {
+		return err
+	}
+
+	ipv4Addresses, err := initIpArressesIPv4(iface)
+	if err != nil {
+		return err
+	}
+
+	ethernetInterfaceType := "#EthernetInterface.v1_7_0.EthernetInterface"
+
+	macAddress, err := initMacAddress(iface)
+	if err != nil {
+		return err
+	}
+
+	permanentMacAddress, err := initPermanentMacAddress(iface)
+	if err != nil {
+		return err
+	}
+
+	linkStatus, err := initEthernetInterfaceLinkStatus(iface)
+	if err != nil {
+		return err
+	}
+
+	status, err := initEthernetInterfaceStatus(iface)
+	if err != nil {
+		return err
+	}
+
+	oDataId := "/redfish/v1/Systems/FileServer/EthernetInterfaces/1"
+
+	ethernetInterface := domain.EthernetInterface{
+		OdataType:           &ethernetInterfaceType,
+		Id:                  "1",
+		Name:                iface.Name,
+		IPv4Addresses:       &ipv4Addresses,
+		MACAddress:          macAddress,
+		PermanentMACAddress: permanentMacAddress,
+		LinkStatus:          linkStatus,
+		Status:              status,
+		OdataId:             &oDataId,
+	}
+
+	ethernetInterfaceJson, err := Marshal(ethernetInterface)
+	if err != nil {
+		return err
+	}
+
+	file, err := os.Create("datasets/basic/Systems/FileServer/EthernetInterfaces/1/index.json")
+	if err != nil {
+		return err
+	}
+
+	defer file.Close()
+
+	_, err = file.Write(ethernetInterfaceJson)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func initIpArressesIPv4(iface *net.Interface) ([]domain.IPAddressesV115IPv4Address, error) {
+	addresses := []domain.IPAddressesV115IPv4Address{}
+	addrs, err := iface.Addrs()
+	if err != nil {
+		return nil, err
+	}
+
+	for _, i := range addrs {
+		if net.ParseIP(strings.Split(i.String(), "/")[0]).To4() != nil {
+			address, err := getIPv4Address(i)
+			if err != nil {
+				return nil, err
+			}
+			addresses = append(addresses, *address)
+		}
+	}
+	return addresses, nil
+}
+
+func getIPv4Address(addr net.Addr) (*domain.IPAddressesV115IPv4Address, error) {
+	cmd := "ip route show 0.0.0.0/0 dev enp0s3 | cut -d ' ' -f 3"
+
+	out, err := exec.Command("bash", "-c", cmd).Output()
+	if err != nil {
+		return nil, err
+	}
+
+	gateway := strings.TrimSpace(string(out))
+	ipAddr := strings.Split(addr.String(), "/")
+	mask32, err := strconv.Atoi(ipAddr[1])
+	if err != nil {
+		return nil, err
+	}
+
+	mask, err := Marshal(net.IP(net.CIDRMask(mask32, 32)).String())
+	if err != nil {
+		return nil, err
+	}
+
+	subnetMask := domain.IPAddressesV115IPv4Address_SubnetMask{}
+	err = subnetMask.FromIPAddressesV115SubnetMask(strings.Trim(string(mask), "\""))
+	if err != nil {
+		return nil, err
+	}
+
+	return &domain.IPAddressesV115IPv4Address{
+		Address:    &ipAddr[0],
+		SubnetMask: &subnetMask,
+		Gateway:    &gateway,
+	}, nil
+}
+
+func initMacAddress(iface *net.Interface) (*domain.EthernetInterfaceV1122EthernetInterface_MACAddress, error) {
+	macAddress := domain.EthernetInterfaceV1122EthernetInterface_MACAddress{}
+	err := macAddress.FromEthernetInterfaceV1122MACAddress(iface.HardwareAddr.String())
+	if err != nil {
+		return nil, err
+	}
+	return &macAddress, nil
+}
+
+func initPermanentMacAddress(iface *net.Interface) (*domain.EthernetInterfaceV1122EthernetInterface_PermanentMACAddress, error) {
+	permanentMacAddress := domain.EthernetInterfaceV1122EthernetInterface_PermanentMACAddress{}
+	err := permanentMacAddress.FromEthernetInterfaceV1122MACAddress(iface.HardwareAddr.String())
+	if err != nil {
+		return nil, err
+	}
+	return &permanentMacAddress, nil
+}
+
+func initEthernetInterfaceStatus(iface *net.Interface) (*domain.ResourceStatus, error) {
+	statusState := domain.ResourceStatus_State{}
+	statusHealth := domain.ResourceStatus_Health{}
+
+	err := statusHealth.FromResourceHealth("OK")
+	if err != nil {
+		return nil, err
+	}
+
+	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagUp.String()) {
+		err = statusState.FromResourceState("Enabled")
+	} else {
+		err = statusState.FromResourceState("Disabled")
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	status := domain.ResourceStatus{
+		State:  &statusState,
+		Health: &statusHealth,
+	}
+	return &status, nil
+}
+
+func initEthernetInterfaceLinkStatus(iface *net.Interface) (*domain.EthernetInterfaceV1122EthernetInterface_LinkStatus, error) {
+	linkStatus := domain.EthernetInterfaceV1122EthernetInterface_LinkStatus{}
+	var err error
+	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagUp.String()) {
+		err = linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkUp")
+	} else {
+		err = linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkDown")
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return &linkStatus, nil
 }
