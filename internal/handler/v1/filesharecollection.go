@@ -195,3 +195,59 @@ func exportFS() error {
 	}
 	return nil
 }
+
+func unmountFS(fileShare domain.FileShare) error {
+	if err := removeNFSExport(*fileShare.FileSharePath); err != nil {
+		return err
+	}
+
+	if err := exportFS(); err != nil {
+		return err
+	}
+
+	slog.Info(fmt.Sprintf("FileShare unmounted: %s", *fileShare.FileSharePath))
+	return nil
+}
+
+func removeNFSExport(sharePath string) error {
+	exportsFile := "/etc/exports"
+	content, err := os.ReadFile(exportsFile)
+	if err != nil {
+		return fmt.Errorf("failed to read /etc/exports: %w", err)
+	}
+
+	lines := strings.Split(strings.TrimSpace(string(content)), "\n")
+	var newLines []string
+	count := 0
+
+	for _, line := range lines {
+		trimmedLine := strings.TrimSpace(line)
+
+		if strings.HasPrefix(trimmedLine, sharePath+" ") {
+			count++
+			if count == 1 {
+				continue
+			}
+		}
+		newLines = append(newLines, line)
+	}
+
+	if count == 0 {
+		slog.Warn(fmt.Sprintf("No matching export found for %s", sharePath))
+		return nil
+	}
+
+	newContent := strings.Join(newLines, "\n") + "\n"
+	if err := os.WriteFile(exportsFile, []byte(newContent), 0644); err != nil {
+		return fmt.Errorf("failed to update /etc/exports: %w", err)
+	}
+
+	if count == 1 {
+		if err := removeDirectory(sharePath); err != nil {
+			return fmt.Errorf("failed to remove directory: %w", err)
+		}
+		slog.Info(fmt.Sprintf("Directory removed: %s", sharePath))
+	}
+
+	return nil
+}
