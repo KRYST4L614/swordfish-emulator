@@ -146,6 +146,9 @@ func InitEthernetInterface() error {
 		}
 
 		os.MkdirAll(fmt.Sprintf("datasets/basic/Systems/FileServer/EthernetInterfaces/%v/", i.Name), 0755)
+		if err != nil {
+			return err
+		}
 
 		ethernetInterfaceFile, err := os.Create(fmt.Sprintf("datasets/basic/Systems/FileServer/EthernetInterfaces/%v/index.json", i.Name))
 		if err != nil {
