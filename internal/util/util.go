@@ -93,67 +93,76 @@ func IdGenerator() func() (string, error) {
 }
 
 func InitEthernetInterface() error {
-	iface, err := net.InterfaceByName("enp0s3")
+	iface, err := net.Interfaces()
 	if err != nil {
 		return err
 	}
 
-	ipv4Addresses, err := initIpArressesIPv4(iface)
-	if err != nil {
-		return err
-	}
+	for _, i := range iface {
+		ipv4Addresses, err := initIpArressesIPv4(&i)
+		if err != nil {
+			return err
+		}
 
-	ethernetInterfaceType := "#EthernetInterface.v1_7_0.EthernetInterface"
+		ethernetInterfaceType := "#EthernetInterface.v1_7_0.EthernetInterface"
 
-	macAddress, err := initMacAddress(iface)
-	if err != nil {
-		return err
-	}
+		macAddress, err := initMacAddress(&i)
+		if err != nil {
+			return err
+		}
 
-	permanentMacAddress, err := initPermanentMacAddress(iface)
-	if err != nil {
-		return err
-	}
+		permanentMacAddress, err := initPermanentMacAddress(&i)
+		if err != nil {
+			return err
+		}
 
-	linkStatus, err := initEthernetInterfaceLinkStatus(iface)
-	if err != nil {
-		return err
-	}
+		linkStatus, err := initEthernetInterfaceLinkStatus(&i)
+		if err != nil {
+			return err
+		}
 
-	status, err := initEthernetInterfaceStatus(iface)
-	if err != nil {
-		return err
-	}
+		status, err := initEthernetInterfaceStatus(&i)
+		if err != nil {
+			return err
+		}
 
-	oDataId := "/redfish/v1/Systems/FileServer/EthernetInterfaces/1"
+		oDataId := fmt.Sprintf("/redfish/v1/Systems/FileServer/EthernetInterfaces/%v", i.Name)
 
-	ethernetInterface := domain.EthernetInterface{
-		OdataType:           &ethernetInterfaceType,
-		Id:                  "1",
-		Name:                iface.Name,
-		IPv4Addresses:       &ipv4Addresses,
-		MACAddress:          macAddress,
-		PermanentMACAddress: permanentMacAddress,
-		LinkStatus:          linkStatus,
-		Status:              status,
-		OdataId:             &oDataId,
-	}
+		ethernetInterface := domain.EthernetInterface{
+			OdataType:           &ethernetInterfaceType,
+			Id:                  i.Name,
+			Name:                i.Name,
+			IPv4Addresses:       &ipv4Addresses,
+			MACAddress:          macAddress,
+			PermanentMACAddress: permanentMacAddress,
+			LinkStatus:          linkStatus,
+			Status:              status,
+			OdataId:             &oDataId,
+		}
 
-	ethernetInterfaceJson, err := Marshal(ethernetInterface)
-	if err != nil {
-		return err
-	}
+		ethernetInterfaceJson, err := Marshal(ethernetInterface)
+		if err != nil {
+			return err
+		}
 
-	file, err := os.Create("datasets/basic/Systems/FileServer/EthernetInterfaces/1/index.json")
-	if err != nil {
-		return err
-	}
+		os.MkdirAll(fmt.Sprintf("datasets/basic/Systems/FileServer/EthernetInterfaces/%v/", i.Name), 0755)
 
-	defer file.Close()
+		ethernetInterfaceFile, err := os.Create(fmt.Sprintf("datasets/basic/Systems/FileServer/EthernetInterfaces/%v/index.json", i.Name))
+		if err != nil {
+			return err
+		}
 
-	_, err = file.Write(ethernetInterfaceJson)
-	if err != nil {
-		return err
+		defer ethernetInterfaceFile.Close()
+
+		_, err = ethernetInterfaceFile.Write(ethernetInterfaceJson)
+		if err != nil {
+			return err
+		}
+
+		err = addMemberToEthernetInterfaceCollection("datasets/basic/Systems/FileServer/EthernetInterfaces/index.json", oDataId)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -168,7 +177,7 @@ func initIpArressesIPv4(iface *net.Interface) ([]domain.IPAddressesV115IPv4Addre
 
 	for _, i := range addrs {
 		if net.ParseIP(strings.Split(i.String(), "/")[0]).To4() != nil {
-			address, err := getIPv4Address(i)
+			address, err := getIPv4Address(i, iface.Name)
 			if err != nil {
 				return nil, err
 			}
@@ -178,8 +187,8 @@ func initIpArressesIPv4(iface *net.Interface) ([]domain.IPAddressesV115IPv4Addre
 	return addresses, nil
 }
 
-func getIPv4Address(addr net.Addr) (*domain.IPAddressesV115IPv4Address, error) {
-	cmd := "ip route show 0.0.0.0/0 dev enp0s3 | cut -d ' ' -f 3"
+func getIPv4Address(addr net.Addr, ifaceName string) (*domain.IPAddressesV115IPv4Address, error) {
+	cmd := fmt.Sprintf("ip route show 0.0.0.0/0 dev %v | cut -d ' ' -f 3", ifaceName)
 
 	out, err := exec.Command("bash", "-c", cmd).Output()
 	if err != nil {
@@ -257,7 +266,7 @@ func initEthernetInterfaceStatus(iface *net.Interface) (*domain.ResourceStatus, 
 func initEthernetInterfaceLinkStatus(iface *net.Interface) (*domain.EthernetInterfaceV1122EthernetInterface_LinkStatus, error) {
 	linkStatus := domain.EthernetInterfaceV1122EthernetInterface_LinkStatus{}
 	var err error
-	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagUp.String()) {
+	if slices.Contains(strings.Split(iface.Flags.String(), "|"), net.FlagRunning.String()) {
 		err = linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkUp")
 	} else {
 		err = linkStatus.FromEthernetInterfaceV1122LinkStatus("LinkDown")
@@ -267,4 +276,44 @@ func initEthernetInterfaceLinkStatus(iface *net.Interface) (*domain.EthernetInte
 	}
 
 	return &linkStatus, nil
+}
+
+func addMemberToEthernetInterfaceCollection(collectionPath string, oDataId string) error {
+	ethernetInterfaceCollectionOldJSON, err := os.ReadFile(collectionPath)
+	if err != nil {
+		return err
+	}
+
+	ethernetInterfaceCollection, err := Unmarshal[domain.EthernetInterfaceCollection](ethernetInterfaceCollectionOldJSON)
+	if err != nil {
+		return err
+	}
+
+	if slices.ContainsFunc(*ethernetInterfaceCollection.Members, func(val domain.OdataV4IdRef) bool {
+		return *(val.OdataId) == oDataId
+	}) {
+		return nil
+	}
+
+	*ethernetInterfaceCollection.Members = append(*ethernetInterfaceCollection.Members, domain.OdataV4IdRef{OdataId: &oDataId})
+	*ethernetInterfaceCollection.MembersOdataCount = int64(len(*ethernetInterfaceCollection.Members))
+
+	ethernetInterfaceCollectionNewJSON, err := Marshal(ethernetInterfaceCollection)
+	if err != nil {
+		return err
+	}
+
+	ethernetInterfaceCollectionFile, err := os.OpenFile(collectionPath, os.O_RDWR|os.O_TRUNC, 0666)
+	if err != nil {
+		return err
+	}
+
+	defer ethernetInterfaceCollectionFile.Close()
+
+	_, err = ethernetInterfaceCollectionFile.Write(ethernetInterfaceCollectionNewJSON)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
