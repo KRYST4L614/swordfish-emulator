@@ -2,7 +2,7 @@
     "@odata.type": "#EthernetInterfaceCollection.EthernetInterfaceCollection",
     "Name": "Ethernet  Interface Collection",
     "Description": "Simple Network Collection",
-    "Members@odata.count": 1,
+    "Members@odata.count": 0,
     "Members": [],
     "Oem": {},
     "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces",
