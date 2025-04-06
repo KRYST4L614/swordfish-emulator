@@ -1,10 +1,22 @@
 {
-    "@odata.type": "#EthernetInterfaceCollection.EthernetInterfaceCollection",
-    "Name": "Ethernet  Interface Collection",
-    "Description": "Simple Network Collection",
-    "Members@odata.count": 0,
-    "Members": [],
-    "Oem": {},
     "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces",
-    "@Redfish.Copyright": "Copyright 2015-2024 SNIA. All rights reserved."
+    "@odata.type": "#EthernetInterfaceCollection.EthernetInterfaceCollection",
+    "Description": "Simple Network Collection",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces/lo"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces/enp0s3"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces/docker0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/FileServer/EthernetInterfaces/br-cde660b6291e"
+        }
+    ],
+    "Members@odata.count": 4,
+    "Name": "Ethernet  Interface Collection",
+    "Oem": {}
 }

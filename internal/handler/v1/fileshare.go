@@ -103,11 +103,11 @@ func (handler *FileShareHandler) deleteFileShare(writer http.ResponseWriter, req
 	}
 
 	parentCollection := util.GetParent(fileShareId)
-	_, err = handler.service.DeleteResourceFromCollection(request.Context(), parentCollection, fileShareId)
+	resource, err := handler.service.DeleteResourceFromCollection(request.Context(), parentCollection, fileShareId)
 	if err != nil {
 		util.WriteJSONError(writer, err)
 		return
 	}
 
-	writer.WriteHeader(http.StatusNoContent)
+	util.WriteJSON(writer, resource)
 }

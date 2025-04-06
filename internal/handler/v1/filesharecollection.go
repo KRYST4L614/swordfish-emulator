@@ -40,8 +40,8 @@ func (handler *FileShareCollectionHandler) SetRouter(router *mux.Router) {
 	//
 	// Not a good way, should be removed when Ansible modules will handle
 	// resources creation in right way
-	router.HandleFunc(`/FileSystems%v/ExportedFileShares`+idPathRegex, resourceCreatorFromNotCollectionEndpoint(handler.createFileShare)).Methods(http.MethodPost)
-	router.HandleFunc(`/{root:.*}/FileSystems%v/ExportedFileShares`+idPathRegex, resourceCreatorFromNotCollectionEndpoint(handler.createFileShare)).Methods(http.MethodPost)
+	router.HandleFunc(`/ExportedFileShares`+idPathRegex, resourceCreatorFromNotCollectionEndpoint(handler.createFileShare)).Methods(http.MethodPost)
+	router.HandleFunc(`/{root:.*}/ExportedFileShares`+idPathRegex, resourceCreatorFromNotCollectionEndpoint(handler.createFileShare)).Methods(http.MethodPost)
 }
 
 func (handler *FileShareCollectionHandler) createFileShare(writer http.ResponseWriter, request *http.Request) {
@@ -64,7 +64,7 @@ func (handler *FileShareCollectionHandler) createFileShare(writer http.ResponseW
 
 	createdFileShare, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            fileShare.Name,
-		Id:              fileShare.Id,
+		Id:              fileShare.Name,
 		OdataType:       "#FileShare.v1_2_0.FileShare",
 		Resource:        fileShare,
 		IdSetter:        func(id string) { fileShare.Id = id },

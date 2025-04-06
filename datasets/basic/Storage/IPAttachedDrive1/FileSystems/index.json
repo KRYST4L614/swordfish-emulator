@@ -1,0 +1,8 @@
+{
+    "@odata.type": "#FileSystemCollection.FileSystemCollection",
+    "Name": "FileSystems",
+    "Members@odata.count": 0,
+    "Members": [],
+    "@odata.id": "/redfish/v1/Storage/IPAttachedDrive1/FileSystems",
+    "@Redfish.Copyright": "Copyright 2015-2024 SNIA. All rights reserved."
+}

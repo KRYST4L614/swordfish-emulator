@@ -37,4 +37,12 @@ components:
       $ref: ./ComputerSystemCollection.yaml#/components/schemas/ComputerSystemCollection_ComputerSystemCollection
     ComputerSystem:
       $ref: ./ComputerSystem.yaml#/components/schemas/ComputerSystem_ComputerSystem
+    StorageController:
+      $ref: ./StorageController.yaml#/components/schemas/StorageController_StorageController
+    StorageControllerCollection:
+      $ref: ./StorageControllerCollection.yaml#/components/schemas/StorageControllerCollection_StorageControllerCollection
+    FabricCollection:
+      $ref: ./FabricCollection.yaml#/components/schemas/FabricCollection_FabricCollection
+    Fabric:
+      $ref: ./Fabric.yaml#/components/schemas/Fabric_Fabric
     

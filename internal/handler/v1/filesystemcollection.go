@@ -53,7 +53,7 @@ func (handler *FileSystemCollectionHandler) createFileSystem(writer http.Respons
 	slog.Info("FileSystemCollection uri: " + request.RequestURI)
 	createdFileSystem, err := handler.service.AddResourceToCollection(request.Context(), dto.ResourceRequestDto{
 		Name:            fileSystem.Name,
-		Id:              fileSystem.Id,
+		Id:              fileSystem.Name,
 		OdataType:       "#FileSystem.v1_4_0.FileSystem",
 		Resource:        fileSystem,
 		IdSetter:        func(id string) { fileSystem.Id = id },

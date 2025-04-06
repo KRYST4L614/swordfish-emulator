@@ -37,6 +37,10 @@ func NewHandler(services *service.Service) *Handler {
 	handlers = append(handlers, NewEthernetInterfaceCollectionHandler(services.ResourceService))
 	handlers = append(handlers, NewSystemHandler(services.ResourceService))
 	handlers = append(handlers, NewSystemCollectionHandler(services.ResourceService))
+	handlers = append(handlers, NewFabricCollectionHandler(services.ResourceService))
+	handlers = append(handlers, NewFabricHandler(services.ResourceService))
+	handlers = append(handlers, NewStorageControllerCollectionHandler(services.ResourceService))
+	handlers = append(handlers, NewStorageControllerHandler(services.ResourceService))
 	return &Handler{
 		handlers: handlers,
 	}

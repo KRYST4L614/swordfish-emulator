@@ -1,0 +1,10 @@
+{
+    "@odata.type": "#StoragePoolCollection.StoragePoolCollection",
+    "Name": "Storage Pool Collection",
+    "Description": "Storage Pool Collection",
+    "Members@odata.count": 0,
+    "Members": [],
+    "Oem": {},
+    "@odata.id": "/redfish/v1/Storage/IPAttachedDrive1/StoragePools",
+    "@Redfish.Copyright": "Copyright 2015-2023 SNIA. All rights reserved."
+}
