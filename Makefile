@@ -43,3 +43,11 @@ oapi-gen: ## Generate resources structs from OpenAPI spec
 .PHONY: nfs-setup
 nfs-setup: 
 	sudo ./scripts/nfs_setup.sh;
+
+.PHONY: docker-build
+docker-build: 
+	docker build -t swordfish-emulator .
+
+.PHONY: docker-run
+docker-run: 
+	docker run -d --rm --name swordfish-emulator-container swordfish-emulator
